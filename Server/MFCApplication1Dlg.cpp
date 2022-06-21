@@ -255,6 +255,11 @@ BOOL CMFCApplication1Dlg::OnInitDialog()
 	// TODO: Add extra initialization here
 	m_pServer = new ZIntelliSwingServer(&g_serviceImpl);
 	g_serviceImpl.pDiag = this;
+
+	m_pServer->Start();
+	m_ctrlButtonStart.EnableWindow(false);
+	m_ctrlButtonStop.EnableWindow(true);
+
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
