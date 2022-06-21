@@ -36,13 +36,13 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedButton1();
-	afx_msg void OnBnClickedButton2();
-	afx_msg void OnBnClickedButton3();
-	afx_msg void OnBnClickedButton4();
-	afx_msg void OnBnClickedButton5();
-	afx_msg void OnBnClickedButton6();
-	afx_msg void OnBnClickedButton7();
+	afx_msg void OnBnClickedStart();
+	afx_msg void OnBnClickedStop();
+	afx_msg void OnBnClickedButtonSendReady();
+	afx_msg void OnBnClickedButtonSendNotReady();
+	afx_msg void OnBnClickedButtonSendTriggered();
+	afx_msg void OnBnClickedButtonSendBallInfo();
+	afx_msg void OnBnClickedButtonSendClubInfo();
 
 	CButton m_ctrlButtonStart;
 	CButton m_ctrlButtonStop;

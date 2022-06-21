@@ -13,11 +13,14 @@
 #include <thread>
 #include <chrono>
 #include <grpc++/grpc++.h>
+#include <time.h>
 
 #include "../ProtoBuf/IntelliSwingInterface.grpc.pb.h"
+#include <google/protobuf/util/time_util.h>
 #pragma comment(lib, "Ws2_32.lib")
-std::condition_variable cv;
+std::condition_variable conditional_variable;
 std::mutex cv_m;
+bool g_Ready = false;
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -89,12 +92,29 @@ public :
 		if (pDiag)
 		{
 			std::unique_lock<std::mutex> lk(cv_m);
+			g_Ready = false;
 			m_pWriter = writer;
 			pDiag->OnBeginServerToClient();
 			std::cout << "waiting " << std::endl;
-			cv.wait(lk, [] {return true; });
+			conditional_variable.wait(lk, [] {return g_Ready; });
 			pDiag->OnEndServerToClient();
 			m_pWriter = nullptr;
+			
+			{
+				::IntelliSwing::SensorRunningMsg msg;
+				std::chrono::system_clock::time_point current = std::chrono::system_clock::now();
+				
+				auto *timestamp = msg.mutable_timestamp();
+				*timestamp = google::protobuf::util::TimeUtil::GetCurrentTime();
+				
+				auto* pHeartBeat = msg.mutable_heartbeat();
+
+				pHeartBeat->set_msg("bye");
+
+				grpc::WriteOptions writeOption;
+				writeOption.set_last_message();
+				writer->Write(msg, writeOption);
+			}
 
 		}
 		return ::grpc::Status::OK;
@@ -189,13 +209,13 @@ BEGIN_MESSAGE_MAP(CMFCApplication1Dlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON1, &CMFCApplication1Dlg::OnBnClickedButton1)
-	ON_BN_CLICKED(IDC_BUTTON2, &CMFCApplication1Dlg::OnBnClickedButton2)
-	ON_BN_CLICKED(IDC_BUTTON3, &CMFCApplication1Dlg::OnBnClickedButton3)
-	ON_BN_CLICKED(IDC_BUTTON4, &CMFCApplication1Dlg::OnBnClickedButton4)
-	ON_BN_CLICKED(IDC_BUTTON5, &CMFCApplication1Dlg::OnBnClickedButton5)
-	ON_BN_CLICKED(IDC_BUTTON6, &CMFCApplication1Dlg::OnBnClickedButton6)
-	ON_BN_CLICKED(IDC_BUTTON7, &CMFCApplication1Dlg::OnBnClickedButton7)
+	ON_BN_CLICKED(IDC_BUTTON1, &CMFCApplication1Dlg::OnBnClickedStart)
+	ON_BN_CLICKED(IDC_BUTTON2, &CMFCApplication1Dlg::OnBnClickedStop)
+	ON_BN_CLICKED(IDC_BUTTON3, &CMFCApplication1Dlg::OnBnClickedButtonSendReady)
+	ON_BN_CLICKED(IDC_BUTTON4, &CMFCApplication1Dlg::OnBnClickedButtonSendNotReady)
+	ON_BN_CLICKED(IDC_BUTTON5, &CMFCApplication1Dlg::OnBnClickedButtonSendTriggered)
+	ON_BN_CLICKED(IDC_BUTTON6, &CMFCApplication1Dlg::OnBnClickedButtonSendBallInfo)
+	ON_BN_CLICKED(IDC_BUTTON7, &CMFCApplication1Dlg::OnBnClickedButtonSendClubInfo)
 	ON_BN_CLICKED(IDC_BUTTON_SEND_END, &CMFCApplication1Dlg::OnBnClickedButtonSendEnd)
 	ON_WM_DESTROY()
 END_MESSAGE_MAP()
@@ -234,6 +254,7 @@ BOOL CMFCApplication1Dlg::OnInitDialog()
 
 	// TODO: Add extra initialization here
 	m_pServer = new ZIntelliSwingServer(&g_serviceImpl);
+	g_serviceImpl.pDiag = this;
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -288,7 +309,7 @@ HCURSOR CMFCApplication1Dlg::OnQueryDragIcon()
 
 
 
-void CMFCApplication1Dlg::OnBnClickedButton1()
+void CMFCApplication1Dlg::OnBnClickedStart()
 {
 	// TODO: Add your control notification handler code here
 	// start
@@ -300,7 +321,7 @@ void CMFCApplication1Dlg::OnBnClickedButton1()
 }
 
 
-void CMFCApplication1Dlg::OnBnClickedButton2()
+void CMFCApplication1Dlg::OnBnClickedStop()
 {
 	// TODO: Add your control notification handler code here
 	//stop
@@ -311,13 +332,17 @@ void CMFCApplication1Dlg::OnBnClickedButton2()
 }
 
 
-void CMFCApplication1Dlg::OnBnClickedButton3()
+void CMFCApplication1Dlg::OnBnClickedButtonSendReady()
 {
 	// TODO: Add your control notification handler code here
 	//ready
 	if (g_serviceImpl.m_pWriter)
 	{
 		::IntelliSwing::SensorRunningMsg msg;
+
+		auto* timestamp = msg.mutable_timestamp();
+		*timestamp = google::protobuf::util::TimeUtil::GetCurrentTime();
+		
 		auto* pReady = msg.mutable_ready();
 		pReady->set_istee(true);
 		pReady->mutable_position()->set_x(10);
@@ -329,7 +354,7 @@ void CMFCApplication1Dlg::OnBnClickedButton3()
 }
 
 
-void CMFCApplication1Dlg::OnBnClickedButton4()
+void CMFCApplication1Dlg::OnBnClickedButtonSendNotReady()
 {
 	// TODO: Add your control notification handler code here
 	// not ready
@@ -340,7 +365,7 @@ void CMFCApplication1Dlg::OnBnClickedButton4()
 }
 
 
-void CMFCApplication1Dlg::OnBnClickedButton5()
+void CMFCApplication1Dlg::OnBnClickedButtonSendTriggered()
 {
 	// TODO: Add your control notification handler code here
 	// triggered
@@ -353,7 +378,7 @@ void CMFCApplication1Dlg::OnBnClickedButton5()
 }
 
 
-void CMFCApplication1Dlg::OnBnClickedButton6()
+void CMFCApplication1Dlg::OnBnClickedButtonSendBallInfo()
 {
 	// TODO: Add your control notification handler code here
 	// ball flight
@@ -367,11 +392,15 @@ void CMFCApplication1Dlg::OnBnClickedButton6()
 }
 
 
-void CMFCApplication1Dlg::OnBnClickedButton7()
+void CMFCApplication1Dlg::OnBnClickedButtonSendClubInfo()
 {
 	// TODO: Add your control notification handler code here
 	// club path
 	::IntelliSwing::SensorRunningMsg msg;
+	
+	auto* timestamp = msg.mutable_timestamp();
+	*timestamp = google::protobuf::util::TimeUtil::GetCurrentTime();
+	
 	auto* pClubInfo = msg.mutable_clubinfo();
 	pClubInfo->set_shotid(99);
 	pClubInfo->set_headspeed(10.56);
@@ -383,7 +412,9 @@ void CMFCApplication1Dlg::OnBnClickedButton7()
 void CMFCApplication1Dlg::OnBnClickedButtonSendEnd()
 {
 	// TODO: Add your control notification handler code here
-	cv.notify_all();
+	std::lock_guard< std::mutex> lg(cv_m);
+	g_Ready = true;
+	conditional_variable.notify_all();
 }
 
 
@@ -405,6 +436,8 @@ void CMFCApplication1Dlg::OnBeginServerToClient()
 	m_ctrlButtonBallFlight.EnableWindow(true);
 	m_ctrlButtonClubPath.EnableWindow(true);
 	m_ctrlButtonSendEnd.EnableWindow(true);
+	Invalidate(TRUE);
+	UpdateWindow();
 }
 
 void CMFCApplication1Dlg::OnEndServerToClient()
@@ -415,5 +448,7 @@ void CMFCApplication1Dlg::OnEndServerToClient()
 	m_ctrlButtonBallFlight.EnableWindow(false);
 	m_ctrlButtonClubPath.EnableWindow(false);
 	m_ctrlButtonSendEnd.EnableWindow(false);
+	Invalidate(TRUE);
+	UpdateWindow();
 }
 

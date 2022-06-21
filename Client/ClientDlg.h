@@ -6,6 +6,7 @@
 #include <grpcpp/grpcpp.h>
 #include "../ProtoBuf/IntelliSwingInterface.grpc.pb.h"
 
+#define TIMER_ID_READ_FROM_SERVER 1000
 
 // CClientDlg dialog
 class CClientDlg : public CDialogEx
@@ -26,7 +27,8 @@ public:
 // Implementation
 private :
 	std::unique_ptr<IntelliSwing::IntelliSwingProtocol::Stub> m_uptrStub;
-
+	std::unique_ptr< ::grpc::ClientReader< ::IntelliSwing::SensorRunningMsg>> m_reader;
+	grpc::ClientContext *m_pContext = nullptr;
 protected:
 	HICON m_hIcon;
 
@@ -47,4 +49,5 @@ public:
 	afx_msg void OnBnClickedButtonGetDeviceInfo();
 	afx_msg void OnBnClickedButtonDeviceStatus();
 	afx_msg void OnBnClickedButtonGetLog();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };

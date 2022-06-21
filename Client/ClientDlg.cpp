@@ -8,6 +8,7 @@
 #include "ClientDlg.h"
 #include "afxdialogex.h"
 
+#include <google/protobuf/util/time_util.h>
 
 
 #ifdef _DEBUG
@@ -77,6 +78,7 @@ BEGIN_MESSAGE_MAP(CClientDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_GET_DEVICE_INFO, &CClientDlg::OnBnClickedButtonGetDeviceInfo)
 	ON_BN_CLICKED(IDC_BUTTON_DEVICE_STATUS, &CClientDlg::OnBnClickedButtonDeviceStatus)
 	ON_BN_CLICKED(IDC_BUTTON_GET_LOG, &CClientDlg::OnBnClickedButtonGetLog)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -188,11 +190,12 @@ void CClientDlg::OnBnClickedButtonInitialize()
 	grpc::Status status = m_uptrStub->Initialize(&context, initMsg, &retMsg);
 	if (status.ok()) 
 	{
+		std::cout << "State Return Msg"<< retMsg.isok() << std::endl;
 		std::cout << "rpc OK" << std::endl;
 	}
 	else 
 	{
-		std::cout<<"RPC failed" << status.error_code() << ": " << status.error_message()<< std::endl;
+		std::cout<<"OnBnClickedButtonInitialize RPC failed" << status.error_code() << ": " << status.error_message()<< std::endl;
 	}
 }
 
@@ -200,6 +203,20 @@ void CClientDlg::OnBnClickedButtonInitialize()
 void CClientDlg::OnBnClickedButtonRelease()
 {
 	// TODO: Add your control notification handler code here
+	IntelliSwing::ReleaseMsg releaseMsg;
+	IntelliSwing::ReturnMsg retMsg;
+	grpc::ClientContext context;
+
+	grpc::Status status = m_uptrStub->Release(&context, releaseMsg, &retMsg);
+	if (status.ok())
+	{
+		std::cout << "State Return Msg" << retMsg.isok() << std::endl;
+		std::cout << "OnBnClickedButtonRelease OK" << std::endl;
+	}
+	else
+	{
+		std::cout << "OnBnClickedButtonRelease RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
+	}
 }
 
 
@@ -212,6 +229,34 @@ void CClientDlg::OnBnClickedButtonReboot()
 void CClientDlg::OnBnClickedButtonStart()
 {
 	// TODO: Add your control notification handler code here
+	m_pContext = new grpc::ClientContext();
+
+	IntelliSwing::StartMsg startMsg;
+	IntelliSwing::SensorRunningMsg runMsg;
+
+	startMsg.set_clubinformation(IntelliSwing::StartMsg_ClubInformation::StartMsg_ClubInformation_W1);
+	
+	m_reader = m_uptrStub->Start(m_pContext, startMsg);
+	std::cout << "Send Start Msg "<< std::endl;
+
+	if (m_reader == nullptr)  return;
+	SetTimer(TIMER_ID_READ_FROM_SERVER, 100, nullptr);
+
+	/*while (m_reader->Read(&runMsg))
+	{
+		if(runMsg.has_timestamp())
+			std::cout << "receiving message " << google::protobuf::util::TimeUtil::ToString(runMsg.timestamp()) << std::endl;
+	}
+
+	grpc::Status status = m_reader->Finish();
+	if (status.ok())
+	{
+		std::cout << "OnBnClickedButtonRelease OK" << std::endl;
+	}
+	else
+	{
+		std::cout << "OnBnClickedButtonRelease RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
+	}*/
 }
 
 
@@ -248,4 +293,62 @@ void CClientDlg::OnBnClickedButtonDeviceStatus()
 void CClientDlg::OnBnClickedButtonGetLog()
 {
 	// TODO: Add your control notification handler code here
+}
+
+
+void CClientDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO: Add your message handler code here and/or call default
+	if (TIMER_ID_READ_FROM_SERVER)
+	{
+		KillTimer(TIMER_ID_READ_FROM_SERVER);
+
+		if (m_reader)
+		{
+			IntelliSwing::SensorRunningMsg runMsg;
+			bool bReadSuceed = m_reader->Read(&runMsg);
+			if (bReadSuceed)
+			{
+				SetTimer(TIMER_ID_READ_FROM_SERVER, 100, nullptr);
+
+				std::cout << "receiving message " << (int)runMsg.runState_case();
+				if (runMsg.has_timestamp())
+					std::cout << ", timestamp : " << google::protobuf::util::TimeUtil::ToString(runMsg.timestamp()) << std::endl;
+				else
+					std::cout << std::endl;
+
+			}
+			else
+			{
+				grpc::Status status = m_reader->Finish();
+				if (status.ok())
+				{
+					std::cout << "OnBnClickedButtonRelease OK" << std::endl;
+				}
+				else
+				{
+					std::cout << "OnBnClickedButtonRelease RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
+				}
+				delete m_pContext;
+				m_pContext = nullptr;
+			}
+
+		}
+		/*while (m_reader->Read(&runMsg))
+	{
+		if(runMsg.has_timestamp())
+			std::cout << "receiving message " << google::protobuf::util::TimeUtil::ToString(runMsg.timestamp()) << std::endl;
+	}
+
+	grpc::Status status = m_reader->Finish();
+	if (status.ok())
+	{
+		std::cout << "OnBnClickedButtonRelease OK" << std::endl;
+	}
+	else
+	{
+		std::cout << "OnBnClickedButtonRelease RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
+	}*/
+	}
+	CDialogEx::OnTimer(nIDEvent);
 }
