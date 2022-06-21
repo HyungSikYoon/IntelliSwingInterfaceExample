@@ -1,0 +1,168 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "type.proto";
+import "IntelliSwingService.proto";
+
+package IntelliSwing;
+
+service IntelliSwingProtocol
+{
+// Common
+	rpc Initialize (InitializeMsg) returns (ReturnMsg) {}
+	rpc Release (ReleaseMsg) returns (ReturnMsg) {}
+	rpc Reboot(google.protobuf.Empty) returns (ReturnMsg) {}
+
+// Sensor
+	rpc Start (StartMsg) returns (stream SensorRunningMsg) {}
+	rpc Stop (google.protobuf.Empty) returns (ReturnMsg) {}
+	rpc GetClubImage(ShotImageRequest) returns (ImageData) {}
+	rpc GetBallImage(ShotImageRequest) returns (ImageData) {}
+  
+// Service
+	rpc GetDeviceInfo(google.protobuf.Empty) returns (DeviceInfo) {}
+	rpc GetDeviceStatus(google.protobuf.Empty) returns (DiviceStatus) {}
+	rpc GetLog(LogRequest) returns (LogMessage){}
+	rpc GetStatistics(google.protobuf.Empty) returns (SensorStatistics){}
+	rpc RunSiteCalibration(google.protobuf.Empty) returns (SiteCalibrationResult){}
+	rpc UpdateFirmware(Firmware) returns (UpdateFirmwareResult){}
+	rpc GetImage(google.protobuf.Empty) returns (ImageData){}
+}
+
+message InitializeMsg
+{
+	enum Client 
+	{
+		GDR		= 0;
+		NextGDR = 1;
+		Vision = 2;
+		Ohter = 3;
+	}
+	
+	Client client = 4;
+}
+
+message ReleaseMsg
+{
+	int32 id = 1;
+}
+
+message StartMsg
+{
+	enum ClubInformation
+	{
+		PT		=   0;
+		Wood	= 100;
+		W1		= 101;
+		W2		= 102;
+		W3		= 103;
+		W4		= 104; 
+		W5		= 105;
+		Iron	= 200;
+		I3		= 203;
+		I4		= 204;
+		I5		= 205;
+		I6		= 206;
+		I7		= 207;
+		I8		= 208;
+		I9		= 209;
+		Wedge	= 300;
+		PW		= 310;
+		SW		= 320;
+		Hybrid	= 400;
+		
+	}
+	ClubInformation clubInformation = 1;
+}
+
+
+message SensorRunningMsg
+{
+	google.protobuf.Timestamp timeStamp = 1;
+
+	oneof runState
+	{
+		Ready			ready		= 2;
+		NotReady		notReady	= 3;
+		ShortTriggered	shotTriggered = 4;
+		BallFlightInfo	ballInfo	= 5;
+		ClubPathInfo	clubInfo	= 6;
+		Heartbeat		heartBeat	= 7;
+	}
+
+	message Ready
+	{
+		Point3f			position	= 1; //mm, sensor coordinate
+		bool			isTee		= 2;
+	}
+
+	message NotReady
+	{
+		
+	}
+
+	message ShortTriggered
+	{
+		int32 shotId		= 1;
+		uint64 timestamp	= 2;
+	}
+
+	message BallFlightInfo
+	{
+		int32 shotId		= 1;
+		float ballSpeed		= 2;	// m/s
+		float lunchAngle	= 3;	// degree
+		float direction		= 4;	// degree
+		float backSpin		= 5;	// rpm
+		float sideSpin		= 6;	// rpm
+	}
+
+	message ClubPathInfo
+	{
+		message ClubPath
+		{
+		}
+		int32 shotId		= 1;
+		float headSpeed		= 2;	// m/s
+		ClubPath path		= 3;	
+		float faceAngle		= 4;	// degree
+		float attackAngle	= 5;	// degree
+
+	}
+
+	message Heartbeat
+	{
+		string msg = 1;
+	}
+}
+
+message ShotImageRequest
+{
+	int32 shotId = 1;
+}
+
+
+message ImageData
+{
+	ReturnMsg		state	= 1;
+	repeated Image	images	= 2;
+	message Image
+	{
+		message Marker
+		{
+			Point2i position	= 1;	// UV position
+			string	tag			= 2;
+		}
+		int32 imageType		= 1;	// {raw, jpg, png, }
+		bytes data			= 2;	// byte stream
+		int32 width			= 3;	// pixel
+		int32 height		= 4;	// pixel
+		int32 channel		= 5;	// channel
+		int32 dataType		= 6;	// pixel data type : int, float, byte
+		string tag			= 7;	// optional 
+		repeated Marker markers = 8; // marker information
+
+	}
+	
+}

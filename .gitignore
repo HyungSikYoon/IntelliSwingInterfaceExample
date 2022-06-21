@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+*.aps
+
+
+Client/x64/
+Server/x64/
+x64/

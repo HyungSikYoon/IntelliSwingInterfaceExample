@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "type.proto";
+package IntelliSwing;
+
+message DeviceInfo
+{
+	string	deviceVer	= 1;
+	string	fpgaVer		= 2;
+	string	softwareVer	= 3;
+	string	serialNumber = 4;
+}
+
+message DiviceStatus
+{
+	repeated ReturnMsg sensorState = 1;
+	ReturnMsg systemState			 = 2;
+	float deviceTemperature = 5;
+	float batteryInfo = 6;
+}
+
+message LogRequest
+{
+	int32 systemRange = 1;
+	int32 processingLogrange = 2;
+}
+
+message LogMessage
+{
+	repeated string systemLog		= 1;
+	repeated string processingLog	= 2;
+}
+
+message SensorStatistics
+{
+	int32 shot_count = 1;
+}
+
+message SiteCalibrationResult
+{
+	ReturnMsg state = 1;
+}
+
+message Firmware
+{
+	bytes sensorFirmware= 1;
+	bytes fpgaFirmware	= 2;
+}
+
+message UpdateFirmwareResult
+{
+	ReturnMsg FpgaState	= 1;
+	ReturnMsg SensorSW	= 2;
+}
+
