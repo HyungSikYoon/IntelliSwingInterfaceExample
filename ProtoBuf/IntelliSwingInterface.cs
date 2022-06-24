@@ -30,33 +30,43 @@ namespace IntelliSwing {
             "aWNlLnByb3RvInoKDUluaXRpYWxpemVNc2cSMgoGY2xpZW50GAQgASgOMiIu",
             "SW50ZWxsaVN3aW5nLkluaXRpYWxpemVNc2cuQ2xpZW50IjUKBkNsaWVudBIH",
             "CgNHRFIQABILCgdOZXh0R0RSEAESCgoGVmlzaW9uEAISCQoFT2h0ZXIQAyIY",
-            "CgpSZWxlYXNlTXNnEgoKAmlkGAEgASgFIo4CCghTdGFydE1zZxI/Cg9jbHVi",
+            "CgpSZWxlYXNlTXNnEgoKAmlkGAEgASgFItcCCghTdGFydE1zZxI/Cg9jbHVi",
             "SW5mb3JtYXRpb24YASABKA4yJi5JbnRlbGxpU3dpbmcuU3RhcnRNc2cuQ2x1",
-            "YkluZm9ybWF0aW9uIsABCg9DbHViSW5mb3JtYXRpb24SBgoCUFQQABIICgRX",
-            "b29kEGQSBgoCVzEQZRIGCgJXMhBmEgYKAlczEGcSBgoCVzQQaBIGCgJXNRBp",
-            "EgkKBElyb24QyAESBwoCSTMQywESBwoCSTQQzAESBwoCSTUQzQESBwoCSTYQ",
-            "zgESBwoCSTcQzwESBwoCSTgQ0AESBwoCSTkQ0QESCgoFV2VkZ2UQrAISBwoC",
-            "UFcQtgISBwoCU1cQwAISCwoGSHlicmlkEJADIpQHChBTZW5zb3JSdW5uaW5n",
-            "TXNnEi0KCXRpbWVTdGFtcBgBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
-            "c3RhbXASNQoFcmVhZHkYAiABKAsyJC5JbnRlbGxpU3dpbmcuU2Vuc29yUnVu",
-            "bmluZ01zZy5SZWFkeUgAEjsKCG5vdFJlYWR5GAMgASgLMicuSW50ZWxsaVN3",
-            "aW5nLlNlbnNvclJ1bm5pbmdNc2cuTm90UmVhZHlIABJGCg1zaG90VHJpZ2dl",
-            "cmVkGAQgASgLMi0uSW50ZWxsaVN3aW5nLlNlbnNvclJ1bm5pbmdNc2cuU2hv",
-            "cnRUcmlnZ2VyZWRIABJBCghiYWxsSW5mbxgFIAEoCzItLkludGVsbGlTd2lu",
-            "Zy5TZW5zb3JSdW5uaW5nTXNnLkJhbGxGbGlnaHRJbmZvSAASPwoIY2x1Yklu",
-            "Zm8YBiABKAsyKy5JbnRlbGxpU3dpbmcuU2Vuc29yUnVubmluZ01zZy5DbHVi",
-            "UGF0aEluZm9IABI9CgloZWFydEJlYXQYByABKAsyKC5JbnRlbGxpU3dpbmcu",
-            "U2Vuc29yUnVubmluZ01zZy5IZWFydGJlYXRIABo/CgVSZWFkeRInCghwb3Np",
-            "dGlvbhgBIAEoCzIVLkludGVsbGlTd2luZy5Qb2ludDNmEg0KBWlzVGVlGAIg",
-            "ASgIGgoKCE5vdFJlYWR5GjMKDlNob3J0VHJpZ2dlcmVkEg4KBnNob3RJZBgB",
-            "IAEoBRIRCgl0aW1lc3RhbXAYAiABKAQafgoOQmFsbEZsaWdodEluZm8SDgoG",
-            "c2hvdElkGAEgASgFEhEKCWJhbGxTcGVlZBgCIAEoAhISCgpsdW5jaEFuZ2xl",
-            "GAMgASgCEhEKCWRpcmVjdGlvbhgEIAEoAhIQCghiYWNrU3BpbhgFIAEoAhIQ",
-            "CghzaWRlU3BpbhgGIAEoAhqpAQoMQ2x1YlBhdGhJbmZvEg4KBnNob3RJZBgB",
-            "IAEoBRIRCgloZWFkU3BlZWQYAiABKAISQgoEcGF0aBgDIAEoCzI0LkludGVs",
-            "bGlTd2luZy5TZW5zb3JSdW5uaW5nTXNnLkNsdWJQYXRoSW5mby5DbHViUGF0",
-            "aBIRCglmYWNlQW5nbGUYBCABKAISEwoLYXR0YWNrQW5nbGUYBSABKAIaCgoI",
-            "Q2x1YlBhdGgaGAoJSGVhcnRiZWF0EgsKA21zZxgBIAEoCUIKCghydW5TdGF0",
+            "YkluZm9ybWF0aW9uEjIKEGdvdW5kQXR0cmlidXRpb24YAiABKA4yGC5JbnRl",
+            "bGxpU3dpbmcuR3JvdW5kQXR0ciLVAQoPQ2x1YkluZm9ybWF0aW9uEg4KCk5v",
+            "blB1dHRpbmcQABILCgdQdXR0aW5nEAESCAoEV29vZBBkEgYKAlcxEGUSBgoC",
+            "VzIQZhIGCgJXMxBnEgYKAlc0EGgSBgoCVzUQaRIJCgRJcm9uEMgBEgcKAkkz",
+            "EMsBEgcKAkk0EMwBEgcKAkk1EM0BEgcKAkk2EM4BEgcKAkk3EM8BEgcKAkk4",
+            "ENABEgcKAkk5ENEBEgoKBVdlZGdlEKwCEgcKAlBXELYCEgcKAlNXEMACEgsK",
+            "Bkh5YnJpZBCQAyKNCgoQU2Vuc29yUnVubmluZ01zZxItCgl0aW1lU3RhbXAY",
+            "ASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjUKBXJlYWR5GAIg",
+            "ASgLMiQuSW50ZWxsaVN3aW5nLlNlbnNvclJ1bm5pbmdNc2cuUmVhZHlIABI7",
+            "Cghub3RSZWFkeRgDIAEoCzInLkludGVsbGlTd2luZy5TZW5zb3JSdW5uaW5n",
+            "TXNnLk5vdFJlYWR5SAASRgoNc2hvdFRyaWdnZXJlZBgEIAEoCzItLkludGVs",
+            "bGlTd2luZy5TZW5zb3JSdW5uaW5nTXNnLlNob3J0VHJpZ2dlcmVkSAASQQoI",
+            "YmFsbEluZm8YBSABKAsyLS5JbnRlbGxpU3dpbmcuU2Vuc29yUnVubmluZ01z",
+            "Zy5CYWxsRmxpZ2h0SW5mb0gAEj8KCGNsdWJJbmZvGAYgASgLMisuSW50ZWxs",
+            "aVN3aW5nLlNlbnNvclJ1bm5pbmdNc2cuQ2x1YlBhdGhJbmZvSAASPQoJaGVh",
+            "cnRCZWF0GAcgASgLMiguSW50ZWxsaVN3aW5nLlNlbnNvclJ1bm5pbmdNc2cu",
+            "SGVhcnRiZWF0SAAacwoFUmVhZHkSJwoIcG9zaXRpb24YASABKAsyFS5JbnRl",
+            "bGxpU3dpbmcuUG9pbnQzZhINCgVpc1RlZRgCIAEoCBIyChBnb3VuZEF0dHJp",
+            "YnV0aW9uGAMgASgOMhguSW50ZWxsaVN3aW5nLkdyb3VuZEF0dHIaqAEKCE5v",
+            "dFJlYWR5EkwKDW5vdFJlYWR5Q2F1c2UYASABKA4yNS5JbnRlbGxpU3dpbmcu",
+            "U2Vuc29yUnVubmluZ01zZy5Ob3RSZWFkeS5Ob3RSZWFkeUNhdXNlIk4KDU5v",
+            "dFJlYWR5Q2F1c2USDgoKTm90RGVmaW5lZBAAEgwKCE91dEJvdW5kEAESEAoM",
+            "QmFsbE5vdEZvdW5kEAISDQoJTXVsdGlCYWxsEAMaMwoOU2hvcnRUcmlnZ2Vy",
+            "ZWQSDgoGc2hvdElkGAEgASgFEhEKCXRpbWVzdGFtcBgCIAEoBBp9Cg5CYWxs",
+            "RmxpZ2h0SW5mbxIOCgZzaG90SWQYASABKAUSEQoJYmFsbFNwZWVkGAIgASgC",
+            "EhEKCUluY2lkZW5jZRgDIAEoAhIRCglkaXJlY3Rpb24YBCABKAISEAoIYmFj",
+            "a1NwaW4YBSABKAISEAoIc2lkZVNwaW4YBiABKAIa0AIKDENsdWJQYXRoSW5m",
+            "bxIOCgZzaG90SWQYASABKAUSEQoJaGVhZFNwZWVkGAIgASgCEj4KBHBhdGgY",
+            "AyABKAsyMC5JbnRlbGxpU3dpbmcuU2Vuc29yUnVubmluZ01zZy5DbHViUGF0",
+            "aEluZm8uUGF0aBIRCglmYWNlQW5nbGUYBCABKAISEwoLYXR0YWNrQW5nbGUY",
+            "BSABKAISTAoLaW1wYWN0UG9pbnQYBiABKAsyNy5JbnRlbGxpU3dpbmcuU2Vu",
+            "c29yUnVubmluZ01zZy5DbHViUGF0aEluZm8uSW1wYWN0UG9pbnQaGgoEUGF0",
+            "aBISCgpHQUNsdWJQYXRoGAEgASgCGksKC0ltcGFjdFBvaW50Eh0KFUdBQ2x1",
+            "YkltcGFjdFBvaW50X0hvchgBIAEoAhIdChVHQUNsdWJJbXBhY3RQb2ludF9W",
+            "ZXIYAiABKAIaGAoJSGVhcnRiZWF0EgsKA21zZxgBIAEoCUIKCghydW5TdGF0",
             "ZSIiChBTaG90SW1hZ2VSZXF1ZXN0Eg4KBnNob3RJZBgBIAEoBSLTAgoJSW1h",
             "Z2VEYXRhEiYKBXN0YXRlGAEgASgLMhcuSW50ZWxsaVN3aW5nLlJldHVybk1z",
             "ZxItCgZpbWFnZXMYAiADKAsyHS5JbnRlbGxpU3dpbmcuSW1hZ2VEYXRhLklt",
@@ -65,40 +75,43 @@ namespace IntelliSwing {
             "IAEoBRIQCghkYXRhVHlwZRgGIAEoBRILCgN0YWcYByABKAkSNQoHbWFya2Vy",
             "cxgIIAMoCzIkLkludGVsbGlTd2luZy5JbWFnZURhdGEuSW1hZ2UuTWFya2Vy",
             "Gj4KBk1hcmtlchInCghwb3NpdGlvbhgBIAEoCzIVLkludGVsbGlTd2luZy5Q",
-            "b2ludDJpEgsKA3RhZxgCIAEoCTLsBwoUSW50ZWxsaVN3aW5nUHJvdG9jb2wS",
-            "RAoKSW5pdGlhbGl6ZRIbLkludGVsbGlTd2luZy5Jbml0aWFsaXplTXNnGhcu",
-            "SW50ZWxsaVN3aW5nLlJldHVybk1zZyIAEj4KB1JlbGVhc2USGC5JbnRlbGxp",
-            "U3dpbmcuUmVsZWFzZU1zZxoXLkludGVsbGlTd2luZy5SZXR1cm5Nc2ciABI7",
-            "CgZSZWJvb3QSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaFy5JbnRlbGxpU3dp",
-            "bmcuUmV0dXJuTXNnIgASQwoFU3RhcnQSFi5JbnRlbGxpU3dpbmcuU3RhcnRN",
-            "c2caHi5JbnRlbGxpU3dpbmcuU2Vuc29yUnVubmluZ01zZyIAMAESOQoEU3Rv",
-            "cBIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoXLkludGVsbGlTd2luZy5SZXR1",
-            "cm5Nc2ciABJJCgxHZXRDbHViSW1hZ2USHi5JbnRlbGxpU3dpbmcuU2hvdElt",
-            "YWdlUmVxdWVzdBoXLkludGVsbGlTd2luZy5JbWFnZURhdGEiABJJCgxHZXRC",
-            "YWxsSW1hZ2USHi5JbnRlbGxpU3dpbmcuU2hvdEltYWdlUmVxdWVzdBoXLklu",
-            "dGVsbGlTd2luZy5JbWFnZURhdGEiABJDCg1HZXREZXZpY2VJbmZvEhYuZ29v",
-            "Z2xlLnByb3RvYnVmLkVtcHR5GhguSW50ZWxsaVN3aW5nLkRldmljZUluZm8i",
-            "ABJHCg9HZXREZXZpY2VTdGF0dXMSFi5nb29nbGUucHJvdG9idWYuRW1wdHka",
-            "Gi5JbnRlbGxpU3dpbmcuRGl2aWNlU3RhdHVzIgASPgoGR2V0TG9nEhguSW50",
-            "ZWxsaVN3aW5nLkxvZ1JlcXVlc3QaGC5JbnRlbGxpU3dpbmcuTG9nTWVzc2Fn",
-            "ZSIAEkkKDUdldFN0YXRpc3RpY3MSFi5nb29nbGUucHJvdG9idWYuRW1wdHka",
-            "Hi5JbnRlbGxpU3dpbmcuU2Vuc29yU3RhdGlzdGljcyIAElMKElJ1blNpdGVD",
-            "YWxpYnJhdGlvbhIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRojLkludGVsbGlT",
-            "d2luZy5TaXRlQ2FsaWJyYXRpb25SZXN1bHQiABJOCg5VcGRhdGVGaXJtd2Fy",
-            "ZRIWLkludGVsbGlTd2luZy5GaXJtd2FyZRoiLkludGVsbGlTd2luZy5VcGRh",
-            "dGVGaXJtd2FyZVJlc3VsdCIAEj0KCEdldEltYWdlEhYuZ29vZ2xlLnByb3Rv",
-            "YnVmLkVtcHR5GhcuSW50ZWxsaVN3aW5nLkltYWdlRGF0YSIAYgZwcm90bzM="));
+            "b2ludDJpEgsKA3RhZxgCIAEoCSpECgpHcm91bmRBdHRyEgsKB0ZBSVJXQVkQ",
+            "ABIJCgVST1VHSBABEgoKBkJVTktFUhACEgcKA1RFRRADEgkKBUdSRUVOEAQy",
+            "7AcKFEludGVsbGlTd2luZ1Byb3RvY29sEkQKCkluaXRpYWxpemUSGy5JbnRl",
+            "bGxpU3dpbmcuSW5pdGlhbGl6ZU1zZxoXLkludGVsbGlTd2luZy5SZXR1cm5N",
+            "c2ciABI+CgdSZWxlYXNlEhguSW50ZWxsaVN3aW5nLlJlbGVhc2VNc2caFy5J",
+            "bnRlbGxpU3dpbmcuUmV0dXJuTXNnIgASOwoGUmVib290EhYuZ29vZ2xlLnBy",
+            "b3RvYnVmLkVtcHR5GhcuSW50ZWxsaVN3aW5nLlJldHVybk1zZyIAEkMKBVN0",
+            "YXJ0EhYuSW50ZWxsaVN3aW5nLlN0YXJ0TXNnGh4uSW50ZWxsaVN3aW5nLlNl",
+            "bnNvclJ1bm5pbmdNc2ciADABEjkKBFN0b3ASFi5nb29nbGUucHJvdG9idWYu",
+            "RW1wdHkaFy5JbnRlbGxpU3dpbmcuUmV0dXJuTXNnIgASSQoMR2V0Q2x1Yklt",
+            "YWdlEh4uSW50ZWxsaVN3aW5nLlNob3RJbWFnZVJlcXVlc3QaFy5JbnRlbGxp",
+            "U3dpbmcuSW1hZ2VEYXRhIgASSQoMR2V0QmFsbEltYWdlEh4uSW50ZWxsaVN3",
+            "aW5nLlNob3RJbWFnZVJlcXVlc3QaFy5JbnRlbGxpU3dpbmcuSW1hZ2VEYXRh",
+            "IgASQwoNR2V0RGV2aWNlSW5mbxIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoY",
+            "LkludGVsbGlTd2luZy5EZXZpY2VJbmZvIgASRwoPR2V0RGV2aWNlU3RhdHVz",
+            "EhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhouSW50ZWxsaVN3aW5nLkRpdmlj",
+            "ZVN0YXR1cyIAEj4KBkdldExvZxIYLkludGVsbGlTd2luZy5Mb2dSZXF1ZXN0",
+            "GhguSW50ZWxsaVN3aW5nLkxvZ01lc3NhZ2UiABJJCg1HZXRTdGF0aXN0aWNz",
+            "EhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5Gh4uSW50ZWxsaVN3aW5nLlNlbnNv",
+            "clN0YXRpc3RpY3MiABJTChJSdW5TaXRlQ2FsaWJyYXRpb24SFi5nb29nbGUu",
+            "cHJvdG9idWYuRW1wdHkaIy5JbnRlbGxpU3dpbmcuU2l0ZUNhbGlicmF0aW9u",
+            "UmVzdWx0IgASTgoOVXBkYXRlRmlybXdhcmUSFi5JbnRlbGxpU3dpbmcuRmly",
+            "bXdhcmUaIi5JbnRlbGxpU3dpbmcuVXBkYXRlRmlybXdhcmVSZXN1bHQiABI9",
+            "CghHZXRJbWFnZRIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoXLkludGVsbGlT",
+            "d2luZy5JbWFnZURhdGEiAGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::IntelliSwing.TypeReflection.Descriptor, global::IntelliSwing.IntelliSwingServiceReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::IntelliSwing.GroundAttr), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.InitializeMsg), global::IntelliSwing.InitializeMsg.Parser, new[]{ "Client" }, null, new[]{ typeof(global::IntelliSwing.InitializeMsg.Types.Client) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ReleaseMsg), global::IntelliSwing.ReleaseMsg.Parser, new[]{ "Id" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.StartMsg), global::IntelliSwing.StartMsg.Parser, new[]{ "ClubInformation" }, null, new[]{ typeof(global::IntelliSwing.StartMsg.Types.ClubInformation) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg), global::IntelliSwing.SensorRunningMsg.Parser, new[]{ "TimeStamp", "Ready", "NotReady", "ShotTriggered", "BallInfo", "ClubInfo", "HeartBeat" }, new[]{ "RunState" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.Ready), global::IntelliSwing.SensorRunningMsg.Types.Ready.Parser, new[]{ "Position", "IsTee" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.NotReady), global::IntelliSwing.SensorRunningMsg.Types.NotReady.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.StartMsg), global::IntelliSwing.StartMsg.Parser, new[]{ "ClubInformation", "GoundAttribution" }, null, new[]{ typeof(global::IntelliSwing.StartMsg.Types.ClubInformation) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg), global::IntelliSwing.SensorRunningMsg.Parser, new[]{ "TimeStamp", "Ready", "NotReady", "ShotTriggered", "BallInfo", "ClubInfo", "HeartBeat" }, new[]{ "RunState" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.Ready), global::IntelliSwing.SensorRunningMsg.Types.Ready.Parser, new[]{ "Position", "IsTee", "GoundAttribution" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.NotReady), global::IntelliSwing.SensorRunningMsg.Types.NotReady.Parser, new[]{ "NotReadyCause" }, null, new[]{ typeof(global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ShortTriggered), global::IntelliSwing.SensorRunningMsg.Types.ShortTriggered.Parser, new[]{ "ShotId", "Timestamp" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.BallFlightInfo), global::IntelliSwing.SensorRunningMsg.Types.BallFlightInfo.Parser, new[]{ "ShotId", "BallSpeed", "LunchAngle", "Direction", "BackSpin", "SideSpin" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Parser, new[]{ "ShotId", "HeadSpeed", "Path", "FaceAngle", "AttackAngle" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ClubPath), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ClubPath.Parser, null, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.BallFlightInfo), global::IntelliSwing.SensorRunningMsg.Types.BallFlightInfo.Parser, new[]{ "ShotId", "BallSpeed", "Incidence", "Direction", "BackSpin", "SideSpin" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Parser, new[]{ "ShotId", "HeadSpeed", "Path", "FaceAngle", "AttackAngle", "ImpactPoint" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path.Parser, new[]{ "GAClubPath" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint.Parser, new[]{ "GAClubImpactPointHor", "GAClubImpactPointVer" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.Heartbeat), global::IntelliSwing.SensorRunningMsg.Types.Heartbeat.Parser, new[]{ "Msg" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ShotImageRequest), global::IntelliSwing.ShotImageRequest.Parser, new[]{ "ShotId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ImageData), global::IntelliSwing.ImageData.Parser, new[]{ "State", "Images" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ImageData.Types.Image), global::IntelliSwing.ImageData.Types.Image.Parser, new[]{ "ImageType", "Data", "Width", "Height", "Channel", "DataType", "Tag", "Markers" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ImageData.Types.Image.Types.Marker), global::IntelliSwing.ImageData.Types.Image.Types.Marker.Parser, new[]{ "Position", "Tag" }, null, null, null, null)})})
@@ -107,6 +120,32 @@ namespace IntelliSwing {
     #endregion
 
   }
+  #region Enums
+  public enum GroundAttr {
+    /// <summary>
+    ///  : Fairway
+    /// </summary>
+    [pbr::OriginalName("FAIRWAY")] Fairway = 0,
+    /// <summary>
+    ///  : Rough
+    /// </summary>
+    [pbr::OriginalName("ROUGH")] Rough = 1,
+    /// <summary>
+    ///  : Bunker
+    /// </summary>
+    [pbr::OriginalName("BUNKER")] Bunker = 2,
+    /// <summary>
+    ///  : Tee
+    /// </summary>
+    [pbr::OriginalName("TEE")] Tee = 3,
+    /// <summary>
+    ///  : Green
+    /// </summary>
+    [pbr::OriginalName("GREEN")] Green = 4,
+  }
+
+  #endregion
+
   #region Messages
   public sealed partial class InitializeMsg : pb::IMessage<InitializeMsg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -536,6 +575,7 @@ namespace IntelliSwing {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public StartMsg(StartMsg other) : this() {
       clubInformation_ = other.clubInformation_;
+      goundAttribution_ = other.goundAttribution_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -547,13 +587,25 @@ namespace IntelliSwing {
 
     /// <summary>Field number for the "clubInformation" field.</summary>
     public const int ClubInformationFieldNumber = 1;
-    private global::IntelliSwing.StartMsg.Types.ClubInformation clubInformation_ = global::IntelliSwing.StartMsg.Types.ClubInformation.Pt;
+    private global::IntelliSwing.StartMsg.Types.ClubInformation clubInformation_ = global::IntelliSwing.StartMsg.Types.ClubInformation.NonPutting;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::IntelliSwing.StartMsg.Types.ClubInformation ClubInformation {
       get { return clubInformation_; }
       set {
         clubInformation_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "goundAttribution" field.</summary>
+    public const int GoundAttributionFieldNumber = 2;
+    private global::IntelliSwing.GroundAttr goundAttribution_ = global::IntelliSwing.GroundAttr.Fairway;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::IntelliSwing.GroundAttr GoundAttribution {
+      get { return goundAttribution_; }
+      set {
+        goundAttribution_ = value;
       }
     }
 
@@ -573,6 +625,7 @@ namespace IntelliSwing {
         return true;
       }
       if (ClubInformation != other.ClubInformation) return false;
+      if (GoundAttribution != other.GoundAttribution) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -580,7 +633,8 @@ namespace IntelliSwing {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (ClubInformation != global::IntelliSwing.StartMsg.Types.ClubInformation.Pt) hash ^= ClubInformation.GetHashCode();
+      if (ClubInformation != global::IntelliSwing.StartMsg.Types.ClubInformation.NonPutting) hash ^= ClubInformation.GetHashCode();
+      if (GoundAttribution != global::IntelliSwing.GroundAttr.Fairway) hash ^= GoundAttribution.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -599,9 +653,13 @@ namespace IntelliSwing {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (ClubInformation != global::IntelliSwing.StartMsg.Types.ClubInformation.Pt) {
+      if (ClubInformation != global::IntelliSwing.StartMsg.Types.ClubInformation.NonPutting) {
         output.WriteRawTag(8);
         output.WriteEnum((int) ClubInformation);
+      }
+      if (GoundAttribution != global::IntelliSwing.GroundAttr.Fairway) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) GoundAttribution);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -613,9 +671,13 @@ namespace IntelliSwing {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (ClubInformation != global::IntelliSwing.StartMsg.Types.ClubInformation.Pt) {
+      if (ClubInformation != global::IntelliSwing.StartMsg.Types.ClubInformation.NonPutting) {
         output.WriteRawTag(8);
         output.WriteEnum((int) ClubInformation);
+      }
+      if (GoundAttribution != global::IntelliSwing.GroundAttr.Fairway) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) GoundAttribution);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -627,8 +689,11 @@ namespace IntelliSwing {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (ClubInformation != global::IntelliSwing.StartMsg.Types.ClubInformation.Pt) {
+      if (ClubInformation != global::IntelliSwing.StartMsg.Types.ClubInformation.NonPutting) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ClubInformation);
+      }
+      if (GoundAttribution != global::IntelliSwing.GroundAttr.Fairway) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) GoundAttribution);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -642,8 +707,11 @@ namespace IntelliSwing {
       if (other == null) {
         return;
       }
-      if (other.ClubInformation != global::IntelliSwing.StartMsg.Types.ClubInformation.Pt) {
+      if (other.ClubInformation != global::IntelliSwing.StartMsg.Types.ClubInformation.NonPutting) {
         ClubInformation = other.ClubInformation;
+      }
+      if (other.GoundAttribution != global::IntelliSwing.GroundAttr.Fairway) {
+        GoundAttribution = other.GoundAttribution;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -662,6 +730,10 @@ namespace IntelliSwing {
             break;
           case 8: {
             ClubInformation = (global::IntelliSwing.StartMsg.Types.ClubInformation) input.ReadEnum();
+            break;
+          }
+          case 16: {
+            GoundAttribution = (global::IntelliSwing.GroundAttr) input.ReadEnum();
             break;
           }
         }
@@ -683,6 +755,10 @@ namespace IntelliSwing {
             ClubInformation = (global::IntelliSwing.StartMsg.Types.ClubInformation) input.ReadEnum();
             break;
           }
+          case 16: {
+            GoundAttribution = (global::IntelliSwing.GroundAttr) input.ReadEnum();
+            break;
+          }
         }
       }
     }
@@ -694,7 +770,8 @@ namespace IntelliSwing {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
       public enum ClubInformation {
-        [pbr::OriginalName("PT")] Pt = 0,
+        [pbr::OriginalName("NonPutting")] NonPutting = 0,
+        [pbr::OriginalName("Putting")] Putting = 1,
         [pbr::OriginalName("Wood")] Wood = 100,
         [pbr::OriginalName("W1")] W1 = 101,
         [pbr::OriginalName("W2")] W2 = 102,
@@ -1302,6 +1379,7 @@ namespace IntelliSwing {
         public Ready(Ready other) : this() {
           position_ = other.position_ != null ? other.position_.Clone() : null;
           isTee_ = other.isTee_;
+          goundAttribution_ = other.goundAttribution_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1338,6 +1416,18 @@ namespace IntelliSwing {
           }
         }
 
+        /// <summary>Field number for the "goundAttribution" field.</summary>
+        public const int GoundAttributionFieldNumber = 3;
+        private global::IntelliSwing.GroundAttr goundAttribution_ = global::IntelliSwing.GroundAttr.Fairway;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::IntelliSwing.GroundAttr GoundAttribution {
+          get { return goundAttribution_; }
+          set {
+            goundAttribution_ = value;
+          }
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override bool Equals(object other) {
@@ -1355,6 +1445,7 @@ namespace IntelliSwing {
           }
           if (!object.Equals(Position, other.Position)) return false;
           if (IsTee != other.IsTee) return false;
+          if (GoundAttribution != other.GoundAttribution) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1364,6 +1455,7 @@ namespace IntelliSwing {
           int hash = 1;
           if (position_ != null) hash ^= Position.GetHashCode();
           if (IsTee != false) hash ^= IsTee.GetHashCode();
+          if (GoundAttribution != global::IntelliSwing.GroundAttr.Fairway) hash ^= GoundAttribution.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1390,6 +1482,10 @@ namespace IntelliSwing {
             output.WriteRawTag(16);
             output.WriteBool(IsTee);
           }
+          if (GoundAttribution != global::IntelliSwing.GroundAttr.Fairway) {
+            output.WriteRawTag(24);
+            output.WriteEnum((int) GoundAttribution);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -1408,6 +1504,10 @@ namespace IntelliSwing {
             output.WriteRawTag(16);
             output.WriteBool(IsTee);
           }
+          if (GoundAttribution != global::IntelliSwing.GroundAttr.Fairway) {
+            output.WriteRawTag(24);
+            output.WriteEnum((int) GoundAttribution);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
           }
@@ -1423,6 +1523,9 @@ namespace IntelliSwing {
           }
           if (IsTee != false) {
             size += 1 + 1;
+          }
+          if (GoundAttribution != global::IntelliSwing.GroundAttr.Fairway) {
+            size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) GoundAttribution);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -1444,6 +1547,9 @@ namespace IntelliSwing {
           }
           if (other.IsTee != false) {
             IsTee = other.IsTee;
+          }
+          if (other.GoundAttribution != global::IntelliSwing.GroundAttr.Fairway) {
+            GoundAttribution = other.GoundAttribution;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -1471,6 +1577,10 @@ namespace IntelliSwing {
                 IsTee = input.ReadBool();
                 break;
               }
+              case 24: {
+                GoundAttribution = (global::IntelliSwing.GroundAttr) input.ReadEnum();
+                break;
+              }
             }
           }
         #endif
@@ -1495,6 +1605,10 @@ namespace IntelliSwing {
               }
               case 16: {
                 IsTee = input.ReadBool();
+                break;
+              }
+              case 24: {
+                GoundAttribution = (global::IntelliSwing.GroundAttr) input.ReadEnum();
                 break;
               }
             }
@@ -1538,6 +1652,7 @@ namespace IntelliSwing {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public NotReady(NotReady other) : this() {
+          notReadyCause_ = other.notReadyCause_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1545,6 +1660,18 @@ namespace IntelliSwing {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public NotReady Clone() {
           return new NotReady(this);
+        }
+
+        /// <summary>Field number for the "notReadyCause" field.</summary>
+        public const int NotReadyCauseFieldNumber = 1;
+        private global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause notReadyCause_ = global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause.NotDefined;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause NotReadyCause {
+          get { return notReadyCause_; }
+          set {
+            notReadyCause_ = value;
+          }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1562,6 +1689,7 @@ namespace IntelliSwing {
           if (ReferenceEquals(other, this)) {
             return true;
           }
+          if (NotReadyCause != other.NotReadyCause) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1569,6 +1697,7 @@ namespace IntelliSwing {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override int GetHashCode() {
           int hash = 1;
+          if (NotReadyCause != global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause.NotDefined) hash ^= NotReadyCause.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1587,6 +1716,10 @@ namespace IntelliSwing {
         #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           output.WriteRawMessage(this);
         #else
+          if (NotReadyCause != global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause.NotDefined) {
+            output.WriteRawTag(8);
+            output.WriteEnum((int) NotReadyCause);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -1597,6 +1730,10 @@ namespace IntelliSwing {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (NotReadyCause != global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause.NotDefined) {
+            output.WriteRawTag(8);
+            output.WriteEnum((int) NotReadyCause);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
           }
@@ -1607,6 +1744,9 @@ namespace IntelliSwing {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public int CalculateSize() {
           int size = 0;
+          if (NotReadyCause != global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause.NotDefined) {
+            size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) NotReadyCause);
+          }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
           }
@@ -1618,6 +1758,9 @@ namespace IntelliSwing {
         public void MergeFrom(NotReady other) {
           if (other == null) {
             return;
+          }
+          if (other.NotReadyCause != global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause.NotDefined) {
+            NotReadyCause = other.NotReadyCause;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -1634,6 +1777,10 @@ namespace IntelliSwing {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
+              case 8: {
+                NotReadyCause = (global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause) input.ReadEnum();
+                break;
+              }
             }
           }
         #endif
@@ -1649,10 +1796,29 @@ namespace IntelliSwing {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
+              case 8: {
+                NotReadyCause = (global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause) input.ReadEnum();
+                break;
+              }
             }
           }
         }
         #endif
+
+        #region Nested types
+        /// <summary>Container for nested types declared in the NotReady message type.</summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static partial class Types {
+          public enum NotReadyCause {
+            [pbr::OriginalName("NotDefined")] NotDefined = 0,
+            [pbr::OriginalName("OutBound")] OutBound = 1,
+            [pbr::OriginalName("BallNotFound")] BallNotFound = 2,
+            [pbr::OriginalName("MultiBall")] MultiBall = 3,
+          }
+
+        }
+        #endregion
 
       }
 
@@ -1918,7 +2084,7 @@ namespace IntelliSwing {
         public BallFlightInfo(BallFlightInfo other) : this() {
           shotId_ = other.shotId_;
           ballSpeed_ = other.ballSpeed_;
-          lunchAngle_ = other.lunchAngle_;
+          incidence_ = other.incidence_;
           direction_ = other.direction_;
           backSpin_ = other.backSpin_;
           sideSpin_ = other.sideSpin_;
@@ -1958,18 +2124,18 @@ namespace IntelliSwing {
           }
         }
 
-        /// <summary>Field number for the "lunchAngle" field.</summary>
-        public const int LunchAngleFieldNumber = 3;
-        private float lunchAngle_;
+        /// <summary>Field number for the "Incidence" field.</summary>
+        public const int IncidenceFieldNumber = 3;
+        private float incidence_;
         /// <summary>
         /// degree
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public float LunchAngle {
-          get { return lunchAngle_; }
+        public float Incidence {
+          get { return incidence_; }
           set {
-            lunchAngle_ = value;
+            incidence_ = value;
           }
         }
 
@@ -2035,7 +2201,7 @@ namespace IntelliSwing {
           }
           if (ShotId != other.ShotId) return false;
           if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(BallSpeed, other.BallSpeed)) return false;
-          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(LunchAngle, other.LunchAngle)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Incidence, other.Incidence)) return false;
           if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Direction, other.Direction)) return false;
           if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(BackSpin, other.BackSpin)) return false;
           if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SideSpin, other.SideSpin)) return false;
@@ -2048,7 +2214,7 @@ namespace IntelliSwing {
           int hash = 1;
           if (ShotId != 0) hash ^= ShotId.GetHashCode();
           if (BallSpeed != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(BallSpeed);
-          if (LunchAngle != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(LunchAngle);
+          if (Incidence != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Incidence);
           if (Direction != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Direction);
           if (BackSpin != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(BackSpin);
           if (SideSpin != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SideSpin);
@@ -2078,9 +2244,9 @@ namespace IntelliSwing {
             output.WriteRawTag(21);
             output.WriteFloat(BallSpeed);
           }
-          if (LunchAngle != 0F) {
+          if (Incidence != 0F) {
             output.WriteRawTag(29);
-            output.WriteFloat(LunchAngle);
+            output.WriteFloat(Incidence);
           }
           if (Direction != 0F) {
             output.WriteRawTag(37);
@@ -2112,9 +2278,9 @@ namespace IntelliSwing {
             output.WriteRawTag(21);
             output.WriteFloat(BallSpeed);
           }
-          if (LunchAngle != 0F) {
+          if (Incidence != 0F) {
             output.WriteRawTag(29);
-            output.WriteFloat(LunchAngle);
+            output.WriteFloat(Incidence);
           }
           if (Direction != 0F) {
             output.WriteRawTag(37);
@@ -2144,7 +2310,7 @@ namespace IntelliSwing {
           if (BallSpeed != 0F) {
             size += 1 + 4;
           }
-          if (LunchAngle != 0F) {
+          if (Incidence != 0F) {
             size += 1 + 4;
           }
           if (Direction != 0F) {
@@ -2174,8 +2340,8 @@ namespace IntelliSwing {
           if (other.BallSpeed != 0F) {
             BallSpeed = other.BallSpeed;
           }
-          if (other.LunchAngle != 0F) {
-            LunchAngle = other.LunchAngle;
+          if (other.Incidence != 0F) {
+            Incidence = other.Incidence;
           }
           if (other.Direction != 0F) {
             Direction = other.Direction;
@@ -2210,7 +2376,7 @@ namespace IntelliSwing {
                 break;
               }
               case 29: {
-                LunchAngle = input.ReadFloat();
+                Incidence = input.ReadFloat();
                 break;
               }
               case 37: {
@@ -2249,7 +2415,7 @@ namespace IntelliSwing {
                 break;
               }
               case 29: {
-                LunchAngle = input.ReadFloat();
+                Incidence = input.ReadFloat();
                 break;
               }
               case 37: {
@@ -2310,6 +2476,7 @@ namespace IntelliSwing {
           path_ = other.path_ != null ? other.path_.Clone() : null;
           faceAngle_ = other.faceAngle_;
           attackAngle_ = other.attackAngle_;
+          impactPoint_ = other.impactPoint_ != null ? other.impactPoint_.Clone() : null;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -2348,10 +2515,10 @@ namespace IntelliSwing {
 
         /// <summary>Field number for the "path" field.</summary>
         public const int PathFieldNumber = 3;
-        private global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ClubPath path_;
+        private global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path path_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ClubPath Path {
+        public global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path Path {
           get { return path_; }
           set {
             path_ = value;
@@ -2388,6 +2555,18 @@ namespace IntelliSwing {
           }
         }
 
+        /// <summary>Field number for the "impactPoint" field.</summary>
+        public const int ImpactPointFieldNumber = 6;
+        private global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint impactPoint_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint ImpactPoint {
+          get { return impactPoint_; }
+          set {
+            impactPoint_ = value;
+          }
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override bool Equals(object other) {
@@ -2408,6 +2587,7 @@ namespace IntelliSwing {
           if (!object.Equals(Path, other.Path)) return false;
           if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(FaceAngle, other.FaceAngle)) return false;
           if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(AttackAngle, other.AttackAngle)) return false;
+          if (!object.Equals(ImpactPoint, other.ImpactPoint)) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -2420,6 +2600,7 @@ namespace IntelliSwing {
           if (path_ != null) hash ^= Path.GetHashCode();
           if (FaceAngle != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(FaceAngle);
           if (AttackAngle != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AttackAngle);
+          if (impactPoint_ != null) hash ^= ImpactPoint.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -2458,6 +2639,10 @@ namespace IntelliSwing {
             output.WriteRawTag(45);
             output.WriteFloat(AttackAngle);
           }
+          if (impactPoint_ != null) {
+            output.WriteRawTag(50);
+            output.WriteMessage(ImpactPoint);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -2488,6 +2673,10 @@ namespace IntelliSwing {
             output.WriteRawTag(45);
             output.WriteFloat(AttackAngle);
           }
+          if (impactPoint_ != null) {
+            output.WriteRawTag(50);
+            output.WriteMessage(ImpactPoint);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
           }
@@ -2513,6 +2702,9 @@ namespace IntelliSwing {
           if (AttackAngle != 0F) {
             size += 1 + 4;
           }
+          if (impactPoint_ != null) {
+            size += 1 + pb::CodedOutputStream.ComputeMessageSize(ImpactPoint);
+          }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
           }
@@ -2533,7 +2725,7 @@ namespace IntelliSwing {
           }
           if (other.path_ != null) {
             if (path_ == null) {
-              Path = new global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ClubPath();
+              Path = new global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path();
             }
             Path.MergeFrom(other.Path);
           }
@@ -2542,6 +2734,12 @@ namespace IntelliSwing {
           }
           if (other.AttackAngle != 0F) {
             AttackAngle = other.AttackAngle;
+          }
+          if (other.impactPoint_ != null) {
+            if (impactPoint_ == null) {
+              ImpactPoint = new global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint();
+            }
+            ImpactPoint.MergeFrom(other.ImpactPoint);
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -2568,7 +2766,7 @@ namespace IntelliSwing {
               }
               case 26: {
                 if (path_ == null) {
-                  Path = new global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ClubPath();
+                  Path = new global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path();
                 }
                 input.ReadMessage(Path);
                 break;
@@ -2579,6 +2777,13 @@ namespace IntelliSwing {
               }
               case 45: {
                 AttackAngle = input.ReadFloat();
+                break;
+              }
+              case 50: {
+                if (impactPoint_ == null) {
+                  ImpactPoint = new global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint();
+                }
+                input.ReadMessage(ImpactPoint);
                 break;
               }
             }
@@ -2606,7 +2811,7 @@ namespace IntelliSwing {
               }
               case 26: {
                 if (path_ == null) {
-                  Path = new global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ClubPath();
+                  Path = new global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path();
                 }
                 input.ReadMessage(Path);
                 break;
@@ -2619,6 +2824,13 @@ namespace IntelliSwing {
                 AttackAngle = input.ReadFloat();
                 break;
               }
+              case 50: {
+                if (impactPoint_ == null) {
+                  ImpactPoint = new global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint();
+                }
+                input.ReadMessage(ImpactPoint);
+                break;
+              }
             }
           }
         }
@@ -2629,16 +2841,16 @@ namespace IntelliSwing {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static partial class Types {
-          public sealed partial class ClubPath : pb::IMessage<ClubPath>
+          public sealed partial class Path : pb::IMessage<Path>
           #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
               , pb::IBufferMessage
           #endif
           {
-            private static readonly pb::MessageParser<ClubPath> _parser = new pb::MessageParser<ClubPath>(() => new ClubPath());
+            private static readonly pb::MessageParser<Path> _parser = new pb::MessageParser<Path>(() => new Path());
             private pb::UnknownFieldSet _unknownFields;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public static pb::MessageParser<ClubPath> Parser { get { return _parser; } }
+            public static pb::MessageParser<Path> Parser { get { return _parser; } }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2654,7 +2866,7 @@ namespace IntelliSwing {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public ClubPath() {
+            public Path() {
               OnConstruction();
             }
 
@@ -2662,31 +2874,48 @@ namespace IntelliSwing {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public ClubPath(ClubPath other) : this() {
+            public Path(Path other) : this() {
+              gAClubPath_ = other.gAClubPath_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public ClubPath Clone() {
-              return new ClubPath(this);
+            public Path Clone() {
+              return new Path(this);
+            }
+
+            /// <summary>Field number for the "GAClubPath" field.</summary>
+            public const int GAClubPathFieldNumber = 1;
+            private float gAClubPath_;
+            /// <summary>
+            ///degree        클럽패스 각도(Out to In,  Straight, In to Out)
+            /// </summary>
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public float GAClubPath {
+              get { return gAClubPath_; }
+              set {
+                gAClubPath_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public override bool Equals(object other) {
-              return Equals(other as ClubPath);
+              return Equals(other as Path);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public bool Equals(ClubPath other) {
+            public bool Equals(Path other) {
               if (ReferenceEquals(other, null)) {
                 return false;
               }
               if (ReferenceEquals(other, this)) {
                 return true;
               }
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(GAClubPath, other.GAClubPath)) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
@@ -2694,6 +2923,7 @@ namespace IntelliSwing {
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public override int GetHashCode() {
               int hash = 1;
+              if (GAClubPath != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(GAClubPath);
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -2712,6 +2942,10 @@ namespace IntelliSwing {
             #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
               output.WriteRawMessage(this);
             #else
+              if (GAClubPath != 0F) {
+                output.WriteRawTag(13);
+                output.WriteFloat(GAClubPath);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -2722,6 +2956,10 @@ namespace IntelliSwing {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+              if (GAClubPath != 0F) {
+                output.WriteRawTag(13);
+                output.WriteFloat(GAClubPath);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(ref output);
               }
@@ -2732,6 +2970,9 @@ namespace IntelliSwing {
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public int CalculateSize() {
               int size = 0;
+              if (GAClubPath != 0F) {
+                size += 1 + 4;
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -2740,9 +2981,12 @@ namespace IntelliSwing {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-            public void MergeFrom(ClubPath other) {
+            public void MergeFrom(Path other) {
               if (other == null) {
                 return;
+              }
+              if (other.GAClubPath != 0F) {
+                GAClubPath = other.GAClubPath;
               }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
@@ -2759,6 +3003,10 @@ namespace IntelliSwing {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
+                  case 13: {
+                    GAClubPath = input.ReadFloat();
+                    break;
+                  }
                 }
               }
             #endif
@@ -2774,6 +3022,242 @@ namespace IntelliSwing {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                     break;
+                  case 13: {
+                    GAClubPath = input.ReadFloat();
+                    break;
+                  }
+                }
+              }
+            }
+            #endif
+
+          }
+
+          public sealed partial class ImpactPoint : pb::IMessage<ImpactPoint>
+          #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+              , pb::IBufferMessage
+          #endif
+          {
+            private static readonly pb::MessageParser<ImpactPoint> _parser = new pb::MessageParser<ImpactPoint>(() => new ImpactPoint());
+            private pb::UnknownFieldSet _unknownFields;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public static pb::MessageParser<ImpactPoint> Parser { get { return _parser; } }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public static pbr::MessageDescriptor Descriptor {
+              get { return global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Descriptor.NestedTypes[1]; }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            pbr::MessageDescriptor pb::IMessage.Descriptor {
+              get { return Descriptor; }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public ImpactPoint() {
+              OnConstruction();
+            }
+
+            partial void OnConstruction();
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public ImpactPoint(ImpactPoint other) : this() {
+              gAClubImpactPointHor_ = other.gAClubImpactPointHor_;
+              gAClubImpactPointVer_ = other.gAClubImpactPointVer_;
+              _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public ImpactPoint Clone() {
+              return new ImpactPoint(this);
+            }
+
+            /// <summary>Field number for the "GAClubImpactPoint_Hor" field.</summary>
+            public const int GAClubImpactPointHorFieldNumber = 1;
+            private float gAClubImpactPointHor_;
+            /// <summary>
+            ///수평성분의 임팩트포인트(음수값이 Heel방향, 양수값이 Toe방향)
+            /// </summary>
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public float GAClubImpactPointHor {
+              get { return gAClubImpactPointHor_; }
+              set {
+                gAClubImpactPointHor_ = value;
+              }
+            }
+
+            /// <summary>Field number for the "GAClubImpactPoint_Ver" field.</summary>
+            public const int GAClubImpactPointVerFieldNumber = 2;
+            private float gAClubImpactPointVer_;
+            /// <summary>
+            ///수직성분의 임팩트포인트(음수값이 Bottom방향, 양수값이 Top방향)
+            /// </summary>
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public float GAClubImpactPointVer {
+              get { return gAClubImpactPointVer_; }
+              set {
+                gAClubImpactPointVer_ = value;
+              }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public override bool Equals(object other) {
+              return Equals(other as ImpactPoint);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public bool Equals(ImpactPoint other) {
+              if (ReferenceEquals(other, null)) {
+                return false;
+              }
+              if (ReferenceEquals(other, this)) {
+                return true;
+              }
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(GAClubImpactPointHor, other.GAClubImpactPointHor)) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(GAClubImpactPointVer, other.GAClubImpactPointVer)) return false;
+              return Equals(_unknownFields, other._unknownFields);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public override int GetHashCode() {
+              int hash = 1;
+              if (GAClubImpactPointHor != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(GAClubImpactPointHor);
+              if (GAClubImpactPointVer != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(GAClubImpactPointVer);
+              if (_unknownFields != null) {
+                hash ^= _unknownFields.GetHashCode();
+              }
+              return hash;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public override string ToString() {
+              return pb::JsonFormatter.ToDiagnosticString(this);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public void WriteTo(pb::CodedOutputStream output) {
+            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+              output.WriteRawMessage(this);
+            #else
+              if (GAClubImpactPointHor != 0F) {
+                output.WriteRawTag(13);
+                output.WriteFloat(GAClubImpactPointHor);
+              }
+              if (GAClubImpactPointVer != 0F) {
+                output.WriteRawTag(21);
+                output.WriteFloat(GAClubImpactPointVer);
+              }
+              if (_unknownFields != null) {
+                _unknownFields.WriteTo(output);
+              }
+            #endif
+            }
+
+            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+              if (GAClubImpactPointHor != 0F) {
+                output.WriteRawTag(13);
+                output.WriteFloat(GAClubImpactPointHor);
+              }
+              if (GAClubImpactPointVer != 0F) {
+                output.WriteRawTag(21);
+                output.WriteFloat(GAClubImpactPointVer);
+              }
+              if (_unknownFields != null) {
+                _unknownFields.WriteTo(ref output);
+              }
+            }
+            #endif
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public int CalculateSize() {
+              int size = 0;
+              if (GAClubImpactPointHor != 0F) {
+                size += 1 + 4;
+              }
+              if (GAClubImpactPointVer != 0F) {
+                size += 1 + 4;
+              }
+              if (_unknownFields != null) {
+                size += _unknownFields.CalculateSize();
+              }
+              return size;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public void MergeFrom(ImpactPoint other) {
+              if (other == null) {
+                return;
+              }
+              if (other.GAClubImpactPointHor != 0F) {
+                GAClubImpactPointHor = other.GAClubImpactPointHor;
+              }
+              if (other.GAClubImpactPointVer != 0F) {
+                GAClubImpactPointVer = other.GAClubImpactPointVer;
+              }
+              _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public void MergeFrom(pb::CodedInputStream input) {
+            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+              input.ReadRawMessage(this);
+            #else
+              uint tag;
+              while ((tag = input.ReadTag()) != 0) {
+                switch(tag) {
+                  default:
+                    _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                    break;
+                  case 13: {
+                    GAClubImpactPointHor = input.ReadFloat();
+                    break;
+                  }
+                  case 21: {
+                    GAClubImpactPointVer = input.ReadFloat();
+                    break;
+                  }
+                }
+              }
+            #endif
+            }
+
+            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+              uint tag;
+              while ((tag = input.ReadTag()) != 0) {
+                switch(tag) {
+                  default:
+                    _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                    break;
+                  case 13: {
+                    GAClubImpactPointHor = input.ReadFloat();
+                    break;
+                  }
+                  case 21: {
+                    GAClubImpactPointVer = input.ReadFloat();
+                    break;
+                  }
                 }
               }
             }

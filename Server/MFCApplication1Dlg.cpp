@@ -59,6 +59,22 @@ END_MESSAGE_MAP()
 
 // CMFCApplication1Dlg dialog
 
+class LogHelper
+{
+	std::string m_msg;
+public :
+	LogHelper(std::string msg) : m_msg(msg)
+	{
+		std::cout << m_msg <<" S" << std::endl;
+	}
+	~LogHelper()
+	{
+		std::cout << m_msg << " E" << std::endl;
+
+	}
+
+};
+
 
 class IntelliSwingProtocolServiceImpl final : public IntelliSwing::IntelliSwingProtocol::Service
 {
@@ -252,7 +268,7 @@ BOOL CMFCApplication1Dlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	// TODO: Add extra initialization here
+	// extra initialization
 	m_pServer = new ZIntelliSwingServer(&g_serviceImpl);
 	g_serviceImpl.pDiag = this;
 
@@ -316,9 +332,7 @@ HCURSOR CMFCApplication1Dlg::OnQueryDragIcon()
 
 void CMFCApplication1Dlg::OnBnClickedStart()
 {
-	// TODO: Add your control notification handler code here
-	// start
-
+	LogHelper log("OnBnClickedStart");
 	m_pServer->Start();
 	m_ctrlButtonStart.EnableWindow(false);
 	m_ctrlButtonStop.EnableWindow(true);
@@ -328,8 +342,7 @@ void CMFCApplication1Dlg::OnBnClickedStart()
 
 void CMFCApplication1Dlg::OnBnClickedStop()
 {
-	// TODO: Add your control notification handler code here
-	//stop
+	LogHelper log("OnBnClickedStop");
 	m_pServer->Shutdown();
 	m_pServer->Stop();
 	m_ctrlButtonStart.EnableWindow(true);
@@ -339,10 +352,12 @@ void CMFCApplication1Dlg::OnBnClickedStop()
 
 void CMFCApplication1Dlg::OnBnClickedButtonSendReady()
 {
-	// TODO: Add your control notification handler code here
-	//ready
+	LogHelper log("OnBnClickedButtonSendReady");
+
 	if (g_serviceImpl.m_pWriter)
 	{
+		LogHelper log("OnBnClickedButtonSendReady 2");
+
 		::IntelliSwing::SensorRunningMsg msg;
 
 		auto* timestamp = msg.mutable_timestamp();
@@ -361,8 +376,7 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendReady()
 
 void CMFCApplication1Dlg::OnBnClickedButtonSendNotReady()
 {
-	// TODO: Add your control notification handler code here
-	// not ready
+	LogHelper log("OnBnClickedButtonSendNotReady");
 	::IntelliSwing::SensorRunningMsg msg;
 	auto* pNotReady = msg.mutable_notready();
 	
@@ -372,8 +386,7 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendNotReady()
 
 void CMFCApplication1Dlg::OnBnClickedButtonSendTriggered()
 {
-	// TODO: Add your control notification handler code here
-	// triggered
+	LogHelper log("OnBnClickedButtonSendTriggered");
 	::IntelliSwing::SensorRunningMsg msg;
 	auto* pTriggered = msg.mutable_shottriggered();
 	pTriggered->set_shotid(99);
@@ -385,8 +398,7 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendTriggered()
 
 void CMFCApplication1Dlg::OnBnClickedButtonSendBallInfo()
 {
-	// TODO: Add your control notification handler code here
-	// ball flight
+	LogHelper log("OnBnClickedButtonSendBallInfo");
 	::IntelliSwing::SensorRunningMsg msg;
 	auto* pBallInfo = msg.mutable_ballinfo();
 	pBallInfo->set_shotid(99);
@@ -399,8 +411,7 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendBallInfo()
 
 void CMFCApplication1Dlg::OnBnClickedButtonSendClubInfo()
 {
-	// TODO: Add your control notification handler code here
-	// club path
+	LogHelper log("OnBnClickedButtonSendClubInfo");
 	::IntelliSwing::SensorRunningMsg msg;
 	
 	auto* timestamp = msg.mutable_timestamp();
@@ -416,7 +427,7 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendClubInfo()
 
 void CMFCApplication1Dlg::OnBnClickedButtonSendEnd()
 {
-	// TODO: Add your control notification handler code here
+	LogHelper log("OnBnClickedButtonSendEnd");
 	std::lock_guard< std::mutex> lg(cv_m);
 	g_Ready = true;
 	conditional_variable.notify_all();
@@ -427,7 +438,6 @@ void CMFCApplication1Dlg::OnDestroy()
 {
 	CDialogEx::OnDestroy();
 
-	// TODO: Add your message handler code here
 	m_pServer->Shutdown();
 	m_pServer->Stop();
 	delete m_pServer;

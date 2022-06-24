@@ -48,11 +48,21 @@ message ReleaseMsg
 	int32 id = 1;
 }
 
+enum GroundAttr
+{
+	FAIRWAY   = 0;	//  : Fairway
+	ROUGH     = 1;	//  : Rough
+	BUNKER    = 2;	//  : Bunker
+	TEE       = 3;	//  : Tee
+	GREEN     = 4;	//  : Green
+}
+
 message StartMsg
 {
 	enum ClubInformation
 	{
-		PT		=   0;
+		NonPutting = 0;
+		Putting	=   1;
 		Wood	= 100;
 		W1		= 101;
 		W2		= 102;
@@ -74,6 +84,7 @@ message StartMsg
 		
 	}
 	ClubInformation clubInformation = 1;
+	GroundAttr		goundAttribution = 2;
 }
 
 
@@ -95,11 +106,19 @@ message SensorRunningMsg
 	{
 		Point3f			position	= 1; //mm, sensor coordinate
 		bool			isTee		= 2;
+		GroundAttr		goundAttribution = 3;
 	}
 
 	message NotReady
 	{
-		
+		enum NotReadyCause
+		{
+			NotDefined		=	0;
+			OutBound		=   1;
+			BallNotFound	=	2;
+			MultiBall		=	3;
+		}
+		NotReadyCause notReadyCause = 1;
 	}
 
 	message ShortTriggered
@@ -112,7 +131,7 @@ message SensorRunningMsg
 	{
 		int32 shotId		= 1;
 		float ballSpeed		= 2;	// m/s
-		float lunchAngle	= 3;	// degree
+		float Incidence		= 3;	// degree
 		float direction		= 4;	// degree
 		float backSpin		= 5;	// rpm
 		float sideSpin		= 6;	// rpm
@@ -120,15 +139,22 @@ message SensorRunningMsg
 
 	message ClubPathInfo
 	{
-		message ClubPath
+		message Path
 		{
+			float GAClubPath	= 1;//degree        클럽패스 각도(Out to In,  Straight, In to Out)
 		}
-		int32 shotId		= 1;
-		float headSpeed		= 2;	// m/s
-		ClubPath path		= 3;	
-		float faceAngle		= 4;	// degree
-		float attackAngle	= 5;	// degree
 
+		message ImpactPoint
+		{
+			float GAClubImpactPoint_Hor	= 1;//수평성분의 임팩트포인트(음수값이 Heel방향, 양수값이 Toe방향)
+			float GAClubImpactPoint_Ver	= 2;//수직성분의 임팩트포인트(음수값이 Bottom방향, 양수값이 Top방향)
+		}
+		int32 shotId			= 1;
+		float headSpeed			= 2;	// m/s
+		Path path				= 3;	
+		float faceAngle			= 4;	// degree
+		float attackAngle		= 5;	// degree
+		ImpactPoint impactPoint = 6;
 	}
 
 	message Heartbeat

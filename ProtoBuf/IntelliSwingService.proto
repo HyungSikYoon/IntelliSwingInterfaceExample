@@ -9,6 +9,7 @@ message DeviceInfo
 	string	fpgaVer		= 2;
 	string	softwareVer	= 3;
 	string	serialNumber = 4;
+	string  sensorName	= 5;
 }
 
 message DiviceStatus

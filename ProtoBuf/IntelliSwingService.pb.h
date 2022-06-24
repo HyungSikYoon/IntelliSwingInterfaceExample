@@ -220,6 +220,7 @@ class DeviceInfo final :
     kFpgaVerFieldNumber = 2,
     kSoftwareVerFieldNumber = 3,
     kSerialNumberFieldNumber = 4,
+    kSensorNameFieldNumber = 5,
   };
   // string deviceVer = 1;
   void clear_devicever();
@@ -277,6 +278,20 @@ class DeviceInfo final :
   std::string* _internal_mutable_serialnumber();
   public:
 
+  // string sensorName = 5;
+  void clear_sensorname();
+  const std::string& sensorname() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sensorname(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sensorname();
+  PROTOBUF_NODISCARD std::string* release_sensorname();
+  void set_allocated_sensorname(std::string* sensorname);
+  private:
+  const std::string& _internal_sensorname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sensorname(const std::string& value);
+  std::string* _internal_mutable_sensorname();
+  public:
+
   // @@protoc_insertion_point(class_scope:IntelliSwing.DeviceInfo)
  private:
   class _Internal;
@@ -288,6 +303,7 @@ class DeviceInfo final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fpgaver_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr softwarever_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr serialnumber_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sensorname_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_IntelliSwingService_2eproto;
 };
@@ -1688,6 +1704,57 @@ inline void DeviceInfo::set_allocated_serialnumber(std::string* serialnumber) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:IntelliSwing.DeviceInfo.serialNumber)
+}
+
+// string sensorName = 5;
+inline void DeviceInfo::clear_sensorname() {
+  sensorname_.ClearToEmpty();
+}
+inline const std::string& DeviceInfo::sensorname() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.DeviceInfo.sensorName)
+  return _internal_sensorname();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DeviceInfo::set_sensorname(ArgT0&& arg0, ArgT... args) {
+ 
+ sensorname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:IntelliSwing.DeviceInfo.sensorName)
+}
+inline std::string* DeviceInfo::mutable_sensorname() {
+  std::string* _s = _internal_mutable_sensorname();
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.DeviceInfo.sensorName)
+  return _s;
+}
+inline const std::string& DeviceInfo::_internal_sensorname() const {
+  return sensorname_.Get();
+}
+inline void DeviceInfo::_internal_set_sensorname(const std::string& value) {
+  
+  sensorname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* DeviceInfo::_internal_mutable_sensorname() {
+  
+  return sensorname_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* DeviceInfo::release_sensorname() {
+  // @@protoc_insertion_point(field_release:IntelliSwing.DeviceInfo.sensorName)
+  return sensorname_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void DeviceInfo::set_allocated_sensorname(std::string* sensorname) {
+  if (sensorname != nullptr) {
+    
+  } else {
+    
+  }
+  sensorname_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sensorname,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (sensorname_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    sensorname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:IntelliSwing.DeviceInfo.sensorName)
 }
 
 // -------------------------------------------------------------------

@@ -50,6 +50,21 @@ END_MESSAGE_MAP()
 
 
 // CClientDlg dialog
+class LogHelper
+{
+	std::string m_msg;
+public:
+	LogHelper(std::string msg) : m_msg(msg)
+	{
+		std::cout << m_msg << " S" << std::endl;
+	}
+	~LogHelper()
+	{
+		std::cout << m_msg << " E" << std::endl;
+
+	}
+
+};
 
 
 
@@ -113,7 +128,7 @@ BOOL CClientDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	// TODO: Add extra initialization here
+	// extra initialization 
 
 	std::string target_str = "localhost:50051";
 	std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials());
@@ -183,7 +198,8 @@ HCURSOR CClientDlg::OnQueryDragIcon()
 
 void CClientDlg::OnBnClickedButtonInitialize()
 {
-	// TODO: Add your control notification handler code here
+	LogHelper log(__FUNCTION__);
+
 	grpc::ClientContext context;
 	IntelliSwing::InitializeMsg initMsg;
 	IntelliSwing::ReturnMsg retMsg;
@@ -202,7 +218,7 @@ void CClientDlg::OnBnClickedButtonInitialize()
 
 void CClientDlg::OnBnClickedButtonRelease()
 {
-	// TODO: Add your control notification handler code here
+	LogHelper log(__FUNCTION__);
 	IntelliSwing::ReleaseMsg releaseMsg;
 	IntelliSwing::ReturnMsg retMsg;
 	grpc::ClientContext context;
@@ -222,13 +238,27 @@ void CClientDlg::OnBnClickedButtonRelease()
 
 void CClientDlg::OnBnClickedButtonReboot()
 {
-	// TODO: Add your control notification handler code here
+	LogHelper log(__FUNCTION__);
+	grpc::ClientContext context;
+	IntelliSwing::ReturnMsg retMsg;
+
+	//protobuf::em
+	grpc::Status status = m_uptrStub->Reboot(&context, google::protobuf::Empty(), &retMsg);
+	if (status.ok())
+	{
+		std::cout << "State Return Msg" << retMsg.isok() << std::endl;
+		std::cout << "OnBnClickedButtonReboot OK" << std::endl;
+	}
+	else
+	{
+		std::cout << "OnBnClickedButtonReboot RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
+	}
 }
 
 
 void CClientDlg::OnBnClickedButtonStart()
 {
-	// TODO: Add your control notification handler code here
+	LogHelper log(__FUNCTION__);
 	m_pContext = new grpc::ClientContext();
 
 	IntelliSwing::StartMsg startMsg;
@@ -262,19 +292,59 @@ void CClientDlg::OnBnClickedButtonStart()
 
 void CClientDlg::OnBnClickedButtonStop()
 {
-	// TODO: Add your control notification handler code here
+	LogHelper log(__FUNCTION__);
+	grpc::ClientContext context;
+	IntelliSwing::ReturnMsg retMsg;
+
+	//protobuf::em
+	grpc::Status status = m_uptrStub->Stop(&context, google::protobuf::Empty(), &retMsg);
+	if (status.ok())
+	{
+		std::cout << "State Return Msg" << retMsg.isok() << std::endl;
+		std::cout << "OnBnClickedButtonStop OK" << std::endl;
+	}
+	else
+	{
+		std::cout << "OnBnClickedButtonStop RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
+	}
 }
 
 
 void CClientDlg::OnBnClickedButtonGetClubImg()
 {
-	// TODO: Add your control notification handler code here
+	LogHelper log(__FUNCTION__);
+	grpc::ClientContext context;
+	IntelliSwing::ImageData retMsg;
+	IntelliSwing::ShotImageRequest imageRequest;
+	//protobuf::em
+	grpc::Status status = m_uptrStub->GetClubImage(&context, imageRequest, &retMsg);
+	if (status.ok())
+	{
+		std::cout << "OnBnClickedButtonGetClubImg OK" << std::endl;
+	}
+	else
+	{
+		std::cout << "OnBnClickedButtonStop RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
+	}
 }
 
 
 void CClientDlg::OnBnClickedButtonGetBallImg()
 {
-	// TODO: Add your control notification handler code here
+	LogHelper log(__FUNCTION__);
+	grpc::ClientContext context;
+	IntelliSwing::ImageData retMsg;
+	IntelliSwing::ShotImageRequest imageRequest;
+	//protobuf::em
+	grpc::Status status = m_uptrStub->GetBallImage(&context, imageRequest, &retMsg);
+	if (status.ok())
+	{
+		std::cout << "OnBnClickedButtonGetBallImg OK" << std::endl;
+	}
+	else
+	{
+		std::cout << "OnBnClickedButtonGetBallImg RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
+	}
 }
 
 

@@ -19,7 +19,7 @@ set src=IntelliSwingInterface.proto
 %protoc_path%\protoc.exe %src% --grpc_out=%output_grpc_path% --plugin=protoc-gen-grpc=%grpc_protoc_plugins_path%\grpc_python_plugin.exe --proto_path=.\
 
 
-%protoc_path%\protoc.exe %1 --cpp_out=%output_protobuf_path% --csharp_out=%output_protobuf_path% --python_out=%output_protobuf_path% --proto_path=.\
+%protoc_path%\protoc.exe %src% --cpp_out=%output_protobuf_path% --csharp_out=%output_protobuf_path% --python_out=%output_protobuf_path% --proto_path=.\
 
 
 popd

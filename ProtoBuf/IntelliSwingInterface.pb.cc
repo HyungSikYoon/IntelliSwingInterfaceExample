@@ -45,6 +45,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ReleaseMsgDefaultTypeInternal _
 constexpr StartMsg::StartMsg(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : clubinformation_(0)
+
+  , goundattribution_(0)
 {}
 struct StartMsgDefaultTypeInternal {
   constexpr StartMsgDefaultTypeInternal()
@@ -58,7 +60,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT StartMsgDefaultTypeInternal _St
 constexpr SensorRunningMsg_Ready::SensorRunningMsg_Ready(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : position_(nullptr)
-  , istee_(false){}
+  , istee_(false)
+  , goundattribution_(0)
+{}
 struct SensorRunningMsg_ReadyDefaultTypeInternal {
   constexpr SensorRunningMsg_ReadyDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -69,7 +73,9 @@ struct SensorRunningMsg_ReadyDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SensorRunningMsg_ReadyDefaultTypeInternal _SensorRunningMsg_Ready_default_instance_;
 constexpr SensorRunningMsg_NotReady::SensorRunningMsg_NotReady(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : notreadycause_(0)
+{}
 struct SensorRunningMsg_NotReadyDefaultTypeInternal {
   constexpr SensorRunningMsg_NotReadyDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -96,7 +102,7 @@ constexpr SensorRunningMsg_BallFlightInfo::SensorRunningMsg_BallFlightInfo(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : shotid_(0)
   , ballspeed_(0)
-  , lunchangle_(0)
+  , incidence_(0)
   , direction_(0)
   , backspin_(0)
   , sidespin_(0){}
@@ -109,20 +115,35 @@ struct SensorRunningMsg_BallFlightInfoDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SensorRunningMsg_BallFlightInfoDefaultTypeInternal _SensorRunningMsg_BallFlightInfo_default_instance_;
-constexpr SensorRunningMsg_ClubPathInfo_ClubPath::SensorRunningMsg_ClubPathInfo_ClubPath(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
-struct SensorRunningMsg_ClubPathInfo_ClubPathDefaultTypeInternal {
-  constexpr SensorRunningMsg_ClubPathInfo_ClubPathDefaultTypeInternal()
+constexpr SensorRunningMsg_ClubPathInfo_Path::SensorRunningMsg_ClubPathInfo_Path(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : gaclubpath_(0){}
+struct SensorRunningMsg_ClubPathInfo_PathDefaultTypeInternal {
+  constexpr SensorRunningMsg_ClubPathInfo_PathDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SensorRunningMsg_ClubPathInfo_ClubPathDefaultTypeInternal() {}
+  ~SensorRunningMsg_ClubPathInfo_PathDefaultTypeInternal() {}
   union {
-    SensorRunningMsg_ClubPathInfo_ClubPath _instance;
+    SensorRunningMsg_ClubPathInfo_Path _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SensorRunningMsg_ClubPathInfo_ClubPathDefaultTypeInternal _SensorRunningMsg_ClubPathInfo_ClubPath_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SensorRunningMsg_ClubPathInfo_PathDefaultTypeInternal _SensorRunningMsg_ClubPathInfo_Path_default_instance_;
+constexpr SensorRunningMsg_ClubPathInfo_ImpactPoint::SensorRunningMsg_ClubPathInfo_ImpactPoint(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : gaclubimpactpoint_hor_(0)
+  , gaclubimpactpoint_ver_(0){}
+struct SensorRunningMsg_ClubPathInfo_ImpactPointDefaultTypeInternal {
+  constexpr SensorRunningMsg_ClubPathInfo_ImpactPointDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SensorRunningMsg_ClubPathInfo_ImpactPointDefaultTypeInternal() {}
+  union {
+    SensorRunningMsg_ClubPathInfo_ImpactPoint _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SensorRunningMsg_ClubPathInfo_ImpactPointDefaultTypeInternal _SensorRunningMsg_ClubPathInfo_ImpactPoint_default_instance_;
 constexpr SensorRunningMsg_ClubPathInfo::SensorRunningMsg_ClubPathInfo(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : path_(nullptr)
+  , impactpoint_(nullptr)
   , shotid_(0)
   , headspeed_(0)
   , faceangle_(0)
@@ -219,8 +240,8 @@ struct ImageDataDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImageDataDefaultTypeInternal _ImageData_default_instance_;
 }  // namespace IntelliSwing
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_IntelliSwingInterface_2eproto[15];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_IntelliSwingInterface_2eproto[2];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_IntelliSwingInterface_2eproto[16];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_IntelliSwingInterface_2eproto[4];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_IntelliSwingInterface_2eproto = nullptr;
 
 const uint32_t TableStruct_IntelliSwingInterface_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -245,6 +266,7 @@ const uint32_t TableStruct_IntelliSwingInterface_2eproto::offsets[] PROTOBUF_SEC
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::StartMsg, clubinformation_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::StartMsg, goundattribution_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_Ready, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -253,12 +275,14 @@ const uint32_t TableStruct_IntelliSwingInterface_2eproto::offsets[] PROTOBUF_SEC
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_Ready, position_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_Ready, istee_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_Ready, goundattribution_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_NotReady, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_NotReady, notreadycause_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ShortTriggered, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -275,16 +299,25 @@ const uint32_t TableStruct_IntelliSwingInterface_2eproto::offsets[] PROTOBUF_SEC
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_BallFlightInfo, shotid_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_BallFlightInfo, ballspeed_),
-  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_BallFlightInfo, lunchangle_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_BallFlightInfo, incidence_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_BallFlightInfo, direction_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_BallFlightInfo, backspin_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_BallFlightInfo, sidespin_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_ClubPath, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path, gaclubpath_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint, gaclubimpactpoint_hor_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint, gaclubimpactpoint_ver_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -296,6 +329,7 @@ const uint32_t TableStruct_IntelliSwingInterface_2eproto::offsets[] PROTOBUF_SEC
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo, path_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo, faceangle_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo, attackangle_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo, impactpoint_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_Heartbeat, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -359,18 +393,19 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 0, -1, -1, sizeof(::IntelliSwing::InitializeMsg)},
   { 7, -1, -1, sizeof(::IntelliSwing::ReleaseMsg)},
   { 14, -1, -1, sizeof(::IntelliSwing::StartMsg)},
-  { 21, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_Ready)},
-  { 29, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_NotReady)},
-  { 35, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ShortTriggered)},
-  { 43, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_BallFlightInfo)},
-  { 55, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ClubPathInfo_ClubPath)},
-  { 61, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ClubPathInfo)},
-  { 72, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_Heartbeat)},
-  { 79, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg)},
-  { 93, -1, -1, sizeof(::IntelliSwing::ShotImageRequest)},
-  { 100, -1, -1, sizeof(::IntelliSwing::ImageData_Image_Marker)},
-  { 108, -1, -1, sizeof(::IntelliSwing::ImageData_Image)},
-  { 122, -1, -1, sizeof(::IntelliSwing::ImageData)},
+  { 22, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_Ready)},
+  { 31, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_NotReady)},
+  { 38, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ShortTriggered)},
+  { 46, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_BallFlightInfo)},
+  { 58, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path)},
+  { 65, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint)},
+  { 73, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ClubPathInfo)},
+  { 85, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_Heartbeat)},
+  { 92, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg)},
+  { 106, -1, -1, sizeof(::IntelliSwing::ShotImageRequest)},
+  { 113, -1, -1, sizeof(::IntelliSwing::ImageData_Image_Marker)},
+  { 121, -1, -1, sizeof(::IntelliSwing::ImageData_Image)},
+  { 135, -1, -1, sizeof(::IntelliSwing::ImageData)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -381,7 +416,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_SensorRunningMsg_NotReady_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_SensorRunningMsg_ShortTriggered_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_SensorRunningMsg_BallFlightInfo_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_SensorRunningMsg_ClubPathInfo_ClubPath_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_SensorRunningMsg_ClubPathInfo_Path_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_SensorRunningMsg_ClubPathInfo_ImpactPoint_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_SensorRunningMsg_ClubPathInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_SensorRunningMsg_Heartbeat_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_SensorRunningMsg_default_instance_),
@@ -399,46 +435,59 @@ const char descriptor_table_protodef_IntelliSwingInterface_2eproto[] PROTOBUF_SE
   "g\0222\n\006client\030\004 \001(\0162\".IntelliSwing.Initial"
   "izeMsg.Client\"5\n\006Client\022\007\n\003GDR\020\000\022\013\n\007Next"
   "GDR\020\001\022\n\n\006Vision\020\002\022\t\n\005Ohter\020\003\"\030\n\nReleaseM"
-  "sg\022\n\n\002id\030\001 \001(\005\"\216\002\n\010StartMsg\022\?\n\017clubInfor"
+  "sg\022\n\n\002id\030\001 \001(\005\"\327\002\n\010StartMsg\022\?\n\017clubInfor"
   "mation\030\001 \001(\0162&.IntelliSwing.StartMsg.Clu"
-  "bInformation\"\300\001\n\017ClubInformation\022\006\n\002PT\020\000"
-  "\022\010\n\004Wood\020d\022\006\n\002W1\020e\022\006\n\002W2\020f\022\006\n\002W3\020g\022\006\n\002W4"
-  "\020h\022\006\n\002W5\020i\022\t\n\004Iron\020\310\001\022\007\n\002I3\020\313\001\022\007\n\002I4\020\314\001\022"
-  "\007\n\002I5\020\315\001\022\007\n\002I6\020\316\001\022\007\n\002I7\020\317\001\022\007\n\002I8\020\320\001\022\007\n\002I"
-  "9\020\321\001\022\n\n\005Wedge\020\254\002\022\007\n\002PW\020\266\002\022\007\n\002SW\020\300\002\022\013\n\006Hy"
-  "brid\020\220\003\"\224\007\n\020SensorRunningMsg\022-\n\ttimeStam"
-  "p\030\001 \001(\0132\032.google.protobuf.Timestamp\0225\n\005r"
-  "eady\030\002 \001(\0132$.IntelliSwing.SensorRunningM"
-  "sg.ReadyH\000\022;\n\010notReady\030\003 \001(\0132\'.IntelliSw"
-  "ing.SensorRunningMsg.NotReadyH\000\022F\n\rshotT"
-  "riggered\030\004 \001(\0132-.IntelliSwing.SensorRunn"
-  "ingMsg.ShortTriggeredH\000\022A\n\010ballInfo\030\005 \001("
-  "\0132-.IntelliSwing.SensorRunningMsg.BallFl"
-  "ightInfoH\000\022\?\n\010clubInfo\030\006 \001(\0132+.IntelliSw"
-  "ing.SensorRunningMsg.ClubPathInfoH\000\022=\n\th"
-  "eartBeat\030\007 \001(\0132(.IntelliSwing.SensorRunn"
-  "ingMsg.HeartbeatH\000\032\?\n\005Ready\022\'\n\010position\030"
-  "\001 \001(\0132\025.IntelliSwing.Point3f\022\r\n\005isTee\030\002 "
-  "\001(\010\032\n\n\010NotReady\0323\n\016ShortTriggered\022\016\n\006sho"
-  "tId\030\001 \001(\005\022\021\n\ttimestamp\030\002 \001(\004\032~\n\016BallFlig"
-  "htInfo\022\016\n\006shotId\030\001 \001(\005\022\021\n\tballSpeed\030\002 \001("
-  "\002\022\022\n\nlunchAngle\030\003 \001(\002\022\021\n\tdirection\030\004 \001(\002"
-  "\022\020\n\010backSpin\030\005 \001(\002\022\020\n\010sideSpin\030\006 \001(\002\032\251\001\n"
-  "\014ClubPathInfo\022\016\n\006shotId\030\001 \001(\005\022\021\n\theadSpe"
-  "ed\030\002 \001(\002\022B\n\004path\030\003 \001(\01324.IntelliSwing.Se"
-  "nsorRunningMsg.ClubPathInfo.ClubPath\022\021\n\t"
-  "faceAngle\030\004 \001(\002\022\023\n\013attackAngle\030\005 \001(\002\032\n\n\010"
-  "ClubPath\032\030\n\tHeartbeat\022\013\n\003msg\030\001 \001(\tB\n\n\010ru"
-  "nState\"\"\n\020ShotImageRequest\022\016\n\006shotId\030\001 \001"
-  "(\005\"\323\002\n\tImageData\022&\n\005state\030\001 \001(\0132\027.Intell"
-  "iSwing.ReturnMsg\022-\n\006images\030\002 \003(\0132\035.Intel"
-  "liSwing.ImageData.Image\032\356\001\n\005Image\022\021\n\tima"
-  "geType\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\022\r\n\005width\030\003 \001("
-  "\005\022\016\n\006height\030\004 \001(\005\022\017\n\007channel\030\005 \001(\005\022\020\n\010da"
-  "taType\030\006 \001(\005\022\013\n\003tag\030\007 \001(\t\0225\n\007markers\030\010 \003"
-  "(\0132$.IntelliSwing.ImageData.Image.Marker"
-  "\032>\n\006Marker\022\'\n\010position\030\001 \001(\0132\025.IntelliSw"
-  "ing.Point2i\022\013\n\003tag\030\002 \001(\t2\354\007\n\024IntelliSwin"
+  "bInformation\0222\n\020goundAttribution\030\002 \001(\0162\030"
+  ".IntelliSwing.GroundAttr\"\325\001\n\017ClubInforma"
+  "tion\022\016\n\nNonPutting\020\000\022\013\n\007Putting\020\001\022\010\n\004Woo"
+  "d\020d\022\006\n\002W1\020e\022\006\n\002W2\020f\022\006\n\002W3\020g\022\006\n\002W4\020h\022\006\n\002W"
+  "5\020i\022\t\n\004Iron\020\310\001\022\007\n\002I3\020\313\001\022\007\n\002I4\020\314\001\022\007\n\002I5\020\315"
+  "\001\022\007\n\002I6\020\316\001\022\007\n\002I7\020\317\001\022\007\n\002I8\020\320\001\022\007\n\002I9\020\321\001\022\n\n"
+  "\005Wedge\020\254\002\022\007\n\002PW\020\266\002\022\007\n\002SW\020\300\002\022\013\n\006Hybrid\020\220\003"
+  "\"\215\n\n\020SensorRunningMsg\022-\n\ttimeStamp\030\001 \001(\013"
+  "2\032.google.protobuf.Timestamp\0225\n\005ready\030\002 "
+  "\001(\0132$.IntelliSwing.SensorRunningMsg.Read"
+  "yH\000\022;\n\010notReady\030\003 \001(\0132\'.IntelliSwing.Sen"
+  "sorRunningMsg.NotReadyH\000\022F\n\rshotTriggere"
+  "d\030\004 \001(\0132-.IntelliSwing.SensorRunningMsg."
+  "ShortTriggeredH\000\022A\n\010ballInfo\030\005 \001(\0132-.Int"
+  "elliSwing.SensorRunningMsg.BallFlightInf"
+  "oH\000\022\?\n\010clubInfo\030\006 \001(\0132+.IntelliSwing.Sen"
+  "sorRunningMsg.ClubPathInfoH\000\022=\n\theartBea"
+  "t\030\007 \001(\0132(.IntelliSwing.SensorRunningMsg."
+  "HeartbeatH\000\032s\n\005Ready\022\'\n\010position\030\001 \001(\0132\025"
+  ".IntelliSwing.Point3f\022\r\n\005isTee\030\002 \001(\010\0222\n\020"
+  "goundAttribution\030\003 \001(\0162\030.IntelliSwing.Gr"
+  "oundAttr\032\250\001\n\010NotReady\022L\n\rnotReadyCause\030\001"
+  " \001(\01625.IntelliSwing.SensorRunningMsg.Not"
+  "Ready.NotReadyCause\"N\n\rNotReadyCause\022\016\n\n"
+  "NotDefined\020\000\022\014\n\010OutBound\020\001\022\020\n\014BallNotFou"
+  "nd\020\002\022\r\n\tMultiBall\020\003\0323\n\016ShortTriggered\022\016\n"
+  "\006shotId\030\001 \001(\005\022\021\n\ttimestamp\030\002 \001(\004\032}\n\016Ball"
+  "FlightInfo\022\016\n\006shotId\030\001 \001(\005\022\021\n\tballSpeed\030"
+  "\002 \001(\002\022\021\n\tIncidence\030\003 \001(\002\022\021\n\tdirection\030\004 "
+  "\001(\002\022\020\n\010backSpin\030\005 \001(\002\022\020\n\010sideSpin\030\006 \001(\002\032"
+  "\320\002\n\014ClubPathInfo\022\016\n\006shotId\030\001 \001(\005\022\021\n\thead"
+  "Speed\030\002 \001(\002\022>\n\004path\030\003 \001(\01320.IntelliSwing"
+  ".SensorRunningMsg.ClubPathInfo.Path\022\021\n\tf"
+  "aceAngle\030\004 \001(\002\022\023\n\013attackAngle\030\005 \001(\002\022L\n\013i"
+  "mpactPoint\030\006 \001(\01327.IntelliSwing.SensorRu"
+  "nningMsg.ClubPathInfo.ImpactPoint\032\032\n\004Pat"
+  "h\022\022\n\nGAClubPath\030\001 \001(\002\032K\n\013ImpactPoint\022\035\n\025"
+  "GAClubImpactPoint_Hor\030\001 \001(\002\022\035\n\025GAClubImp"
+  "actPoint_Ver\030\002 \001(\002\032\030\n\tHeartbeat\022\013\n\003msg\030\001"
+  " \001(\tB\n\n\010runState\"\"\n\020ShotImageRequest\022\016\n\006"
+  "shotId\030\001 \001(\005\"\323\002\n\tImageData\022&\n\005state\030\001 \001("
+  "\0132\027.IntelliSwing.ReturnMsg\022-\n\006images\030\002 \003"
+  "(\0132\035.IntelliSwing.ImageData.Image\032\356\001\n\005Im"
+  "age\022\021\n\timageType\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\022\r\n\005"
+  "width\030\003 \001(\005\022\016\n\006height\030\004 \001(\005\022\017\n\007channel\030\005"
+  " \001(\005\022\020\n\010dataType\030\006 \001(\005\022\013\n\003tag\030\007 \001(\t\0225\n\007m"
+  "arkers\030\010 \003(\0132$.IntelliSwing.ImageData.Im"
+  "age.Marker\032>\n\006Marker\022\'\n\010position\030\001 \001(\0132\025"
+  ".IntelliSwing.Point2i\022\013\n\003tag\030\002 \001(\t*D\n\nGr"
+  "oundAttr\022\013\n\007FAIRWAY\020\000\022\t\n\005ROUGH\020\001\022\n\n\006BUNK"
+  "ER\020\002\022\007\n\003TEE\020\003\022\t\n\005GREEN\020\0042\354\007\n\024IntelliSwin"
   "gProtocol\022D\n\nInitialize\022\033.IntelliSwing.I"
   "nitializeMsg\032\027.IntelliSwing.ReturnMsg\"\000\022"
   ">\n\007Release\022\030.IntelliSwing.ReleaseMsg\032\027.I"
@@ -473,8 +522,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_IntelliSwingInterface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_IntelliSwingInterface_2eproto = {
-  false, false, 2879, descriptor_table_protodef_IntelliSwingInterface_2eproto, "IntelliSwingInterface.proto", 
-  &descriptor_table_IntelliSwingInterface_2eproto_once, descriptor_table_IntelliSwingInterface_2eproto_deps, 4, 15,
+  false, false, 3399, descriptor_table_protodef_IntelliSwingInterface_2eproto, "IntelliSwingInterface.proto", 
+  &descriptor_table_IntelliSwingInterface_2eproto_once, descriptor_table_IntelliSwingInterface_2eproto_deps, 4, 16,
   schemas, file_default_instances, TableStruct_IntelliSwingInterface_2eproto::offsets,
   file_level_metadata_IntelliSwingInterface_2eproto, file_level_enum_descriptors_IntelliSwingInterface_2eproto, file_level_service_descriptors_IntelliSwingInterface_2eproto,
 };
@@ -517,6 +566,7 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* StartMsg_ClubInformation_descript
 bool StartMsg_ClubInformation_IsValid(int value) {
   switch (value) {
     case 0:
+    case 1:
     case 100:
     case 101:
     case 102:
@@ -542,7 +592,8 @@ bool StartMsg_ClubInformation_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr StartMsg_ClubInformation StartMsg::PT;
+constexpr StartMsg_ClubInformation StartMsg::NonPutting;
+constexpr StartMsg_ClubInformation StartMsg::Putting;
 constexpr StartMsg_ClubInformation StartMsg::Wood;
 constexpr StartMsg_ClubInformation StartMsg::W1;
 constexpr StartMsg_ClubInformation StartMsg::W2;
@@ -565,6 +616,48 @@ constexpr StartMsg_ClubInformation StartMsg::ClubInformation_MIN;
 constexpr StartMsg_ClubInformation StartMsg::ClubInformation_MAX;
 constexpr int StartMsg::ClubInformation_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SensorRunningMsg_NotReady_NotReadyCause_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_IntelliSwingInterface_2eproto);
+  return file_level_enum_descriptors_IntelliSwingInterface_2eproto[2];
+}
+bool SensorRunningMsg_NotReady_NotReadyCause_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::NotDefined;
+constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::OutBound;
+constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::BallNotFound;
+constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::MultiBall;
+constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::NotReadyCause_MIN;
+constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::NotReadyCause_MAX;
+constexpr int SensorRunningMsg_NotReady::NotReadyCause_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* GroundAttr_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_IntelliSwingInterface_2eproto);
+  return file_level_enum_descriptors_IntelliSwingInterface_2eproto[3];
+}
+bool GroundAttr_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -943,12 +1036,17 @@ StartMsg::StartMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 StartMsg::StartMsg(const StartMsg& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  clubinformation_ = from.clubinformation_;
+  ::memcpy(&clubinformation_, &from.clubinformation_,
+    static_cast<size_t>(reinterpret_cast<char*>(&goundattribution_) -
+    reinterpret_cast<char*>(&clubinformation_)) + sizeof(goundattribution_));
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.StartMsg)
 }
 
 inline void StartMsg::SharedCtor() {
-clubinformation_ = 0;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&clubinformation_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&goundattribution_) -
+    reinterpret_cast<char*>(&clubinformation_)) + sizeof(goundattribution_));
 }
 
 StartMsg::~StartMsg() {
@@ -978,7 +1076,9 @@ void StartMsg::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  clubinformation_ = 0;
+  ::memset(&clubinformation_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&goundattribution_) -
+      reinterpret_cast<char*>(&clubinformation_)) + sizeof(goundattribution_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -994,6 +1094,15 @@ const char* StartMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_clubinformation(static_cast<::IntelliSwing::StartMsg_ClubInformation>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // .IntelliSwing.GroundAttr goundAttribution = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_goundattribution(static_cast<::IntelliSwing::GroundAttr>(val));
         } else
           goto handle_unusual;
         continue;
@@ -1033,6 +1142,13 @@ uint8_t* StartMsg::_InternalSerialize(
       1, this->_internal_clubinformation(), target);
   }
 
+  // .IntelliSwing.GroundAttr goundAttribution = 2;
+  if (this->_internal_goundattribution() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_goundattribution(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1053,6 +1169,12 @@ size_t StartMsg::ByteSizeLong() const {
   if (this->_internal_clubinformation() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_clubinformation());
+  }
+
+  // .IntelliSwing.GroundAttr goundAttribution = 2;
+  if (this->_internal_goundattribution() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_goundattribution());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -1080,6 +1202,9 @@ void StartMsg::MergeFrom(const StartMsg& from) {
   if (from._internal_clubinformation() != 0) {
     _internal_set_clubinformation(from._internal_clubinformation());
   }
+  if (from._internal_goundattribution() != 0) {
+    _internal_set_goundattribution(from._internal_goundattribution());
+  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1097,7 +1222,12 @@ bool StartMsg::IsInitialized() const {
 void StartMsg::InternalSwap(StartMsg* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(clubinformation_, other->clubinformation_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(StartMsg, goundattribution_)
+      + sizeof(StartMsg::goundattribution_)
+      - PROTOBUF_FIELD_OFFSET(StartMsg, clubinformation_)>(
+          reinterpret_cast<char*>(&clubinformation_),
+          reinterpret_cast<char*>(&other->clubinformation_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata StartMsg::GetMetadata() const {
@@ -1140,15 +1270,17 @@ SensorRunningMsg_Ready::SensorRunningMsg_Ready(const SensorRunningMsg_Ready& fro
   } else {
     position_ = nullptr;
   }
-  istee_ = from.istee_;
+  ::memcpy(&istee_, &from.istee_,
+    static_cast<size_t>(reinterpret_cast<char*>(&goundattribution_) -
+    reinterpret_cast<char*>(&istee_)) + sizeof(goundattribution_));
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.Ready)
 }
 
 inline void SensorRunningMsg_Ready::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&position_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&istee_) -
-    reinterpret_cast<char*>(&position_)) + sizeof(istee_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&goundattribution_) -
+    reinterpret_cast<char*>(&position_)) + sizeof(goundattribution_));
 }
 
 SensorRunningMsg_Ready::~SensorRunningMsg_Ready() {
@@ -1183,7 +1315,9 @@ void SensorRunningMsg_Ready::Clear() {
     delete position_;
   }
   position_ = nullptr;
-  istee_ = false;
+  ::memset(&istee_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&goundattribution_) -
+      reinterpret_cast<char*>(&istee_)) + sizeof(goundattribution_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1206,6 +1340,15 @@ const char* SensorRunningMsg_Ready::_InternalParse(const char* ptr, ::PROTOBUF_N
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           istee_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .IntelliSwing.GroundAttr goundAttribution = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_goundattribution(static_cast<::IntelliSwing::GroundAttr>(val));
         } else
           goto handle_unusual;
         continue;
@@ -1252,6 +1395,13 @@ uint8_t* SensorRunningMsg_Ready::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_istee(), target);
   }
 
+  // .IntelliSwing.GroundAttr goundAttribution = 3;
+  if (this->_internal_goundattribution() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_goundattribution(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1278,6 +1428,12 @@ size_t SensorRunningMsg_Ready::ByteSizeLong() const {
   // bool isTee = 2;
   if (this->_internal_istee() != 0) {
     total_size += 1 + 1;
+  }
+
+  // .IntelliSwing.GroundAttr goundAttribution = 3;
+  if (this->_internal_goundattribution() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_goundattribution());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -1308,6 +1464,9 @@ void SensorRunningMsg_Ready::MergeFrom(const SensorRunningMsg_Ready& from) {
   if (from._internal_istee() != 0) {
     _internal_set_istee(from._internal_istee());
   }
+  if (from._internal_goundattribution() != 0) {
+    _internal_set_goundattribution(from._internal_goundattribution());
+  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1326,8 +1485,8 @@ void SensorRunningMsg_Ready::InternalSwap(SensorRunningMsg_Ready* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SensorRunningMsg_Ready, istee_)
-      + sizeof(SensorRunningMsg_Ready::istee_)
+      PROTOBUF_FIELD_OFFSET(SensorRunningMsg_Ready, goundattribution_)
+      + sizeof(SensorRunningMsg_Ready::goundattribution_)
       - PROTOBUF_FIELD_OFFSET(SensorRunningMsg_Ready, position_)>(
           reinterpret_cast<char*>(&position_),
           reinterpret_cast<char*>(&other->position_));
@@ -1347,30 +1506,172 @@ class SensorRunningMsg_NotReady::_Internal {
 
 SensorRunningMsg_NotReady::SensorRunningMsg_NotReady(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:IntelliSwing.SensorRunningMsg.NotReady)
 }
 SensorRunningMsg_NotReady::SensorRunningMsg_NotReady(const SensorRunningMsg_NotReady& from)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  notreadycause_ = from.notreadycause_;
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.NotReady)
 }
 
+inline void SensorRunningMsg_NotReady::SharedCtor() {
+notreadycause_ = 0;
+}
 
+SensorRunningMsg_NotReady::~SensorRunningMsg_NotReady() {
+  // @@protoc_insertion_point(destructor:IntelliSwing.SensorRunningMsg.NotReady)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
 
+inline void SensorRunningMsg_NotReady::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
 
+void SensorRunningMsg_NotReady::ArenaDtor(void* object) {
+  SensorRunningMsg_NotReady* _this = reinterpret_cast< SensorRunningMsg_NotReady* >(object);
+  (void)_this;
+}
+void SensorRunningMsg_NotReady::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SensorRunningMsg_NotReady::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SensorRunningMsg_NotReady::Clear() {
+// @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorRunningMsg.NotReady)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  notreadycause_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SensorRunningMsg_NotReady::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .IntelliSwing.SensorRunningMsg.NotReady.NotReadyCause notReadyCause = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_notreadycause(static_cast<::IntelliSwing::SensorRunningMsg_NotReady_NotReadyCause>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SensorRunningMsg_NotReady::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorRunningMsg.NotReady)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .IntelliSwing.SensorRunningMsg.NotReady.NotReadyCause notReadyCause = 1;
+  if (this->_internal_notreadycause() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_notreadycause(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IntelliSwing.SensorRunningMsg.NotReady)
+  return target;
+}
+
+size_t SensorRunningMsg_NotReady::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorRunningMsg.NotReady)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .IntelliSwing.SensorRunningMsg.NotReady.NotReadyCause notReadyCause = 1;
+  if (this->_internal_notreadycause() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_notreadycause());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SensorRunningMsg_NotReady::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SensorRunningMsg_NotReady::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SensorRunningMsg_NotReady::GetClassData() const { return &_class_data_; }
 
+void SensorRunningMsg_NotReady::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SensorRunningMsg_NotReady *>(to)->MergeFrom(
+      static_cast<const SensorRunningMsg_NotReady &>(from));
+}
 
 
+void SensorRunningMsg_NotReady::MergeFrom(const SensorRunningMsg_NotReady& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorRunningMsg.NotReady)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
 
+  if (from._internal_notreadycause() != 0) {
+    _internal_set_notreadycause(from._internal_notreadycause());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
 
+void SensorRunningMsg_NotReady::CopyFrom(const SensorRunningMsg_NotReady& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IntelliSwing.SensorRunningMsg.NotReady)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
 
+bool SensorRunningMsg_NotReady::IsInitialized() const {
+  return true;
+}
+
+void SensorRunningMsg_NotReady::InternalSwap(SensorRunningMsg_NotReady* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(notreadycause_, other->notreadycause_);
+}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SensorRunningMsg_NotReady::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
@@ -1676,10 +1977,10 @@ const char* SensorRunningMsg_BallFlightInfo::_InternalParse(const char* ptr, ::P
         } else
           goto handle_unusual;
         continue;
-      // float lunchAngle = 3;
+      // float Incidence = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
-          lunchangle_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          incidence_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -1753,14 +2054,14 @@ uint8_t* SensorRunningMsg_BallFlightInfo::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_ballspeed(), target);
   }
 
-  // float lunchAngle = 3;
+  // float Incidence = 3;
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_lunchangle = this->_internal_lunchangle();
-  uint32_t raw_lunchangle;
-  memcpy(&raw_lunchangle, &tmp_lunchangle, sizeof(tmp_lunchangle));
-  if (raw_lunchangle != 0) {
+  float tmp_incidence = this->_internal_incidence();
+  uint32_t raw_incidence;
+  memcpy(&raw_incidence, &tmp_incidence, sizeof(tmp_incidence));
+  if (raw_incidence != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_lunchangle(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_incidence(), target);
   }
 
   // float direction = 4;
@@ -1823,12 +2124,12 @@ size_t SensorRunningMsg_BallFlightInfo::ByteSizeLong() const {
     total_size += 1 + 4;
   }
 
-  // float lunchAngle = 3;
+  // float Incidence = 3;
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_lunchangle = this->_internal_lunchangle();
-  uint32_t raw_lunchangle;
-  memcpy(&raw_lunchangle, &tmp_lunchangle, sizeof(tmp_lunchangle));
-  if (raw_lunchangle != 0) {
+  float tmp_incidence = this->_internal_incidence();
+  uint32_t raw_incidence;
+  memcpy(&raw_incidence, &tmp_incidence, sizeof(tmp_incidence));
+  if (raw_incidence != 0) {
     total_size += 1 + 4;
   }
 
@@ -1892,11 +2193,11 @@ void SensorRunningMsg_BallFlightInfo::MergeFrom(const SensorRunningMsg_BallFligh
     _internal_set_ballspeed(from._internal_ballspeed());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_lunchangle = from._internal_lunchangle();
-  uint32_t raw_lunchangle;
-  memcpy(&raw_lunchangle, &tmp_lunchangle, sizeof(tmp_lunchangle));
-  if (raw_lunchangle != 0) {
-    _internal_set_lunchangle(from._internal_lunchangle());
+  float tmp_incidence = from._internal_incidence();
+  uint32_t raw_incidence;
+  memcpy(&raw_incidence, &tmp_incidence, sizeof(tmp_incidence));
+  if (raw_incidence != 0) {
+    _internal_set_incidence(from._internal_incidence());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
   float tmp_direction = from._internal_direction();
@@ -1952,38 +2253,189 @@ void SensorRunningMsg_BallFlightInfo::InternalSwap(SensorRunningMsg_BallFlightIn
 
 // ===================================================================
 
-class SensorRunningMsg_ClubPathInfo_ClubPath::_Internal {
+class SensorRunningMsg_ClubPathInfo_Path::_Internal {
  public:
 };
 
-SensorRunningMsg_ClubPathInfo_ClubPath::SensorRunningMsg_ClubPathInfo_ClubPath(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+SensorRunningMsg_ClubPathInfo_Path::SensorRunningMsg_ClubPathInfo_Path(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
-  // @@protoc_insertion_point(arena_constructor:IntelliSwing.SensorRunningMsg.ClubPathInfo.ClubPath)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
 }
-SensorRunningMsg_ClubPathInfo_ClubPath::SensorRunningMsg_ClubPathInfo_ClubPath(const SensorRunningMsg_ClubPathInfo_ClubPath& from)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+SensorRunningMsg_ClubPathInfo_Path::SensorRunningMsg_ClubPathInfo_Path(const SensorRunningMsg_ClubPathInfo_Path& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.ClubPathInfo.ClubPath)
+  gaclubpath_ = from.gaclubpath_;
+  // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
+}
+
+inline void SensorRunningMsg_ClubPathInfo_Path::SharedCtor() {
+gaclubpath_ = 0;
+}
+
+SensorRunningMsg_ClubPathInfo_Path::~SensorRunningMsg_ClubPathInfo_Path() {
+  // @@protoc_insertion_point(destructor:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SensorRunningMsg_ClubPathInfo_Path::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SensorRunningMsg_ClubPathInfo_Path::ArenaDtor(void* object) {
+  SensorRunningMsg_ClubPathInfo_Path* _this = reinterpret_cast< SensorRunningMsg_ClubPathInfo_Path* >(object);
+  (void)_this;
+}
+void SensorRunningMsg_ClubPathInfo_Path::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SensorRunningMsg_ClubPathInfo_Path::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SensorRunningMsg_ClubPathInfo_Path::Clear() {
+// @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  gaclubpath_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SensorRunningMsg_ClubPathInfo_Path::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // float GAClubPath = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 13)) {
+          gaclubpath_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SensorRunningMsg_ClubPathInfo_Path::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // float GAClubPath = 1;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_gaclubpath = this->_internal_gaclubpath();
+  uint32_t raw_gaclubpath;
+  memcpy(&raw_gaclubpath, &tmp_gaclubpath, sizeof(tmp_gaclubpath));
+  if (raw_gaclubpath != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_gaclubpath(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
+  return target;
+}
+
+size_t SensorRunningMsg_ClubPathInfo_Path::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // float GAClubPath = 1;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_gaclubpath = this->_internal_gaclubpath();
+  uint32_t raw_gaclubpath;
+  memcpy(&raw_gaclubpath, &tmp_gaclubpath, sizeof(tmp_gaclubpath));
+  if (raw_gaclubpath != 0) {
+    total_size += 1 + 4;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SensorRunningMsg_ClubPathInfo_Path::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SensorRunningMsg_ClubPathInfo_Path::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SensorRunningMsg_ClubPathInfo_Path::GetClassData() const { return &_class_data_; }
+
+void SensorRunningMsg_ClubPathInfo_Path::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SensorRunningMsg_ClubPathInfo_Path *>(to)->MergeFrom(
+      static_cast<const SensorRunningMsg_ClubPathInfo_Path &>(from));
 }
 
 
+void SensorRunningMsg_ClubPathInfo_Path::MergeFrom(const SensorRunningMsg_ClubPathInfo_Path& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
 
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_gaclubpath = from._internal_gaclubpath();
+  uint32_t raw_gaclubpath;
+  memcpy(&raw_gaclubpath, &tmp_gaclubpath, sizeof(tmp_gaclubpath));
+  if (raw_gaclubpath != 0) {
+    _internal_set_gaclubpath(from._internal_gaclubpath());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
 
+void SensorRunningMsg_ClubPathInfo_Path::CopyFrom(const SensorRunningMsg_ClubPathInfo_Path& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SensorRunningMsg_ClubPathInfo_ClubPath::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SensorRunningMsg_ClubPathInfo_ClubPath::GetClassData() const { return &_class_data_; }
+bool SensorRunningMsg_ClubPathInfo_Path::IsInitialized() const {
+  return true;
+}
 
+void SensorRunningMsg_ClubPathInfo_Path::InternalSwap(SensorRunningMsg_ClubPathInfo_Path* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(gaclubpath_, other->gaclubpath_);
+}
 
-
-
-
-
-
-::PROTOBUF_NAMESPACE_ID::Metadata SensorRunningMsg_ClubPathInfo_ClubPath::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata SensorRunningMsg_ClubPathInfo_Path::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
       file_level_metadata_IntelliSwingInterface_2eproto[7]);
@@ -1991,14 +2443,255 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SensorRunningMsg_ClubPathInfo_
 
 // ===================================================================
 
-class SensorRunningMsg_ClubPathInfo::_Internal {
+class SensorRunningMsg_ClubPathInfo_ImpactPoint::_Internal {
  public:
-  static const ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ClubPath& path(const SensorRunningMsg_ClubPathInfo* msg);
 };
 
-const ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ClubPath&
+SensorRunningMsg_ClubPathInfo_ImpactPoint::SensorRunningMsg_ClubPathInfo_ImpactPoint(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
+}
+SensorRunningMsg_ClubPathInfo_ImpactPoint::SensorRunningMsg_ClubPathInfo_ImpactPoint(const SensorRunningMsg_ClubPathInfo_ImpactPoint& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&gaclubimpactpoint_hor_, &from.gaclubimpactpoint_hor_,
+    static_cast<size_t>(reinterpret_cast<char*>(&gaclubimpactpoint_ver_) -
+    reinterpret_cast<char*>(&gaclubimpactpoint_hor_)) + sizeof(gaclubimpactpoint_ver_));
+  // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
+}
+
+inline void SensorRunningMsg_ClubPathInfo_ImpactPoint::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&gaclubimpactpoint_hor_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&gaclubimpactpoint_ver_) -
+    reinterpret_cast<char*>(&gaclubimpactpoint_hor_)) + sizeof(gaclubimpactpoint_ver_));
+}
+
+SensorRunningMsg_ClubPathInfo_ImpactPoint::~SensorRunningMsg_ClubPathInfo_ImpactPoint() {
+  // @@protoc_insertion_point(destructor:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SensorRunningMsg_ClubPathInfo_ImpactPoint::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SensorRunningMsg_ClubPathInfo_ImpactPoint::ArenaDtor(void* object) {
+  SensorRunningMsg_ClubPathInfo_ImpactPoint* _this = reinterpret_cast< SensorRunningMsg_ClubPathInfo_ImpactPoint* >(object);
+  (void)_this;
+}
+void SensorRunningMsg_ClubPathInfo_ImpactPoint::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SensorRunningMsg_ClubPathInfo_ImpactPoint::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SensorRunningMsg_ClubPathInfo_ImpactPoint::Clear() {
+// @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&gaclubimpactpoint_hor_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&gaclubimpactpoint_ver_) -
+      reinterpret_cast<char*>(&gaclubimpactpoint_hor_)) + sizeof(gaclubimpactpoint_ver_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SensorRunningMsg_ClubPathInfo_ImpactPoint::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // float GAClubImpactPoint_Hor = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 13)) {
+          gaclubimpactpoint_hor_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // float GAClubImpactPoint_Ver = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
+          gaclubimpactpoint_ver_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SensorRunningMsg_ClubPathInfo_ImpactPoint::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // float GAClubImpactPoint_Hor = 1;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_gaclubimpactpoint_hor = this->_internal_gaclubimpactpoint_hor();
+  uint32_t raw_gaclubimpactpoint_hor;
+  memcpy(&raw_gaclubimpactpoint_hor, &tmp_gaclubimpactpoint_hor, sizeof(tmp_gaclubimpactpoint_hor));
+  if (raw_gaclubimpactpoint_hor != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_gaclubimpactpoint_hor(), target);
+  }
+
+  // float GAClubImpactPoint_Ver = 2;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_gaclubimpactpoint_ver = this->_internal_gaclubimpactpoint_ver();
+  uint32_t raw_gaclubimpactpoint_ver;
+  memcpy(&raw_gaclubimpactpoint_ver, &tmp_gaclubimpactpoint_ver, sizeof(tmp_gaclubimpactpoint_ver));
+  if (raw_gaclubimpactpoint_ver != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_gaclubimpactpoint_ver(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
+  return target;
+}
+
+size_t SensorRunningMsg_ClubPathInfo_ImpactPoint::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // float GAClubImpactPoint_Hor = 1;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_gaclubimpactpoint_hor = this->_internal_gaclubimpactpoint_hor();
+  uint32_t raw_gaclubimpactpoint_hor;
+  memcpy(&raw_gaclubimpactpoint_hor, &tmp_gaclubimpactpoint_hor, sizeof(tmp_gaclubimpactpoint_hor));
+  if (raw_gaclubimpactpoint_hor != 0) {
+    total_size += 1 + 4;
+  }
+
+  // float GAClubImpactPoint_Ver = 2;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_gaclubimpactpoint_ver = this->_internal_gaclubimpactpoint_ver();
+  uint32_t raw_gaclubimpactpoint_ver;
+  memcpy(&raw_gaclubimpactpoint_ver, &tmp_gaclubimpactpoint_ver, sizeof(tmp_gaclubimpactpoint_ver));
+  if (raw_gaclubimpactpoint_ver != 0) {
+    total_size += 1 + 4;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SensorRunningMsg_ClubPathInfo_ImpactPoint::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SensorRunningMsg_ClubPathInfo_ImpactPoint::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SensorRunningMsg_ClubPathInfo_ImpactPoint::GetClassData() const { return &_class_data_; }
+
+void SensorRunningMsg_ClubPathInfo_ImpactPoint::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SensorRunningMsg_ClubPathInfo_ImpactPoint *>(to)->MergeFrom(
+      static_cast<const SensorRunningMsg_ClubPathInfo_ImpactPoint &>(from));
+}
+
+
+void SensorRunningMsg_ClubPathInfo_ImpactPoint::MergeFrom(const SensorRunningMsg_ClubPathInfo_ImpactPoint& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_gaclubimpactpoint_hor = from._internal_gaclubimpactpoint_hor();
+  uint32_t raw_gaclubimpactpoint_hor;
+  memcpy(&raw_gaclubimpactpoint_hor, &tmp_gaclubimpactpoint_hor, sizeof(tmp_gaclubimpactpoint_hor));
+  if (raw_gaclubimpactpoint_hor != 0) {
+    _internal_set_gaclubimpactpoint_hor(from._internal_gaclubimpactpoint_hor());
+  }
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_gaclubimpactpoint_ver = from._internal_gaclubimpactpoint_ver();
+  uint32_t raw_gaclubimpactpoint_ver;
+  memcpy(&raw_gaclubimpactpoint_ver, &tmp_gaclubimpactpoint_ver, sizeof(tmp_gaclubimpactpoint_ver));
+  if (raw_gaclubimpactpoint_ver != 0) {
+    _internal_set_gaclubimpactpoint_ver(from._internal_gaclubimpactpoint_ver());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SensorRunningMsg_ClubPathInfo_ImpactPoint::CopyFrom(const SensorRunningMsg_ClubPathInfo_ImpactPoint& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SensorRunningMsg_ClubPathInfo_ImpactPoint::IsInitialized() const {
+  return true;
+}
+
+void SensorRunningMsg_ClubPathInfo_ImpactPoint::InternalSwap(SensorRunningMsg_ClubPathInfo_ImpactPoint* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SensorRunningMsg_ClubPathInfo_ImpactPoint, gaclubimpactpoint_ver_)
+      + sizeof(SensorRunningMsg_ClubPathInfo_ImpactPoint::gaclubimpactpoint_ver_)
+      - PROTOBUF_FIELD_OFFSET(SensorRunningMsg_ClubPathInfo_ImpactPoint, gaclubimpactpoint_hor_)>(
+          reinterpret_cast<char*>(&gaclubimpactpoint_hor_),
+          reinterpret_cast<char*>(&other->gaclubimpactpoint_hor_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SensorRunningMsg_ClubPathInfo_ImpactPoint::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
+      file_level_metadata_IntelliSwingInterface_2eproto[8]);
+}
+
+// ===================================================================
+
+class SensorRunningMsg_ClubPathInfo::_Internal {
+ public:
+  static const ::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path& path(const SensorRunningMsg_ClubPathInfo* msg);
+  static const ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint& impactpoint(const SensorRunningMsg_ClubPathInfo* msg);
+};
+
+const ::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path&
 SensorRunningMsg_ClubPathInfo::_Internal::path(const SensorRunningMsg_ClubPathInfo* msg) {
   return *msg->path_;
+}
+const ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint&
+SensorRunningMsg_ClubPathInfo::_Internal::impactpoint(const SensorRunningMsg_ClubPathInfo* msg) {
+  return *msg->impactpoint_;
 }
 SensorRunningMsg_ClubPathInfo::SensorRunningMsg_ClubPathInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -2013,9 +2706,14 @@ SensorRunningMsg_ClubPathInfo::SensorRunningMsg_ClubPathInfo(const SensorRunning
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_path()) {
-    path_ = new ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ClubPath(*from.path_);
+    path_ = new ::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path(*from.path_);
   } else {
     path_ = nullptr;
+  }
+  if (from._internal_has_impactpoint()) {
+    impactpoint_ = new ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint(*from.impactpoint_);
+  } else {
+    impactpoint_ = nullptr;
   }
   ::memcpy(&shotid_, &from.shotid_,
     static_cast<size_t>(reinterpret_cast<char*>(&attackangle_) -
@@ -2040,6 +2738,7 @@ SensorRunningMsg_ClubPathInfo::~SensorRunningMsg_ClubPathInfo() {
 inline void SensorRunningMsg_ClubPathInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete path_;
+  if (this != internal_default_instance()) delete impactpoint_;
 }
 
 void SensorRunningMsg_ClubPathInfo::ArenaDtor(void* object) {
@@ -2062,6 +2761,10 @@ void SensorRunningMsg_ClubPathInfo::Clear() {
     delete path_;
   }
   path_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && impactpoint_ != nullptr) {
+    delete impactpoint_;
+  }
+  impactpoint_ = nullptr;
   ::memset(&shotid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&attackangle_) -
       reinterpret_cast<char*>(&shotid_)) + sizeof(attackangle_));
@@ -2090,7 +2793,7 @@ const char* SensorRunningMsg_ClubPathInfo::_InternalParse(const char* ptr, ::PRO
         } else
           goto handle_unusual;
         continue;
-      // .IntelliSwing.SensorRunningMsg.ClubPathInfo.ClubPath path = 3;
+      // .IntelliSwing.SensorRunningMsg.ClubPathInfo.Path path = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_path(), ptr);
@@ -2111,6 +2814,14 @@ const char* SensorRunningMsg_ClubPathInfo::_InternalParse(const char* ptr, ::PRO
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 45)) {
           attackangle_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // .IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint impactPoint = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_impactpoint(), ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -2159,7 +2870,7 @@ uint8_t* SensorRunningMsg_ClubPathInfo::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_headspeed(), target);
   }
 
-  // .IntelliSwing.SensorRunningMsg.ClubPathInfo.ClubPath path = 3;
+  // .IntelliSwing.SensorRunningMsg.ClubPathInfo.Path path = 3;
   if (this->_internal_has_path()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2187,6 +2898,14 @@ uint8_t* SensorRunningMsg_ClubPathInfo::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_attackangle(), target);
   }
 
+  // .IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint impactPoint = 6;
+  if (this->_internal_has_impactpoint()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::impactpoint(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2203,11 +2922,18 @@ size_t SensorRunningMsg_ClubPathInfo::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .IntelliSwing.SensorRunningMsg.ClubPathInfo.ClubPath path = 3;
+  // .IntelliSwing.SensorRunningMsg.ClubPathInfo.Path path = 3;
   if (this->_internal_has_path()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *path_);
+  }
+
+  // .IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint impactPoint = 6;
+  if (this->_internal_has_impactpoint()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *impactpoint_);
   }
 
   // int32 shotId = 1;
@@ -2265,7 +2991,10 @@ void SensorRunningMsg_ClubPathInfo::MergeFrom(const SensorRunningMsg_ClubPathInf
   (void) cached_has_bits;
 
   if (from._internal_has_path()) {
-    _internal_mutable_path()->::IntelliSwing::SensorRunningMsg_ClubPathInfo_ClubPath::MergeFrom(from._internal_path());
+    _internal_mutable_path()->::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path::MergeFrom(from._internal_path());
+  }
+  if (from._internal_has_impactpoint()) {
+    _internal_mutable_impactpoint()->::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint::MergeFrom(from._internal_impactpoint());
   }
   if (from._internal_shotid() != 0) {
     _internal_set_shotid(from._internal_shotid());
@@ -2319,7 +3048,7 @@ void SensorRunningMsg_ClubPathInfo::InternalSwap(SensorRunningMsg_ClubPathInfo* 
 ::PROTOBUF_NAMESPACE_ID::Metadata SensorRunningMsg_ClubPathInfo::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
-      file_level_metadata_IntelliSwingInterface_2eproto[8]);
+      file_level_metadata_IntelliSwingInterface_2eproto[9]);
 }
 
 // ===================================================================
@@ -2522,7 +3251,7 @@ void SensorRunningMsg_Heartbeat::InternalSwap(SensorRunningMsg_Heartbeat* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata SensorRunningMsg_Heartbeat::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
-      file_level_metadata_IntelliSwingInterface_2eproto[9]);
+      file_level_metadata_IntelliSwingInterface_2eproto[10]);
 }
 
 // ===================================================================
@@ -3099,7 +3828,7 @@ void SensorRunningMsg::InternalSwap(SensorRunningMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SensorRunningMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
-      file_level_metadata_IntelliSwingInterface_2eproto[10]);
+      file_level_metadata_IntelliSwingInterface_2eproto[11]);
 }
 
 // ===================================================================
@@ -3277,7 +4006,7 @@ void ShotImageRequest::InternalSwap(ShotImageRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ShotImageRequest::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
-      file_level_metadata_IntelliSwingInterface_2eproto[11]);
+      file_level_metadata_IntelliSwingInterface_2eproto[12]);
 }
 
 // ===================================================================
@@ -3529,7 +4258,7 @@ void ImageData_Image_Marker::InternalSwap(ImageData_Image_Marker* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageData_Image_Marker::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
-      file_level_metadata_IntelliSwingInterface_2eproto[12]);
+      file_level_metadata_IntelliSwingInterface_2eproto[13]);
 }
 
 // ===================================================================
@@ -3935,7 +4664,7 @@ void ImageData_Image::InternalSwap(ImageData_Image* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageData_Image::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
-      file_level_metadata_IntelliSwingInterface_2eproto[13]);
+      file_level_metadata_IntelliSwingInterface_2eproto[14]);
 }
 
 // ===================================================================
@@ -4169,7 +4898,7 @@ void ImageData::InternalSwap(ImageData* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageData::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
-      file_level_metadata_IntelliSwingInterface_2eproto[14]);
+      file_level_metadata_IntelliSwingInterface_2eproto[15]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -4196,8 +4925,11 @@ template<> PROTOBUF_NOINLINE ::IntelliSwing::SensorRunningMsg_ShortTriggered* Ar
 template<> PROTOBUF_NOINLINE ::IntelliSwing::SensorRunningMsg_BallFlightInfo* Arena::CreateMaybeMessage< ::IntelliSwing::SensorRunningMsg_BallFlightInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IntelliSwing::SensorRunningMsg_BallFlightInfo >(arena);
 }
-template<> PROTOBUF_NOINLINE ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ClubPath* Arena::CreateMaybeMessage< ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ClubPath >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ClubPath >(arena);
+template<> PROTOBUF_NOINLINE ::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path* Arena::CreateMaybeMessage< ::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint* Arena::CreateMaybeMessage< ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint >(arena);
 }
 template<> PROTOBUF_NOINLINE ::IntelliSwing::SensorRunningMsg_ClubPathInfo* Arena::CreateMaybeMessage< ::IntelliSwing::SensorRunningMsg_ClubPathInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IntelliSwing::SensorRunningMsg_ClubPathInfo >(arena);

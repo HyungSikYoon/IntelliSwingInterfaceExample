@@ -25,25 +25,26 @@ namespace IntelliSwing {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChlJbnRlbGxpU3dpbmdTZXJ2aWNlLnByb3RvEgxJbnRlbGxpU3dpbmcaCnR5",
-            "cGUucHJvdG8iWwoKRGV2aWNlSW5mbxIRCglkZXZpY2VWZXIYASABKAkSDwoH",
+            "cGUucHJvdG8ibwoKRGV2aWNlSW5mbxIRCglkZXZpY2VWZXIYASABKAkSDwoH",
             "ZnBnYVZlchgCIAEoCRITCgtzb2Z0d2FyZVZlchgDIAEoCRIUCgxzZXJpYWxO",
-            "dW1iZXIYBCABKAkimgEKDERpdmljZVN0YXR1cxIsCgtzZW5zb3JTdGF0ZRgB",
-            "IAMoCzIXLkludGVsbGlTd2luZy5SZXR1cm5Nc2cSLAoLc3lzdGVtU3RhdGUY",
-            "AiABKAsyFy5JbnRlbGxpU3dpbmcuUmV0dXJuTXNnEhkKEWRldmljZVRlbXBl",
-            "cmF0dXJlGAUgASgCEhMKC2JhdHRlcnlJbmZvGAYgASgCIj0KCkxvZ1JlcXVl",
-            "c3QSEwoLc3lzdGVtUmFuZ2UYASABKAUSGgoScHJvY2Vzc2luZ0xvZ3Jhbmdl",
-            "GAIgASgFIjYKCkxvZ01lc3NhZ2USEQoJc3lzdGVtTG9nGAEgAygJEhUKDXBy",
-            "b2Nlc3NpbmdMb2cYAiADKAkiJgoQU2Vuc29yU3RhdGlzdGljcxISCgpzaG90",
-            "X2NvdW50GAEgASgFIj8KFVNpdGVDYWxpYnJhdGlvblJlc3VsdBImCgVzdGF0",
-            "ZRgBIAEoCzIXLkludGVsbGlTd2luZy5SZXR1cm5Nc2ciOAoIRmlybXdhcmUS",
-            "FgoOc2Vuc29yRmlybXdhcmUYASABKAwSFAoMZnBnYUZpcm13YXJlGAIgASgM",
-            "Im0KFFVwZGF0ZUZpcm13YXJlUmVzdWx0EioKCUZwZ2FTdGF0ZRgBIAEoCzIX",
-            "LkludGVsbGlTd2luZy5SZXR1cm5Nc2cSKQoIU2Vuc29yU1cYAiABKAsyFy5J",
-            "bnRlbGxpU3dpbmcuUmV0dXJuTXNnYgZwcm90bzM="));
+            "dW1iZXIYBCABKAkSEgoKc2Vuc29yTmFtZRgFIAEoCSKaAQoMRGl2aWNlU3Rh",
+            "dHVzEiwKC3NlbnNvclN0YXRlGAEgAygLMhcuSW50ZWxsaVN3aW5nLlJldHVy",
+            "bk1zZxIsCgtzeXN0ZW1TdGF0ZRgCIAEoCzIXLkludGVsbGlTd2luZy5SZXR1",
+            "cm5Nc2cSGQoRZGV2aWNlVGVtcGVyYXR1cmUYBSABKAISEwoLYmF0dGVyeUlu",
+            "Zm8YBiABKAIiPQoKTG9nUmVxdWVzdBITCgtzeXN0ZW1SYW5nZRgBIAEoBRIa",
+            "ChJwcm9jZXNzaW5nTG9ncmFuZ2UYAiABKAUiNgoKTG9nTWVzc2FnZRIRCglz",
+            "eXN0ZW1Mb2cYASADKAkSFQoNcHJvY2Vzc2luZ0xvZxgCIAMoCSImChBTZW5z",
+            "b3JTdGF0aXN0aWNzEhIKCnNob3RfY291bnQYASABKAUiPwoVU2l0ZUNhbGli",
+            "cmF0aW9uUmVzdWx0EiYKBXN0YXRlGAEgASgLMhcuSW50ZWxsaVN3aW5nLlJl",
+            "dHVybk1zZyI4CghGaXJtd2FyZRIWCg5zZW5zb3JGaXJtd2FyZRgBIAEoDBIU",
+            "CgxmcGdhRmlybXdhcmUYAiABKAwibQoUVXBkYXRlRmlybXdhcmVSZXN1bHQS",
+            "KgoJRnBnYVN0YXRlGAEgASgLMhcuSW50ZWxsaVN3aW5nLlJldHVybk1zZxIp",
+            "CghTZW5zb3JTVxgCIAEoCzIXLkludGVsbGlTd2luZy5SZXR1cm5Nc2diBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::IntelliSwing.TypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.DeviceInfo), global::IntelliSwing.DeviceInfo.Parser, new[]{ "DeviceVer", "FpgaVer", "SoftwareVer", "SerialNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.DeviceInfo), global::IntelliSwing.DeviceInfo.Parser, new[]{ "DeviceVer", "FpgaVer", "SoftwareVer", "SerialNumber", "SensorName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.DiviceStatus), global::IntelliSwing.DiviceStatus.Parser, new[]{ "SensorState", "SystemState", "DeviceTemperature", "BatteryInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.LogRequest), global::IntelliSwing.LogRequest.Parser, new[]{ "SystemRange", "ProcessingLogrange" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.LogMessage), global::IntelliSwing.LogMessage.Parser, new[]{ "SystemLog", "ProcessingLog" }, null, null, null, null),
@@ -95,6 +96,7 @@ namespace IntelliSwing {
       fpgaVer_ = other.fpgaVer_;
       softwareVer_ = other.softwareVer_;
       serialNumber_ = other.serialNumber_;
+      sensorName_ = other.sensorName_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -152,6 +154,18 @@ namespace IntelliSwing {
       }
     }
 
+    /// <summary>Field number for the "sensorName" field.</summary>
+    public const int SensorNameFieldNumber = 5;
+    private string sensorName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SensorName {
+      get { return sensorName_; }
+      set {
+        sensorName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -171,6 +185,7 @@ namespace IntelliSwing {
       if (FpgaVer != other.FpgaVer) return false;
       if (SoftwareVer != other.SoftwareVer) return false;
       if (SerialNumber != other.SerialNumber) return false;
+      if (SensorName != other.SensorName) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -182,6 +197,7 @@ namespace IntelliSwing {
       if (FpgaVer.Length != 0) hash ^= FpgaVer.GetHashCode();
       if (SoftwareVer.Length != 0) hash ^= SoftwareVer.GetHashCode();
       if (SerialNumber.Length != 0) hash ^= SerialNumber.GetHashCode();
+      if (SensorName.Length != 0) hash ^= SensorName.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -216,6 +232,10 @@ namespace IntelliSwing {
         output.WriteRawTag(34);
         output.WriteString(SerialNumber);
       }
+      if (SensorName.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(SensorName);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -242,6 +262,10 @@ namespace IntelliSwing {
         output.WriteRawTag(34);
         output.WriteString(SerialNumber);
       }
+      if (SensorName.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(SensorName);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -263,6 +287,9 @@ namespace IntelliSwing {
       }
       if (SerialNumber.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SerialNumber);
+      }
+      if (SensorName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SensorName);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -287,6 +314,9 @@ namespace IntelliSwing {
       }
       if (other.SerialNumber.Length != 0) {
         SerialNumber = other.SerialNumber;
+      }
+      if (other.SensorName.Length != 0) {
+        SensorName = other.SensorName;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -319,6 +349,10 @@ namespace IntelliSwing {
             SerialNumber = input.ReadString();
             break;
           }
+          case 42: {
+            SensorName = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -348,6 +382,10 @@ namespace IntelliSwing {
           }
           case 34: {
             SerialNumber = input.ReadString();
+            break;
+          }
+          case 42: {
+            SensorName = input.ReadString();
             break;
           }
         }

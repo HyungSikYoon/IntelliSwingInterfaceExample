@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 import type_pb2 as type__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19IntelliSwingService.proto\x12\x0cIntelliSwing\x1a\ntype.proto\"[\n\nDeviceInfo\x12\x11\n\tdeviceVer\x18\x01 \x01(\t\x12\x0f\n\x07\x66pgaVer\x18\x02 \x01(\t\x12\x13\n\x0bsoftwareVer\x18\x03 \x01(\t\x12\x14\n\x0cserialNumber\x18\x04 \x01(\t\"\x9a\x01\n\x0c\x44iviceStatus\x12,\n\x0bsensorState\x18\x01 \x03(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12,\n\x0bsystemState\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12\x19\n\x11\x64\x65viceTemperature\x18\x05 \x01(\x02\x12\x13\n\x0b\x62\x61tteryInfo\x18\x06 \x01(\x02\"=\n\nLogRequest\x12\x13\n\x0bsystemRange\x18\x01 \x01(\x05\x12\x1a\n\x12processingLogrange\x18\x02 \x01(\x05\"6\n\nLogMessage\x12\x11\n\tsystemLog\x18\x01 \x03(\t\x12\x15\n\rprocessingLog\x18\x02 \x03(\t\"&\n\x10SensorStatistics\x12\x12\n\nshot_count\x18\x01 \x01(\x05\"?\n\x15SiteCalibrationResult\x12&\n\x05state\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\"8\n\x08\x46irmware\x12\x16\n\x0esensorFirmware\x18\x01 \x01(\x0c\x12\x14\n\x0c\x66pgaFirmware\x18\x02 \x01(\x0c\"m\n\x14UpdateFirmwareResult\x12*\n\tFpgaState\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12)\n\x08SensorSW\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsgb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19IntelliSwingService.proto\x12\x0cIntelliSwing\x1a\ntype.proto\"o\n\nDeviceInfo\x12\x11\n\tdeviceVer\x18\x01 \x01(\t\x12\x0f\n\x07\x66pgaVer\x18\x02 \x01(\t\x12\x13\n\x0bsoftwareVer\x18\x03 \x01(\t\x12\x14\n\x0cserialNumber\x18\x04 \x01(\t\x12\x12\n\nsensorName\x18\x05 \x01(\t\"\x9a\x01\n\x0c\x44iviceStatus\x12,\n\x0bsensorState\x18\x01 \x03(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12,\n\x0bsystemState\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12\x19\n\x11\x64\x65viceTemperature\x18\x05 \x01(\x02\x12\x13\n\x0b\x62\x61tteryInfo\x18\x06 \x01(\x02\"=\n\nLogRequest\x12\x13\n\x0bsystemRange\x18\x01 \x01(\x05\x12\x1a\n\x12processingLogrange\x18\x02 \x01(\x05\"6\n\nLogMessage\x12\x11\n\tsystemLog\x18\x01 \x03(\t\x12\x15\n\rprocessingLog\x18\x02 \x03(\t\"&\n\x10SensorStatistics\x12\x12\n\nshot_count\x18\x01 \x01(\x05\"?\n\x15SiteCalibrationResult\x12&\n\x05state\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\"8\n\x08\x46irmware\x12\x16\n\x0esensorFirmware\x18\x01 \x01(\x0c\x12\x14\n\x0c\x66pgaFirmware\x18\x02 \x01(\x0c\"m\n\x14UpdateFirmwareResult\x12*\n\tFpgaState\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12)\n\x08SensorSW\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsgb\x06proto3')
 
 
 
@@ -87,19 +87,19 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _DEVICEINFO._serialized_start=55
-  _DEVICEINFO._serialized_end=146
-  _DIVICESTATUS._serialized_start=149
-  _DIVICESTATUS._serialized_end=303
-  _LOGREQUEST._serialized_start=305
-  _LOGREQUEST._serialized_end=366
-  _LOGMESSAGE._serialized_start=368
-  _LOGMESSAGE._serialized_end=422
-  _SENSORSTATISTICS._serialized_start=424
-  _SENSORSTATISTICS._serialized_end=462
-  _SITECALIBRATIONRESULT._serialized_start=464
-  _SITECALIBRATIONRESULT._serialized_end=527
-  _FIRMWARE._serialized_start=529
-  _FIRMWARE._serialized_end=585
-  _UPDATEFIRMWARERESULT._serialized_start=587
-  _UPDATEFIRMWARERESULT._serialized_end=696
+  _DEVICEINFO._serialized_end=166
+  _DIVICESTATUS._serialized_start=169
+  _DIVICESTATUS._serialized_end=323
+  _LOGREQUEST._serialized_start=325
+  _LOGREQUEST._serialized_end=386
+  _LOGMESSAGE._serialized_start=388
+  _LOGMESSAGE._serialized_end=442
+  _SENSORSTATISTICS._serialized_start=444
+  _SENSORSTATISTICS._serialized_end=482
+  _SITECALIBRATIONRESULT._serialized_start=484
+  _SITECALIBRATIONRESULT._serialized_end=547
+  _FIRMWARE._serialized_start=549
+  _FIRMWARE._serialized_end=605
+  _UPDATEFIRMWARERESULT._serialized_start=607
+  _UPDATEFIRMWARERESULT._serialized_end=716
 # @@protoc_insertion_point(module_scope)

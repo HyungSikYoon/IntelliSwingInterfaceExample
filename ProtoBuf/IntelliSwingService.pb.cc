@@ -22,7 +22,8 @@ constexpr DeviceInfo::DeviceInfo(
   : devicever_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , fpgaver_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , softwarever_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , serialnumber_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+  , serialnumber_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , sensorname_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct DeviceInfoDefaultTypeInternal {
   constexpr DeviceInfoDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -139,6 +140,7 @@ const uint32_t TableStruct_IntelliSwingService_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::DeviceInfo, fpgaver_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::DeviceInfo, softwarever_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::DeviceInfo, serialnumber_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DeviceInfo, sensorname_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::DiviceStatus, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -198,13 +200,13 @@ const uint32_t TableStruct_IntelliSwingService_2eproto::offsets[] PROTOBUF_SECTI
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::IntelliSwing::DeviceInfo)},
-  { 10, -1, -1, sizeof(::IntelliSwing::DiviceStatus)},
-  { 20, -1, -1, sizeof(::IntelliSwing::LogRequest)},
-  { 28, -1, -1, sizeof(::IntelliSwing::LogMessage)},
-  { 36, -1, -1, sizeof(::IntelliSwing::SensorStatistics)},
-  { 43, -1, -1, sizeof(::IntelliSwing::SiteCalibrationResult)},
-  { 50, -1, -1, sizeof(::IntelliSwing::Firmware)},
-  { 58, -1, -1, sizeof(::IntelliSwing::UpdateFirmwareResult)},
+  { 11, -1, -1, sizeof(::IntelliSwing::DiviceStatus)},
+  { 21, -1, -1, sizeof(::IntelliSwing::LogRequest)},
+  { 29, -1, -1, sizeof(::IntelliSwing::LogMessage)},
+  { 37, -1, -1, sizeof(::IntelliSwing::SensorStatistics)},
+  { 44, -1, -1, sizeof(::IntelliSwing::SiteCalibrationResult)},
+  { 51, -1, -1, sizeof(::IntelliSwing::Firmware)},
+  { 59, -1, -1, sizeof(::IntelliSwing::UpdateFirmwareResult)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -220,30 +222,31 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_IntelliSwingService_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\031IntelliSwingService.proto\022\014IntelliSwin"
-  "g\032\ntype.proto\"[\n\nDeviceInfo\022\021\n\tdeviceVer"
+  "g\032\ntype.proto\"o\n\nDeviceInfo\022\021\n\tdeviceVer"
   "\030\001 \001(\t\022\017\n\007fpgaVer\030\002 \001(\t\022\023\n\013softwareVer\030\003"
-  " \001(\t\022\024\n\014serialNumber\030\004 \001(\t\"\232\001\n\014DiviceSta"
-  "tus\022,\n\013sensorState\030\001 \003(\0132\027.IntelliSwing."
-  "ReturnMsg\022,\n\013systemState\030\002 \001(\0132\027.Intelli"
-  "Swing.ReturnMsg\022\031\n\021deviceTemperature\030\005 \001"
-  "(\002\022\023\n\013batteryInfo\030\006 \001(\002\"=\n\nLogRequest\022\023\n"
-  "\013systemRange\030\001 \001(\005\022\032\n\022processingLogrange"
-  "\030\002 \001(\005\"6\n\nLogMessage\022\021\n\tsystemLog\030\001 \003(\t\022"
-  "\025\n\rprocessingLog\030\002 \003(\t\"&\n\020SensorStatisti"
-  "cs\022\022\n\nshot_count\030\001 \001(\005\"\?\n\025SiteCalibratio"
-  "nResult\022&\n\005state\030\001 \001(\0132\027.IntelliSwing.Re"
-  "turnMsg\"8\n\010Firmware\022\026\n\016sensorFirmware\030\001 "
-  "\001(\014\022\024\n\014fpgaFirmware\030\002 \001(\014\"m\n\024UpdateFirmw"
-  "areResult\022*\n\tFpgaState\030\001 \001(\0132\027.IntelliSw"
-  "ing.ReturnMsg\022)\n\010SensorSW\030\002 \001(\0132\027.Intell"
-  "iSwing.ReturnMsgb\006proto3"
+  " \001(\t\022\024\n\014serialNumber\030\004 \001(\t\022\022\n\nsensorName"
+  "\030\005 \001(\t\"\232\001\n\014DiviceStatus\022,\n\013sensorState\030\001"
+  " \003(\0132\027.IntelliSwing.ReturnMsg\022,\n\013systemS"
+  "tate\030\002 \001(\0132\027.IntelliSwing.ReturnMsg\022\031\n\021d"
+  "eviceTemperature\030\005 \001(\002\022\023\n\013batteryInfo\030\006 "
+  "\001(\002\"=\n\nLogRequest\022\023\n\013systemRange\030\001 \001(\005\022\032"
+  "\n\022processingLogrange\030\002 \001(\005\"6\n\nLogMessage"
+  "\022\021\n\tsystemLog\030\001 \003(\t\022\025\n\rprocessingLog\030\002 \003"
+  "(\t\"&\n\020SensorStatistics\022\022\n\nshot_count\030\001 \001"
+  "(\005\"\?\n\025SiteCalibrationResult\022&\n\005state\030\001 \001"
+  "(\0132\027.IntelliSwing.ReturnMsg\"8\n\010Firmware\022"
+  "\026\n\016sensorFirmware\030\001 \001(\014\022\024\n\014fpgaFirmware\030"
+  "\002 \001(\014\"m\n\024UpdateFirmwareResult\022*\n\tFpgaSta"
+  "te\030\001 \001(\0132\027.IntelliSwing.ReturnMsg\022)\n\010Sen"
+  "sorSW\030\002 \001(\0132\027.IntelliSwing.ReturnMsgb\006pr"
+  "oto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_IntelliSwingService_2eproto_deps[1] = {
   &::descriptor_table_type_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_IntelliSwingService_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_IntelliSwingService_2eproto = {
-  false, false, 704, descriptor_table_protodef_IntelliSwingService_2eproto, "IntelliSwingService.proto", 
+  false, false, 724, descriptor_table_protodef_IntelliSwingService_2eproto, "IntelliSwingService.proto", 
   &descriptor_table_IntelliSwingService_2eproto_once, descriptor_table_IntelliSwingService_2eproto_deps, 1, 8,
   schemas, file_default_instances, TableStruct_IntelliSwingService_2eproto::offsets,
   file_level_metadata_IntelliSwingService_2eproto, file_level_enum_descriptors_IntelliSwingService_2eproto, file_level_service_descriptors_IntelliSwingService_2eproto,
@@ -306,6 +309,14 @@ DeviceInfo::DeviceInfo(const DeviceInfo& from)
     serialnumber_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_serialnumber(), 
       GetArenaForAllocation());
   }
+  sensorname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    sensorname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_sensorname().empty()) {
+    sensorname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_sensorname(), 
+      GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.DeviceInfo)
 }
 
@@ -326,6 +337,10 @@ serialnumber_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStrin
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   serialnumber_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+sensorname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  sensorname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 DeviceInfo::~DeviceInfo() {
@@ -341,6 +356,7 @@ inline void DeviceInfo::SharedDtor() {
   fpgaver_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   softwarever_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   serialnumber_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  sensorname_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void DeviceInfo::ArenaDtor(void* object) {
@@ -363,6 +379,7 @@ void DeviceInfo::Clear() {
   fpgaver_.ClearToEmpty();
   softwarever_.ClearToEmpty();
   serialnumber_.ClearToEmpty();
+  sensorname_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -408,6 +425,16 @@ const char* DeviceInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           auto str = _internal_mutable_serialnumber();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IntelliSwing.DeviceInfo.serialNumber"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string sensorName = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          auto str = _internal_mutable_sensorname();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IntelliSwing.DeviceInfo.sensorName"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -481,6 +508,16 @@ uint8_t* DeviceInfo::_InternalSerialize(
         4, this->_internal_serialnumber(), target);
   }
 
+  // string sensorName = 5;
+  if (!this->_internal_sensorname().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_sensorname().data(), static_cast<int>(this->_internal_sensorname().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "IntelliSwing.DeviceInfo.sensorName");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_sensorname(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -525,6 +562,13 @@ size_t DeviceInfo::ByteSizeLong() const {
         this->_internal_serialnumber());
   }
 
+  // string sensorName = 5;
+  if (!this->_internal_sensorname().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_sensorname());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -558,6 +602,9 @@ void DeviceInfo::MergeFrom(const DeviceInfo& from) {
   }
   if (!from._internal_serialnumber().empty()) {
     _internal_set_serialnumber(from._internal_serialnumber());
+  }
+  if (!from._internal_sensorname().empty()) {
+    _internal_set_sensorname(from._internal_sensorname());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -597,6 +644,11 @@ void DeviceInfo::InternalSwap(DeviceInfo* other) {
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &serialnumber_, lhs_arena,
       &other->serialnumber_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &sensorname_, lhs_arena,
+      &other->sensorname_, rhs_arena
   );
 }
 
