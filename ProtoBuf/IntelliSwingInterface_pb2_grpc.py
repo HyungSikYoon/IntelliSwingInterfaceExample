@@ -60,7 +60,7 @@ class IntelliSwingProtocolStub(object):
         self.GetDeviceStatus = channel.unary_unary(
                 '/IntelliSwing.IntelliSwingProtocol/GetDeviceStatus',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=IntelliSwingService__pb2.DiviceStatus.FromString,
+                response_deserializer=IntelliSwingService__pb2.DeviceStatus.FromString,
                 )
         self.GetLog = channel.unary_unary(
                 '/IntelliSwing.IntelliSwingProtocol/GetLog',
@@ -69,22 +69,22 @@ class IntelliSwingProtocolStub(object):
                 )
         self.GetStatistics = channel.unary_unary(
                 '/IntelliSwing.IntelliSwingProtocol/GetStatistics',
-                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                request_serializer=IntelliSwingService__pb2.StatisticsRequest.SerializeToString,
                 response_deserializer=IntelliSwingService__pb2.SensorStatistics.FromString,
                 )
         self.RunSiteCalibration = channel.unary_unary(
                 '/IntelliSwing.IntelliSwingProtocol/RunSiteCalibration',
-                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                request_serializer=IntelliSwingService__pb2.SiteCalibrationRequest.SerializeToString,
                 response_deserializer=IntelliSwingService__pb2.SiteCalibrationResult.FromString,
                 )
         self.UpdateFirmware = channel.unary_unary(
                 '/IntelliSwing.IntelliSwingProtocol/UpdateFirmware',
-                request_serializer=IntelliSwingService__pb2.Firmware.SerializeToString,
+                request_serializer=IntelliSwingService__pb2.UpdateFirmwareRequest.SerializeToString,
                 response_deserializer=IntelliSwingService__pb2.UpdateFirmwareResult.FromString,
                 )
         self.GetImage = channel.unary_unary(
                 '/IntelliSwing.IntelliSwingProtocol/GetImage',
-                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                request_serializer=IntelliSwingService__pb2.CameraImageRequest.SerializeToString,
                 response_deserializer=IntelliSwingInterface__pb2.ImageData.FromString,
                 )
 
@@ -225,7 +225,7 @@ def add_IntelliSwingProtocolServicer_to_server(servicer, server):
             'GetDeviceStatus': grpc.unary_unary_rpc_method_handler(
                     servicer.GetDeviceStatus,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=IntelliSwingService__pb2.DiviceStatus.SerializeToString,
+                    response_serializer=IntelliSwingService__pb2.DeviceStatus.SerializeToString,
             ),
             'GetLog': grpc.unary_unary_rpc_method_handler(
                     servicer.GetLog,
@@ -234,22 +234,22 @@ def add_IntelliSwingProtocolServicer_to_server(servicer, server):
             ),
             'GetStatistics': grpc.unary_unary_rpc_method_handler(
                     servicer.GetStatistics,
-                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    request_deserializer=IntelliSwingService__pb2.StatisticsRequest.FromString,
                     response_serializer=IntelliSwingService__pb2.SensorStatistics.SerializeToString,
             ),
             'RunSiteCalibration': grpc.unary_unary_rpc_method_handler(
                     servicer.RunSiteCalibration,
-                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    request_deserializer=IntelliSwingService__pb2.SiteCalibrationRequest.FromString,
                     response_serializer=IntelliSwingService__pb2.SiteCalibrationResult.SerializeToString,
             ),
             'UpdateFirmware': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateFirmware,
-                    request_deserializer=IntelliSwingService__pb2.Firmware.FromString,
+                    request_deserializer=IntelliSwingService__pb2.UpdateFirmwareRequest.FromString,
                     response_serializer=IntelliSwingService__pb2.UpdateFirmwareResult.SerializeToString,
             ),
             'GetImage': grpc.unary_unary_rpc_method_handler(
                     servicer.GetImage,
-                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    request_deserializer=IntelliSwingService__pb2.CameraImageRequest.FromString,
                     response_serializer=IntelliSwingInterface__pb2.ImageData.SerializeToString,
             ),
     }
@@ -411,7 +411,7 @@ class IntelliSwingProtocol(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/IntelliSwing.IntelliSwingProtocol/GetDeviceStatus',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            IntelliSwingService__pb2.DiviceStatus.FromString,
+            IntelliSwingService__pb2.DeviceStatus.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -444,7 +444,7 @@ class IntelliSwingProtocol(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/IntelliSwing.IntelliSwingProtocol/GetStatistics',
-            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            IntelliSwingService__pb2.StatisticsRequest.SerializeToString,
             IntelliSwingService__pb2.SensorStatistics.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -461,7 +461,7 @@ class IntelliSwingProtocol(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/IntelliSwing.IntelliSwingProtocol/RunSiteCalibration',
-            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            IntelliSwingService__pb2.SiteCalibrationRequest.SerializeToString,
             IntelliSwingService__pb2.SiteCalibrationResult.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -478,7 +478,7 @@ class IntelliSwingProtocol(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/IntelliSwing.IntelliSwingProtocol/UpdateFirmware',
-            IntelliSwingService__pb2.Firmware.SerializeToString,
+            IntelliSwingService__pb2.UpdateFirmwareRequest.SerializeToString,
             IntelliSwingService__pb2.UpdateFirmwareResult.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -495,7 +495,7 @@ class IntelliSwingProtocol(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/IntelliSwing.IntelliSwingProtocol/GetImage',
-            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            IntelliSwingService__pb2.CameraImageRequest.SerializeToString,
             IntelliSwingInterface__pb2.ImageData.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

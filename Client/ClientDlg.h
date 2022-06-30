@@ -26,7 +26,7 @@ public:
 
 // Implementation
 private :
-	std::unique_ptr<IntelliSwing::IntelliSwingProtocol::Stub> m_uptrStub;
+	std::unique_ptr<IntelliSwing::IntelliSwingProtocol::Stub> g_uptrStub;
 	std::unique_ptr< ::grpc::ClientReader< ::IntelliSwing::SensorRunningMsg>> m_reader;
 	grpc::ClientContext *m_pContext = nullptr;
 protected:

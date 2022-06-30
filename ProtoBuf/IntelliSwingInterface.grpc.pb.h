@@ -96,12 +96,12 @@ class IntelliSwingProtocol final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceInfo>> PrepareAsyncGetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceInfo>>(PrepareAsyncGetDeviceInfoRaw(context, request, cq));
     }
-    virtual ::grpc::Status GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::DiviceStatus* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DiviceStatus>> AsyncGetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DiviceStatus>>(AsyncGetDeviceStatusRaw(context, request, cq));
+    virtual ::grpc::Status GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::DeviceStatus* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceStatus>> AsyncGetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceStatus>>(AsyncGetDeviceStatusRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DiviceStatus>> PrepareAsyncGetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DiviceStatus>>(PrepareAsyncGetDeviceStatusRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceStatus>> PrepareAsyncGetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceStatus>>(PrepareAsyncGetDeviceStatusRaw(context, request, cq));
     }
     virtual ::grpc::Status GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest& request, ::IntelliSwing::LogMessage* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::LogMessage>> AsyncGetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest& request, ::grpc::CompletionQueue* cq) {
@@ -110,32 +110,32 @@ class IntelliSwingProtocol final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::LogMessage>> PrepareAsyncGetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::LogMessage>>(PrepareAsyncGetLogRaw(context, request, cq));
     }
-    virtual ::grpc::Status GetStatistics(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::SensorStatistics* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SensorStatistics>> AsyncGetStatistics(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest& request, ::IntelliSwing::SensorStatistics* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SensorStatistics>> AsyncGetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SensorStatistics>>(AsyncGetStatisticsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SensorStatistics>> PrepareAsyncGetStatistics(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SensorStatistics>> PrepareAsyncGetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SensorStatistics>>(PrepareAsyncGetStatisticsRaw(context, request, cq));
     }
-    virtual ::grpc::Status RunSiteCalibration(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::SiteCalibrationResult* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SiteCalibrationResult>> AsyncRunSiteCalibration(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest& request, ::IntelliSwing::SiteCalibrationResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SiteCalibrationResult>> AsyncRunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SiteCalibrationResult>>(AsyncRunSiteCalibrationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SiteCalibrationResult>> PrepareAsyncRunSiteCalibration(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SiteCalibrationResult>> PrepareAsyncRunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SiteCalibrationResult>>(PrepareAsyncRunSiteCalibrationRaw(context, request, cq));
     }
-    virtual ::grpc::Status UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::Firmware& request, ::IntelliSwing::UpdateFirmwareResult* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::UpdateFirmwareResult>> AsyncUpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::Firmware& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::IntelliSwing::UpdateFirmwareResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::UpdateFirmwareResult>> AsyncUpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::UpdateFirmwareResult>>(AsyncUpdateFirmwareRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::UpdateFirmwareResult>> PrepareAsyncUpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::Firmware& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::UpdateFirmwareResult>> PrepareAsyncUpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::UpdateFirmwareResult>>(PrepareAsyncUpdateFirmwareRaw(context, request, cq));
     }
-    virtual ::grpc::Status GetImage(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::ImageData* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>> AsyncGetImage(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::IntelliSwing::ImageData* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>> AsyncGetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>>(AsyncGetImageRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>> PrepareAsyncGetImage(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>> PrepareAsyncGetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>>(PrepareAsyncGetImageRaw(context, request, cq));
     }
     class async_interface {
@@ -159,18 +159,18 @@ class IntelliSwingProtocol final {
       // Service
       virtual void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DiviceStatus* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DiviceStatus* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void GetStatistics(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SensorStatistics* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetStatistics(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SensorStatistics* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void RunSiteCalibration(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SiteCalibrationResult* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void RunSiteCalibration(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SiteCalibrationResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::Firmware* request, ::IntelliSwing::UpdateFirmwareResult* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::Firmware* request, ::IntelliSwing::UpdateFirmwareResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void GetImage(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetImage(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -193,18 +193,18 @@ class IntelliSwingProtocol final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>* PrepareAsyncGetBallImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceInfo>* AsyncGetDeviceInfoRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceInfo>* PrepareAsyncGetDeviceInfoRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DiviceStatus>* AsyncGetDeviceStatusRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DiviceStatus>* PrepareAsyncGetDeviceStatusRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceStatus>* AsyncGetDeviceStatusRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceStatus>* PrepareAsyncGetDeviceStatusRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::LogMessage>* AsyncGetLogRaw(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::LogMessage>* PrepareAsyncGetLogRaw(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SensorStatistics>* AsyncGetStatisticsRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SensorStatistics>* PrepareAsyncGetStatisticsRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SiteCalibrationResult>* AsyncRunSiteCalibrationRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SiteCalibrationResult>* PrepareAsyncRunSiteCalibrationRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::UpdateFirmwareResult>* AsyncUpdateFirmwareRaw(::grpc::ClientContext* context, const ::IntelliSwing::Firmware& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::UpdateFirmwareResult>* PrepareAsyncUpdateFirmwareRaw(::grpc::ClientContext* context, const ::IntelliSwing::Firmware& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>* AsyncGetImageRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>* PrepareAsyncGetImageRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SensorStatistics>* AsyncGetStatisticsRaw(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SensorStatistics>* PrepareAsyncGetStatisticsRaw(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SiteCalibrationResult>* AsyncRunSiteCalibrationRaw(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::SiteCalibrationResult>* PrepareAsyncRunSiteCalibrationRaw(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::UpdateFirmwareResult>* AsyncUpdateFirmwareRaw(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::UpdateFirmwareResult>* PrepareAsyncUpdateFirmwareRaw(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>* AsyncGetImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>* PrepareAsyncGetImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -267,12 +267,12 @@ class IntelliSwingProtocol final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceInfo>> PrepareAsyncGetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceInfo>>(PrepareAsyncGetDeviceInfoRaw(context, request, cq));
     }
-    ::grpc::Status GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::DiviceStatus* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DiviceStatus>> AsyncGetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DiviceStatus>>(AsyncGetDeviceStatusRaw(context, request, cq));
+    ::grpc::Status GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::DeviceStatus* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceStatus>> AsyncGetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceStatus>>(AsyncGetDeviceStatusRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DiviceStatus>> PrepareAsyncGetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DiviceStatus>>(PrepareAsyncGetDeviceStatusRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceStatus>> PrepareAsyncGetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceStatus>>(PrepareAsyncGetDeviceStatusRaw(context, request, cq));
     }
     ::grpc::Status GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest& request, ::IntelliSwing::LogMessage* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::LogMessage>> AsyncGetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest& request, ::grpc::CompletionQueue* cq) {
@@ -281,32 +281,32 @@ class IntelliSwingProtocol final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::LogMessage>> PrepareAsyncGetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::LogMessage>>(PrepareAsyncGetLogRaw(context, request, cq));
     }
-    ::grpc::Status GetStatistics(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::SensorStatistics* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SensorStatistics>> AsyncGetStatistics(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest& request, ::IntelliSwing::SensorStatistics* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SensorStatistics>> AsyncGetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SensorStatistics>>(AsyncGetStatisticsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SensorStatistics>> PrepareAsyncGetStatistics(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SensorStatistics>> PrepareAsyncGetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SensorStatistics>>(PrepareAsyncGetStatisticsRaw(context, request, cq));
     }
-    ::grpc::Status RunSiteCalibration(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::SiteCalibrationResult* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SiteCalibrationResult>> AsyncRunSiteCalibration(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest& request, ::IntelliSwing::SiteCalibrationResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SiteCalibrationResult>> AsyncRunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SiteCalibrationResult>>(AsyncRunSiteCalibrationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SiteCalibrationResult>> PrepareAsyncRunSiteCalibration(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SiteCalibrationResult>> PrepareAsyncRunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SiteCalibrationResult>>(PrepareAsyncRunSiteCalibrationRaw(context, request, cq));
     }
-    ::grpc::Status UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::Firmware& request, ::IntelliSwing::UpdateFirmwareResult* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::UpdateFirmwareResult>> AsyncUpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::Firmware& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::IntelliSwing::UpdateFirmwareResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::UpdateFirmwareResult>> AsyncUpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::UpdateFirmwareResult>>(AsyncUpdateFirmwareRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::UpdateFirmwareResult>> PrepareAsyncUpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::Firmware& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::UpdateFirmwareResult>> PrepareAsyncUpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::UpdateFirmwareResult>>(PrepareAsyncUpdateFirmwareRaw(context, request, cq));
     }
-    ::grpc::Status GetImage(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::ImageData* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>> AsyncGetImage(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::IntelliSwing::ImageData* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>> AsyncGetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>>(AsyncGetImageRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>> PrepareAsyncGetImage(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>> PrepareAsyncGetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>>(PrepareAsyncGetImageRaw(context, request, cq));
     }
     class async final :
@@ -327,18 +327,18 @@ class IntelliSwingProtocol final {
       void GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, std::function<void(::grpc::Status)>) override;
       void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DiviceStatus* response, std::function<void(::grpc::Status)>) override;
-      void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DiviceStatus* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, std::function<void(::grpc::Status)>) override;
+      void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, std::function<void(::grpc::Status)>) override;
       void GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetStatistics(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SensorStatistics* response, std::function<void(::grpc::Status)>) override;
-      void GetStatistics(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SensorStatistics* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void RunSiteCalibration(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SiteCalibrationResult* response, std::function<void(::grpc::Status)>) override;
-      void RunSiteCalibration(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SiteCalibrationResult* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::Firmware* request, ::IntelliSwing::UpdateFirmwareResult* response, std::function<void(::grpc::Status)>) override;
-      void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::Firmware* request, ::IntelliSwing::UpdateFirmwareResult* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetImage(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)>) override;
-      void GetImage(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, std::function<void(::grpc::Status)>) override;
+      void GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, std::function<void(::grpc::Status)>) override;
+      void RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, std::function<void(::grpc::Status)>) override;
+      void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)>) override;
+      void GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -367,18 +367,18 @@ class IntelliSwingProtocol final {
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>* PrepareAsyncGetBallImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceInfo>* AsyncGetDeviceInfoRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceInfo>* PrepareAsyncGetDeviceInfoRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DiviceStatus>* AsyncGetDeviceStatusRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DiviceStatus>* PrepareAsyncGetDeviceStatusRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceStatus>* AsyncGetDeviceStatusRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceStatus>* PrepareAsyncGetDeviceStatusRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::LogMessage>* AsyncGetLogRaw(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::LogMessage>* PrepareAsyncGetLogRaw(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SensorStatistics>* AsyncGetStatisticsRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SensorStatistics>* PrepareAsyncGetStatisticsRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SiteCalibrationResult>* AsyncRunSiteCalibrationRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SiteCalibrationResult>* PrepareAsyncRunSiteCalibrationRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::UpdateFirmwareResult>* AsyncUpdateFirmwareRaw(::grpc::ClientContext* context, const ::IntelliSwing::Firmware& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::UpdateFirmwareResult>* PrepareAsyncUpdateFirmwareRaw(::grpc::ClientContext* context, const ::IntelliSwing::Firmware& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>* AsyncGetImageRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>* PrepareAsyncGetImageRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SensorStatistics>* AsyncGetStatisticsRaw(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SensorStatistics>* PrepareAsyncGetStatisticsRaw(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SiteCalibrationResult>* AsyncRunSiteCalibrationRaw(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::SiteCalibrationResult>* PrepareAsyncRunSiteCalibrationRaw(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::UpdateFirmwareResult>* AsyncUpdateFirmwareRaw(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::UpdateFirmwareResult>* PrepareAsyncUpdateFirmwareRaw(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>* AsyncGetImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>* PrepareAsyncGetImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Initialize_;
     const ::grpc::internal::RpcMethod rpcmethod_Release_;
     const ::grpc::internal::RpcMethod rpcmethod_Reboot_;
@@ -411,12 +411,12 @@ class IntelliSwingProtocol final {
     virtual ::grpc::Status GetBallImage(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response);
     // Service
     virtual ::grpc::Status GetDeviceInfo(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response);
-    virtual ::grpc::Status GetDeviceStatus(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DiviceStatus* response);
+    virtual ::grpc::Status GetDeviceStatus(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response);
     virtual ::grpc::Status GetLog(::grpc::ServerContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response);
-    virtual ::grpc::Status GetStatistics(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SensorStatistics* response);
-    virtual ::grpc::Status RunSiteCalibration(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SiteCalibrationResult* response);
-    virtual ::grpc::Status UpdateFirmware(::grpc::ServerContext* context, const ::IntelliSwing::Firmware* request, ::IntelliSwing::UpdateFirmwareResult* response);
-    virtual ::grpc::Status GetImage(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ImageData* response);
+    virtual ::grpc::Status GetStatistics(::grpc::ServerContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response);
+    virtual ::grpc::Status RunSiteCalibration(::grpc::ServerContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response);
+    virtual ::grpc::Status UpdateFirmware(::grpc::ServerContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response);
+    virtual ::grpc::Status GetImage(::grpc::ServerContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_Initialize : public BaseClass {
@@ -590,11 +590,11 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DiviceStatus* /*response*/) override {
+    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceStatus* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetDeviceStatus(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::DiviceStatus>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetDeviceStatus(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::DeviceStatus>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -630,11 +630,11 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
+    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::IntelliSwing::StatisticsRequest* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetStatistics(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::SensorStatistics>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetStatistics(::grpc::ServerContext* context, ::IntelliSwing::StatisticsRequest* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::SensorStatistics>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -650,11 +650,11 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
+    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::IntelliSwing::SiteCalibrationRequest* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestRunSiteCalibration(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::SiteCalibrationResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestRunSiteCalibration(::grpc::ServerContext* context, ::IntelliSwing::SiteCalibrationRequest* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::SiteCalibrationResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -670,11 +670,11 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::Firmware* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
+    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::UpdateFirmwareRequest* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestUpdateFirmware(::grpc::ServerContext* context, ::IntelliSwing::Firmware* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::UpdateFirmwareResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestUpdateFirmware(::grpc::ServerContext* context, ::IntelliSwing::UpdateFirmwareRequest* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::UpdateFirmwareResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -690,11 +690,11 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
+    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CameraImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetImage(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::ImageData>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetImage(::grpc::ServerContext* context, ::IntelliSwing::CameraImageRequest* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::ImageData>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -917,25 +917,25 @@ class IntelliSwingProtocol final {
    public:
     WithCallbackMethod_GetDeviceStatus() {
       ::grpc::Service::MarkMethodCallback(8,
-          new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DiviceStatus>(
+          new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DiviceStatus* response) { return this->GetDeviceStatus(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response) { return this->GetDeviceStatus(context, request, response); }));}
     void SetMessageAllocatorFor_GetDeviceStatus(
-        ::grpc::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::DiviceStatus>* allocator) {
+        ::grpc::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DiviceStatus>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetDeviceStatus() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DiviceStatus* /*response*/) override {
+    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceStatus* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetDeviceStatus(
-      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DiviceStatus* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceStatus* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_GetLog : public BaseClass {
@@ -971,25 +971,25 @@ class IntelliSwingProtocol final {
    public:
     WithCallbackMethod_GetStatistics() {
       ::grpc::Service::MarkMethodCallback(10,
-          new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::SensorStatistics>(
+          new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SensorStatistics* response) { return this->GetStatistics(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response) { return this->GetStatistics(context, request, response); }));}
     void SetMessageAllocatorFor_GetStatistics(
-        ::grpc::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::SensorStatistics>* allocator) {
+        ::grpc::MessageAllocator< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::SensorStatistics>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetStatistics() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
+    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::IntelliSwing::StatisticsRequest* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetStatistics(
-      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::StatisticsRequest* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_RunSiteCalibration : public BaseClass {
@@ -998,25 +998,25 @@ class IntelliSwingProtocol final {
    public:
     WithCallbackMethod_RunSiteCalibration() {
       ::grpc::Service::MarkMethodCallback(11,
-          new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::SiteCalibrationResult>(
+          new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::SiteCalibrationResult* response) { return this->RunSiteCalibration(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response) { return this->RunSiteCalibration(context, request, response); }));}
     void SetMessageAllocatorFor_RunSiteCalibration(
-        ::grpc::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::SiteCalibrationResult>* allocator) {
+        ::grpc::MessageAllocator< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::SiteCalibrationResult>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_RunSiteCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
+    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::IntelliSwing::SiteCalibrationRequest* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* RunSiteCalibration(
-      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::SiteCalibrationRequest* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_UpdateFirmware : public BaseClass {
@@ -1025,25 +1025,25 @@ class IntelliSwingProtocol final {
    public:
     WithCallbackMethod_UpdateFirmware() {
       ::grpc::Service::MarkMethodCallback(12,
-          new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::Firmware, ::IntelliSwing::UpdateFirmwareResult>(
+          new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::Firmware* request, ::IntelliSwing::UpdateFirmwareResult* response) { return this->UpdateFirmware(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response) { return this->UpdateFirmware(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateFirmware(
-        ::grpc::MessageAllocator< ::IntelliSwing::Firmware, ::IntelliSwing::UpdateFirmwareResult>* allocator) {
+        ::grpc::MessageAllocator< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::Firmware, ::IntelliSwing::UpdateFirmwareResult>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_UpdateFirmware() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::Firmware* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
+    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::UpdateFirmwareRequest* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* UpdateFirmware(
-      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::Firmware* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::UpdateFirmwareRequest* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_GetImage : public BaseClass {
@@ -1052,25 +1052,25 @@ class IntelliSwingProtocol final {
    public:
     WithCallbackMethod_GetImage() {
       ::grpc::Service::MarkMethodCallback(13,
-          new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::ImageData>(
+          new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ImageData* response) { return this->GetImage(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response) { return this->GetImage(context, request, response); }));}
     void SetMessageAllocatorFor_GetImage(
-        ::grpc::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::ImageData>* allocator) {
+        ::grpc::MessageAllocator< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::ImageData>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
+    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CameraImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetImage(
-      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ImageData* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::CameraImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/)  { return nullptr; }
   };
   typedef WithCallbackMethod_Initialize<WithCallbackMethod_Release<WithCallbackMethod_Reboot<WithCallbackMethod_Start<WithCallbackMethod_Stop<WithCallbackMethod_GetClubImage<WithCallbackMethod_GetBallImage<WithCallbackMethod_GetDeviceInfo<WithCallbackMethod_GetDeviceStatus<WithCallbackMethod_GetLog<WithCallbackMethod_GetStatistics<WithCallbackMethod_RunSiteCalibration<WithCallbackMethod_UpdateFirmware<WithCallbackMethod_GetImage<Service > > > > > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
@@ -1222,7 +1222,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DiviceStatus* /*response*/) override {
+    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceStatus* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1256,7 +1256,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
+    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::IntelliSwing::StatisticsRequest* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1273,7 +1273,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
+    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::IntelliSwing::SiteCalibrationRequest* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1290,7 +1290,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::Firmware* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
+    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::UpdateFirmwareRequest* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1307,7 +1307,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
+    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CameraImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1484,7 +1484,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DiviceStatus* /*response*/) override {
+    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceStatus* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1524,7 +1524,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
+    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::IntelliSwing::StatisticsRequest* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1544,7 +1544,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
+    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::IntelliSwing::SiteCalibrationRequest* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1564,7 +1564,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::Firmware* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
+    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::UpdateFirmwareRequest* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1584,7 +1584,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
+    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CameraImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1783,7 +1783,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DiviceStatus* /*response*/) override {
+    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceStatus* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1827,7 +1827,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
+    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::IntelliSwing::StatisticsRequest* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1849,7 +1849,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
+    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::IntelliSwing::SiteCalibrationRequest* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1871,7 +1871,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::Firmware* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
+    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::UpdateFirmwareRequest* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1893,7 +1893,7 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
+    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CameraImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2097,10 +2097,10 @@ class IntelliSwingProtocol final {
     WithStreamedUnaryMethod_GetDeviceStatus() {
       ::grpc::Service::MarkMethodStreamed(8,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::google::protobuf::Empty, ::IntelliSwing::DiviceStatus>(
+          ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::google::protobuf::Empty, ::IntelliSwing::DiviceStatus>* streamer) {
+                     ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>* streamer) {
                        return this->StreamedGetDeviceStatus(context,
                          streamer);
                   }));
@@ -2109,12 +2109,12 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DiviceStatus* /*response*/) override {
+    ::grpc::Status GetDeviceStatus(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceStatus* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetDeviceStatus(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::protobuf::Empty,::IntelliSwing::DiviceStatus>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetDeviceStatus(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::protobuf::Empty,::IntelliSwing::DeviceStatus>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetLog : public BaseClass {
@@ -2151,10 +2151,10 @@ class IntelliSwingProtocol final {
     WithStreamedUnaryMethod_GetStatistics() {
       ::grpc::Service::MarkMethodStreamed(10,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::google::protobuf::Empty, ::IntelliSwing::SensorStatistics>(
+          ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::google::protobuf::Empty, ::IntelliSwing::SensorStatistics>* streamer) {
+                     ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>* streamer) {
                        return this->StreamedGetStatistics(context,
                          streamer);
                   }));
@@ -2163,12 +2163,12 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
+    ::grpc::Status GetStatistics(::grpc::ServerContext* /*context*/, const ::IntelliSwing::StatisticsRequest* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetStatistics(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::protobuf::Empty,::IntelliSwing::SensorStatistics>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetStatistics(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::IntelliSwing::StatisticsRequest,::IntelliSwing::SensorStatistics>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_RunSiteCalibration : public BaseClass {
@@ -2178,10 +2178,10 @@ class IntelliSwingProtocol final {
     WithStreamedUnaryMethod_RunSiteCalibration() {
       ::grpc::Service::MarkMethodStreamed(11,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::google::protobuf::Empty, ::IntelliSwing::SiteCalibrationResult>(
+          ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::google::protobuf::Empty, ::IntelliSwing::SiteCalibrationResult>* streamer) {
+                     ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>* streamer) {
                        return this->StreamedRunSiteCalibration(context,
                          streamer);
                   }));
@@ -2190,12 +2190,12 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
+    ::grpc::Status RunSiteCalibration(::grpc::ServerContext* /*context*/, const ::IntelliSwing::SiteCalibrationRequest* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedRunSiteCalibration(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::protobuf::Empty,::IntelliSwing::SiteCalibrationResult>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedRunSiteCalibration(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::IntelliSwing::SiteCalibrationRequest,::IntelliSwing::SiteCalibrationResult>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_UpdateFirmware : public BaseClass {
@@ -2205,10 +2205,10 @@ class IntelliSwingProtocol final {
     WithStreamedUnaryMethod_UpdateFirmware() {
       ::grpc::Service::MarkMethodStreamed(12,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::IntelliSwing::Firmware, ::IntelliSwing::UpdateFirmwareResult>(
+          ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::IntelliSwing::Firmware, ::IntelliSwing::UpdateFirmwareResult>* streamer) {
+                     ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>* streamer) {
                        return this->StreamedUpdateFirmware(context,
                          streamer);
                   }));
@@ -2217,12 +2217,12 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::Firmware* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
+    ::grpc::Status UpdateFirmware(::grpc::ServerContext* /*context*/, const ::IntelliSwing::UpdateFirmwareRequest* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedUpdateFirmware(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::IntelliSwing::Firmware,::IntelliSwing::UpdateFirmwareResult>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedUpdateFirmware(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::IntelliSwing::UpdateFirmwareRequest,::IntelliSwing::UpdateFirmwareResult>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetImage : public BaseClass {
@@ -2232,10 +2232,10 @@ class IntelliSwingProtocol final {
     WithStreamedUnaryMethod_GetImage() {
       ::grpc::Service::MarkMethodStreamed(13,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::google::protobuf::Empty, ::IntelliSwing::ImageData>(
+          ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::google::protobuf::Empty, ::IntelliSwing::ImageData>* streamer) {
+                     ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>* streamer) {
                        return this->StreamedGetImage(context,
                          streamer);
                   }));
@@ -2244,12 +2244,12 @@ class IntelliSwingProtocol final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
+    ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CameraImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetImage(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::protobuf::Empty,::IntelliSwing::ImageData>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetImage(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::IntelliSwing::CameraImageRequest,::IntelliSwing::ImageData>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_Initialize<WithStreamedUnaryMethod_Release<WithStreamedUnaryMethod_Reboot<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_GetClubImage<WithStreamedUnaryMethod_GetBallImage<WithStreamedUnaryMethod_GetDeviceInfo<WithStreamedUnaryMethod_GetDeviceStatus<WithStreamedUnaryMethod_GetLog<WithStreamedUnaryMethod_GetStatistics<WithStreamedUnaryMethod_RunSiteCalibration<WithStreamedUnaryMethod_UpdateFirmware<WithStreamedUnaryMethod_GetImage<Service > > > > > > > > > > > > > StreamedUnaryService;
   template <class BaseClass>

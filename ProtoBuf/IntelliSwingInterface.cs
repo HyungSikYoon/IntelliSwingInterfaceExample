@@ -38,7 +38,7 @@ namespace IntelliSwing {
             "VzIQZhIGCgJXMxBnEgYKAlc0EGgSBgoCVzUQaRIJCgRJcm9uEMgBEgcKAkkz",
             "EMsBEgcKAkk0EMwBEgcKAkk1EM0BEgcKAkk2EM4BEgcKAkk3EM8BEgcKAkk4",
             "ENABEgcKAkk5ENEBEgoKBVdlZGdlEKwCEgcKAlBXELYCEgcKAlNXEMACEgsK",
-            "Bkh5YnJpZBCQAyKNCgoQU2Vuc29yUnVubmluZ01zZxItCgl0aW1lU3RhbXAY",
+            "Bkh5YnJpZBCQAyK0CQoQU2Vuc29yUnVubmluZ01zZxItCgl0aW1lU3RhbXAY",
             "ASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjUKBXJlYWR5GAIg",
             "ASgLMiQuSW50ZWxsaVN3aW5nLlNlbnNvclJ1bm5pbmdNc2cuUmVhZHlIABI7",
             "Cghub3RSZWFkeRgDIAEoCzInLkludGVsbGlTd2luZy5TZW5zb3JSdW5uaW5n",
@@ -46,75 +46,73 @@ namespace IntelliSwing {
             "bGlTd2luZy5TZW5zb3JSdW5uaW5nTXNnLlNob3J0VHJpZ2dlcmVkSAASQQoI",
             "YmFsbEluZm8YBSABKAsyLS5JbnRlbGxpU3dpbmcuU2Vuc29yUnVubmluZ01z",
             "Zy5CYWxsRmxpZ2h0SW5mb0gAEj8KCGNsdWJJbmZvGAYgASgLMisuSW50ZWxs",
-            "aVN3aW5nLlNlbnNvclJ1bm5pbmdNc2cuQ2x1YlBhdGhJbmZvSAASPQoJaGVh",
-            "cnRCZWF0GAcgASgLMiguSW50ZWxsaVN3aW5nLlNlbnNvclJ1bm5pbmdNc2cu",
-            "SGVhcnRiZWF0SAAacwoFUmVhZHkSJwoIcG9zaXRpb24YASABKAsyFS5JbnRl",
-            "bGxpU3dpbmcuUG9pbnQzZhINCgVpc1RlZRgCIAEoCBIyChBnb3VuZEF0dHJp",
-            "YnV0aW9uGAMgASgOMhguSW50ZWxsaVN3aW5nLkdyb3VuZEF0dHIaqAEKCE5v",
-            "dFJlYWR5EkwKDW5vdFJlYWR5Q2F1c2UYASABKA4yNS5JbnRlbGxpU3dpbmcu",
-            "U2Vuc29yUnVubmluZ01zZy5Ob3RSZWFkeS5Ob3RSZWFkeUNhdXNlIk4KDU5v",
-            "dFJlYWR5Q2F1c2USDgoKTm90RGVmaW5lZBAAEgwKCE91dEJvdW5kEAESEAoM",
-            "QmFsbE5vdEZvdW5kEAISDQoJTXVsdGlCYWxsEAMaMwoOU2hvcnRUcmlnZ2Vy",
-            "ZWQSDgoGc2hvdElkGAEgASgFEhEKCXRpbWVzdGFtcBgCIAEoBBp9Cg5CYWxs",
-            "RmxpZ2h0SW5mbxIOCgZzaG90SWQYASABKAUSEQoJYmFsbFNwZWVkGAIgASgC",
-            "EhEKCUluY2lkZW5jZRgDIAEoAhIRCglkaXJlY3Rpb24YBCABKAISEAoIYmFj",
-            "a1NwaW4YBSABKAISEAoIc2lkZVNwaW4YBiABKAIa0AIKDENsdWJQYXRoSW5m",
-            "bxIOCgZzaG90SWQYASABKAUSEQoJaGVhZFNwZWVkGAIgASgCEj4KBHBhdGgY",
-            "AyABKAsyMC5JbnRlbGxpU3dpbmcuU2Vuc29yUnVubmluZ01zZy5DbHViUGF0",
-            "aEluZm8uUGF0aBIRCglmYWNlQW5nbGUYBCABKAISEwoLYXR0YWNrQW5nbGUY",
-            "BSABKAISTAoLaW1wYWN0UG9pbnQYBiABKAsyNy5JbnRlbGxpU3dpbmcuU2Vu",
-            "c29yUnVubmluZ01zZy5DbHViUGF0aEluZm8uSW1wYWN0UG9pbnQaGgoEUGF0",
-            "aBISCgpHQUNsdWJQYXRoGAEgASgCGksKC0ltcGFjdFBvaW50Eh0KFUdBQ2x1",
-            "YkltcGFjdFBvaW50X0hvchgBIAEoAhIdChVHQUNsdWJJbXBhY3RQb2ludF9W",
-            "ZXIYAiABKAIaGAoJSGVhcnRiZWF0EgsKA21zZxgBIAEoCUIKCghydW5TdGF0",
-            "ZSIiChBTaG90SW1hZ2VSZXF1ZXN0Eg4KBnNob3RJZBgBIAEoBSLTAgoJSW1h",
-            "Z2VEYXRhEiYKBXN0YXRlGAEgASgLMhcuSW50ZWxsaVN3aW5nLlJldHVybk1z",
-            "ZxItCgZpbWFnZXMYAiADKAsyHS5JbnRlbGxpU3dpbmcuSW1hZ2VEYXRhLklt",
-            "YWdlGu4BCgVJbWFnZRIRCglpbWFnZVR5cGUYASABKAUSDAoEZGF0YRgCIAEo",
-            "DBINCgV3aWR0aBgDIAEoBRIOCgZoZWlnaHQYBCABKAUSDwoHY2hhbm5lbBgF",
-            "IAEoBRIQCghkYXRhVHlwZRgGIAEoBRILCgN0YWcYByABKAkSNQoHbWFya2Vy",
-            "cxgIIAMoCzIkLkludGVsbGlTd2luZy5JbWFnZURhdGEuSW1hZ2UuTWFya2Vy",
-            "Gj4KBk1hcmtlchInCghwb3NpdGlvbhgBIAEoCzIVLkludGVsbGlTd2luZy5Q",
-            "b2ludDJpEgsKA3RhZxgCIAEoCSpECgpHcm91bmRBdHRyEgsKB0ZBSVJXQVkQ",
-            "ABIJCgVST1VHSBABEgoKBkJVTktFUhACEgcKA1RFRRADEgkKBUdSRUVOEAQy",
-            "7AcKFEludGVsbGlTd2luZ1Byb3RvY29sEkQKCkluaXRpYWxpemUSGy5JbnRl",
-            "bGxpU3dpbmcuSW5pdGlhbGl6ZU1zZxoXLkludGVsbGlTd2luZy5SZXR1cm5N",
-            "c2ciABI+CgdSZWxlYXNlEhguSW50ZWxsaVN3aW5nLlJlbGVhc2VNc2caFy5J",
-            "bnRlbGxpU3dpbmcuUmV0dXJuTXNnIgASOwoGUmVib290EhYuZ29vZ2xlLnBy",
-            "b3RvYnVmLkVtcHR5GhcuSW50ZWxsaVN3aW5nLlJldHVybk1zZyIAEkMKBVN0",
-            "YXJ0EhYuSW50ZWxsaVN3aW5nLlN0YXJ0TXNnGh4uSW50ZWxsaVN3aW5nLlNl",
-            "bnNvclJ1bm5pbmdNc2ciADABEjkKBFN0b3ASFi5nb29nbGUucHJvdG9idWYu",
-            "RW1wdHkaFy5JbnRlbGxpU3dpbmcuUmV0dXJuTXNnIgASSQoMR2V0Q2x1Yklt",
-            "YWdlEh4uSW50ZWxsaVN3aW5nLlNob3RJbWFnZVJlcXVlc3QaFy5JbnRlbGxp",
-            "U3dpbmcuSW1hZ2VEYXRhIgASSQoMR2V0QmFsbEltYWdlEh4uSW50ZWxsaVN3",
-            "aW5nLlNob3RJbWFnZVJlcXVlc3QaFy5JbnRlbGxpU3dpbmcuSW1hZ2VEYXRh",
-            "IgASQwoNR2V0RGV2aWNlSW5mbxIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoY",
-            "LkludGVsbGlTd2luZy5EZXZpY2VJbmZvIgASRwoPR2V0RGV2aWNlU3RhdHVz",
-            "EhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhouSW50ZWxsaVN3aW5nLkRpdmlj",
-            "ZVN0YXR1cyIAEj4KBkdldExvZxIYLkludGVsbGlTd2luZy5Mb2dSZXF1ZXN0",
-            "GhguSW50ZWxsaVN3aW5nLkxvZ01lc3NhZ2UiABJJCg1HZXRTdGF0aXN0aWNz",
-            "EhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5Gh4uSW50ZWxsaVN3aW5nLlNlbnNv",
-            "clN0YXRpc3RpY3MiABJTChJSdW5TaXRlQ2FsaWJyYXRpb24SFi5nb29nbGUu",
-            "cHJvdG9idWYuRW1wdHkaIy5JbnRlbGxpU3dpbmcuU2l0ZUNhbGlicmF0aW9u",
-            "UmVzdWx0IgASTgoOVXBkYXRlRmlybXdhcmUSFi5JbnRlbGxpU3dpbmcuRmly",
-            "bXdhcmUaIi5JbnRlbGxpU3dpbmcuVXBkYXRlRmlybXdhcmVSZXN1bHQiABI9",
-            "CghHZXRJbWFnZRIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoXLkludGVsbGlT",
-            "d2luZy5JbWFnZURhdGEiAGIGcHJvdG8z"));
+            "aVN3aW5nLlNlbnNvclJ1bm5pbmdNc2cuQ2x1YlBhdGhJbmZvSAAacwoFUmVh",
+            "ZHkSJwoIcG9zaXRpb24YASABKAsyFS5JbnRlbGxpU3dpbmcuUG9pbnQzZhIN",
+            "CgVpc1RlZRgCIAEoCBIyChBnb3VuZEF0dHJpYnV0aW9uGAMgASgOMhguSW50",
+            "ZWxsaVN3aW5nLkdyb3VuZEF0dHIaqAEKCE5vdFJlYWR5EkwKDW5vdFJlYWR5",
+            "Q2F1c2UYASABKA4yNS5JbnRlbGxpU3dpbmcuU2Vuc29yUnVubmluZ01zZy5O",
+            "b3RSZWFkeS5Ob3RSZWFkeUNhdXNlIk4KDU5vdFJlYWR5Q2F1c2USDgoKTm90",
+            "RGVmaW5lZBAAEgwKCE91dEJvdW5kEAESEAoMQmFsbE5vdEZvdW5kEAISDQoJ",
+            "TXVsdGlCYWxsEAMaMwoOU2hvcnRUcmlnZ2VyZWQSDgoGc2hvdElkGAEgASgF",
+            "EhEKCXRpbWVzdGFtcBgCIAEoBBp9Cg5CYWxsRmxpZ2h0SW5mbxIOCgZzaG90",
+            "SWQYASABKAUSEQoJYmFsbFNwZWVkGAIgASgCEhEKCUluY2lkZW5jZRgDIAEo",
+            "AhIRCglkaXJlY3Rpb24YBCABKAISEAoIYmFja1NwaW4YBSABKAISEAoIc2lk",
+            "ZVNwaW4YBiABKAIa0AIKDENsdWJQYXRoSW5mbxIOCgZzaG90SWQYASABKAUS",
+            "EQoJaGVhZFNwZWVkGAIgASgCEj4KBHBhdGgYAyABKAsyMC5JbnRlbGxpU3dp",
+            "bmcuU2Vuc29yUnVubmluZ01zZy5DbHViUGF0aEluZm8uUGF0aBIRCglmYWNl",
+            "QW5nbGUYBCABKAISEwoLYXR0YWNrQW5nbGUYBSABKAISTAoLaW1wYWN0UG9p",
+            "bnQYBiABKAsyNy5JbnRlbGxpU3dpbmcuU2Vuc29yUnVubmluZ01zZy5DbHVi",
+            "UGF0aEluZm8uSW1wYWN0UG9pbnQaGgoEUGF0aBISCgpHQUNsdWJQYXRoGAEg",
+            "ASgCGksKC0ltcGFjdFBvaW50Eh0KFUdBQ2x1YkltcGFjdFBvaW50X0hvchgB",
+            "IAEoAhIdChVHQUNsdWJJbXBhY3RQb2ludF9WZXIYAiABKAJCCgoIcnVuU3Rh",
+            "dGUiIgoQU2hvdEltYWdlUmVxdWVzdBIOCgZzaG90SWQYASABKAUizAIKCUlt",
+            "YWdlRGF0YRINCgV3aWR0aBgBIAEoBRIOCgZoZWlnaHQYAiABKAUSDwoHY2hh",
+            "bm5lbBgDIAEoBRIRCglkYXRhX3R5cGUYBCABKAUSEgoKaW1hZ2VfdHlwZRgF",
+            "IAEoBRILCgNmcHMYBiABKAISLAoFZGF0YXMYByADKAsyHS5JbnRlbGxpU3dp",
+            "bmcuSW1hZ2VEYXRhLkltYWdlGqwBCgVJbWFnZRIMCgRkYXRhGAIgASgMEhEK",
+            "CXRpbWVTdGFtcBgDIAEoBBILCgN0YWcYByABKAkSNQoHbWFya2VycxgIIAMo",
+            "CzIkLkludGVsbGlTd2luZy5JbWFnZURhdGEuSW1hZ2UuTWFya2VyGj4KBk1h",
+            "cmtlchInCghwb3NpdGlvbhgBIAEoCzIVLkludGVsbGlTd2luZy5Qb2ludDJp",
+            "EgsKA3RhZxgCIAEoCSpECgpHcm91bmRBdHRyEgsKB0ZBSVJXQVkQABIJCgVS",
+            "T1VHSBABEgoKBkJVTktFUhACEgcKA1RFRRADEgkKBUdSRUVOEAQymggKFElu",
+            "dGVsbGlTd2luZ1Byb3RvY29sEkQKCkluaXRpYWxpemUSGy5JbnRlbGxpU3dp",
+            "bmcuSW5pdGlhbGl6ZU1zZxoXLkludGVsbGlTd2luZy5SZXR1cm5Nc2ciABI+",
+            "CgdSZWxlYXNlEhguSW50ZWxsaVN3aW5nLlJlbGVhc2VNc2caFy5JbnRlbGxp",
+            "U3dpbmcuUmV0dXJuTXNnIgASOwoGUmVib290EhYuZ29vZ2xlLnByb3RvYnVm",
+            "LkVtcHR5GhcuSW50ZWxsaVN3aW5nLlJldHVybk1zZyIAEkMKBVN0YXJ0EhYu",
+            "SW50ZWxsaVN3aW5nLlN0YXJ0TXNnGh4uSW50ZWxsaVN3aW5nLlNlbnNvclJ1",
+            "bm5pbmdNc2ciADABEjkKBFN0b3ASFi5nb29nbGUucHJvdG9idWYuRW1wdHka",
+            "Fy5JbnRlbGxpU3dpbmcuUmV0dXJuTXNnIgASSQoMR2V0Q2x1YkltYWdlEh4u",
+            "SW50ZWxsaVN3aW5nLlNob3RJbWFnZVJlcXVlc3QaFy5JbnRlbGxpU3dpbmcu",
+            "SW1hZ2VEYXRhIgASSQoMR2V0QmFsbEltYWdlEh4uSW50ZWxsaVN3aW5nLlNo",
+            "b3RJbWFnZVJlcXVlc3QaFy5JbnRlbGxpU3dpbmcuSW1hZ2VEYXRhIgASQwoN",
+            "R2V0RGV2aWNlSW5mbxIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoYLkludGVs",
+            "bGlTd2luZy5EZXZpY2VJbmZvIgASRwoPR2V0RGV2aWNlU3RhdHVzEhYuZ29v",
+            "Z2xlLnByb3RvYnVmLkVtcHR5GhouSW50ZWxsaVN3aW5nLkRldmljZVN0YXR1",
+            "cyIAEj4KBkdldExvZxIYLkludGVsbGlTd2luZy5Mb2dSZXF1ZXN0GhguSW50",
+            "ZWxsaVN3aW5nLkxvZ01lc3NhZ2UiABJSCg1HZXRTdGF0aXN0aWNzEh8uSW50",
+            "ZWxsaVN3aW5nLlN0YXRpc3RpY3NSZXF1ZXN0Gh4uSW50ZWxsaVN3aW5nLlNl",
+            "bnNvclN0YXRpc3RpY3MiABJhChJSdW5TaXRlQ2FsaWJyYXRpb24SJC5JbnRl",
+            "bGxpU3dpbmcuU2l0ZUNhbGlicmF0aW9uUmVxdWVzdBojLkludGVsbGlTd2lu",
+            "Zy5TaXRlQ2FsaWJyYXRpb25SZXN1bHQiABJbCg5VcGRhdGVGaXJtd2FyZRIj",
+            "LkludGVsbGlTd2luZy5VcGRhdGVGaXJtd2FyZVJlcXVlc3QaIi5JbnRlbGxp",
+            "U3dpbmcuVXBkYXRlRmlybXdhcmVSZXN1bHQiABJHCghHZXRJbWFnZRIgLklu",
+            "dGVsbGlTd2luZy5DYW1lcmFJbWFnZVJlcXVlc3QaFy5JbnRlbGxpU3dpbmcu",
+            "SW1hZ2VEYXRhIgBiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::IntelliSwing.TypeReflection.Descriptor, global::IntelliSwing.IntelliSwingServiceReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::IntelliSwing.GroundAttr), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.InitializeMsg), global::IntelliSwing.InitializeMsg.Parser, new[]{ "Client" }, null, new[]{ typeof(global::IntelliSwing.InitializeMsg.Types.Client) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ReleaseMsg), global::IntelliSwing.ReleaseMsg.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.StartMsg), global::IntelliSwing.StartMsg.Parser, new[]{ "ClubInformation", "GoundAttribution" }, null, new[]{ typeof(global::IntelliSwing.StartMsg.Types.ClubInformation) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg), global::IntelliSwing.SensorRunningMsg.Parser, new[]{ "TimeStamp", "Ready", "NotReady", "ShotTriggered", "BallInfo", "ClubInfo", "HeartBeat" }, new[]{ "RunState" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.Ready), global::IntelliSwing.SensorRunningMsg.Types.Ready.Parser, new[]{ "Position", "IsTee", "GoundAttribution" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg), global::IntelliSwing.SensorRunningMsg.Parser, new[]{ "TimeStamp", "Ready", "NotReady", "ShotTriggered", "BallInfo", "ClubInfo" }, new[]{ "RunState" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.Ready), global::IntelliSwing.SensorRunningMsg.Types.Ready.Parser, new[]{ "Position", "IsTee", "GoundAttribution" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.NotReady), global::IntelliSwing.SensorRunningMsg.Types.NotReady.Parser, new[]{ "NotReadyCause" }, null, new[]{ typeof(global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ShortTriggered), global::IntelliSwing.SensorRunningMsg.Types.ShortTriggered.Parser, new[]{ "ShotId", "Timestamp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.BallFlightInfo), global::IntelliSwing.SensorRunningMsg.Types.BallFlightInfo.Parser, new[]{ "ShotId", "BallSpeed", "Incidence", "Direction", "BackSpin", "SideSpin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Parser, new[]{ "ShotId", "HeadSpeed", "Path", "FaceAngle", "AttackAngle", "ImpactPoint" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path.Parser, new[]{ "GAClubPath" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint.Parser, new[]{ "GAClubImpactPointHor", "GAClubImpactPointVer" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.Heartbeat), global::IntelliSwing.SensorRunningMsg.Types.Heartbeat.Parser, new[]{ "Msg" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint.Parser, new[]{ "GAClubImpactPointHor", "GAClubImpactPointVer" }, null, null, null, null)})}),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ShotImageRequest), global::IntelliSwing.ShotImageRequest.Parser, new[]{ "ShotId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ImageData), global::IntelliSwing.ImageData.Parser, new[]{ "State", "Images" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ImageData.Types.Image), global::IntelliSwing.ImageData.Types.Image.Parser, new[]{ "ImageType", "Data", "Width", "Height", "Channel", "DataType", "Tag", "Markers" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ImageData.Types.Image.Types.Marker), global::IntelliSwing.ImageData.Types.Image.Types.Marker.Parser, new[]{ "Position", "Tag" }, null, null, null, null)})})
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ImageData), global::IntelliSwing.ImageData.Parser, new[]{ "Width", "Height", "Channel", "DataType", "ImageType", "Fps", "Datas" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ImageData.Types.Image), global::IntelliSwing.ImageData.Types.Image.Parser, new[]{ "Data", "TimeStamp", "Tag", "Markers" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.ImageData.Types.Image.Types.Marker), global::IntelliSwing.ImageData.Types.Image.Types.Marker.Parser, new[]{ "Position", "Tag" }, null, null, null, null)})})
           }));
     }
     #endregion
@@ -848,9 +846,6 @@ namespace IntelliSwing {
         case RunStateOneofCase.ClubInfo:
           ClubInfo = other.ClubInfo.Clone();
           break;
-        case RunStateOneofCase.HeartBeat:
-          HeartBeat = other.HeartBeat.Clone();
-          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -934,18 +929,6 @@ namespace IntelliSwing {
       }
     }
 
-    /// <summary>Field number for the "heartBeat" field.</summary>
-    public const int HeartBeatFieldNumber = 7;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::IntelliSwing.SensorRunningMsg.Types.Heartbeat HeartBeat {
-      get { return runStateCase_ == RunStateOneofCase.HeartBeat ? (global::IntelliSwing.SensorRunningMsg.Types.Heartbeat) runState_ : null; }
-      set {
-        runState_ = value;
-        runStateCase_ = value == null ? RunStateOneofCase.None : RunStateOneofCase.HeartBeat;
-      }
-    }
-
     private object runState_;
     /// <summary>Enum of possible cases for the "runState" oneof.</summary>
     public enum RunStateOneofCase {
@@ -955,7 +938,6 @@ namespace IntelliSwing {
       ShotTriggered = 4,
       BallInfo = 5,
       ClubInfo = 6,
-      HeartBeat = 7,
     }
     private RunStateOneofCase runStateCase_ = RunStateOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -992,7 +974,6 @@ namespace IntelliSwing {
       if (!object.Equals(ShotTriggered, other.ShotTriggered)) return false;
       if (!object.Equals(BallInfo, other.BallInfo)) return false;
       if (!object.Equals(ClubInfo, other.ClubInfo)) return false;
-      if (!object.Equals(HeartBeat, other.HeartBeat)) return false;
       if (RunStateCase != other.RunStateCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1007,7 +988,6 @@ namespace IntelliSwing {
       if (runStateCase_ == RunStateOneofCase.ShotTriggered) hash ^= ShotTriggered.GetHashCode();
       if (runStateCase_ == RunStateOneofCase.BallInfo) hash ^= BallInfo.GetHashCode();
       if (runStateCase_ == RunStateOneofCase.ClubInfo) hash ^= ClubInfo.GetHashCode();
-      if (runStateCase_ == RunStateOneofCase.HeartBeat) hash ^= HeartBeat.GetHashCode();
       hash ^= (int) runStateCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1051,10 +1031,6 @@ namespace IntelliSwing {
         output.WriteRawTag(50);
         output.WriteMessage(ClubInfo);
       }
-      if (runStateCase_ == RunStateOneofCase.HeartBeat) {
-        output.WriteRawTag(58);
-        output.WriteMessage(HeartBeat);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1089,10 +1065,6 @@ namespace IntelliSwing {
         output.WriteRawTag(50);
         output.WriteMessage(ClubInfo);
       }
-      if (runStateCase_ == RunStateOneofCase.HeartBeat) {
-        output.WriteRawTag(58);
-        output.WriteMessage(HeartBeat);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1120,9 +1092,6 @@ namespace IntelliSwing {
       }
       if (runStateCase_ == RunStateOneofCase.ClubInfo) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ClubInfo);
-      }
-      if (runStateCase_ == RunStateOneofCase.HeartBeat) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(HeartBeat);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1172,12 +1141,6 @@ namespace IntelliSwing {
             ClubInfo = new global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo();
           }
           ClubInfo.MergeFrom(other.ClubInfo);
-          break;
-        case RunStateOneofCase.HeartBeat:
-          if (HeartBeat == null) {
-            HeartBeat = new global::IntelliSwing.SensorRunningMsg.Types.Heartbeat();
-          }
-          HeartBeat.MergeFrom(other.HeartBeat);
           break;
       }
 
@@ -1248,15 +1211,6 @@ namespace IntelliSwing {
             ClubInfo = subBuilder;
             break;
           }
-          case 58: {
-            global::IntelliSwing.SensorRunningMsg.Types.Heartbeat subBuilder = new global::IntelliSwing.SensorRunningMsg.Types.Heartbeat();
-            if (runStateCase_ == RunStateOneofCase.HeartBeat) {
-              subBuilder.MergeFrom(HeartBeat);
-            }
-            input.ReadMessage(subBuilder);
-            HeartBeat = subBuilder;
-            break;
-          }
         }
       }
     #endif
@@ -1322,15 +1276,6 @@ namespace IntelliSwing {
             }
             input.ReadMessage(subBuilder);
             ClubInfo = subBuilder;
-            break;
-          }
-          case 58: {
-            global::IntelliSwing.SensorRunningMsg.Types.Heartbeat subBuilder = new global::IntelliSwing.SensorRunningMsg.Types.Heartbeat();
-            if (runStateCase_ == RunStateOneofCase.HeartBeat) {
-              subBuilder.MergeFrom(HeartBeat);
-            }
-            input.ReadMessage(subBuilder);
-            HeartBeat = subBuilder;
             break;
           }
         }
@@ -3270,195 +3215,6 @@ namespace IntelliSwing {
 
       }
 
-      public sealed partial class Heartbeat : pb::IMessage<Heartbeat>
-      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          , pb::IBufferMessage
-      #endif
-      {
-        private static readonly pb::MessageParser<Heartbeat> _parser = new pb::MessageParser<Heartbeat>(() => new Heartbeat());
-        private pb::UnknownFieldSet _unknownFields;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pb::MessageParser<Heartbeat> Parser { get { return _parser; } }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pbr::MessageDescriptor Descriptor {
-          get { return global::IntelliSwing.SensorRunningMsg.Descriptor.NestedTypes[5]; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        pbr::MessageDescriptor pb::IMessage.Descriptor {
-          get { return Descriptor; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public Heartbeat() {
-          OnConstruction();
-        }
-
-        partial void OnConstruction();
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public Heartbeat(Heartbeat other) : this() {
-          msg_ = other.msg_;
-          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public Heartbeat Clone() {
-          return new Heartbeat(this);
-        }
-
-        /// <summary>Field number for the "msg" field.</summary>
-        public const int MsgFieldNumber = 1;
-        private string msg_ = "";
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public string Msg {
-          get { return msg_; }
-          set {
-            msg_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-          }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override bool Equals(object other) {
-          return Equals(other as Heartbeat);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public bool Equals(Heartbeat other) {
-          if (ReferenceEquals(other, null)) {
-            return false;
-          }
-          if (ReferenceEquals(other, this)) {
-            return true;
-          }
-          if (Msg != other.Msg) return false;
-          return Equals(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override int GetHashCode() {
-          int hash = 1;
-          if (Msg.Length != 0) hash ^= Msg.GetHashCode();
-          if (_unknownFields != null) {
-            hash ^= _unknownFields.GetHashCode();
-          }
-          return hash;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override string ToString() {
-          return pb::JsonFormatter.ToDiagnosticString(this);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void WriteTo(pb::CodedOutputStream output) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          output.WriteRawMessage(this);
-        #else
-          if (Msg.Length != 0) {
-            output.WriteRawTag(10);
-            output.WriteString(Msg);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(output);
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (Msg.Length != 0) {
-            output.WriteRawTag(10);
-            output.WriteString(Msg);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(ref output);
-          }
-        }
-        #endif
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int CalculateSize() {
-          int size = 0;
-          if (Msg.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(Msg);
-          }
-          if (_unknownFields != null) {
-            size += _unknownFields.CalculateSize();
-          }
-          return size;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(Heartbeat other) {
-          if (other == null) {
-            return;
-          }
-          if (other.Msg.Length != 0) {
-            Msg = other.Msg;
-          }
-          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(pb::CodedInputStream input) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          input.ReadRawMessage(this);
-        #else
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                break;
-              case 10: {
-                Msg = input.ReadString();
-                break;
-              }
-            }
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                break;
-              case 10: {
-                Msg = input.ReadString();
-                break;
-              }
-            }
-          }
-        }
-        #endif
-
-      }
-
     }
     #endregion
 
@@ -3687,8 +3443,13 @@ namespace IntelliSwing {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ImageData(ImageData other) : this() {
-      state_ = other.state_ != null ? other.state_.Clone() : null;
-      images_ = other.images_.Clone();
+      width_ = other.width_;
+      height_ = other.height_;
+      channel_ = other.channel_;
+      dataType_ = other.dataType_;
+      imageType_ = other.imageType_;
+      fps_ = other.fps_;
+      datas_ = other.datas_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3698,27 +3459,105 @@ namespace IntelliSwing {
       return new ImageData(this);
     }
 
-    /// <summary>Field number for the "state" field.</summary>
-    public const int StateFieldNumber = 1;
-    private global::IntelliSwing.ReturnMsg state_;
+    /// <summary>Field number for the "width" field.</summary>
+    public const int WidthFieldNumber = 1;
+    private int width_;
+    /// <summary>
+    /// pixel, 음수 일 경우 data에서 크기 추출
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::IntelliSwing.ReturnMsg State {
-      get { return state_; }
+    public int Width {
+      get { return width_; }
       set {
-        state_ = value;
+        width_ = value;
       }
     }
 
-    /// <summary>Field number for the "images" field.</summary>
-    public const int ImagesFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::IntelliSwing.ImageData.Types.Image> _repeated_images_codec
-        = pb::FieldCodec.ForMessage(18, global::IntelliSwing.ImageData.Types.Image.Parser);
-    private readonly pbc::RepeatedField<global::IntelliSwing.ImageData.Types.Image> images_ = new pbc::RepeatedField<global::IntelliSwing.ImageData.Types.Image>();
+    /// <summary>Field number for the "height" field.</summary>
+    public const int HeightFieldNumber = 2;
+    private int height_;
+    /// <summary>
+    /// pixel, 음수 일 경우 data에서 크기 추출
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::IntelliSwing.ImageData.Types.Image> Images {
-      get { return images_; }
+    public int Height {
+      get { return height_; }
+      set {
+        height_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "channel" field.</summary>
+    public const int ChannelFieldNumber = 3;
+    private int channel_;
+    /// <summary>
+    /// channel {0~1 : gray, 3 : rgb, 4 : rgba}, 음수 일 경우 data에서 크기 추출
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Channel {
+      get { return channel_; }
+      set {
+        channel_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "data_type" field.</summary>
+    public const int DataTypeFieldNumber = 4;
+    private int dataType_;
+    /// <summary>
+    /// pixel data type : int, float, byte, 음수 일 경우 data에서 크기 추출
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int DataType {
+      get { return dataType_; }
+      set {
+        dataType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "image_type" field.</summary>
+    public const int ImageTypeFieldNumber = 5;
+    private int imageType_;
+    /// <summary>
+    /// {0 : raw, 1 : jpg, 2 : png, }
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int ImageType {
+      get { return imageType_; }
+      set {
+        imageType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "fps" field.</summary>
+    public const int FpsFieldNumber = 6;
+    private float fps_;
+    /// <summary>
+    /// frame per second
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float Fps {
+      get { return fps_; }
+      set {
+        fps_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "datas" field.</summary>
+    public const int DatasFieldNumber = 7;
+    private static readonly pb::FieldCodec<global::IntelliSwing.ImageData.Types.Image> _repeated_datas_codec
+        = pb::FieldCodec.ForMessage(58, global::IntelliSwing.ImageData.Types.Image.Parser);
+    private readonly pbc::RepeatedField<global::IntelliSwing.ImageData.Types.Image> datas_ = new pbc::RepeatedField<global::IntelliSwing.ImageData.Types.Image>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::IntelliSwing.ImageData.Types.Image> Datas {
+      get { return datas_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3736,8 +3575,13 @@ namespace IntelliSwing {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(State, other.State)) return false;
-      if(!images_.Equals(other.images_)) return false;
+      if (Width != other.Width) return false;
+      if (Height != other.Height) return false;
+      if (Channel != other.Channel) return false;
+      if (DataType != other.DataType) return false;
+      if (ImageType != other.ImageType) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Fps, other.Fps)) return false;
+      if(!datas_.Equals(other.datas_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3745,8 +3589,13 @@ namespace IntelliSwing {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (state_ != null) hash ^= State.GetHashCode();
-      hash ^= images_.GetHashCode();
+      if (Width != 0) hash ^= Width.GetHashCode();
+      if (Height != 0) hash ^= Height.GetHashCode();
+      if (Channel != 0) hash ^= Channel.GetHashCode();
+      if (DataType != 0) hash ^= DataType.GetHashCode();
+      if (ImageType != 0) hash ^= ImageType.GetHashCode();
+      if (Fps != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Fps);
+      hash ^= datas_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3765,11 +3614,31 @@ namespace IntelliSwing {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (state_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(State);
+      if (Width != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Width);
       }
-      images_.WriteTo(output, _repeated_images_codec);
+      if (Height != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Height);
+      }
+      if (Channel != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Channel);
+      }
+      if (DataType != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(DataType);
+      }
+      if (ImageType != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(ImageType);
+      }
+      if (Fps != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(Fps);
+      }
+      datas_.WriteTo(output, _repeated_datas_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3780,11 +3649,31 @@ namespace IntelliSwing {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (state_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(State);
+      if (Width != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Width);
       }
-      images_.WriteTo(ref output, _repeated_images_codec);
+      if (Height != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Height);
+      }
+      if (Channel != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Channel);
+      }
+      if (DataType != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(DataType);
+      }
+      if (ImageType != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(ImageType);
+      }
+      if (Fps != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(Fps);
+      }
+      datas_.WriteTo(ref output, _repeated_datas_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3795,10 +3684,25 @@ namespace IntelliSwing {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (state_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(State);
+      if (Width != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Width);
       }
-      size += images_.CalculateSize(_repeated_images_codec);
+      if (Height != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Height);
+      }
+      if (Channel != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Channel);
+      }
+      if (DataType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(DataType);
+      }
+      if (ImageType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ImageType);
+      }
+      if (Fps != 0F) {
+        size += 1 + 4;
+      }
+      size += datas_.CalculateSize(_repeated_datas_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3811,13 +3715,25 @@ namespace IntelliSwing {
       if (other == null) {
         return;
       }
-      if (other.state_ != null) {
-        if (state_ == null) {
-          State = new global::IntelliSwing.ReturnMsg();
-        }
-        State.MergeFrom(other.State);
+      if (other.Width != 0) {
+        Width = other.Width;
       }
-      images_.Add(other.images_);
+      if (other.Height != 0) {
+        Height = other.Height;
+      }
+      if (other.Channel != 0) {
+        Channel = other.Channel;
+      }
+      if (other.DataType != 0) {
+        DataType = other.DataType;
+      }
+      if (other.ImageType != 0) {
+        ImageType = other.ImageType;
+      }
+      if (other.Fps != 0F) {
+        Fps = other.Fps;
+      }
+      datas_.Add(other.datas_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -3833,15 +3749,32 @@ namespace IntelliSwing {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (state_ == null) {
-              State = new global::IntelliSwing.ReturnMsg();
-            }
-            input.ReadMessage(State);
+          case 8: {
+            Width = input.ReadInt32();
             break;
           }
-          case 18: {
-            images_.AddEntriesFrom(input, _repeated_images_codec);
+          case 16: {
+            Height = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Channel = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            DataType = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            ImageType = input.ReadInt32();
+            break;
+          }
+          case 53: {
+            Fps = input.ReadFloat();
+            break;
+          }
+          case 58: {
+            datas_.AddEntriesFrom(input, _repeated_datas_codec);
             break;
           }
         }
@@ -3859,15 +3792,32 @@ namespace IntelliSwing {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            if (state_ == null) {
-              State = new global::IntelliSwing.ReturnMsg();
-            }
-            input.ReadMessage(State);
+          case 8: {
+            Width = input.ReadInt32();
             break;
           }
-          case 18: {
-            images_.AddEntriesFrom(ref input, _repeated_images_codec);
+          case 16: {
+            Height = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Channel = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            DataType = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            ImageType = input.ReadInt32();
+            break;
+          }
+          case 53: {
+            Fps = input.ReadFloat();
+            break;
+          }
+          case 58: {
+            datas_.AddEntriesFrom(ref input, _repeated_datas_codec);
             break;
           }
         }
@@ -3914,12 +3864,8 @@ namespace IntelliSwing {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public Image(Image other) : this() {
-          imageType_ = other.imageType_;
           data_ = other.data_;
-          width_ = other.width_;
-          height_ = other.height_;
-          channel_ = other.channel_;
-          dataType_ = other.dataType_;
+          timeStamp_ = other.timeStamp_;
           tag_ = other.tag_;
           markers_ = other.markers_.Clone();
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -3929,21 +3875,6 @@ namespace IntelliSwing {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public Image Clone() {
           return new Image(this);
-        }
-
-        /// <summary>Field number for the "imageType" field.</summary>
-        public const int ImageTypeFieldNumber = 1;
-        private int imageType_;
-        /// <summary>
-        /// {raw, jpg, png, }
-        /// </summary>
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int ImageType {
-          get { return imageType_; }
-          set {
-            imageType_ = value;
-          }
         }
 
         /// <summary>Field number for the "data" field.</summary>
@@ -3961,63 +3892,15 @@ namespace IntelliSwing {
           }
         }
 
-        /// <summary>Field number for the "width" field.</summary>
-        public const int WidthFieldNumber = 3;
-        private int width_;
-        /// <summary>
-        /// pixel
-        /// </summary>
+        /// <summary>Field number for the "timeStamp" field.</summary>
+        public const int TimeStampFieldNumber = 3;
+        private ulong timeStamp_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int Width {
-          get { return width_; }
+        public ulong TimeStamp {
+          get { return timeStamp_; }
           set {
-            width_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "height" field.</summary>
-        public const int HeightFieldNumber = 4;
-        private int height_;
-        /// <summary>
-        /// pixel
-        /// </summary>
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int Height {
-          get { return height_; }
-          set {
-            height_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "channel" field.</summary>
-        public const int ChannelFieldNumber = 5;
-        private int channel_;
-        /// <summary>
-        /// channel
-        /// </summary>
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int Channel {
-          get { return channel_; }
-          set {
-            channel_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "dataType" field.</summary>
-        public const int DataTypeFieldNumber = 6;
-        private int dataType_;
-        /// <summary>
-        /// pixel data type : int, float, byte
-        /// </summary>
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int DataType {
-          get { return dataType_; }
-          set {
-            dataType_ = value;
+            timeStamp_ = value;
           }
         }
 
@@ -4065,12 +3948,8 @@ namespace IntelliSwing {
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if (ImageType != other.ImageType) return false;
           if (Data != other.Data) return false;
-          if (Width != other.Width) return false;
-          if (Height != other.Height) return false;
-          if (Channel != other.Channel) return false;
-          if (DataType != other.DataType) return false;
+          if (TimeStamp != other.TimeStamp) return false;
           if (Tag != other.Tag) return false;
           if(!markers_.Equals(other.markers_)) return false;
           return Equals(_unknownFields, other._unknownFields);
@@ -4080,12 +3959,8 @@ namespace IntelliSwing {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override int GetHashCode() {
           int hash = 1;
-          if (ImageType != 0) hash ^= ImageType.GetHashCode();
           if (Data.Length != 0) hash ^= Data.GetHashCode();
-          if (Width != 0) hash ^= Width.GetHashCode();
-          if (Height != 0) hash ^= Height.GetHashCode();
-          if (Channel != 0) hash ^= Channel.GetHashCode();
-          if (DataType != 0) hash ^= DataType.GetHashCode();
+          if (TimeStamp != 0UL) hash ^= TimeStamp.GetHashCode();
           if (Tag.Length != 0) hash ^= Tag.GetHashCode();
           hash ^= markers_.GetHashCode();
           if (_unknownFields != null) {
@@ -4106,29 +3981,13 @@ namespace IntelliSwing {
         #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           output.WriteRawMessage(this);
         #else
-          if (ImageType != 0) {
-            output.WriteRawTag(8);
-            output.WriteInt32(ImageType);
-          }
           if (Data.Length != 0) {
             output.WriteRawTag(18);
             output.WriteBytes(Data);
           }
-          if (Width != 0) {
+          if (TimeStamp != 0UL) {
             output.WriteRawTag(24);
-            output.WriteInt32(Width);
-          }
-          if (Height != 0) {
-            output.WriteRawTag(32);
-            output.WriteInt32(Height);
-          }
-          if (Channel != 0) {
-            output.WriteRawTag(40);
-            output.WriteInt32(Channel);
-          }
-          if (DataType != 0) {
-            output.WriteRawTag(48);
-            output.WriteInt32(DataType);
+            output.WriteUInt64(TimeStamp);
           }
           if (Tag.Length != 0) {
             output.WriteRawTag(58);
@@ -4145,29 +4004,13 @@ namespace IntelliSwing {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (ImageType != 0) {
-            output.WriteRawTag(8);
-            output.WriteInt32(ImageType);
-          }
           if (Data.Length != 0) {
             output.WriteRawTag(18);
             output.WriteBytes(Data);
           }
-          if (Width != 0) {
+          if (TimeStamp != 0UL) {
             output.WriteRawTag(24);
-            output.WriteInt32(Width);
-          }
-          if (Height != 0) {
-            output.WriteRawTag(32);
-            output.WriteInt32(Height);
-          }
-          if (Channel != 0) {
-            output.WriteRawTag(40);
-            output.WriteInt32(Channel);
-          }
-          if (DataType != 0) {
-            output.WriteRawTag(48);
-            output.WriteInt32(DataType);
+            output.WriteUInt64(TimeStamp);
           }
           if (Tag.Length != 0) {
             output.WriteRawTag(58);
@@ -4184,23 +4027,11 @@ namespace IntelliSwing {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public int CalculateSize() {
           int size = 0;
-          if (ImageType != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(ImageType);
-          }
           if (Data.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeBytesSize(Data);
           }
-          if (Width != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Width);
-          }
-          if (Height != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Height);
-          }
-          if (Channel != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Channel);
-          }
-          if (DataType != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(DataType);
+          if (TimeStamp != 0UL) {
+            size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TimeStamp);
           }
           if (Tag.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Tag);
@@ -4218,23 +4049,11 @@ namespace IntelliSwing {
           if (other == null) {
             return;
           }
-          if (other.ImageType != 0) {
-            ImageType = other.ImageType;
-          }
           if (other.Data.Length != 0) {
             Data = other.Data;
           }
-          if (other.Width != 0) {
-            Width = other.Width;
-          }
-          if (other.Height != 0) {
-            Height = other.Height;
-          }
-          if (other.Channel != 0) {
-            Channel = other.Channel;
-          }
-          if (other.DataType != 0) {
-            DataType = other.DataType;
+          if (other.TimeStamp != 0UL) {
+            TimeStamp = other.TimeStamp;
           }
           if (other.Tag.Length != 0) {
             Tag = other.Tag;
@@ -4255,28 +4074,12 @@ namespace IntelliSwing {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 8: {
-                ImageType = input.ReadInt32();
-                break;
-              }
               case 18: {
                 Data = input.ReadBytes();
                 break;
               }
               case 24: {
-                Width = input.ReadInt32();
-                break;
-              }
-              case 32: {
-                Height = input.ReadInt32();
-                break;
-              }
-              case 40: {
-                Channel = input.ReadInt32();
-                break;
-              }
-              case 48: {
-                DataType = input.ReadInt32();
+                TimeStamp = input.ReadUInt64();
                 break;
               }
               case 58: {
@@ -4302,28 +4105,12 @@ namespace IntelliSwing {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 8: {
-                ImageType = input.ReadInt32();
-                break;
-              }
               case 18: {
                 Data = input.ReadBytes();
                 break;
               }
               case 24: {
-                Width = input.ReadInt32();
-                break;
-              }
-              case 32: {
-                Height = input.ReadInt32();
-                break;
-              }
-              case 40: {
-                Channel = input.ReadInt32();
-                break;
-              }
-              case 48: {
-                DataType = input.ReadInt32();
+                TimeStamp = input.ReadUInt64();
                 break;
               }
               case 58: {

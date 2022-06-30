@@ -135,8 +135,8 @@ BOOL CClientDlg::OnInitDialog()
 	if (channel)
 	{
 		std::cout << "Channel create complete " << target_str << std::endl;
-		m_uptrStub = IntelliSwing::IntelliSwingProtocol::NewStub(channel);
-		if (m_uptrStub)
+		g_uptrStub = IntelliSwing::IntelliSwingProtocol::NewStub(channel);
+		if (g_uptrStub)
 			std::cout << "channel connected " << target_str << std::endl;
 		return TRUE;
 	}
@@ -202,11 +202,11 @@ void CClientDlg::OnBnClickedButtonInitialize()
 
 	grpc::ClientContext context;
 	IntelliSwing::InitializeMsg initMsg;
-	IntelliSwing::ReturnMsg retMsg;
-	grpc::Status status = m_uptrStub->Initialize(&context, initMsg, &retMsg);
+	IntelliSwing::ReturnMsg retMsgPB;
+	grpc::Status status = g_uptrStub->Initialize(&context, initMsg, &retMsgPB);
 	if (status.ok()) 
 	{
-		std::cout << "State Return Msg"<< retMsg.isok() << std::endl;
+		std::cout << "State Return Msg"<< retMsgPB.isok() << std::endl;
 		std::cout << "rpc OK" << std::endl;
 	}
 	else 
@@ -220,13 +220,13 @@ void CClientDlg::OnBnClickedButtonRelease()
 {
 	LogHelper log(__FUNCTION__);
 	IntelliSwing::ReleaseMsg releaseMsg;
-	IntelliSwing::ReturnMsg retMsg;
+	IntelliSwing::ReturnMsg retMsgPB;
 	grpc::ClientContext context;
 
-	grpc::Status status = m_uptrStub->Release(&context, releaseMsg, &retMsg);
+	grpc::Status status = g_uptrStub->Release(&context, releaseMsg, &retMsgPB);
 	if (status.ok())
 	{
-		std::cout << "State Return Msg" << retMsg.isok() << std::endl;
+		std::cout << "State Return Msg" << retMsgPB.isok() << std::endl;
 		std::cout << "OnBnClickedButtonRelease OK" << std::endl;
 	}
 	else
@@ -240,13 +240,13 @@ void CClientDlg::OnBnClickedButtonReboot()
 {
 	LogHelper log(__FUNCTION__);
 	grpc::ClientContext context;
-	IntelliSwing::ReturnMsg retMsg;
+	IntelliSwing::ReturnMsg retMsgPB;
 
 	//protobuf::em
-	grpc::Status status = m_uptrStub->Reboot(&context, google::protobuf::Empty(), &retMsg);
+	grpc::Status status = g_uptrStub->Reboot(&context, google::protobuf::Empty(), &retMsgPB);
 	if (status.ok())
 	{
-		std::cout << "State Return Msg" << retMsg.isok() << std::endl;
+		std::cout << "State Return Msg" << retMsgPB.isok() << std::endl;
 		std::cout << "OnBnClickedButtonReboot OK" << std::endl;
 	}
 	else
@@ -266,7 +266,7 @@ void CClientDlg::OnBnClickedButtonStart()
 
 	startMsg.set_clubinformation(IntelliSwing::StartMsg_ClubInformation::StartMsg_ClubInformation_W1);
 	
-	m_reader = m_uptrStub->Start(m_pContext, startMsg);
+	m_reader = g_uptrStub->Start(m_pContext, startMsg);
 	std::cout << "Send Start Msg "<< std::endl;
 
 	if (m_reader == nullptr)  return;
@@ -294,13 +294,13 @@ void CClientDlg::OnBnClickedButtonStop()
 {
 	LogHelper log(__FUNCTION__);
 	grpc::ClientContext context;
-	IntelliSwing::ReturnMsg retMsg;
+	IntelliSwing::ReturnMsg retMsgPB;
 
 	//protobuf::em
-	grpc::Status status = m_uptrStub->Stop(&context, google::protobuf::Empty(), &retMsg);
+	grpc::Status status = g_uptrStub->Stop(&context, google::protobuf::Empty(), &retMsgPB);
 	if (status.ok())
 	{
-		std::cout << "State Return Msg" << retMsg.isok() << std::endl;
+		std::cout << "State Return Msg" << retMsgPB.isok() << std::endl;
 		std::cout << "OnBnClickedButtonStop OK" << std::endl;
 	}
 	else
@@ -314,10 +314,10 @@ void CClientDlg::OnBnClickedButtonGetClubImg()
 {
 	LogHelper log(__FUNCTION__);
 	grpc::ClientContext context;
-	IntelliSwing::ImageData retMsg;
+	IntelliSwing::ImageData retMsgPB;
 	IntelliSwing::ShotImageRequest imageRequest;
 	//protobuf::em
-	grpc::Status status = m_uptrStub->GetClubImage(&context, imageRequest, &retMsg);
+	grpc::Status status = g_uptrStub->GetClubImage(&context, imageRequest, &retMsgPB);
 	if (status.ok())
 	{
 		std::cout << "OnBnClickedButtonGetClubImg OK" << std::endl;
@@ -333,10 +333,10 @@ void CClientDlg::OnBnClickedButtonGetBallImg()
 {
 	LogHelper log(__FUNCTION__);
 	grpc::ClientContext context;
-	IntelliSwing::ImageData retMsg;
+	IntelliSwing::ImageData retMsgPB;
 	IntelliSwing::ShotImageRequest imageRequest;
 	//protobuf::em
-	grpc::Status status = m_uptrStub->GetBallImage(&context, imageRequest, &retMsg);
+	grpc::Status status = g_uptrStub->GetBallImage(&context, imageRequest, &retMsgPB);
 	if (status.ok())
 	{
 		std::cout << "OnBnClickedButtonGetBallImg OK" << std::endl;

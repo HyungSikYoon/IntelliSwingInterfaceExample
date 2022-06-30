@@ -47,7 +47,7 @@ struct TableStruct_IntelliSwingService_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[8]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[11]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -55,15 +55,15 @@ struct TableStruct_IntelliSwingService_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_IntelliSwingService_2eproto;
 namespace IntelliSwing {
+class CameraImageRequest;
+struct CameraImageRequestDefaultTypeInternal;
+extern CameraImageRequestDefaultTypeInternal _CameraImageRequest_default_instance_;
 class DeviceInfo;
 struct DeviceInfoDefaultTypeInternal;
 extern DeviceInfoDefaultTypeInternal _DeviceInfo_default_instance_;
-class DiviceStatus;
-struct DiviceStatusDefaultTypeInternal;
-extern DiviceStatusDefaultTypeInternal _DiviceStatus_default_instance_;
-class Firmware;
-struct FirmwareDefaultTypeInternal;
-extern FirmwareDefaultTypeInternal _Firmware_default_instance_;
+class DeviceStatus;
+struct DeviceStatusDefaultTypeInternal;
+extern DeviceStatusDefaultTypeInternal _DeviceStatus_default_instance_;
 class LogMessage;
 struct LogMessageDefaultTypeInternal;
 extern LogMessageDefaultTypeInternal _LogMessage_default_instance_;
@@ -73,21 +73,33 @@ extern LogRequestDefaultTypeInternal _LogRequest_default_instance_;
 class SensorStatistics;
 struct SensorStatisticsDefaultTypeInternal;
 extern SensorStatisticsDefaultTypeInternal _SensorStatistics_default_instance_;
+class SiteCalibrationRequest;
+struct SiteCalibrationRequestDefaultTypeInternal;
+extern SiteCalibrationRequestDefaultTypeInternal _SiteCalibrationRequest_default_instance_;
 class SiteCalibrationResult;
 struct SiteCalibrationResultDefaultTypeInternal;
 extern SiteCalibrationResultDefaultTypeInternal _SiteCalibrationResult_default_instance_;
+class StatisticsRequest;
+struct StatisticsRequestDefaultTypeInternal;
+extern StatisticsRequestDefaultTypeInternal _StatisticsRequest_default_instance_;
+class UpdateFirmwareRequest;
+struct UpdateFirmwareRequestDefaultTypeInternal;
+extern UpdateFirmwareRequestDefaultTypeInternal _UpdateFirmwareRequest_default_instance_;
 class UpdateFirmwareResult;
 struct UpdateFirmwareResultDefaultTypeInternal;
 extern UpdateFirmwareResultDefaultTypeInternal _UpdateFirmwareResult_default_instance_;
 }  // namespace IntelliSwing
 PROTOBUF_NAMESPACE_OPEN
+template<> ::IntelliSwing::CameraImageRequest* Arena::CreateMaybeMessage<::IntelliSwing::CameraImageRequest>(Arena*);
 template<> ::IntelliSwing::DeviceInfo* Arena::CreateMaybeMessage<::IntelliSwing::DeviceInfo>(Arena*);
-template<> ::IntelliSwing::DiviceStatus* Arena::CreateMaybeMessage<::IntelliSwing::DiviceStatus>(Arena*);
-template<> ::IntelliSwing::Firmware* Arena::CreateMaybeMessage<::IntelliSwing::Firmware>(Arena*);
+template<> ::IntelliSwing::DeviceStatus* Arena::CreateMaybeMessage<::IntelliSwing::DeviceStatus>(Arena*);
 template<> ::IntelliSwing::LogMessage* Arena::CreateMaybeMessage<::IntelliSwing::LogMessage>(Arena*);
 template<> ::IntelliSwing::LogRequest* Arena::CreateMaybeMessage<::IntelliSwing::LogRequest>(Arena*);
 template<> ::IntelliSwing::SensorStatistics* Arena::CreateMaybeMessage<::IntelliSwing::SensorStatistics>(Arena*);
+template<> ::IntelliSwing::SiteCalibrationRequest* Arena::CreateMaybeMessage<::IntelliSwing::SiteCalibrationRequest>(Arena*);
 template<> ::IntelliSwing::SiteCalibrationResult* Arena::CreateMaybeMessage<::IntelliSwing::SiteCalibrationResult>(Arena*);
+template<> ::IntelliSwing::StatisticsRequest* Arena::CreateMaybeMessage<::IntelliSwing::StatisticsRequest>(Arena*);
+template<> ::IntelliSwing::UpdateFirmwareRequest* Arena::CreateMaybeMessage<::IntelliSwing::UpdateFirmwareRequest>(Arena*);
 template<> ::IntelliSwing::UpdateFirmwareResult* Arena::CreateMaybeMessage<::IntelliSwing::UpdateFirmwareResult>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace IntelliSwing {
@@ -221,6 +233,7 @@ class DeviceInfo final :
     kSoftwareVerFieldNumber = 3,
     kSerialNumberFieldNumber = 4,
     kSensorNameFieldNumber = 5,
+    kHandTypeFieldNumber = 6,
   };
   // string deviceVer = 1;
   void clear_devicever();
@@ -292,6 +305,15 @@ class DeviceInfo final :
   std::string* _internal_mutable_sensorname();
   public:
 
+  // int32 handType = 6;
+  void clear_handtype();
+  int32_t handtype() const;
+  void set_handtype(int32_t value);
+  private:
+  int32_t _internal_handtype() const;
+  void _internal_set_handtype(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:IntelliSwing.DeviceInfo)
  private:
   class _Internal;
@@ -304,29 +326,30 @@ class DeviceInfo final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr softwarever_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr serialnumber_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sensorname_;
+  int32_t handtype_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_IntelliSwingService_2eproto;
 };
 // -------------------------------------------------------------------
 
-class DiviceStatus final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IntelliSwing.DiviceStatus) */ {
+class StatisticsRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IntelliSwing.StatisticsRequest) */ {
  public:
-  inline DiviceStatus() : DiviceStatus(nullptr) {}
-  ~DiviceStatus() override;
-  explicit constexpr DiviceStatus(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline StatisticsRequest() : StatisticsRequest(nullptr) {}
+  ~StatisticsRequest() override;
+  explicit constexpr StatisticsRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  DiviceStatus(const DiviceStatus& from);
-  DiviceStatus(DiviceStatus&& from) noexcept
-    : DiviceStatus() {
+  StatisticsRequest(const StatisticsRequest& from);
+  StatisticsRequest(StatisticsRequest&& from) noexcept
+    : StatisticsRequest() {
     *this = ::std::move(from);
   }
 
-  inline DiviceStatus& operator=(const DiviceStatus& from) {
+  inline StatisticsRequest& operator=(const StatisticsRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline DiviceStatus& operator=(DiviceStatus&& from) noexcept {
+  inline StatisticsRequest& operator=(StatisticsRequest&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -349,20 +372,20 @@ class DiviceStatus final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const DiviceStatus& default_instance() {
+  static const StatisticsRequest& default_instance() {
     return *internal_default_instance();
   }
-  static inline const DiviceStatus* internal_default_instance() {
-    return reinterpret_cast<const DiviceStatus*>(
-               &_DiviceStatus_default_instance_);
+  static inline const StatisticsRequest* internal_default_instance() {
+    return reinterpret_cast<const StatisticsRequest*>(
+               &_StatisticsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(DiviceStatus& a, DiviceStatus& b) {
+  friend void swap(StatisticsRequest& a, StatisticsRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(DiviceStatus* other) {
+  inline void Swap(StatisticsRequest* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -375,7 +398,7 @@ class DiviceStatus final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(DiviceStatus* other) {
+  void UnsafeArenaSwap(StatisticsRequest* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -383,13 +406,13 @@ class DiviceStatus final :
 
   // implements Message ----------------------------------------------
 
-  DiviceStatus* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<DiviceStatus>(arena);
+  StatisticsRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<StatisticsRequest>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const DiviceStatus& from);
+  void CopyFrom(const StatisticsRequest& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const DiviceStatus& from);
+  void MergeFrom(const StatisticsRequest& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -406,15 +429,453 @@ class DiviceStatus final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(DiviceStatus* other);
+  void InternalSwap(StatisticsRequest* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IntelliSwing.DiviceStatus";
+    return "IntelliSwing.StatisticsRequest";
   }
   protected:
-  explicit DiviceStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit StatisticsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTypeFieldNumber = 1,
+  };
+  // int32 type = 1;
+  void clear_type();
+  int32_t type() const;
+  void set_type(int32_t value);
+  private:
+  int32_t _internal_type() const;
+  void _internal_set_type(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:IntelliSwing.StatisticsRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int32_t type_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_IntelliSwingService_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SiteCalibrationRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IntelliSwing.SiteCalibrationRequest) */ {
+ public:
+  inline SiteCalibrationRequest() : SiteCalibrationRequest(nullptr) {}
+  ~SiteCalibrationRequest() override;
+  explicit constexpr SiteCalibrationRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SiteCalibrationRequest(const SiteCalibrationRequest& from);
+  SiteCalibrationRequest(SiteCalibrationRequest&& from) noexcept
+    : SiteCalibrationRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline SiteCalibrationRequest& operator=(const SiteCalibrationRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SiteCalibrationRequest& operator=(SiteCalibrationRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SiteCalibrationRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SiteCalibrationRequest* internal_default_instance() {
+    return reinterpret_cast<const SiteCalibrationRequest*>(
+               &_SiteCalibrationRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(SiteCalibrationRequest& a, SiteCalibrationRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SiteCalibrationRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SiteCalibrationRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SiteCalibrationRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SiteCalibrationRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SiteCalibrationRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SiteCalibrationRequest& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SiteCalibrationRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IntelliSwing.SiteCalibrationRequest";
+  }
+  protected:
+  explicit SiteCalibrationRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTypeFieldNumber = 1,
+  };
+  // int32 type = 1;
+  void clear_type();
+  int32_t type() const;
+  void set_type(int32_t value);
+  private:
+  int32_t _internal_type() const;
+  void _internal_set_type(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:IntelliSwing.SiteCalibrationRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int32_t type_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_IntelliSwingService_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CameraImageRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IntelliSwing.CameraImageRequest) */ {
+ public:
+  inline CameraImageRequest() : CameraImageRequest(nullptr) {}
+  ~CameraImageRequest() override;
+  explicit constexpr CameraImageRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CameraImageRequest(const CameraImageRequest& from);
+  CameraImageRequest(CameraImageRequest&& from) noexcept
+    : CameraImageRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline CameraImageRequest& operator=(const CameraImageRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CameraImageRequest& operator=(CameraImageRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CameraImageRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CameraImageRequest* internal_default_instance() {
+    return reinterpret_cast<const CameraImageRequest*>(
+               &_CameraImageRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(CameraImageRequest& a, CameraImageRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CameraImageRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CameraImageRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CameraImageRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CameraImageRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CameraImageRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const CameraImageRequest& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CameraImageRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IntelliSwing.CameraImageRequest";
+  }
+  protected:
+  explicit CameraImageRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTypeFieldNumber = 1,
+  };
+  // int32 type = 1;
+  void clear_type();
+  int32_t type() const;
+  void set_type(int32_t value);
+  private:
+  int32_t _internal_type() const;
+  void _internal_set_type(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:IntelliSwing.CameraImageRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int32_t type_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_IntelliSwingService_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DeviceStatus final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IntelliSwing.DeviceStatus) */ {
+ public:
+  inline DeviceStatus() : DeviceStatus(nullptr) {}
+  ~DeviceStatus() override;
+  explicit constexpr DeviceStatus(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DeviceStatus(const DeviceStatus& from);
+  DeviceStatus(DeviceStatus&& from) noexcept
+    : DeviceStatus() {
+    *this = ::std::move(from);
+  }
+
+  inline DeviceStatus& operator=(const DeviceStatus& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DeviceStatus& operator=(DeviceStatus&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DeviceStatus& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DeviceStatus* internal_default_instance() {
+    return reinterpret_cast<const DeviceStatus*>(
+               &_DeviceStatus_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(DeviceStatus& a, DeviceStatus& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DeviceStatus* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DeviceStatus* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DeviceStatus* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DeviceStatus>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DeviceStatus& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const DeviceStatus& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DeviceStatus* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IntelliSwing.DeviceStatus";
+  }
+  protected:
+  explicit DeviceStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -490,7 +951,7 @@ class DiviceStatus final :
   void _internal_set_batteryinfo(float value);
   public:
 
-  // @@protoc_insertion_point(class_scope:IntelliSwing.DiviceStatus)
+  // @@protoc_insertion_point(class_scope:IntelliSwing.DeviceStatus)
  private:
   class _Internal;
 
@@ -554,7 +1015,7 @@ class LogRequest final :
                &_LogRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    5;
 
   friend void swap(LogRequest& a, LogRequest& b) {
     a.Swap(&b);
@@ -711,7 +1172,7 @@ class LogMessage final :
                &_LogMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    6;
 
   friend void swap(LogMessage& a, LogMessage& b) {
     a.Swap(&b);
@@ -898,7 +1359,7 @@ class SensorStatistics final :
                &_SensorStatistics_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    7;
 
   friend void swap(SensorStatistics& a, SensorStatistics& b) {
     a.Swap(&b);
@@ -1044,7 +1505,7 @@ class SiteCalibrationResult final :
                &_SiteCalibrationResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    8;
 
   friend void swap(SiteCalibrationResult& a, SiteCalibrationResult& b) {
     a.Swap(&b);
@@ -1151,24 +1612,24 @@ class SiteCalibrationResult final :
 };
 // -------------------------------------------------------------------
 
-class Firmware final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IntelliSwing.Firmware) */ {
+class UpdateFirmwareRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IntelliSwing.UpdateFirmwareRequest) */ {
  public:
-  inline Firmware() : Firmware(nullptr) {}
-  ~Firmware() override;
-  explicit constexpr Firmware(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline UpdateFirmwareRequest() : UpdateFirmwareRequest(nullptr) {}
+  ~UpdateFirmwareRequest() override;
+  explicit constexpr UpdateFirmwareRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Firmware(const Firmware& from);
-  Firmware(Firmware&& from) noexcept
-    : Firmware() {
+  UpdateFirmwareRequest(const UpdateFirmwareRequest& from);
+  UpdateFirmwareRequest(UpdateFirmwareRequest&& from) noexcept
+    : UpdateFirmwareRequest() {
     *this = ::std::move(from);
   }
 
-  inline Firmware& operator=(const Firmware& from) {
+  inline UpdateFirmwareRequest& operator=(const UpdateFirmwareRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Firmware& operator=(Firmware&& from) noexcept {
+  inline UpdateFirmwareRequest& operator=(UpdateFirmwareRequest&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1191,20 +1652,20 @@ class Firmware final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const Firmware& default_instance() {
+  static const UpdateFirmwareRequest& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Firmware* internal_default_instance() {
-    return reinterpret_cast<const Firmware*>(
-               &_Firmware_default_instance_);
+  static inline const UpdateFirmwareRequest* internal_default_instance() {
+    return reinterpret_cast<const UpdateFirmwareRequest*>(
+               &_UpdateFirmwareRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    9;
 
-  friend void swap(Firmware& a, Firmware& b) {
+  friend void swap(UpdateFirmwareRequest& a, UpdateFirmwareRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(Firmware* other) {
+  inline void Swap(UpdateFirmwareRequest* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1217,7 +1678,7 @@ class Firmware final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Firmware* other) {
+  void UnsafeArenaSwap(UpdateFirmwareRequest* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1225,13 +1686,13 @@ class Firmware final :
 
   // implements Message ----------------------------------------------
 
-  Firmware* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<Firmware>(arena);
+  UpdateFirmwareRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<UpdateFirmwareRequest>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Firmware& from);
+  void CopyFrom(const UpdateFirmwareRequest& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const Firmware& from);
+  void MergeFrom(const UpdateFirmwareRequest& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -1248,15 +1709,15 @@ class Firmware final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Firmware* other);
+  void InternalSwap(UpdateFirmwareRequest* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IntelliSwing.Firmware";
+    return "IntelliSwing.UpdateFirmwareRequest";
   }
   protected:
-  explicit Firmware(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit UpdateFirmwareRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -1304,7 +1765,7 @@ class Firmware final :
   std::string* _internal_mutable_fpgafirmware();
   public:
 
-  // @@protoc_insertion_point(class_scope:IntelliSwing.Firmware)
+  // @@protoc_insertion_point(class_scope:IntelliSwing.UpdateFirmwareRequest)
  private:
   class _Internal;
 
@@ -1366,7 +1827,7 @@ class UpdateFirmwareResult final :
                &_UpdateFirmwareResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    10;
 
   friend void swap(UpdateFirmwareResult& a, UpdateFirmwareResult& b) {
     a.Swap(&b);
@@ -1757,64 +2218,156 @@ inline void DeviceInfo::set_allocated_sensorname(std::string* sensorname) {
   // @@protoc_insertion_point(field_set_allocated:IntelliSwing.DeviceInfo.sensorName)
 }
 
+// int32 handType = 6;
+inline void DeviceInfo::clear_handtype() {
+  handtype_ = 0;
+}
+inline int32_t DeviceInfo::_internal_handtype() const {
+  return handtype_;
+}
+inline int32_t DeviceInfo::handtype() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.DeviceInfo.handType)
+  return _internal_handtype();
+}
+inline void DeviceInfo::_internal_set_handtype(int32_t value) {
+  
+  handtype_ = value;
+}
+inline void DeviceInfo::set_handtype(int32_t value) {
+  _internal_set_handtype(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.DeviceInfo.handType)
+}
+
 // -------------------------------------------------------------------
 
-// DiviceStatus
+// StatisticsRequest
+
+// int32 type = 1;
+inline void StatisticsRequest::clear_type() {
+  type_ = 0;
+}
+inline int32_t StatisticsRequest::_internal_type() const {
+  return type_;
+}
+inline int32_t StatisticsRequest::type() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.StatisticsRequest.type)
+  return _internal_type();
+}
+inline void StatisticsRequest::_internal_set_type(int32_t value) {
+  
+  type_ = value;
+}
+inline void StatisticsRequest::set_type(int32_t value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.StatisticsRequest.type)
+}
+
+// -------------------------------------------------------------------
+
+// SiteCalibrationRequest
+
+// int32 type = 1;
+inline void SiteCalibrationRequest::clear_type() {
+  type_ = 0;
+}
+inline int32_t SiteCalibrationRequest::_internal_type() const {
+  return type_;
+}
+inline int32_t SiteCalibrationRequest::type() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SiteCalibrationRequest.type)
+  return _internal_type();
+}
+inline void SiteCalibrationRequest::_internal_set_type(int32_t value) {
+  
+  type_ = value;
+}
+inline void SiteCalibrationRequest::set_type(int32_t value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SiteCalibrationRequest.type)
+}
+
+// -------------------------------------------------------------------
+
+// CameraImageRequest
+
+// int32 type = 1;
+inline void CameraImageRequest::clear_type() {
+  type_ = 0;
+}
+inline int32_t CameraImageRequest::_internal_type() const {
+  return type_;
+}
+inline int32_t CameraImageRequest::type() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.CameraImageRequest.type)
+  return _internal_type();
+}
+inline void CameraImageRequest::_internal_set_type(int32_t value) {
+  
+  type_ = value;
+}
+inline void CameraImageRequest::set_type(int32_t value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.CameraImageRequest.type)
+}
+
+// -------------------------------------------------------------------
+
+// DeviceStatus
 
 // repeated .IntelliSwing.ReturnMsg sensorState = 1;
-inline int DiviceStatus::_internal_sensorstate_size() const {
+inline int DeviceStatus::_internal_sensorstate_size() const {
   return sensorstate_.size();
 }
-inline int DiviceStatus::sensorstate_size() const {
+inline int DeviceStatus::sensorstate_size() const {
   return _internal_sensorstate_size();
 }
-inline ::IntelliSwing::ReturnMsg* DiviceStatus::mutable_sensorstate(int index) {
-  // @@protoc_insertion_point(field_mutable:IntelliSwing.DiviceStatus.sensorState)
+inline ::IntelliSwing::ReturnMsg* DeviceStatus::mutable_sensorstate(int index) {
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.DeviceStatus.sensorState)
   return sensorstate_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::ReturnMsg >*
-DiviceStatus::mutable_sensorstate() {
-  // @@protoc_insertion_point(field_mutable_list:IntelliSwing.DiviceStatus.sensorState)
+DeviceStatus::mutable_sensorstate() {
+  // @@protoc_insertion_point(field_mutable_list:IntelliSwing.DeviceStatus.sensorState)
   return &sensorstate_;
 }
-inline const ::IntelliSwing::ReturnMsg& DiviceStatus::_internal_sensorstate(int index) const {
+inline const ::IntelliSwing::ReturnMsg& DeviceStatus::_internal_sensorstate(int index) const {
   return sensorstate_.Get(index);
 }
-inline const ::IntelliSwing::ReturnMsg& DiviceStatus::sensorstate(int index) const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.DiviceStatus.sensorState)
+inline const ::IntelliSwing::ReturnMsg& DeviceStatus::sensorstate(int index) const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.DeviceStatus.sensorState)
   return _internal_sensorstate(index);
 }
-inline ::IntelliSwing::ReturnMsg* DiviceStatus::_internal_add_sensorstate() {
+inline ::IntelliSwing::ReturnMsg* DeviceStatus::_internal_add_sensorstate() {
   return sensorstate_.Add();
 }
-inline ::IntelliSwing::ReturnMsg* DiviceStatus::add_sensorstate() {
+inline ::IntelliSwing::ReturnMsg* DeviceStatus::add_sensorstate() {
   ::IntelliSwing::ReturnMsg* _add = _internal_add_sensorstate();
-  // @@protoc_insertion_point(field_add:IntelliSwing.DiviceStatus.sensorState)
+  // @@protoc_insertion_point(field_add:IntelliSwing.DeviceStatus.sensorState)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::ReturnMsg >&
-DiviceStatus::sensorstate() const {
-  // @@protoc_insertion_point(field_list:IntelliSwing.DiviceStatus.sensorState)
+DeviceStatus::sensorstate() const {
+  // @@protoc_insertion_point(field_list:IntelliSwing.DeviceStatus.sensorState)
   return sensorstate_;
 }
 
 // .IntelliSwing.ReturnMsg systemState = 2;
-inline bool DiviceStatus::_internal_has_systemstate() const {
+inline bool DeviceStatus::_internal_has_systemstate() const {
   return this != internal_default_instance() && systemstate_ != nullptr;
 }
-inline bool DiviceStatus::has_systemstate() const {
+inline bool DeviceStatus::has_systemstate() const {
   return _internal_has_systemstate();
 }
-inline const ::IntelliSwing::ReturnMsg& DiviceStatus::_internal_systemstate() const {
+inline const ::IntelliSwing::ReturnMsg& DeviceStatus::_internal_systemstate() const {
   const ::IntelliSwing::ReturnMsg* p = systemstate_;
   return p != nullptr ? *p : reinterpret_cast<const ::IntelliSwing::ReturnMsg&>(
       ::IntelliSwing::_ReturnMsg_default_instance_);
 }
-inline const ::IntelliSwing::ReturnMsg& DiviceStatus::systemstate() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.DiviceStatus.systemState)
+inline const ::IntelliSwing::ReturnMsg& DeviceStatus::systemstate() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.DeviceStatus.systemState)
   return _internal_systemstate();
 }
-inline void DiviceStatus::unsafe_arena_set_allocated_systemstate(
+inline void DeviceStatus::unsafe_arena_set_allocated_systemstate(
     ::IntelliSwing::ReturnMsg* systemstate) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(systemstate_);
@@ -1825,9 +2378,9 @@ inline void DiviceStatus::unsafe_arena_set_allocated_systemstate(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IntelliSwing.DiviceStatus.systemState)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IntelliSwing.DeviceStatus.systemState)
 }
-inline ::IntelliSwing::ReturnMsg* DiviceStatus::release_systemstate() {
+inline ::IntelliSwing::ReturnMsg* DeviceStatus::release_systemstate() {
   
   ::IntelliSwing::ReturnMsg* temp = systemstate_;
   systemstate_ = nullptr;
@@ -1842,14 +2395,14 @@ inline ::IntelliSwing::ReturnMsg* DiviceStatus::release_systemstate() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::IntelliSwing::ReturnMsg* DiviceStatus::unsafe_arena_release_systemstate() {
-  // @@protoc_insertion_point(field_release:IntelliSwing.DiviceStatus.systemState)
+inline ::IntelliSwing::ReturnMsg* DeviceStatus::unsafe_arena_release_systemstate() {
+  // @@protoc_insertion_point(field_release:IntelliSwing.DeviceStatus.systemState)
   
   ::IntelliSwing::ReturnMsg* temp = systemstate_;
   systemstate_ = nullptr;
   return temp;
 }
-inline ::IntelliSwing::ReturnMsg* DiviceStatus::_internal_mutable_systemstate() {
+inline ::IntelliSwing::ReturnMsg* DeviceStatus::_internal_mutable_systemstate() {
   
   if (systemstate_ == nullptr) {
     auto* p = CreateMaybeMessage<::IntelliSwing::ReturnMsg>(GetArenaForAllocation());
@@ -1857,12 +2410,12 @@ inline ::IntelliSwing::ReturnMsg* DiviceStatus::_internal_mutable_systemstate() 
   }
   return systemstate_;
 }
-inline ::IntelliSwing::ReturnMsg* DiviceStatus::mutable_systemstate() {
+inline ::IntelliSwing::ReturnMsg* DeviceStatus::mutable_systemstate() {
   ::IntelliSwing::ReturnMsg* _msg = _internal_mutable_systemstate();
-  // @@protoc_insertion_point(field_mutable:IntelliSwing.DiviceStatus.systemState)
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.DeviceStatus.systemState)
   return _msg;
 }
-inline void DiviceStatus::set_allocated_systemstate(::IntelliSwing::ReturnMsg* systemstate) {
+inline void DeviceStatus::set_allocated_systemstate(::IntelliSwing::ReturnMsg* systemstate) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(systemstate_);
@@ -1881,47 +2434,47 @@ inline void DiviceStatus::set_allocated_systemstate(::IntelliSwing::ReturnMsg* s
     
   }
   systemstate_ = systemstate;
-  // @@protoc_insertion_point(field_set_allocated:IntelliSwing.DiviceStatus.systemState)
+  // @@protoc_insertion_point(field_set_allocated:IntelliSwing.DeviceStatus.systemState)
 }
 
 // float deviceTemperature = 5;
-inline void DiviceStatus::clear_devicetemperature() {
+inline void DeviceStatus::clear_devicetemperature() {
   devicetemperature_ = 0;
 }
-inline float DiviceStatus::_internal_devicetemperature() const {
+inline float DeviceStatus::_internal_devicetemperature() const {
   return devicetemperature_;
 }
-inline float DiviceStatus::devicetemperature() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.DiviceStatus.deviceTemperature)
+inline float DeviceStatus::devicetemperature() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.DeviceStatus.deviceTemperature)
   return _internal_devicetemperature();
 }
-inline void DiviceStatus::_internal_set_devicetemperature(float value) {
+inline void DeviceStatus::_internal_set_devicetemperature(float value) {
   
   devicetemperature_ = value;
 }
-inline void DiviceStatus::set_devicetemperature(float value) {
+inline void DeviceStatus::set_devicetemperature(float value) {
   _internal_set_devicetemperature(value);
-  // @@protoc_insertion_point(field_set:IntelliSwing.DiviceStatus.deviceTemperature)
+  // @@protoc_insertion_point(field_set:IntelliSwing.DeviceStatus.deviceTemperature)
 }
 
 // float batteryInfo = 6;
-inline void DiviceStatus::clear_batteryinfo() {
+inline void DeviceStatus::clear_batteryinfo() {
   batteryinfo_ = 0;
 }
-inline float DiviceStatus::_internal_batteryinfo() const {
+inline float DeviceStatus::_internal_batteryinfo() const {
   return batteryinfo_;
 }
-inline float DiviceStatus::batteryinfo() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.DiviceStatus.batteryInfo)
+inline float DeviceStatus::batteryinfo() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.DeviceStatus.batteryInfo)
   return _internal_batteryinfo();
 }
-inline void DiviceStatus::_internal_set_batteryinfo(float value) {
+inline void DeviceStatus::_internal_set_batteryinfo(float value) {
   
   batteryinfo_ = value;
 }
-inline void DiviceStatus::set_batteryinfo(float value) {
+inline void DeviceStatus::set_batteryinfo(float value) {
   _internal_set_batteryinfo(value);
-  // @@protoc_insertion_point(field_set:IntelliSwing.DiviceStatus.batteryInfo)
+  // @@protoc_insertion_point(field_set:IntelliSwing.DeviceStatus.batteryInfo)
 }
 
 // -------------------------------------------------------------------
@@ -2238,44 +2791,44 @@ inline void SiteCalibrationResult::set_allocated_state(::IntelliSwing::ReturnMsg
 
 // -------------------------------------------------------------------
 
-// Firmware
+// UpdateFirmwareRequest
 
 // bytes sensorFirmware = 1;
-inline void Firmware::clear_sensorfirmware() {
+inline void UpdateFirmwareRequest::clear_sensorfirmware() {
   sensorfirmware_.ClearToEmpty();
 }
-inline const std::string& Firmware::sensorfirmware() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.Firmware.sensorFirmware)
+inline const std::string& UpdateFirmwareRequest::sensorfirmware() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.UpdateFirmwareRequest.sensorFirmware)
   return _internal_sensorfirmware();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void Firmware::set_sensorfirmware(ArgT0&& arg0, ArgT... args) {
+void UpdateFirmwareRequest::set_sensorfirmware(ArgT0&& arg0, ArgT... args) {
  
  sensorfirmware_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:IntelliSwing.Firmware.sensorFirmware)
+  // @@protoc_insertion_point(field_set:IntelliSwing.UpdateFirmwareRequest.sensorFirmware)
 }
-inline std::string* Firmware::mutable_sensorfirmware() {
+inline std::string* UpdateFirmwareRequest::mutable_sensorfirmware() {
   std::string* _s = _internal_mutable_sensorfirmware();
-  // @@protoc_insertion_point(field_mutable:IntelliSwing.Firmware.sensorFirmware)
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.UpdateFirmwareRequest.sensorFirmware)
   return _s;
 }
-inline const std::string& Firmware::_internal_sensorfirmware() const {
+inline const std::string& UpdateFirmwareRequest::_internal_sensorfirmware() const {
   return sensorfirmware_.Get();
 }
-inline void Firmware::_internal_set_sensorfirmware(const std::string& value) {
+inline void UpdateFirmwareRequest::_internal_set_sensorfirmware(const std::string& value) {
   
   sensorfirmware_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* Firmware::_internal_mutable_sensorfirmware() {
+inline std::string* UpdateFirmwareRequest::_internal_mutable_sensorfirmware() {
   
   return sensorfirmware_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* Firmware::release_sensorfirmware() {
-  // @@protoc_insertion_point(field_release:IntelliSwing.Firmware.sensorFirmware)
+inline std::string* UpdateFirmwareRequest::release_sensorfirmware() {
+  // @@protoc_insertion_point(field_release:IntelliSwing.UpdateFirmwareRequest.sensorFirmware)
   return sensorfirmware_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline void Firmware::set_allocated_sensorfirmware(std::string* sensorfirmware) {
+inline void UpdateFirmwareRequest::set_allocated_sensorfirmware(std::string* sensorfirmware) {
   if (sensorfirmware != nullptr) {
     
   } else {
@@ -2288,45 +2841,45 @@ inline void Firmware::set_allocated_sensorfirmware(std::string* sensorfirmware) 
     sensorfirmware_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:IntelliSwing.Firmware.sensorFirmware)
+  // @@protoc_insertion_point(field_set_allocated:IntelliSwing.UpdateFirmwareRequest.sensorFirmware)
 }
 
 // bytes fpgaFirmware = 2;
-inline void Firmware::clear_fpgafirmware() {
+inline void UpdateFirmwareRequest::clear_fpgafirmware() {
   fpgafirmware_.ClearToEmpty();
 }
-inline const std::string& Firmware::fpgafirmware() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.Firmware.fpgaFirmware)
+inline const std::string& UpdateFirmwareRequest::fpgafirmware() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.UpdateFirmwareRequest.fpgaFirmware)
   return _internal_fpgafirmware();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void Firmware::set_fpgafirmware(ArgT0&& arg0, ArgT... args) {
+void UpdateFirmwareRequest::set_fpgafirmware(ArgT0&& arg0, ArgT... args) {
  
  fpgafirmware_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:IntelliSwing.Firmware.fpgaFirmware)
+  // @@protoc_insertion_point(field_set:IntelliSwing.UpdateFirmwareRequest.fpgaFirmware)
 }
-inline std::string* Firmware::mutable_fpgafirmware() {
+inline std::string* UpdateFirmwareRequest::mutable_fpgafirmware() {
   std::string* _s = _internal_mutable_fpgafirmware();
-  // @@protoc_insertion_point(field_mutable:IntelliSwing.Firmware.fpgaFirmware)
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.UpdateFirmwareRequest.fpgaFirmware)
   return _s;
 }
-inline const std::string& Firmware::_internal_fpgafirmware() const {
+inline const std::string& UpdateFirmwareRequest::_internal_fpgafirmware() const {
   return fpgafirmware_.Get();
 }
-inline void Firmware::_internal_set_fpgafirmware(const std::string& value) {
+inline void UpdateFirmwareRequest::_internal_set_fpgafirmware(const std::string& value) {
   
   fpgafirmware_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* Firmware::_internal_mutable_fpgafirmware() {
+inline std::string* UpdateFirmwareRequest::_internal_mutable_fpgafirmware() {
   
   return fpgafirmware_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* Firmware::release_fpgafirmware() {
-  // @@protoc_insertion_point(field_release:IntelliSwing.Firmware.fpgaFirmware)
+inline std::string* UpdateFirmwareRequest::release_fpgafirmware() {
+  // @@protoc_insertion_point(field_release:IntelliSwing.UpdateFirmwareRequest.fpgaFirmware)
   return fpgafirmware_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline void Firmware::set_allocated_fpgafirmware(std::string* fpgafirmware) {
+inline void UpdateFirmwareRequest::set_allocated_fpgafirmware(std::string* fpgafirmware) {
   if (fpgafirmware != nullptr) {
     
   } else {
@@ -2339,7 +2892,7 @@ inline void Firmware::set_allocated_fpgafirmware(std::string* fpgafirmware) {
     fpgafirmware_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:IntelliSwing.Firmware.fpgaFirmware)
+  // @@protoc_insertion_point(field_set_allocated:IntelliSwing.UpdateFirmwareRequest.fpgaFirmware)
 }
 
 // -------------------------------------------------------------------
@@ -2521,6 +3074,12 @@ inline void UpdateFirmwareResult::set_allocated_sensorsw(::IntelliSwing::ReturnM
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

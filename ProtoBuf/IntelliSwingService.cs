@@ -25,32 +25,38 @@ namespace IntelliSwing {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChlJbnRlbGxpU3dpbmdTZXJ2aWNlLnByb3RvEgxJbnRlbGxpU3dpbmcaCnR5",
-            "cGUucHJvdG8ibwoKRGV2aWNlSW5mbxIRCglkZXZpY2VWZXIYASABKAkSDwoH",
-            "ZnBnYVZlchgCIAEoCRITCgtzb2Z0d2FyZVZlchgDIAEoCRIUCgxzZXJpYWxO",
-            "dW1iZXIYBCABKAkSEgoKc2Vuc29yTmFtZRgFIAEoCSKaAQoMRGl2aWNlU3Rh",
-            "dHVzEiwKC3NlbnNvclN0YXRlGAEgAygLMhcuSW50ZWxsaVN3aW5nLlJldHVy",
-            "bk1zZxIsCgtzeXN0ZW1TdGF0ZRgCIAEoCzIXLkludGVsbGlTd2luZy5SZXR1",
-            "cm5Nc2cSGQoRZGV2aWNlVGVtcGVyYXR1cmUYBSABKAISEwoLYmF0dGVyeUlu",
-            "Zm8YBiABKAIiPQoKTG9nUmVxdWVzdBITCgtzeXN0ZW1SYW5nZRgBIAEoBRIa",
-            "ChJwcm9jZXNzaW5nTG9ncmFuZ2UYAiABKAUiNgoKTG9nTWVzc2FnZRIRCglz",
-            "eXN0ZW1Mb2cYASADKAkSFQoNcHJvY2Vzc2luZ0xvZxgCIAMoCSImChBTZW5z",
-            "b3JTdGF0aXN0aWNzEhIKCnNob3RfY291bnQYASABKAUiPwoVU2l0ZUNhbGli",
-            "cmF0aW9uUmVzdWx0EiYKBXN0YXRlGAEgASgLMhcuSW50ZWxsaVN3aW5nLlJl",
-            "dHVybk1zZyI4CghGaXJtd2FyZRIWCg5zZW5zb3JGaXJtd2FyZRgBIAEoDBIU",
-            "CgxmcGdhRmlybXdhcmUYAiABKAwibQoUVXBkYXRlRmlybXdhcmVSZXN1bHQS",
-            "KgoJRnBnYVN0YXRlGAEgASgLMhcuSW50ZWxsaVN3aW5nLlJldHVybk1zZxIp",
-            "CghTZW5zb3JTVxgCIAEoCzIXLkludGVsbGlTd2luZy5SZXR1cm5Nc2diBnBy",
-            "b3RvMw=="));
+            "cGUucHJvdG8igQEKCkRldmljZUluZm8SEQoJZGV2aWNlVmVyGAEgASgJEg8K",
+            "B2ZwZ2FWZXIYAiABKAkSEwoLc29mdHdhcmVWZXIYAyABKAkSFAoMc2VyaWFs",
+            "TnVtYmVyGAQgASgJEhIKCnNlbnNvck5hbWUYBSABKAkSEAoIaGFuZFR5cGUY",
+            "BiABKAUiIQoRU3RhdGlzdGljc1JlcXVlc3QSDAoEdHlwZRgBIAEoBSImChZT",
+            "aXRlQ2FsaWJyYXRpb25SZXF1ZXN0EgwKBHR5cGUYASABKAUiIgoSQ2FtZXJh",
+            "SW1hZ2VSZXF1ZXN0EgwKBHR5cGUYASABKAUimgEKDERldmljZVN0YXR1cxIs",
+            "CgtzZW5zb3JTdGF0ZRgBIAMoCzIXLkludGVsbGlTd2luZy5SZXR1cm5Nc2cS",
+            "LAoLc3lzdGVtU3RhdGUYAiABKAsyFy5JbnRlbGxpU3dpbmcuUmV0dXJuTXNn",
+            "EhkKEWRldmljZVRlbXBlcmF0dXJlGAUgASgCEhMKC2JhdHRlcnlJbmZvGAYg",
+            "ASgCIj0KCkxvZ1JlcXVlc3QSEwoLc3lzdGVtUmFuZ2UYASABKAUSGgoScHJv",
+            "Y2Vzc2luZ0xvZ3JhbmdlGAIgASgFIjYKCkxvZ01lc3NhZ2USEQoJc3lzdGVt",
+            "TG9nGAEgAygJEhUKDXByb2Nlc3NpbmdMb2cYAiADKAkiJgoQU2Vuc29yU3Rh",
+            "dGlzdGljcxISCgpzaG90X2NvdW50GAEgASgFIj8KFVNpdGVDYWxpYnJhdGlv",
+            "blJlc3VsdBImCgVzdGF0ZRgBIAEoCzIXLkludGVsbGlTd2luZy5SZXR1cm5N",
+            "c2ciRQoVVXBkYXRlRmlybXdhcmVSZXF1ZXN0EhYKDnNlbnNvckZpcm13YXJl",
+            "GAEgASgMEhQKDGZwZ2FGaXJtd2FyZRgCIAEoDCJtChRVcGRhdGVGaXJtd2Fy",
+            "ZVJlc3VsdBIqCglGcGdhU3RhdGUYASABKAsyFy5JbnRlbGxpU3dpbmcuUmV0",
+            "dXJuTXNnEikKCFNlbnNvclNXGAIgASgLMhcuSW50ZWxsaVN3aW5nLlJldHVy",
+            "bk1zZ2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::IntelliSwing.TypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.DeviceInfo), global::IntelliSwing.DeviceInfo.Parser, new[]{ "DeviceVer", "FpgaVer", "SoftwareVer", "SerialNumber", "SensorName" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.DiviceStatus), global::IntelliSwing.DiviceStatus.Parser, new[]{ "SensorState", "SystemState", "DeviceTemperature", "BatteryInfo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.DeviceInfo), global::IntelliSwing.DeviceInfo.Parser, new[]{ "DeviceVer", "FpgaVer", "SoftwareVer", "SerialNumber", "SensorName", "HandType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.StatisticsRequest), global::IntelliSwing.StatisticsRequest.Parser, new[]{ "Type" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SiteCalibrationRequest), global::IntelliSwing.SiteCalibrationRequest.Parser, new[]{ "Type" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.CameraImageRequest), global::IntelliSwing.CameraImageRequest.Parser, new[]{ "Type" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.DeviceStatus), global::IntelliSwing.DeviceStatus.Parser, new[]{ "SensorState", "SystemState", "DeviceTemperature", "BatteryInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.LogRequest), global::IntelliSwing.LogRequest.Parser, new[]{ "SystemRange", "ProcessingLogrange" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.LogMessage), global::IntelliSwing.LogMessage.Parser, new[]{ "SystemLog", "ProcessingLog" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorStatistics), global::IntelliSwing.SensorStatistics.Parser, new[]{ "ShotCount" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SiteCalibrationResult), global::IntelliSwing.SiteCalibrationResult.Parser, new[]{ "State" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.Firmware), global::IntelliSwing.Firmware.Parser, new[]{ "SensorFirmware", "FpgaFirmware" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.UpdateFirmwareRequest), global::IntelliSwing.UpdateFirmwareRequest.Parser, new[]{ "SensorFirmware", "FpgaFirmware" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.UpdateFirmwareResult), global::IntelliSwing.UpdateFirmwareResult.Parser, new[]{ "FpgaState", "SensorSW" }, null, null, null, null)
           }));
     }
@@ -97,6 +103,7 @@ namespace IntelliSwing {
       softwareVer_ = other.softwareVer_;
       serialNumber_ = other.serialNumber_;
       sensorName_ = other.sensorName_;
+      handType_ = other.handType_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -166,6 +173,21 @@ namespace IntelliSwing {
       }
     }
 
+    /// <summary>Field number for the "handType" field.</summary>
+    public const int HandTypeFieldNumber = 6;
+    private int handType_;
+    /// <summary>
+    ///{0 : right-hand, 1 : left_hand}
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int HandType {
+      get { return handType_; }
+      set {
+        handType_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -186,6 +208,7 @@ namespace IntelliSwing {
       if (SoftwareVer != other.SoftwareVer) return false;
       if (SerialNumber != other.SerialNumber) return false;
       if (SensorName != other.SensorName) return false;
+      if (HandType != other.HandType) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -198,6 +221,7 @@ namespace IntelliSwing {
       if (SoftwareVer.Length != 0) hash ^= SoftwareVer.GetHashCode();
       if (SerialNumber.Length != 0) hash ^= SerialNumber.GetHashCode();
       if (SensorName.Length != 0) hash ^= SensorName.GetHashCode();
+      if (HandType != 0) hash ^= HandType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -236,6 +260,10 @@ namespace IntelliSwing {
         output.WriteRawTag(42);
         output.WriteString(SensorName);
       }
+      if (HandType != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(HandType);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -266,6 +294,10 @@ namespace IntelliSwing {
         output.WriteRawTag(42);
         output.WriteString(SensorName);
       }
+      if (HandType != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(HandType);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -290,6 +322,9 @@ namespace IntelliSwing {
       }
       if (SensorName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SensorName);
+      }
+      if (HandType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(HandType);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -317,6 +352,9 @@ namespace IntelliSwing {
       }
       if (other.SensorName.Length != 0) {
         SensorName = other.SensorName;
+      }
+      if (other.HandType != 0) {
+        HandType = other.HandType;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -351,6 +389,10 @@ namespace IntelliSwing {
           }
           case 42: {
             SensorName = input.ReadString();
+            break;
+          }
+          case 48: {
+            HandType = input.ReadInt32();
             break;
           }
         }
@@ -388,6 +430,10 @@ namespace IntelliSwing {
             SensorName = input.ReadString();
             break;
           }
+          case 48: {
+            HandType = input.ReadInt32();
+            break;
+          }
         }
       }
     }
@@ -395,16 +441,16 @@ namespace IntelliSwing {
 
   }
 
-  public sealed partial class DiviceStatus : pb::IMessage<DiviceStatus>
+  public sealed partial class StatisticsRequest : pb::IMessage<StatisticsRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<DiviceStatus> _parser = new pb::MessageParser<DiviceStatus>(() => new DiviceStatus());
+    private static readonly pb::MessageParser<StatisticsRequest> _parser = new pb::MessageParser<StatisticsRequest>(() => new StatisticsRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<DiviceStatus> Parser { get { return _parser; } }
+    public static pb::MessageParser<StatisticsRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -420,7 +466,7 @@ namespace IntelliSwing {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DiviceStatus() {
+    public StatisticsRequest() {
       OnConstruction();
     }
 
@@ -428,7 +474,574 @@ namespace IntelliSwing {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DiviceStatus(DiviceStatus other) : this() {
+    public StatisticsRequest(StatisticsRequest other) : this() {
+      type_ = other.type_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public StatisticsRequest Clone() {
+      return new StatisticsRequest(this);
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 1;
+    private int type_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as StatisticsRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(StatisticsRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Type != other.Type) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Type);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Type);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Type);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(StatisticsRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Type = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Type = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SiteCalibrationRequest : pb::IMessage<SiteCalibrationRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SiteCalibrationRequest> _parser = new pb::MessageParser<SiteCalibrationRequest>(() => new SiteCalibrationRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SiteCalibrationRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SiteCalibrationRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SiteCalibrationRequest(SiteCalibrationRequest other) : this() {
+      type_ = other.type_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SiteCalibrationRequest Clone() {
+      return new SiteCalibrationRequest(this);
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 1;
+    private int type_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SiteCalibrationRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SiteCalibrationRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Type != other.Type) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Type);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Type);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Type);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SiteCalibrationRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Type = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Type = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CameraImageRequest : pb::IMessage<CameraImageRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CameraImageRequest> _parser = new pb::MessageParser<CameraImageRequest>(() => new CameraImageRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CameraImageRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CameraImageRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CameraImageRequest(CameraImageRequest other) : this() {
+      type_ = other.type_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CameraImageRequest Clone() {
+      return new CameraImageRequest(this);
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 1;
+    private int type_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CameraImageRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CameraImageRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Type != other.Type) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Type);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Type);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Type);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CameraImageRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Type = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Type = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class DeviceStatus : pb::IMessage<DeviceStatus>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<DeviceStatus> _parser = new pb::MessageParser<DeviceStatus>(() => new DeviceStatus());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<DeviceStatus> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DeviceStatus() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DeviceStatus(DeviceStatus other) : this() {
       sensorState_ = other.sensorState_.Clone();
       systemState_ = other.systemState_ != null ? other.systemState_.Clone() : null;
       deviceTemperature_ = other.deviceTemperature_;
@@ -438,8 +1051,8 @@ namespace IntelliSwing {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DiviceStatus Clone() {
-      return new DiviceStatus(this);
+    public DeviceStatus Clone() {
+      return new DeviceStatus(this);
     }
 
     /// <summary>Field number for the "sensorState" field.</summary>
@@ -492,12 +1105,12 @@ namespace IntelliSwing {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as DiviceStatus);
+      return Equals(other as DeviceStatus);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(DiviceStatus other) {
+    public bool Equals(DeviceStatus other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -601,7 +1214,7 @@ namespace IntelliSwing {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(DiviceStatus other) {
+    public void MergeFrom(DeviceStatus other) {
       if (other == null) {
         return;
       }
@@ -707,7 +1320,7 @@ namespace IntelliSwing {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[2]; }
+      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -933,7 +1546,7 @@ namespace IntelliSwing {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[3]; }
+      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1137,7 +1750,7 @@ namespace IntelliSwing {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[4]; }
+      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1326,7 +1939,7 @@ namespace IntelliSwing {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[5]; }
+      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1510,21 +2123,21 @@ namespace IntelliSwing {
 
   }
 
-  public sealed partial class Firmware : pb::IMessage<Firmware>
+  public sealed partial class UpdateFirmwareRequest : pb::IMessage<UpdateFirmwareRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<Firmware> _parser = new pb::MessageParser<Firmware>(() => new Firmware());
+    private static readonly pb::MessageParser<UpdateFirmwareRequest> _parser = new pb::MessageParser<UpdateFirmwareRequest>(() => new UpdateFirmwareRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<Firmware> Parser { get { return _parser; } }
+    public static pb::MessageParser<UpdateFirmwareRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[6]; }
+      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1535,7 +2148,7 @@ namespace IntelliSwing {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Firmware() {
+    public UpdateFirmwareRequest() {
       OnConstruction();
     }
 
@@ -1543,7 +2156,7 @@ namespace IntelliSwing {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Firmware(Firmware other) : this() {
+    public UpdateFirmwareRequest(UpdateFirmwareRequest other) : this() {
       sensorFirmware_ = other.sensorFirmware_;
       fpgaFirmware_ = other.fpgaFirmware_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -1551,8 +2164,8 @@ namespace IntelliSwing {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Firmware Clone() {
-      return new Firmware(this);
+    public UpdateFirmwareRequest Clone() {
+      return new UpdateFirmwareRequest(this);
     }
 
     /// <summary>Field number for the "sensorFirmware" field.</summary>
@@ -1582,12 +2195,12 @@ namespace IntelliSwing {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as Firmware);
+      return Equals(other as UpdateFirmwareRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(Firmware other) {
+    public bool Equals(UpdateFirmwareRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1673,7 +2286,7 @@ namespace IntelliSwing {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(Firmware other) {
+    public void MergeFrom(UpdateFirmwareRequest other) {
       if (other == null) {
         return;
       }
@@ -1750,7 +2363,7 @@ namespace IntelliSwing {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[7]; }
+      get { return global::IntelliSwing.IntelliSwingServiceReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

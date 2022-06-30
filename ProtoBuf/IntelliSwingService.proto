@@ -10,9 +10,28 @@ message DeviceInfo
 	string	softwareVer	= 3;
 	string	serialNumber = 4;
 	string  sensorName	= 5;
+	int32	handType	= 6; //{0 : right-hand, 1 : left_hand}
 }
 
-message DiviceStatus
+
+message StatisticsRequest
+{
+	int32 type = 1;
+}
+
+
+message SiteCalibrationRequest
+{
+	int32 type = 1;
+}
+
+message CameraImageRequest
+{
+	int32 type = 1;
+}
+
+
+message DeviceStatus
 {
 	repeated ReturnMsg sensorState = 1;
 	ReturnMsg systemState			 = 2;
@@ -42,7 +61,7 @@ message SiteCalibrationResult
 	ReturnMsg state = 1;
 }
 
-message Firmware
+message UpdateFirmwareRequest
 {
 	bytes sensorFirmware= 1;
 	bytes fpgaFirmware	= 2;

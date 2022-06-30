@@ -22,12 +22,12 @@ service IntelliSwingProtocol
   
 // Service
 	rpc GetDeviceInfo(google.protobuf.Empty) returns (DeviceInfo) {}
-	rpc GetDeviceStatus(google.protobuf.Empty) returns (DiviceStatus) {}
+	rpc GetDeviceStatus(google.protobuf.Empty) returns (DeviceStatus) {}
 	rpc GetLog(LogRequest) returns (LogMessage){}
-	rpc GetStatistics(google.protobuf.Empty) returns (SensorStatistics){}
-	rpc RunSiteCalibration(google.protobuf.Empty) returns (SiteCalibrationResult){}
-	rpc UpdateFirmware(Firmware) returns (UpdateFirmwareResult){}
-	rpc GetImage(google.protobuf.Empty) returns (ImageData){}
+	rpc GetStatistics(StatisticsRequest) returns (SensorStatistics){}
+	rpc RunSiteCalibration(SiteCalibrationRequest) returns (SiteCalibrationResult){}
+	rpc UpdateFirmware(UpdateFirmwareRequest) returns (UpdateFirmwareResult){}
+	rpc GetImage(CameraImageRequest) returns (ImageData){}
 }
 
 message InitializeMsg
@@ -99,7 +99,6 @@ message SensorRunningMsg
 		ShortTriggered	shotTriggered = 4;
 		BallFlightInfo	ballInfo	= 5;
 		ClubPathInfo	clubInfo	= 6;
-		Heartbeat		heartBeat	= 7;
 	}
 
 	message Ready
@@ -156,11 +155,6 @@ message SensorRunningMsg
 		float attackAngle		= 5;	// degree
 		ImpactPoint impactPoint = 6;
 	}
-
-	message Heartbeat
-	{
-		string msg = 1;
-	}
 }
 
 message ShotImageRequest
@@ -171,8 +165,14 @@ message ShotImageRequest
 
 message ImageData
 {
-	ReturnMsg		state	= 1;
-	repeated Image	images	= 2;
+	
+	int32 width			= 1;	// pixel, 음수 일 경우 data에서 크기 추출
+	int32 height		= 2;	// pixel, 음수 일 경우 data에서 크기 추출
+	int32 channel		= 3;	// channel {0~1 : gray, 3 : rgb, 4 : rgba}, 음수 일 경우 data에서 크기 추출
+	int32 data_type		= 4;	// pixel data type : int, float, byte, 음수 일 경우 data에서 크기 추출
+	int32 image_type	= 5;	// {0 : raw, 1 : jpg, 2 : png, }
+	float fps			= 6;	// frame per second
+	repeated Image	datas	= 7;
 	message Image
 	{
 		message Marker
@@ -180,15 +180,10 @@ message ImageData
 			Point2i position	= 1;	// UV position
 			string	tag			= 2;
 		}
-		int32 imageType		= 1;	// {raw, jpg, png, }
 		bytes data			= 2;	// byte stream
-		int32 width			= 3;	// pixel
-		int32 height		= 4;	// pixel
-		int32 channel		= 5;	// channel
-		int32 dataType		= 6;	// pixel data type : int, float, byte
+		uint64 timeStamp    = 3;
 		string tag			= 7;	// optional 
 		repeated Marker markers = 8; // marker information
-
 	}
 	
 }

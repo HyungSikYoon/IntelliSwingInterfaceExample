@@ -116,7 +116,8 @@ public :
 			pDiag->OnEndServerToClient();
 			m_pWriter = nullptr;
 			
-			{
+			//hsyoon : heatbeat removed
+			/*{
 				::IntelliSwing::SensorRunningMsg msg;
 				std::chrono::system_clock::time_point current = std::chrono::system_clock::now();
 				
@@ -130,7 +131,7 @@ public :
 				grpc::WriteOptions writeOption;
 				writeOption.set_last_message();
 				writer->Write(msg, writeOption);
-			}
+			}*/
 
 		}
 		return ::grpc::Status::OK;
@@ -161,7 +162,7 @@ public :
 
 		return ::grpc::Status::OK;
 	}
-	virtual ::grpc::Status GetDeviceStatus(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DiviceStatus* response)
+	virtual ::grpc::Status GetDeviceStatus(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response)
 	{
 		std::cout << "GetDeviceStatus Received " << std::endl;
 
@@ -185,7 +186,7 @@ public :
 
 		return ::grpc::Status::OK;
 	}
-	virtual ::grpc::Status UpdateFirmware(::grpc::ServerContext* context, const ::IntelliSwing::Firmware* request, ::IntelliSwing::UpdateFirmwareResult* response)
+	virtual ::grpc::Status UpdateFirmware(::grpc::ServerContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response)
 	{
 		std::cout << "UpdateFirmware Received " << std::endl;
 

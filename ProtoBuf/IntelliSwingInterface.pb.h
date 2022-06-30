@@ -51,7 +51,7 @@ struct TableStruct_IntelliSwingInterface_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[16]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[15]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -89,9 +89,6 @@ extern SensorRunningMsg_ClubPathInfo_ImpactPointDefaultTypeInternal _SensorRunni
 class SensorRunningMsg_ClubPathInfo_Path;
 struct SensorRunningMsg_ClubPathInfo_PathDefaultTypeInternal;
 extern SensorRunningMsg_ClubPathInfo_PathDefaultTypeInternal _SensorRunningMsg_ClubPathInfo_Path_default_instance_;
-class SensorRunningMsg_Heartbeat;
-struct SensorRunningMsg_HeartbeatDefaultTypeInternal;
-extern SensorRunningMsg_HeartbeatDefaultTypeInternal _SensorRunningMsg_Heartbeat_default_instance_;
 class SensorRunningMsg_NotReady;
 struct SensorRunningMsg_NotReadyDefaultTypeInternal;
 extern SensorRunningMsg_NotReadyDefaultTypeInternal _SensorRunningMsg_NotReady_default_instance_;
@@ -119,7 +116,6 @@ template<> ::IntelliSwing::SensorRunningMsg_BallFlightInfo* Arena::CreateMaybeMe
 template<> ::IntelliSwing::SensorRunningMsg_ClubPathInfo* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_ClubPathInfo>(Arena*);
 template<> ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint>(Arena*);
 template<> ::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path>(Arena*);
-template<> ::IntelliSwing::SensorRunningMsg_Heartbeat* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_Heartbeat>(Arena*);
 template<> ::IntelliSwing::SensorRunningMsg_NotReady* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_NotReady>(Arena*);
 template<> ::IntelliSwing::SensorRunningMsg_Ready* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_Ready>(Arena*);
 template<> ::IntelliSwing::SensorRunningMsg_ShortTriggered* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_ShortTriggered>(Arena*);
@@ -2044,157 +2040,6 @@ class SensorRunningMsg_ClubPathInfo final :
 };
 // -------------------------------------------------------------------
 
-class SensorRunningMsg_Heartbeat final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IntelliSwing.SensorRunningMsg.Heartbeat) */ {
- public:
-  inline SensorRunningMsg_Heartbeat() : SensorRunningMsg_Heartbeat(nullptr) {}
-  ~SensorRunningMsg_Heartbeat() override;
-  explicit constexpr SensorRunningMsg_Heartbeat(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SensorRunningMsg_Heartbeat(const SensorRunningMsg_Heartbeat& from);
-  SensorRunningMsg_Heartbeat(SensorRunningMsg_Heartbeat&& from) noexcept
-    : SensorRunningMsg_Heartbeat() {
-    *this = ::std::move(from);
-  }
-
-  inline SensorRunningMsg_Heartbeat& operator=(const SensorRunningMsg_Heartbeat& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SensorRunningMsg_Heartbeat& operator=(SensorRunningMsg_Heartbeat&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SensorRunningMsg_Heartbeat& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SensorRunningMsg_Heartbeat* internal_default_instance() {
-    return reinterpret_cast<const SensorRunningMsg_Heartbeat*>(
-               &_SensorRunningMsg_Heartbeat_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    10;
-
-  friend void swap(SensorRunningMsg_Heartbeat& a, SensorRunningMsg_Heartbeat& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SensorRunningMsg_Heartbeat* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SensorRunningMsg_Heartbeat* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SensorRunningMsg_Heartbeat* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SensorRunningMsg_Heartbeat>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SensorRunningMsg_Heartbeat& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SensorRunningMsg_Heartbeat& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SensorRunningMsg_Heartbeat* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IntelliSwing.SensorRunningMsg.Heartbeat";
-  }
-  protected:
-  explicit SensorRunningMsg_Heartbeat(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kMsgFieldNumber = 1,
-  };
-  // string msg = 1;
-  void clear_msg();
-  const std::string& msg() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_msg(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_msg();
-  PROTOBUF_NODISCARD std::string* release_msg();
-  void set_allocated_msg(std::string* msg);
-  private:
-  const std::string& _internal_msg() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_msg(const std::string& value);
-  std::string* _internal_mutable_msg();
-  public:
-
-  // @@protoc_insertion_point(class_scope:IntelliSwing.SensorRunningMsg.Heartbeat)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr msg_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_IntelliSwingInterface_2eproto;
-};
-// -------------------------------------------------------------------
-
 class SensorRunningMsg final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IntelliSwing.SensorRunningMsg) */ {
  public:
@@ -2244,7 +2089,6 @@ class SensorRunningMsg final :
     kShotTriggered = 4,
     kBallInfo = 5,
     kClubInfo = 6,
-    kHeartBeat = 7,
     RUNSTATE_NOT_SET = 0,
   };
 
@@ -2253,7 +2097,7 @@ class SensorRunningMsg final :
                &_SensorRunningMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    10;
 
   friend void swap(SensorRunningMsg& a, SensorRunningMsg& b) {
     a.Swap(&b);
@@ -2329,7 +2173,6 @@ class SensorRunningMsg final :
   typedef SensorRunningMsg_ShortTriggered ShortTriggered;
   typedef SensorRunningMsg_BallFlightInfo BallFlightInfo;
   typedef SensorRunningMsg_ClubPathInfo ClubPathInfo;
-  typedef SensorRunningMsg_Heartbeat Heartbeat;
 
   // accessors -------------------------------------------------------
 
@@ -2340,7 +2183,6 @@ class SensorRunningMsg final :
     kShotTriggeredFieldNumber = 4,
     kBallInfoFieldNumber = 5,
     kClubInfoFieldNumber = 6,
-    kHeartBeatFieldNumber = 7,
   };
   // .google.protobuf.Timestamp timeStamp = 1;
   bool has_timestamp() const;
@@ -2450,24 +2292,6 @@ class SensorRunningMsg final :
       ::IntelliSwing::SensorRunningMsg_ClubPathInfo* clubinfo);
   ::IntelliSwing::SensorRunningMsg_ClubPathInfo* unsafe_arena_release_clubinfo();
 
-  // .IntelliSwing.SensorRunningMsg.Heartbeat heartBeat = 7;
-  bool has_heartbeat() const;
-  private:
-  bool _internal_has_heartbeat() const;
-  public:
-  void clear_heartbeat();
-  const ::IntelliSwing::SensorRunningMsg_Heartbeat& heartbeat() const;
-  PROTOBUF_NODISCARD ::IntelliSwing::SensorRunningMsg_Heartbeat* release_heartbeat();
-  ::IntelliSwing::SensorRunningMsg_Heartbeat* mutable_heartbeat();
-  void set_allocated_heartbeat(::IntelliSwing::SensorRunningMsg_Heartbeat* heartbeat);
-  private:
-  const ::IntelliSwing::SensorRunningMsg_Heartbeat& _internal_heartbeat() const;
-  ::IntelliSwing::SensorRunningMsg_Heartbeat* _internal_mutable_heartbeat();
-  public:
-  void unsafe_arena_set_allocated_heartbeat(
-      ::IntelliSwing::SensorRunningMsg_Heartbeat* heartbeat);
-  ::IntelliSwing::SensorRunningMsg_Heartbeat* unsafe_arena_release_heartbeat();
-
   void clear_runState();
   RunStateCase runState_case() const;
   // @@protoc_insertion_point(class_scope:IntelliSwing.SensorRunningMsg)
@@ -2478,7 +2302,6 @@ class SensorRunningMsg final :
   void set_has_shottriggered();
   void set_has_ballinfo();
   void set_has_clubinfo();
-  void set_has_heartbeat();
 
   inline bool has_runState() const;
   inline void clear_has_runState();
@@ -2495,7 +2318,6 @@ class SensorRunningMsg final :
     ::IntelliSwing::SensorRunningMsg_ShortTriggered* shottriggered_;
     ::IntelliSwing::SensorRunningMsg_BallFlightInfo* ballinfo_;
     ::IntelliSwing::SensorRunningMsg_ClubPathInfo* clubinfo_;
-    ::IntelliSwing::SensorRunningMsg_Heartbeat* heartbeat_;
   } runState_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
@@ -2552,7 +2374,7 @@ class ShotImageRequest final :
                &_ShotImageRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    11;
 
   friend void swap(ShotImageRequest& a, ShotImageRequest& b) {
     a.Swap(&b);
@@ -2698,7 +2520,7 @@ class ImageData_Image_Marker final :
                &_ImageData_Image_Marker_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    12;
 
   friend void swap(ImageData_Image_Marker& a, ImageData_Image_Marker& b) {
     a.Swap(&b);
@@ -2869,7 +2691,7 @@ class ImageData_Image final :
                &_ImageData_Image_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    13;
 
   friend void swap(ImageData_Image& a, ImageData_Image& b) {
     a.Swap(&b);
@@ -2948,11 +2770,7 @@ class ImageData_Image final :
     kMarkersFieldNumber = 8,
     kDataFieldNumber = 2,
     kTagFieldNumber = 7,
-    kImageTypeFieldNumber = 1,
-    kWidthFieldNumber = 3,
-    kHeightFieldNumber = 4,
-    kChannelFieldNumber = 5,
-    kDataTypeFieldNumber = 6,
+    kTimeStampFieldNumber = 3,
   };
   // repeated .IntelliSwing.ImageData.Image.Marker markers = 8;
   int markers_size() const;
@@ -3000,49 +2818,13 @@ class ImageData_Image final :
   std::string* _internal_mutable_tag();
   public:
 
-  // int32 imageType = 1;
-  void clear_imagetype();
-  int32_t imagetype() const;
-  void set_imagetype(int32_t value);
+  // uint64 timeStamp = 3;
+  void clear_timestamp();
+  uint64_t timestamp() const;
+  void set_timestamp(uint64_t value);
   private:
-  int32_t _internal_imagetype() const;
-  void _internal_set_imagetype(int32_t value);
-  public:
-
-  // int32 width = 3;
-  void clear_width();
-  int32_t width() const;
-  void set_width(int32_t value);
-  private:
-  int32_t _internal_width() const;
-  void _internal_set_width(int32_t value);
-  public:
-
-  // int32 height = 4;
-  void clear_height();
-  int32_t height() const;
-  void set_height(int32_t value);
-  private:
-  int32_t _internal_height() const;
-  void _internal_set_height(int32_t value);
-  public:
-
-  // int32 channel = 5;
-  void clear_channel();
-  int32_t channel() const;
-  void set_channel(int32_t value);
-  private:
-  int32_t _internal_channel() const;
-  void _internal_set_channel(int32_t value);
-  public:
-
-  // int32 dataType = 6;
-  void clear_datatype();
-  int32_t datatype() const;
-  void set_datatype(int32_t value);
-  private:
-  int32_t _internal_datatype() const;
-  void _internal_set_datatype(int32_t value);
+  uint64_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:IntelliSwing.ImageData.Image)
@@ -3055,11 +2837,7 @@ class ImageData_Image final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::ImageData_Image_Marker > markers_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr tag_;
-  int32_t imagetype_;
-  int32_t width_;
-  int32_t height_;
-  int32_t channel_;
-  int32_t datatype_;
+  uint64_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_IntelliSwingInterface_2eproto;
 };
@@ -3113,7 +2891,7 @@ class ImageData final :
                &_ImageData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    14;
 
   friend void swap(ImageData& a, ImageData& b) {
     a.Swap(&b);
@@ -3189,44 +2967,85 @@ class ImageData final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kImagesFieldNumber = 2,
-    kStateFieldNumber = 1,
+    kDatasFieldNumber = 7,
+    kWidthFieldNumber = 1,
+    kHeightFieldNumber = 2,
+    kChannelFieldNumber = 3,
+    kDataTypeFieldNumber = 4,
+    kImageTypeFieldNumber = 5,
+    kFpsFieldNumber = 6,
   };
-  // repeated .IntelliSwing.ImageData.Image images = 2;
-  int images_size() const;
+  // repeated .IntelliSwing.ImageData.Image datas = 7;
+  int datas_size() const;
   private:
-  int _internal_images_size() const;
+  int _internal_datas_size() const;
   public:
-  void clear_images();
-  ::IntelliSwing::ImageData_Image* mutable_images(int index);
+  void clear_datas();
+  ::IntelliSwing::ImageData_Image* mutable_datas(int index);
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::ImageData_Image >*
-      mutable_images();
+      mutable_datas();
   private:
-  const ::IntelliSwing::ImageData_Image& _internal_images(int index) const;
-  ::IntelliSwing::ImageData_Image* _internal_add_images();
+  const ::IntelliSwing::ImageData_Image& _internal_datas(int index) const;
+  ::IntelliSwing::ImageData_Image* _internal_add_datas();
   public:
-  const ::IntelliSwing::ImageData_Image& images(int index) const;
-  ::IntelliSwing::ImageData_Image* add_images();
+  const ::IntelliSwing::ImageData_Image& datas(int index) const;
+  ::IntelliSwing::ImageData_Image* add_datas();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::ImageData_Image >&
-      images() const;
+      datas() const;
 
-  // .IntelliSwing.ReturnMsg state = 1;
-  bool has_state() const;
+  // int32 width = 1;
+  void clear_width();
+  int32_t width() const;
+  void set_width(int32_t value);
   private:
-  bool _internal_has_state() const;
+  int32_t _internal_width() const;
+  void _internal_set_width(int32_t value);
   public:
-  void clear_state();
-  const ::IntelliSwing::ReturnMsg& state() const;
-  PROTOBUF_NODISCARD ::IntelliSwing::ReturnMsg* release_state();
-  ::IntelliSwing::ReturnMsg* mutable_state();
-  void set_allocated_state(::IntelliSwing::ReturnMsg* state);
+
+  // int32 height = 2;
+  void clear_height();
+  int32_t height() const;
+  void set_height(int32_t value);
   private:
-  const ::IntelliSwing::ReturnMsg& _internal_state() const;
-  ::IntelliSwing::ReturnMsg* _internal_mutable_state();
+  int32_t _internal_height() const;
+  void _internal_set_height(int32_t value);
   public:
-  void unsafe_arena_set_allocated_state(
-      ::IntelliSwing::ReturnMsg* state);
-  ::IntelliSwing::ReturnMsg* unsafe_arena_release_state();
+
+  // int32 channel = 3;
+  void clear_channel();
+  int32_t channel() const;
+  void set_channel(int32_t value);
+  private:
+  int32_t _internal_channel() const;
+  void _internal_set_channel(int32_t value);
+  public:
+
+  // int32 data_type = 4;
+  void clear_data_type();
+  int32_t data_type() const;
+  void set_data_type(int32_t value);
+  private:
+  int32_t _internal_data_type() const;
+  void _internal_set_data_type(int32_t value);
+  public:
+
+  // int32 image_type = 5;
+  void clear_image_type();
+  int32_t image_type() const;
+  void set_image_type(int32_t value);
+  private:
+  int32_t _internal_image_type() const;
+  void _internal_set_image_type(int32_t value);
+  public:
+
+  // float fps = 6;
+  void clear_fps();
+  float fps() const;
+  void set_fps(float value);
+  private:
+  float _internal_fps() const;
+  void _internal_set_fps(float value);
+  public:
 
   // @@protoc_insertion_point(class_scope:IntelliSwing.ImageData)
  private:
@@ -3235,8 +3054,13 @@ class ImageData final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::ImageData_Image > images_;
-  ::IntelliSwing::ReturnMsg* state_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::ImageData_Image > datas_;
+  int32_t width_;
+  int32_t height_;
+  int32_t channel_;
+  int32_t data_type_;
+  int32_t image_type_;
+  float fps_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_IntelliSwingInterface_2eproto;
 };
@@ -3995,61 +3819,6 @@ inline void SensorRunningMsg_ClubPathInfo::set_allocated_impactpoint(::IntelliSw
 
 // -------------------------------------------------------------------
 
-// SensorRunningMsg_Heartbeat
-
-// string msg = 1;
-inline void SensorRunningMsg_Heartbeat::clear_msg() {
-  msg_.ClearToEmpty();
-}
-inline const std::string& SensorRunningMsg_Heartbeat::msg() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.Heartbeat.msg)
-  return _internal_msg();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SensorRunningMsg_Heartbeat::set_msg(ArgT0&& arg0, ArgT... args) {
- 
- msg_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.Heartbeat.msg)
-}
-inline std::string* SensorRunningMsg_Heartbeat::mutable_msg() {
-  std::string* _s = _internal_mutable_msg();
-  // @@protoc_insertion_point(field_mutable:IntelliSwing.SensorRunningMsg.Heartbeat.msg)
-  return _s;
-}
-inline const std::string& SensorRunningMsg_Heartbeat::_internal_msg() const {
-  return msg_.Get();
-}
-inline void SensorRunningMsg_Heartbeat::_internal_set_msg(const std::string& value) {
-  
-  msg_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SensorRunningMsg_Heartbeat::_internal_mutable_msg() {
-  
-  return msg_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SensorRunningMsg_Heartbeat::release_msg() {
-  // @@protoc_insertion_point(field_release:IntelliSwing.SensorRunningMsg.Heartbeat.msg)
-  return msg_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SensorRunningMsg_Heartbeat::set_allocated_msg(std::string* msg) {
-  if (msg != nullptr) {
-    
-  } else {
-    
-  }
-  msg_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), msg,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (msg_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    msg_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:IntelliSwing.SensorRunningMsg.Heartbeat.msg)
-}
-
-// -------------------------------------------------------------------
-
 // SensorRunningMsg
 
 // .google.protobuf.Timestamp timeStamp = 1;
@@ -4508,80 +4277,6 @@ inline ::IntelliSwing::SensorRunningMsg_ClubPathInfo* SensorRunningMsg::mutable_
   return _msg;
 }
 
-// .IntelliSwing.SensorRunningMsg.Heartbeat heartBeat = 7;
-inline bool SensorRunningMsg::_internal_has_heartbeat() const {
-  return runState_case() == kHeartBeat;
-}
-inline bool SensorRunningMsg::has_heartbeat() const {
-  return _internal_has_heartbeat();
-}
-inline void SensorRunningMsg::set_has_heartbeat() {
-  _oneof_case_[0] = kHeartBeat;
-}
-inline void SensorRunningMsg::clear_heartbeat() {
-  if (_internal_has_heartbeat()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete runState_.heartbeat_;
-    }
-    clear_has_runState();
-  }
-}
-inline ::IntelliSwing::SensorRunningMsg_Heartbeat* SensorRunningMsg::release_heartbeat() {
-  // @@protoc_insertion_point(field_release:IntelliSwing.SensorRunningMsg.heartBeat)
-  if (_internal_has_heartbeat()) {
-    clear_has_runState();
-      ::IntelliSwing::SensorRunningMsg_Heartbeat* temp = runState_.heartbeat_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    runState_.heartbeat_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::IntelliSwing::SensorRunningMsg_Heartbeat& SensorRunningMsg::_internal_heartbeat() const {
-  return _internal_has_heartbeat()
-      ? *runState_.heartbeat_
-      : reinterpret_cast< ::IntelliSwing::SensorRunningMsg_Heartbeat&>(::IntelliSwing::_SensorRunningMsg_Heartbeat_default_instance_);
-}
-inline const ::IntelliSwing::SensorRunningMsg_Heartbeat& SensorRunningMsg::heartbeat() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.heartBeat)
-  return _internal_heartbeat();
-}
-inline ::IntelliSwing::SensorRunningMsg_Heartbeat* SensorRunningMsg::unsafe_arena_release_heartbeat() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:IntelliSwing.SensorRunningMsg.heartBeat)
-  if (_internal_has_heartbeat()) {
-    clear_has_runState();
-    ::IntelliSwing::SensorRunningMsg_Heartbeat* temp = runState_.heartbeat_;
-    runState_.heartbeat_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void SensorRunningMsg::unsafe_arena_set_allocated_heartbeat(::IntelliSwing::SensorRunningMsg_Heartbeat* heartbeat) {
-  clear_runState();
-  if (heartbeat) {
-    set_has_heartbeat();
-    runState_.heartbeat_ = heartbeat;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IntelliSwing.SensorRunningMsg.heartBeat)
-}
-inline ::IntelliSwing::SensorRunningMsg_Heartbeat* SensorRunningMsg::_internal_mutable_heartbeat() {
-  if (!_internal_has_heartbeat()) {
-    clear_runState();
-    set_has_heartbeat();
-    runState_.heartbeat_ = CreateMaybeMessage< ::IntelliSwing::SensorRunningMsg_Heartbeat >(GetArenaForAllocation());
-  }
-  return runState_.heartbeat_;
-}
-inline ::IntelliSwing::SensorRunningMsg_Heartbeat* SensorRunningMsg::mutable_heartbeat() {
-  ::IntelliSwing::SensorRunningMsg_Heartbeat* _msg = _internal_mutable_heartbeat();
-  // @@protoc_insertion_point(field_mutable:IntelliSwing.SensorRunningMsg.heartBeat)
-  return _msg;
-}
-
 inline bool SensorRunningMsg::has_runState() const {
   return runState_case() != RUNSTATE_NOT_SET;
 }
@@ -4760,26 +4455,6 @@ inline void ImageData_Image_Marker::set_allocated_tag(std::string* tag) {
 
 // ImageData_Image
 
-// int32 imageType = 1;
-inline void ImageData_Image::clear_imagetype() {
-  imagetype_ = 0;
-}
-inline int32_t ImageData_Image::_internal_imagetype() const {
-  return imagetype_;
-}
-inline int32_t ImageData_Image::imagetype() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.Image.imageType)
-  return _internal_imagetype();
-}
-inline void ImageData_Image::_internal_set_imagetype(int32_t value) {
-  
-  imagetype_ = value;
-}
-inline void ImageData_Image::set_imagetype(int32_t value) {
-  _internal_set_imagetype(value);
-  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.Image.imageType)
-}
-
 // bytes data = 2;
 inline void ImageData_Image::clear_data() {
   data_.ClearToEmpty();
@@ -4831,84 +4506,24 @@ inline void ImageData_Image::set_allocated_data(std::string* data) {
   // @@protoc_insertion_point(field_set_allocated:IntelliSwing.ImageData.Image.data)
 }
 
-// int32 width = 3;
-inline void ImageData_Image::clear_width() {
-  width_ = 0;
+// uint64 timeStamp = 3;
+inline void ImageData_Image::clear_timestamp() {
+  timestamp_ = uint64_t{0u};
 }
-inline int32_t ImageData_Image::_internal_width() const {
-  return width_;
+inline uint64_t ImageData_Image::_internal_timestamp() const {
+  return timestamp_;
 }
-inline int32_t ImageData_Image::width() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.Image.width)
-  return _internal_width();
+inline uint64_t ImageData_Image::timestamp() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.Image.timeStamp)
+  return _internal_timestamp();
 }
-inline void ImageData_Image::_internal_set_width(int32_t value) {
+inline void ImageData_Image::_internal_set_timestamp(uint64_t value) {
   
-  width_ = value;
+  timestamp_ = value;
 }
-inline void ImageData_Image::set_width(int32_t value) {
-  _internal_set_width(value);
-  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.Image.width)
-}
-
-// int32 height = 4;
-inline void ImageData_Image::clear_height() {
-  height_ = 0;
-}
-inline int32_t ImageData_Image::_internal_height() const {
-  return height_;
-}
-inline int32_t ImageData_Image::height() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.Image.height)
-  return _internal_height();
-}
-inline void ImageData_Image::_internal_set_height(int32_t value) {
-  
-  height_ = value;
-}
-inline void ImageData_Image::set_height(int32_t value) {
-  _internal_set_height(value);
-  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.Image.height)
-}
-
-// int32 channel = 5;
-inline void ImageData_Image::clear_channel() {
-  channel_ = 0;
-}
-inline int32_t ImageData_Image::_internal_channel() const {
-  return channel_;
-}
-inline int32_t ImageData_Image::channel() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.Image.channel)
-  return _internal_channel();
-}
-inline void ImageData_Image::_internal_set_channel(int32_t value) {
-  
-  channel_ = value;
-}
-inline void ImageData_Image::set_channel(int32_t value) {
-  _internal_set_channel(value);
-  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.Image.channel)
-}
-
-// int32 dataType = 6;
-inline void ImageData_Image::clear_datatype() {
-  datatype_ = 0;
-}
-inline int32_t ImageData_Image::_internal_datatype() const {
-  return datatype_;
-}
-inline int32_t ImageData_Image::datatype() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.Image.dataType)
-  return _internal_datatype();
-}
-inline void ImageData_Image::_internal_set_datatype(int32_t value) {
-  
-  datatype_ = value;
-}
-inline void ImageData_Image::set_datatype(int32_t value) {
-  _internal_set_datatype(value);
-  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.Image.dataType)
+inline void ImageData_Image::set_timestamp(uint64_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.Image.timeStamp)
 }
 
 // string tag = 7;
@@ -5006,137 +4621,169 @@ ImageData_Image::markers() const {
 
 // ImageData
 
-// .IntelliSwing.ReturnMsg state = 1;
-inline bool ImageData::_internal_has_state() const {
-  return this != internal_default_instance() && state_ != nullptr;
+// int32 width = 1;
+inline void ImageData::clear_width() {
+  width_ = 0;
 }
-inline bool ImageData::has_state() const {
-  return _internal_has_state();
+inline int32_t ImageData::_internal_width() const {
+  return width_;
 }
-inline const ::IntelliSwing::ReturnMsg& ImageData::_internal_state() const {
-  const ::IntelliSwing::ReturnMsg* p = state_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IntelliSwing::ReturnMsg&>(
-      ::IntelliSwing::_ReturnMsg_default_instance_);
+inline int32_t ImageData::width() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.width)
+  return _internal_width();
 }
-inline const ::IntelliSwing::ReturnMsg& ImageData::state() const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.state)
-  return _internal_state();
-}
-inline void ImageData::unsafe_arena_set_allocated_state(
-    ::IntelliSwing::ReturnMsg* state) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(state_);
-  }
-  state_ = state;
-  if (state) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IntelliSwing.ImageData.state)
-}
-inline ::IntelliSwing::ReturnMsg* ImageData::release_state() {
+inline void ImageData::_internal_set_width(int32_t value) {
   
-  ::IntelliSwing::ReturnMsg* temp = state_;
-  state_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
+  width_ = value;
 }
-inline ::IntelliSwing::ReturnMsg* ImageData::unsafe_arena_release_state() {
-  // @@protoc_insertion_point(field_release:IntelliSwing.ImageData.state)
-  
-  ::IntelliSwing::ReturnMsg* temp = state_;
-  state_ = nullptr;
-  return temp;
-}
-inline ::IntelliSwing::ReturnMsg* ImageData::_internal_mutable_state() {
-  
-  if (state_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IntelliSwing::ReturnMsg>(GetArenaForAllocation());
-    state_ = p;
-  }
-  return state_;
-}
-inline ::IntelliSwing::ReturnMsg* ImageData::mutable_state() {
-  ::IntelliSwing::ReturnMsg* _msg = _internal_mutable_state();
-  // @@protoc_insertion_point(field_mutable:IntelliSwing.ImageData.state)
-  return _msg;
-}
-inline void ImageData::set_allocated_state(::IntelliSwing::ReturnMsg* state) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(state_);
-  }
-  if (state) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(state));
-    if (message_arena != submessage_arena) {
-      state = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, state, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  state_ = state;
-  // @@protoc_insertion_point(field_set_allocated:IntelliSwing.ImageData.state)
+inline void ImageData::set_width(int32_t value) {
+  _internal_set_width(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.width)
 }
 
-// repeated .IntelliSwing.ImageData.Image images = 2;
-inline int ImageData::_internal_images_size() const {
-  return images_.size();
+// int32 height = 2;
+inline void ImageData::clear_height() {
+  height_ = 0;
 }
-inline int ImageData::images_size() const {
-  return _internal_images_size();
+inline int32_t ImageData::_internal_height() const {
+  return height_;
 }
-inline void ImageData::clear_images() {
-  images_.Clear();
+inline int32_t ImageData::height() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.height)
+  return _internal_height();
 }
-inline ::IntelliSwing::ImageData_Image* ImageData::mutable_images(int index) {
-  // @@protoc_insertion_point(field_mutable:IntelliSwing.ImageData.images)
-  return images_.Mutable(index);
+inline void ImageData::_internal_set_height(int32_t value) {
+  
+  height_ = value;
+}
+inline void ImageData::set_height(int32_t value) {
+  _internal_set_height(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.height)
+}
+
+// int32 channel = 3;
+inline void ImageData::clear_channel() {
+  channel_ = 0;
+}
+inline int32_t ImageData::_internal_channel() const {
+  return channel_;
+}
+inline int32_t ImageData::channel() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.channel)
+  return _internal_channel();
+}
+inline void ImageData::_internal_set_channel(int32_t value) {
+  
+  channel_ = value;
+}
+inline void ImageData::set_channel(int32_t value) {
+  _internal_set_channel(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.channel)
+}
+
+// int32 data_type = 4;
+inline void ImageData::clear_data_type() {
+  data_type_ = 0;
+}
+inline int32_t ImageData::_internal_data_type() const {
+  return data_type_;
+}
+inline int32_t ImageData::data_type() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.data_type)
+  return _internal_data_type();
+}
+inline void ImageData::_internal_set_data_type(int32_t value) {
+  
+  data_type_ = value;
+}
+inline void ImageData::set_data_type(int32_t value) {
+  _internal_set_data_type(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.data_type)
+}
+
+// int32 image_type = 5;
+inline void ImageData::clear_image_type() {
+  image_type_ = 0;
+}
+inline int32_t ImageData::_internal_image_type() const {
+  return image_type_;
+}
+inline int32_t ImageData::image_type() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.image_type)
+  return _internal_image_type();
+}
+inline void ImageData::_internal_set_image_type(int32_t value) {
+  
+  image_type_ = value;
+}
+inline void ImageData::set_image_type(int32_t value) {
+  _internal_set_image_type(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.image_type)
+}
+
+// float fps = 6;
+inline void ImageData::clear_fps() {
+  fps_ = 0;
+}
+inline float ImageData::_internal_fps() const {
+  return fps_;
+}
+inline float ImageData::fps() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.fps)
+  return _internal_fps();
+}
+inline void ImageData::_internal_set_fps(float value) {
+  
+  fps_ = value;
+}
+inline void ImageData::set_fps(float value) {
+  _internal_set_fps(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.ImageData.fps)
+}
+
+// repeated .IntelliSwing.ImageData.Image datas = 7;
+inline int ImageData::_internal_datas_size() const {
+  return datas_.size();
+}
+inline int ImageData::datas_size() const {
+  return _internal_datas_size();
+}
+inline void ImageData::clear_datas() {
+  datas_.Clear();
+}
+inline ::IntelliSwing::ImageData_Image* ImageData::mutable_datas(int index) {
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.ImageData.datas)
+  return datas_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::ImageData_Image >*
-ImageData::mutable_images() {
-  // @@protoc_insertion_point(field_mutable_list:IntelliSwing.ImageData.images)
-  return &images_;
+ImageData::mutable_datas() {
+  // @@protoc_insertion_point(field_mutable_list:IntelliSwing.ImageData.datas)
+  return &datas_;
 }
-inline const ::IntelliSwing::ImageData_Image& ImageData::_internal_images(int index) const {
-  return images_.Get(index);
+inline const ::IntelliSwing::ImageData_Image& ImageData::_internal_datas(int index) const {
+  return datas_.Get(index);
 }
-inline const ::IntelliSwing::ImageData_Image& ImageData::images(int index) const {
-  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.images)
-  return _internal_images(index);
+inline const ::IntelliSwing::ImageData_Image& ImageData::datas(int index) const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.ImageData.datas)
+  return _internal_datas(index);
 }
-inline ::IntelliSwing::ImageData_Image* ImageData::_internal_add_images() {
-  return images_.Add();
+inline ::IntelliSwing::ImageData_Image* ImageData::_internal_add_datas() {
+  return datas_.Add();
 }
-inline ::IntelliSwing::ImageData_Image* ImageData::add_images() {
-  ::IntelliSwing::ImageData_Image* _add = _internal_add_images();
-  // @@protoc_insertion_point(field_add:IntelliSwing.ImageData.images)
+inline ::IntelliSwing::ImageData_Image* ImageData::add_datas() {
+  ::IntelliSwing::ImageData_Image* _add = _internal_add_datas();
+  // @@protoc_insertion_point(field_add:IntelliSwing.ImageData.datas)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::ImageData_Image >&
-ImageData::images() const {
-  // @@protoc_insertion_point(field_list:IntelliSwing.ImageData.images)
-  return images_;
+ImageData::datas() const {
+  // @@protoc_insertion_point(field_list:IntelliSwing.ImageData.datas)
+  return datas_;
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

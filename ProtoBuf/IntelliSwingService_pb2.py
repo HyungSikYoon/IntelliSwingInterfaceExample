@@ -15,17 +15,20 @@ _sym_db = _symbol_database.Default()
 import type_pb2 as type__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19IntelliSwingService.proto\x12\x0cIntelliSwing\x1a\ntype.proto\"o\n\nDeviceInfo\x12\x11\n\tdeviceVer\x18\x01 \x01(\t\x12\x0f\n\x07\x66pgaVer\x18\x02 \x01(\t\x12\x13\n\x0bsoftwareVer\x18\x03 \x01(\t\x12\x14\n\x0cserialNumber\x18\x04 \x01(\t\x12\x12\n\nsensorName\x18\x05 \x01(\t\"\x9a\x01\n\x0c\x44iviceStatus\x12,\n\x0bsensorState\x18\x01 \x03(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12,\n\x0bsystemState\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12\x19\n\x11\x64\x65viceTemperature\x18\x05 \x01(\x02\x12\x13\n\x0b\x62\x61tteryInfo\x18\x06 \x01(\x02\"=\n\nLogRequest\x12\x13\n\x0bsystemRange\x18\x01 \x01(\x05\x12\x1a\n\x12processingLogrange\x18\x02 \x01(\x05\"6\n\nLogMessage\x12\x11\n\tsystemLog\x18\x01 \x03(\t\x12\x15\n\rprocessingLog\x18\x02 \x03(\t\"&\n\x10SensorStatistics\x12\x12\n\nshot_count\x18\x01 \x01(\x05\"?\n\x15SiteCalibrationResult\x12&\n\x05state\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\"8\n\x08\x46irmware\x12\x16\n\x0esensorFirmware\x18\x01 \x01(\x0c\x12\x14\n\x0c\x66pgaFirmware\x18\x02 \x01(\x0c\"m\n\x14UpdateFirmwareResult\x12*\n\tFpgaState\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12)\n\x08SensorSW\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsgb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19IntelliSwingService.proto\x12\x0cIntelliSwing\x1a\ntype.proto\"\x81\x01\n\nDeviceInfo\x12\x11\n\tdeviceVer\x18\x01 \x01(\t\x12\x0f\n\x07\x66pgaVer\x18\x02 \x01(\t\x12\x13\n\x0bsoftwareVer\x18\x03 \x01(\t\x12\x14\n\x0cserialNumber\x18\x04 \x01(\t\x12\x12\n\nsensorName\x18\x05 \x01(\t\x12\x10\n\x08handType\x18\x06 \x01(\x05\"!\n\x11StatisticsRequest\x12\x0c\n\x04type\x18\x01 \x01(\x05\"&\n\x16SiteCalibrationRequest\x12\x0c\n\x04type\x18\x01 \x01(\x05\"\"\n\x12\x43\x61meraImageRequest\x12\x0c\n\x04type\x18\x01 \x01(\x05\"\x9a\x01\n\x0c\x44\x65viceStatus\x12,\n\x0bsensorState\x18\x01 \x03(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12,\n\x0bsystemState\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12\x19\n\x11\x64\x65viceTemperature\x18\x05 \x01(\x02\x12\x13\n\x0b\x62\x61tteryInfo\x18\x06 \x01(\x02\"=\n\nLogRequest\x12\x13\n\x0bsystemRange\x18\x01 \x01(\x05\x12\x1a\n\x12processingLogrange\x18\x02 \x01(\x05\"6\n\nLogMessage\x12\x11\n\tsystemLog\x18\x01 \x03(\t\x12\x15\n\rprocessingLog\x18\x02 \x03(\t\"&\n\x10SensorStatistics\x12\x12\n\nshot_count\x18\x01 \x01(\x05\"?\n\x15SiteCalibrationResult\x12&\n\x05state\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\"E\n\x15UpdateFirmwareRequest\x12\x16\n\x0esensorFirmware\x18\x01 \x01(\x0c\x12\x14\n\x0c\x66pgaFirmware\x18\x02 \x01(\x0c\"m\n\x14UpdateFirmwareResult\x12*\n\tFpgaState\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12)\n\x08SensorSW\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsgb\x06proto3')
 
 
 
 _DEVICEINFO = DESCRIPTOR.message_types_by_name['DeviceInfo']
-_DIVICESTATUS = DESCRIPTOR.message_types_by_name['DiviceStatus']
+_STATISTICSREQUEST = DESCRIPTOR.message_types_by_name['StatisticsRequest']
+_SITECALIBRATIONREQUEST = DESCRIPTOR.message_types_by_name['SiteCalibrationRequest']
+_CAMERAIMAGEREQUEST = DESCRIPTOR.message_types_by_name['CameraImageRequest']
+_DEVICESTATUS = DESCRIPTOR.message_types_by_name['DeviceStatus']
 _LOGREQUEST = DESCRIPTOR.message_types_by_name['LogRequest']
 _LOGMESSAGE = DESCRIPTOR.message_types_by_name['LogMessage']
 _SENSORSTATISTICS = DESCRIPTOR.message_types_by_name['SensorStatistics']
 _SITECALIBRATIONRESULT = DESCRIPTOR.message_types_by_name['SiteCalibrationResult']
-_FIRMWARE = DESCRIPTOR.message_types_by_name['Firmware']
+_UPDATEFIRMWAREREQUEST = DESCRIPTOR.message_types_by_name['UpdateFirmwareRequest']
 _UPDATEFIRMWARERESULT = DESCRIPTOR.message_types_by_name['UpdateFirmwareResult']
 DeviceInfo = _reflection.GeneratedProtocolMessageType('DeviceInfo', (_message.Message,), {
   'DESCRIPTOR' : _DEVICEINFO,
@@ -34,12 +37,33 @@ DeviceInfo = _reflection.GeneratedProtocolMessageType('DeviceInfo', (_message.Me
   })
 _sym_db.RegisterMessage(DeviceInfo)
 
-DiviceStatus = _reflection.GeneratedProtocolMessageType('DiviceStatus', (_message.Message,), {
-  'DESCRIPTOR' : _DIVICESTATUS,
+StatisticsRequest = _reflection.GeneratedProtocolMessageType('StatisticsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STATISTICSREQUEST,
   '__module__' : 'IntelliSwingService_pb2'
-  # @@protoc_insertion_point(class_scope:IntelliSwing.DiviceStatus)
+  # @@protoc_insertion_point(class_scope:IntelliSwing.StatisticsRequest)
   })
-_sym_db.RegisterMessage(DiviceStatus)
+_sym_db.RegisterMessage(StatisticsRequest)
+
+SiteCalibrationRequest = _reflection.GeneratedProtocolMessageType('SiteCalibrationRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SITECALIBRATIONREQUEST,
+  '__module__' : 'IntelliSwingService_pb2'
+  # @@protoc_insertion_point(class_scope:IntelliSwing.SiteCalibrationRequest)
+  })
+_sym_db.RegisterMessage(SiteCalibrationRequest)
+
+CameraImageRequest = _reflection.GeneratedProtocolMessageType('CameraImageRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CAMERAIMAGEREQUEST,
+  '__module__' : 'IntelliSwingService_pb2'
+  # @@protoc_insertion_point(class_scope:IntelliSwing.CameraImageRequest)
+  })
+_sym_db.RegisterMessage(CameraImageRequest)
+
+DeviceStatus = _reflection.GeneratedProtocolMessageType('DeviceStatus', (_message.Message,), {
+  'DESCRIPTOR' : _DEVICESTATUS,
+  '__module__' : 'IntelliSwingService_pb2'
+  # @@protoc_insertion_point(class_scope:IntelliSwing.DeviceStatus)
+  })
+_sym_db.RegisterMessage(DeviceStatus)
 
 LogRequest = _reflection.GeneratedProtocolMessageType('LogRequest', (_message.Message,), {
   'DESCRIPTOR' : _LOGREQUEST,
@@ -69,12 +93,12 @@ SiteCalibrationResult = _reflection.GeneratedProtocolMessageType('SiteCalibratio
   })
 _sym_db.RegisterMessage(SiteCalibrationResult)
 
-Firmware = _reflection.GeneratedProtocolMessageType('Firmware', (_message.Message,), {
-  'DESCRIPTOR' : _FIRMWARE,
+UpdateFirmwareRequest = _reflection.GeneratedProtocolMessageType('UpdateFirmwareRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEFIRMWAREREQUEST,
   '__module__' : 'IntelliSwingService_pb2'
-  # @@protoc_insertion_point(class_scope:IntelliSwing.Firmware)
+  # @@protoc_insertion_point(class_scope:IntelliSwing.UpdateFirmwareRequest)
   })
-_sym_db.RegisterMessage(Firmware)
+_sym_db.RegisterMessage(UpdateFirmwareRequest)
 
 UpdateFirmwareResult = _reflection.GeneratedProtocolMessageType('UpdateFirmwareResult', (_message.Message,), {
   'DESCRIPTOR' : _UPDATEFIRMWARERESULT,
@@ -86,20 +110,26 @@ _sym_db.RegisterMessage(UpdateFirmwareResult)
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _DEVICEINFO._serialized_start=55
-  _DEVICEINFO._serialized_end=166
-  _DIVICESTATUS._serialized_start=169
-  _DIVICESTATUS._serialized_end=323
-  _LOGREQUEST._serialized_start=325
-  _LOGREQUEST._serialized_end=386
-  _LOGMESSAGE._serialized_start=388
-  _LOGMESSAGE._serialized_end=442
-  _SENSORSTATISTICS._serialized_start=444
-  _SENSORSTATISTICS._serialized_end=482
-  _SITECALIBRATIONRESULT._serialized_start=484
-  _SITECALIBRATIONRESULT._serialized_end=547
-  _FIRMWARE._serialized_start=549
-  _FIRMWARE._serialized_end=605
-  _UPDATEFIRMWARERESULT._serialized_start=607
-  _UPDATEFIRMWARERESULT._serialized_end=716
+  _DEVICEINFO._serialized_start=56
+  _DEVICEINFO._serialized_end=185
+  _STATISTICSREQUEST._serialized_start=187
+  _STATISTICSREQUEST._serialized_end=220
+  _SITECALIBRATIONREQUEST._serialized_start=222
+  _SITECALIBRATIONREQUEST._serialized_end=260
+  _CAMERAIMAGEREQUEST._serialized_start=262
+  _CAMERAIMAGEREQUEST._serialized_end=296
+  _DEVICESTATUS._serialized_start=299
+  _DEVICESTATUS._serialized_end=453
+  _LOGREQUEST._serialized_start=455
+  _LOGREQUEST._serialized_end=516
+  _LOGMESSAGE._serialized_start=518
+  _LOGMESSAGE._serialized_end=572
+  _SENSORSTATISTICS._serialized_start=574
+  _SENSORSTATISTICS._serialized_end=612
+  _SITECALIBRATIONRESULT._serialized_start=614
+  _SITECALIBRATIONRESULT._serialized_end=677
+  _UPDATEFIRMWAREREQUEST._serialized_start=679
+  _UPDATEFIRMWAREREQUEST._serialized_end=748
+  _UPDATEFIRMWARERESULT._serialized_start=750
+  _UPDATEFIRMWARERESULT._serialized_end=859
 # @@protoc_insertion_point(module_scope)

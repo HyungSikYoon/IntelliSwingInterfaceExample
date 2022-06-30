@@ -64,19 +64,25 @@ namespace IntelliSwing {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::IntelliSwing.DeviceInfo> __Marshaller_IntelliSwing_DeviceInfo = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.DeviceInfo.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::IntelliSwing.DiviceStatus> __Marshaller_IntelliSwing_DiviceStatus = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.DiviceStatus.Parser));
+    static readonly grpc::Marshaller<global::IntelliSwing.DeviceStatus> __Marshaller_IntelliSwing_DeviceStatus = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.DeviceStatus.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::IntelliSwing.LogRequest> __Marshaller_IntelliSwing_LogRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.LogRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::IntelliSwing.LogMessage> __Marshaller_IntelliSwing_LogMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.LogMessage.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::IntelliSwing.StatisticsRequest> __Marshaller_IntelliSwing_StatisticsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.StatisticsRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::IntelliSwing.SensorStatistics> __Marshaller_IntelliSwing_SensorStatistics = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.SensorStatistics.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::IntelliSwing.SiteCalibrationRequest> __Marshaller_IntelliSwing_SiteCalibrationRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.SiteCalibrationRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::IntelliSwing.SiteCalibrationResult> __Marshaller_IntelliSwing_SiteCalibrationResult = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.SiteCalibrationResult.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::IntelliSwing.Firmware> __Marshaller_IntelliSwing_Firmware = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.Firmware.Parser));
+    static readonly grpc::Marshaller<global::IntelliSwing.UpdateFirmwareRequest> __Marshaller_IntelliSwing_UpdateFirmwareRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.UpdateFirmwareRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::IntelliSwing.UpdateFirmwareResult> __Marshaller_IntelliSwing_UpdateFirmwareResult = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.UpdateFirmwareResult.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::IntelliSwing.CameraImageRequest> __Marshaller_IntelliSwing_CameraImageRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::IntelliSwing.CameraImageRequest.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::IntelliSwing.InitializeMsg, global::IntelliSwing.ReturnMsg> __Method_Initialize = new grpc::Method<global::IntelliSwing.InitializeMsg, global::IntelliSwing.ReturnMsg>(
@@ -143,12 +149,12 @@ namespace IntelliSwing {
         __Marshaller_IntelliSwing_DeviceInfo);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.DiviceStatus> __Method_GetDeviceStatus = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.DiviceStatus>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.DeviceStatus> __Method_GetDeviceStatus = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.DeviceStatus>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetDeviceStatus",
         __Marshaller_google_protobuf_Empty,
-        __Marshaller_IntelliSwing_DiviceStatus);
+        __Marshaller_IntelliSwing_DeviceStatus);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::IntelliSwing.LogRequest, global::IntelliSwing.LogMessage> __Method_GetLog = new grpc::Method<global::IntelliSwing.LogRequest, global::IntelliSwing.LogMessage>(
@@ -159,35 +165,35 @@ namespace IntelliSwing {
         __Marshaller_IntelliSwing_LogMessage);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.SensorStatistics> __Method_GetStatistics = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.SensorStatistics>(
+    static readonly grpc::Method<global::IntelliSwing.StatisticsRequest, global::IntelliSwing.SensorStatistics> __Method_GetStatistics = new grpc::Method<global::IntelliSwing.StatisticsRequest, global::IntelliSwing.SensorStatistics>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetStatistics",
-        __Marshaller_google_protobuf_Empty,
+        __Marshaller_IntelliSwing_StatisticsRequest,
         __Marshaller_IntelliSwing_SensorStatistics);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.SiteCalibrationResult> __Method_RunSiteCalibration = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.SiteCalibrationResult>(
+    static readonly grpc::Method<global::IntelliSwing.SiteCalibrationRequest, global::IntelliSwing.SiteCalibrationResult> __Method_RunSiteCalibration = new grpc::Method<global::IntelliSwing.SiteCalibrationRequest, global::IntelliSwing.SiteCalibrationResult>(
         grpc::MethodType.Unary,
         __ServiceName,
         "RunSiteCalibration",
-        __Marshaller_google_protobuf_Empty,
+        __Marshaller_IntelliSwing_SiteCalibrationRequest,
         __Marshaller_IntelliSwing_SiteCalibrationResult);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::IntelliSwing.Firmware, global::IntelliSwing.UpdateFirmwareResult> __Method_UpdateFirmware = new grpc::Method<global::IntelliSwing.Firmware, global::IntelliSwing.UpdateFirmwareResult>(
+    static readonly grpc::Method<global::IntelliSwing.UpdateFirmwareRequest, global::IntelliSwing.UpdateFirmwareResult> __Method_UpdateFirmware = new grpc::Method<global::IntelliSwing.UpdateFirmwareRequest, global::IntelliSwing.UpdateFirmwareResult>(
         grpc::MethodType.Unary,
         __ServiceName,
         "UpdateFirmware",
-        __Marshaller_IntelliSwing_Firmware,
+        __Marshaller_IntelliSwing_UpdateFirmwareRequest,
         __Marshaller_IntelliSwing_UpdateFirmwareResult);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.ImageData> __Method_GetImage = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.ImageData>(
+    static readonly grpc::Method<global::IntelliSwing.CameraImageRequest, global::IntelliSwing.ImageData> __Method_GetImage = new grpc::Method<global::IntelliSwing.CameraImageRequest, global::IntelliSwing.ImageData>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetImage",
-        __Marshaller_google_protobuf_Empty,
+        __Marshaller_IntelliSwing_CameraImageRequest,
         __Marshaller_IntelliSwing_ImageData);
 
     /// <summary>Service descriptor</summary>
@@ -268,7 +274,7 @@ namespace IntelliSwing {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::IntelliSwing.DiviceStatus> GetDeviceStatus(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::IntelliSwing.DeviceStatus> GetDeviceStatus(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -280,25 +286,25 @@ namespace IntelliSwing {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::IntelliSwing.SensorStatistics> GetStatistics(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::IntelliSwing.SensorStatistics> GetStatistics(global::IntelliSwing.StatisticsRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::IntelliSwing.SiteCalibrationResult> RunSiteCalibration(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::IntelliSwing.SiteCalibrationResult> RunSiteCalibration(global::IntelliSwing.SiteCalibrationRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::IntelliSwing.UpdateFirmwareResult> UpdateFirmware(global::IntelliSwing.Firmware request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::IntelliSwing.UpdateFirmwareResult> UpdateFirmware(global::IntelliSwing.UpdateFirmwareRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::IntelliSwing.ImageData> GetImage(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::IntelliSwing.ImageData> GetImage(global::IntelliSwing.CameraImageRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -553,22 +559,22 @@ namespace IntelliSwing {
         return CallInvoker.AsyncUnaryCall(__Method_GetDeviceInfo, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::IntelliSwing.DiviceStatus GetDeviceStatus(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::IntelliSwing.DeviceStatus GetDeviceStatus(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetDeviceStatus(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::IntelliSwing.DiviceStatus GetDeviceStatus(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      public virtual global::IntelliSwing.DeviceStatus GetDeviceStatus(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetDeviceStatus, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.DiviceStatus> GetDeviceStatusAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.DeviceStatus> GetDeviceStatusAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetDeviceStatusAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.DiviceStatus> GetDeviceStatusAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.DeviceStatus> GetDeviceStatusAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetDeviceStatus, null, options, request);
       }
@@ -593,82 +599,82 @@ namespace IntelliSwing {
         return CallInvoker.AsyncUnaryCall(__Method_GetLog, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::IntelliSwing.SensorStatistics GetStatistics(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::IntelliSwing.SensorStatistics GetStatistics(global::IntelliSwing.StatisticsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetStatistics(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::IntelliSwing.SensorStatistics GetStatistics(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      public virtual global::IntelliSwing.SensorStatistics GetStatistics(global::IntelliSwing.StatisticsRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetStatistics, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.SensorStatistics> GetStatisticsAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.SensorStatistics> GetStatisticsAsync(global::IntelliSwing.StatisticsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetStatisticsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.SensorStatistics> GetStatisticsAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.SensorStatistics> GetStatisticsAsync(global::IntelliSwing.StatisticsRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetStatistics, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::IntelliSwing.SiteCalibrationResult RunSiteCalibration(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::IntelliSwing.SiteCalibrationResult RunSiteCalibration(global::IntelliSwing.SiteCalibrationRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return RunSiteCalibration(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::IntelliSwing.SiteCalibrationResult RunSiteCalibration(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      public virtual global::IntelliSwing.SiteCalibrationResult RunSiteCalibration(global::IntelliSwing.SiteCalibrationRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_RunSiteCalibration, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.SiteCalibrationResult> RunSiteCalibrationAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.SiteCalibrationResult> RunSiteCalibrationAsync(global::IntelliSwing.SiteCalibrationRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return RunSiteCalibrationAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.SiteCalibrationResult> RunSiteCalibrationAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.SiteCalibrationResult> RunSiteCalibrationAsync(global::IntelliSwing.SiteCalibrationRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_RunSiteCalibration, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::IntelliSwing.UpdateFirmwareResult UpdateFirmware(global::IntelliSwing.Firmware request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::IntelliSwing.UpdateFirmwareResult UpdateFirmware(global::IntelliSwing.UpdateFirmwareRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdateFirmware(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::IntelliSwing.UpdateFirmwareResult UpdateFirmware(global::IntelliSwing.Firmware request, grpc::CallOptions options)
+      public virtual global::IntelliSwing.UpdateFirmwareResult UpdateFirmware(global::IntelliSwing.UpdateFirmwareRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_UpdateFirmware, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.UpdateFirmwareResult> UpdateFirmwareAsync(global::IntelliSwing.Firmware request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.UpdateFirmwareResult> UpdateFirmwareAsync(global::IntelliSwing.UpdateFirmwareRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdateFirmwareAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.UpdateFirmwareResult> UpdateFirmwareAsync(global::IntelliSwing.Firmware request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.UpdateFirmwareResult> UpdateFirmwareAsync(global::IntelliSwing.UpdateFirmwareRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_UpdateFirmware, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::IntelliSwing.ImageData GetImage(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::IntelliSwing.ImageData GetImage(global::IntelliSwing.CameraImageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetImage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::IntelliSwing.ImageData GetImage(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      public virtual global::IntelliSwing.ImageData GetImage(global::IntelliSwing.CameraImageRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetImage, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.ImageData> GetImageAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.ImageData> GetImageAsync(global::IntelliSwing.CameraImageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetImageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.ImageData> GetImageAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::IntelliSwing.ImageData> GetImageAsync(global::IntelliSwing.CameraImageRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetImage, null, options, request);
       }
@@ -717,12 +723,12 @@ namespace IntelliSwing {
       serviceBinder.AddMethod(__Method_GetClubImage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::IntelliSwing.ShotImageRequest, global::IntelliSwing.ImageData>(serviceImpl.GetClubImage));
       serviceBinder.AddMethod(__Method_GetBallImage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::IntelliSwing.ShotImageRequest, global::IntelliSwing.ImageData>(serviceImpl.GetBallImage));
       serviceBinder.AddMethod(__Method_GetDeviceInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.DeviceInfo>(serviceImpl.GetDeviceInfo));
-      serviceBinder.AddMethod(__Method_GetDeviceStatus, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.DiviceStatus>(serviceImpl.GetDeviceStatus));
+      serviceBinder.AddMethod(__Method_GetDeviceStatus, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.DeviceStatus>(serviceImpl.GetDeviceStatus));
       serviceBinder.AddMethod(__Method_GetLog, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::IntelliSwing.LogRequest, global::IntelliSwing.LogMessage>(serviceImpl.GetLog));
-      serviceBinder.AddMethod(__Method_GetStatistics, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.SensorStatistics>(serviceImpl.GetStatistics));
-      serviceBinder.AddMethod(__Method_RunSiteCalibration, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.SiteCalibrationResult>(serviceImpl.RunSiteCalibration));
-      serviceBinder.AddMethod(__Method_UpdateFirmware, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::IntelliSwing.Firmware, global::IntelliSwing.UpdateFirmwareResult>(serviceImpl.UpdateFirmware));
-      serviceBinder.AddMethod(__Method_GetImage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::IntelliSwing.ImageData>(serviceImpl.GetImage));
+      serviceBinder.AddMethod(__Method_GetStatistics, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::IntelliSwing.StatisticsRequest, global::IntelliSwing.SensorStatistics>(serviceImpl.GetStatistics));
+      serviceBinder.AddMethod(__Method_RunSiteCalibration, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::IntelliSwing.SiteCalibrationRequest, global::IntelliSwing.SiteCalibrationResult>(serviceImpl.RunSiteCalibration));
+      serviceBinder.AddMethod(__Method_UpdateFirmware, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::IntelliSwing.UpdateFirmwareRequest, global::IntelliSwing.UpdateFirmwareResult>(serviceImpl.UpdateFirmware));
+      serviceBinder.AddMethod(__Method_GetImage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::IntelliSwing.CameraImageRequest, global::IntelliSwing.ImageData>(serviceImpl.GetImage));
     }
 
   }
