@@ -23,6 +23,8 @@ public:
 // Implementation
 private :
 	ZSensor::IIntelliSwingProtocolAdapter *m_pIntelliSwingProtocolAdapter;
+	CWinThread*     m_pEventThread;
+
 protected:
 	HICON m_hIcon;
 
@@ -44,11 +46,14 @@ public:
 	afx_msg void OnBnClickedButtonDeviceStatus();
 	afx_msg void OnBnClickedButtonGetLog();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	afx_msg void OnDestroy();
 
 	virtual void OnReady(ZSensor::Ready &ready);
 	virtual void OnNotReady(ZSensor::NotReady &notReady);
 	virtual void OnShortTriggered(ZSensor::ShortTriggered &shotTriggered);
 	virtual void OnBallFlightInfo(ZSensor::BallFlightInfo &ballFlightInfo);
 	virtual void OnClubPathInfo(ZSensor::ClubPathInfo &clubInfo);
-	afx_msg void OnDestroy();
+
+	void StartSensor();
+	void StopSensor();
 };

@@ -40,3 +40,8 @@ x64/
 .vs/
 
 *.bak
+/VIS2005Client/Client/Debug
+/VIS2005Client/Client/*.log
+/VIS2005Client/Client/*.user
+/VIS2005Client/*.ncb
+/VIS2005Client/*.suo

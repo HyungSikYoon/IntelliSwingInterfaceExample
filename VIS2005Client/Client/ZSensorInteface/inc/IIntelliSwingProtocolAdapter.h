@@ -124,7 +124,7 @@ namespace ZSensor
 		int	handType; //{0 : right-hand, 1 : left_hand}
 	};
 
-	struct DiviceStatus
+	struct DeviceStatus
 	{
 		ReturnMsg systemState;
 		float deviceTemperature;
@@ -222,7 +222,7 @@ namespace ZSensor
 
 		// Service
 		int GetDeviceInfo(Z_OUTPUT DeviceInfo& deviceInfo);
-		int GetDeviceStatus(Z_OUTPUT DiviceStatus& deviceStatus);
+		int GetDeviceStatus(Z_OUTPUT DeviceStatus& deviceStatus);
 		/*int GetLog(LogRequest, OUT (LogMessage);
 		int GetStatistics(StatisticsRequest, OUT (SensorStatistics);
 		int RunSiteCalibration(SiteCalibrationRequest, OUT (SiteCalibrationResult);

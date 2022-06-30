@@ -13,6 +13,7 @@
 
 
 
+
 #pragma comment(lib, "ZSensorInterfaceDll.lib")
 
 // CClientDlg dialog
@@ -139,15 +140,32 @@ BOOL CClientDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	// TODO: Add extra initialization here
+	// extra initialization here
 
-
-	//LogHelper logHelp("this is log");
 	LOGW<<"OnInit Dialog";
 	m_pIntelliSwingProtocolAdapter = new ZSensor::IIntelliSwingProtocolAdapter(this);
 	m_pIntelliSwingProtocolAdapter->Connect("localhost", 50051);
+
+	m_pEventThread = NULL;
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
+
+void CClientDlg::OnDestroy()
+{
+	__super::OnDestroy();
+
+	if(m_pEventThread != NULL)
+	{
+		StopSensor();
+		WaitForSingleObject(m_pEventThread->m_hThread,2000);
+	}
+
+
+	// TODO: Add your message handler code here
+	delete m_pIntelliSwingProtocolAdapter;
+	m_pIntelliSwingProtocolAdapter = NULL;
+}
+
 
 void CClientDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
@@ -200,60 +218,155 @@ HCURSOR CClientDlg::OnQueryDragIcon()
 
 
 
-void CClientDlg::OnBnClickedButtonGetDeviceInfo()
-{
-	// TODO: Add your control notification handler code here
-}
+
 
 void CClientDlg::OnBnClickedButtonInitialize()
 {
 	// TODO: Add your control notification handler code here
-	ZSensor::InitializeMsg initialize;
+	ZSensor::InitializeMsg initializeMsg;
 	ZSensor::ReturnMsg returnMsg;
 	if(m_pIntelliSwingProtocolAdapter)
 	{
-		m_pIntelliSwingProtocolAdapter->Initialize(initialize, returnMsg);
+		
+		m_pIntelliSwingProtocolAdapter->Initialize(initializeMsg, returnMsg);
+		LOGW<<"return result "<<returnMsg.isOK;
 	}
 }
 
 void CClientDlg::OnBnClickedButtonRelease()
 {
-	// TODO: Add your control notification handler code here
+	LOG_BEGIN_END;
+	ZSensor::ReleaseMsg releaseMsg;
+	ZSensor::ReturnMsg returnMsg;
+	if(m_pIntelliSwingProtocolAdapter)
+	{
+		
+		m_pIntelliSwingProtocolAdapter->Release(releaseMsg, returnMsg);
+		LOGW<<"return result "<<returnMsg.isOK;
+	}
+
 }
 
 void CClientDlg::OnBnClickedButtonReboot()
 {
-	// TODO: Add your control notification handler code here
+	LOG_BEGIN_END;
+	ZSensor::ReturnMsg returnMsg;
+	if(m_pIntelliSwingProtocolAdapter)
+	{
+		m_pIntelliSwingProtocolAdapter->Reboot(returnMsg);
+		LOGW<<"return result "<<returnMsg.isOK;
+	}
 }
+
+UINT MyThread(LPVOID lpParam)
+{
+	CClientDlg* pClass = (CClientDlg*) lpParam;
+	pClass->StartSensor();
+	return 0L;
+}
+
+void CClientDlg::StartSensor()
+{
+
+	LOG_BEGIN_END;
+	ZSensor::StartMsg startMsg;
+	ZSensor::ReturnMsg returnMsg;
+	if(m_pIntelliSwingProtocolAdapter)
+	{
+		
+		m_pIntelliSwingProtocolAdapter->Start(startMsg);
+		LOGW<<"Sensing End ";
+	}
+
+	m_pEventThread = NULL;
+}
+void CClientDlg::StopSensor()
+{
+	LOG_BEGIN_END;
+	ZSensor::ReturnMsg returnMsg;
+	if(m_pIntelliSwingProtocolAdapter)
+	{
+		m_pIntelliSwingProtocolAdapter->Stop(returnMsg);
+		LOGW<<"return result "<<returnMsg.isOK;
+	}
+}
+ 
 
 void CClientDlg::OnBnClickedButtonStart()
 {
-	// TODO: Add your control notification handler code here
+	LOG_BEGIN_END;
+	CWinThread*     pThread = NULL;
+	pThread = AfxBeginThread( MyThread, this,
+		THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED);
+
+	if(pThread == NULL)
+		LOGW<<"Fail to create camera thread!!";
+
 }
 
 void CClientDlg::OnBnClickedButtonStop()
 {
-	// TODO: Add your control notification handler code here
+	LOG_BEGIN_END;
+	StopSensor();
 }
 
 void CClientDlg::OnBnClickedButtonGetClubImg()
 {
-	// TODO: Add your control notification handler code here
+	LOG_BEGIN_END;
+
+	ZSensor::ShotImageRequest imageRequest;
+	imageRequest.shotId = 100;
+
+	ZSensor::ImageData imageData;
+	if(m_pIntelliSwingProtocolAdapter)
+	{
+		m_pIntelliSwingProtocolAdapter->GetClubImage(imageRequest, imageData);
+		
+		LOGW<<"return  image count = "<< imageData.nImageArrayCount;
+	}
 }
 
 void CClientDlg::OnBnClickedButtonGetBallImg()
 {
-	// TODO: Add your control notification handler code here
+	LOG_BEGIN_END;
+
+	ZSensor::ShotImageRequest imageRequest;
+	imageRequest.shotId = 100;
+
+	ZSensor::ImageData imageData;
+	if(m_pIntelliSwingProtocolAdapter)
+	{
+		m_pIntelliSwingProtocolAdapter->GetBallImage(imageRequest, imageData);
+		
+		LOGW<<"return  image count = "<< imageData.nImageArrayCount;
+	}
 }
 
 void CClientDlg::OnBnClickedButtonDeviceStatus()
 {
-	// TODO: Add your control notification handler code here
+	LOG_BEGIN_END;
+	ZSensor::DeviceStatus deviceStatus;
+	if(m_pIntelliSwingProtocolAdapter)
+	{
+		m_pIntelliSwingProtocolAdapter->GetDeviceStatus(deviceStatus);
+		LOGW<<"return result "<<deviceStatus.systemState.isOK;
+	}
+}
+
+void CClientDlg::OnBnClickedButtonGetDeviceInfo()
+{
+	LOG_BEGIN_END;
+	ZSensor::DeviceInfo deviceInfo;
+	if(m_pIntelliSwingProtocolAdapter)
+	{
+		m_pIntelliSwingProtocolAdapter->GetDeviceInfo(deviceInfo);
+		LOGW<<"return result "<<deviceInfo.deviceVer;
+	}
 }
 
 void CClientDlg::OnBnClickedButtonGetLog()
 {
-	// TODO: Add your control notification handler code here
+	LOG_BEGIN_END;
 }
 
 void CClientDlg::OnTimer(UINT_PTR nIDEvent)
@@ -284,11 +397,3 @@ void CClientDlg::OnClubPathInfo(ZSensor::ClubPathInfo &clubInfo)
 	LOG_BEGIN_END;
 }
 
-void CClientDlg::OnDestroy()
-{
-	__super::OnDestroy();
-
-	// TODO: Add your message handler code here
-	delete m_pIntelliSwingProtocolAdapter;
-	m_pIntelliSwingProtocolAdapter = NULL;
-}
