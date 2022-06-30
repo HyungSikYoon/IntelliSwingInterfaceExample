@@ -295,11 +295,10 @@ void CClientDlg::StopSensor()
 void CClientDlg::OnBnClickedButtonStart()
 {
 	LOG_BEGIN_END;
-	CWinThread*     pThread = NULL;
-	pThread = AfxBeginThread( MyThread, this,
-		THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED);
 
-	if(pThread == NULL)
+	m_pEventThread = AfxBeginThread( MyThread, this);
+
+	if(m_pEventThread == NULL)
 		LOGW<<"Fail to create camera thread!!";
 
 }

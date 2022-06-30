@@ -140,6 +140,9 @@ public :
 	{
 		std::cout << "Stop Received " << std::endl;
 
+		std::unique_lock<std::mutex> lk(cv_m);
+		g_Ready = true;
+		conditional_variable.notify_all();
 		return ::grpc::Status::OK;
 	}
 	virtual ::grpc::Status GetClubImage(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response)
