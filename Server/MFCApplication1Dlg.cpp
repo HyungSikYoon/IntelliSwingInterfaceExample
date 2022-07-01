@@ -15,6 +15,8 @@
 #include <grpc++/grpc++.h>
 #include <time.h>
 
+#include "CDialogShot.h"
+
 #include "../ProtoBuf/IntelliSwingInterface.grpc.pb.h"
 #include <google/protobuf/util/time_util.h>
 #pragma comment(lib, "Ws2_32.lib")
@@ -223,6 +225,7 @@ void CMFCApplication1Dlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BUTTON6, m_ctrlButtonBallFlight);
 	DDX_Control(pDX, IDC_BUTTON7, m_ctrlButtonClubPath);
 	DDX_Control(pDX, IDC_BUTTON_SEND_END, m_ctrlButtonSendEnd);
+	DDX_Control(pDX, IDC_BUTTON_SEND_SHOT, m_ctrlButtonSendShot);
 }
 
 BEGIN_MESSAGE_MAP(CMFCApplication1Dlg, CDialogEx)
@@ -238,6 +241,7 @@ BEGIN_MESSAGE_MAP(CMFCApplication1Dlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON7, &CMFCApplication1Dlg::OnBnClickedButtonSendClubInfo)
 	ON_BN_CLICKED(IDC_BUTTON_SEND_END, &CMFCApplication1Dlg::OnBnClickedButtonSendEnd)
 	ON_WM_DESTROY()
+	ON_BN_CLICKED(IDC_BUTTON_SEND_SHOT, &CMFCApplication1Dlg::OnBnClickedButtonSendShot)
 END_MESSAGE_MAP()
 
 
@@ -363,9 +367,7 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendReady()
 		LogHelper log("OnBnClickedButtonSendReady 2");
 
 		::IntelliSwing::SensorRunningMsg msg;
-
-		auto* timestamp = msg.mutable_timestamp();
-		*timestamp = google::protobuf::util::TimeUtil::GetCurrentTime();
+		*msg.mutable_timestamp() = google::protobuf::util::TimeUtil::GetCurrentTime();
 		
 		auto* pReady = msg.mutable_ready();
 		pReady->set_istee(true);
@@ -382,6 +384,7 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendNotReady()
 {
 	LogHelper log("OnBnClickedButtonSendNotReady");
 	::IntelliSwing::SensorRunningMsg msg;
+	*msg.mutable_timestamp() = google::protobuf::util::TimeUtil::GetCurrentTime();
 	auto* pNotReady = msg.mutable_notready();
 	
 	g_serviceImpl.m_pWriter->Write(msg);
@@ -392,9 +395,11 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendTriggered()
 {
 	LogHelper log("OnBnClickedButtonSendTriggered");
 	::IntelliSwing::SensorRunningMsg msg;
+	*msg.mutable_timestamp() = google::protobuf::util::TimeUtil::GetCurrentTime();
 	auto* pTriggered = msg.mutable_shottriggered();
-	pTriggered->set_shotid(99);
-	pTriggered->set_timestamp(23456);
+	pTriggered->set_shotid(++m_nShotID);
+	uint64_t timestampI64 = google::protobuf::util::TimeUtil::TimestampToMilliseconds(google::protobuf::util::TimeUtil::GetCurrentTime());
+	pTriggered->set_timestamp(timestampI64);
 
 	g_serviceImpl.m_pWriter->Write(msg);
 }
@@ -404,8 +409,9 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendBallInfo()
 {
 	LogHelper log("OnBnClickedButtonSendBallInfo");
 	::IntelliSwing::SensorRunningMsg msg;
+	*msg.mutable_timestamp() = google::protobuf::util::TimeUtil::GetCurrentTime();
 	auto* pBallInfo = msg.mutable_ballinfo();
-	pBallInfo->set_shotid(99);
+	pBallInfo->set_shotid(m_nShotID);
 	pBallInfo->set_ballspeed(23.45);
 	pBallInfo->set_backspin(2356.2);
 
@@ -417,17 +423,72 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendClubInfo()
 {
 	LogHelper log("OnBnClickedButtonSendClubInfo");
 	::IntelliSwing::SensorRunningMsg msg;
-	
+
 	auto* timestamp = msg.mutable_timestamp();
 	*timestamp = google::protobuf::util::TimeUtil::GetCurrentTime();
-	
+
 	auto* pClubInfo = msg.mutable_clubinfo();
-	pClubInfo->set_shotid(99);
+	pClubInfo->set_shotid(m_nShotID);
 	pClubInfo->set_headspeed(10.56);
 	pClubInfo->set_faceangle(10);
 
 	g_serviceImpl.m_pWriter->Write(msg);
 }
+
+void CMFCApplication1Dlg::OnBnClickedButtonSendShot()
+{
+	LogHelper log("OnBnClickedButtonSendShot");
+	CDialogShot dlgShot;
+	if (dlgShot.DoModal() == IDOK)
+	{
+		std::cout << "Send Shot ball speed "<< dlgShot.m_nBallSpeed << std::endl;
+
+		//send trigger
+		{
+			::IntelliSwing::SensorRunningMsg msg;
+			*msg.mutable_timestamp() = google::protobuf::util::TimeUtil::GetCurrentTime();
+			auto* pTriggered = msg.mutable_shottriggered();
+			pTriggered->set_shotid(++m_nShotID);
+			uint64_t timestampI64 = google::protobuf::util::TimeUtil::TimestampToMilliseconds(google::protobuf::util::TimeUtil::GetCurrentTime());
+			pTriggered->set_timestamp(timestampI64);
+
+			g_serviceImpl.m_pWriter->Write(msg);
+		}
+		Sleep(100);
+
+		//send ball
+		{
+			::IntelliSwing::SensorRunningMsg msg;
+			*msg.mutable_timestamp() = google::protobuf::util::TimeUtil::GetCurrentTime();
+			auto* pBallInfo = msg.mutable_ballinfo();
+			pBallInfo->set_shotid(m_nShotID);
+			pBallInfo->set_ballspeed(dlgShot.m_nBallSpeed);
+			pBallInfo->set_incidence(dlgShot.m_nBallIncidence);
+			pBallInfo->set_direction(dlgShot.m_nBallDirection);
+			pBallInfo->set_backspin(dlgShot.m_nBackspin);
+			pBallInfo->set_sidespin(dlgShot.m_nSideSpin);
+
+			g_serviceImpl.m_pWriter->Write(msg);
+		}
+		Sleep(300);
+
+		//send club
+		{
+			::IntelliSwing::SensorRunningMsg msg;
+
+			auto* timestamp = msg.mutable_timestamp();
+			*timestamp = google::protobuf::util::TimeUtil::GetCurrentTime();
+
+			auto* pClubInfo = msg.mutable_clubinfo();
+			pClubInfo->set_shotid(m_nShotID);
+			pClubInfo->set_headspeed(dlgShot.m_nHeadSpeed);
+			pClubInfo->set_faceangle(10);
+
+			g_serviceImpl.m_pWriter->Write(msg);
+		}
+	}
+}
+
 
 void CMFCApplication1Dlg::OnBnClickedButtonSendEnd()
 {
@@ -455,6 +516,7 @@ void CMFCApplication1Dlg::OnBeginServerToClient()
 	m_ctrlButtonBallFlight.EnableWindow(true);
 	m_ctrlButtonClubPath.EnableWindow(true);
 	m_ctrlButtonSendEnd.EnableWindow(true);
+	m_ctrlButtonSendShot.EnableWindow(true);
 	Invalidate(TRUE);
 	UpdateWindow();
 }
@@ -467,7 +529,9 @@ void CMFCApplication1Dlg::OnEndServerToClient()
 	m_ctrlButtonBallFlight.EnableWindow(false);
 	m_ctrlButtonClubPath.EnableWindow(false);
 	m_ctrlButtonSendEnd.EnableWindow(false);
+	m_ctrlButtonSendShot.EnableWindow(false);
 	Invalidate(TRUE);
 	UpdateWindow();
 }
+
 

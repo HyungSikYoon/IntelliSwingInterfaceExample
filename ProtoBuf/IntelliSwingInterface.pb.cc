@@ -415,83 +415,87 @@ const char descriptor_table_protodef_IntelliSwingInterface_2eproto[] PROTOBUF_SE
   "g\0222\n\006client\030\004 \001(\0162\".IntelliSwing.Initial"
   "izeMsg.Client\"5\n\006Client\022\007\n\003GDR\020\000\022\013\n\007Next"
   "GDR\020\001\022\n\n\006Vision\020\002\022\t\n\005Ohter\020\003\"\030\n\nReleaseM"
-  "sg\022\n\n\002id\030\001 \001(\005\"\327\002\n\010StartMsg\022\?\n\017clubInfor"
+  "sg\022\n\n\002id\030\001 \001(\005\"\334\003\n\010StartMsg\022\?\n\017clubInfor"
   "mation\030\001 \001(\0162&.IntelliSwing.StartMsg.Clu"
   "bInformation\0222\n\020goundAttribution\030\002 \001(\0162\030"
-  ".IntelliSwing.GroundAttr\"\325\001\n\017ClubInforma"
+  ".IntelliSwing.GroundAttr\"\332\002\n\017ClubInforma"
   "tion\022\016\n\nNonPutting\020\000\022\013\n\007Putting\020\001\022\010\n\004Woo"
   "d\020d\022\006\n\002W1\020e\022\006\n\002W2\020f\022\006\n\002W3\020g\022\006\n\002W4\020h\022\006\n\002W"
-  "5\020i\022\t\n\004Iron\020\310\001\022\007\n\002I3\020\313\001\022\007\n\002I4\020\314\001\022\007\n\002I5\020\315"
-  "\001\022\007\n\002I6\020\316\001\022\007\n\002I7\020\317\001\022\007\n\002I8\020\320\001\022\007\n\002I9\020\321\001\022\n\n"
-  "\005Wedge\020\254\002\022\007\n\002PW\020\266\002\022\007\n\002SW\020\300\002\022\013\n\006Hybrid\020\220\003"
-  "\"\264\t\n\020SensorRunningMsg\022-\n\ttimeStamp\030\001 \001(\013"
-  "2\032.google.protobuf.Timestamp\0225\n\005ready\030\002 "
-  "\001(\0132$.IntelliSwing.SensorRunningMsg.Read"
-  "yH\000\022;\n\010notReady\030\003 \001(\0132\'.IntelliSwing.Sen"
-  "sorRunningMsg.NotReadyH\000\022F\n\rshotTriggere"
-  "d\030\004 \001(\0132-.IntelliSwing.SensorRunningMsg."
-  "ShortTriggeredH\000\022A\n\010ballInfo\030\005 \001(\0132-.Int"
-  "elliSwing.SensorRunningMsg.BallFlightInf"
-  "oH\000\022\?\n\010clubInfo\030\006 \001(\0132+.IntelliSwing.Sen"
-  "sorRunningMsg.ClubPathInfoH\000\032s\n\005Ready\022\'\n"
-  "\010position\030\001 \001(\0132\025.IntelliSwing.Point3f\022\r"
-  "\n\005isTee\030\002 \001(\010\0222\n\020goundAttribution\030\003 \001(\0162"
-  "\030.IntelliSwing.GroundAttr\032\250\001\n\010NotReady\022L"
-  "\n\rnotReadyCause\030\001 \001(\01625.IntelliSwing.Sen"
-  "sorRunningMsg.NotReady.NotReadyCause\"N\n\r"
-  "NotReadyCause\022\016\n\nNotDefined\020\000\022\014\n\010OutBoun"
-  "d\020\001\022\020\n\014BallNotFound\020\002\022\r\n\tMultiBall\020\003\0323\n\016"
-  "ShortTriggered\022\016\n\006shotId\030\001 \001(\005\022\021\n\ttimest"
-  "amp\030\002 \001(\004\032}\n\016BallFlightInfo\022\016\n\006shotId\030\001 "
-  "\001(\005\022\021\n\tballSpeed\030\002 \001(\002\022\021\n\tIncidence\030\003 \001("
-  "\002\022\021\n\tdirection\030\004 \001(\002\022\020\n\010backSpin\030\005 \001(\002\022\020"
-  "\n\010sideSpin\030\006 \001(\002\032\320\002\n\014ClubPathInfo\022\016\n\006sho"
-  "tId\030\001 \001(\005\022\021\n\theadSpeed\030\002 \001(\002\022>\n\004path\030\003 \001"
-  "(\01320.IntelliSwing.SensorRunningMsg.ClubP"
-  "athInfo.Path\022\021\n\tfaceAngle\030\004 \001(\002\022\023\n\013attac"
-  "kAngle\030\005 \001(\002\022L\n\013impactPoint\030\006 \001(\01327.Inte"
-  "lliSwing.SensorRunningMsg.ClubPathInfo.I"
-  "mpactPoint\032\032\n\004Path\022\022\n\nGAClubPath\030\001 \001(\002\032K"
-  "\n\013ImpactPoint\022\035\n\025GAClubImpactPoint_Hor\030\001"
-  " \001(\002\022\035\n\025GAClubImpactPoint_Ver\030\002 \001(\002B\n\n\010r"
-  "unState\"\"\n\020ShotImageRequest\022\016\n\006shotId\030\001 "
-  "\001(\005\"\314\002\n\tImageData\022\r\n\005width\030\001 \001(\005\022\016\n\006heig"
-  "ht\030\002 \001(\005\022\017\n\007channel\030\003 \001(\005\022\021\n\tdata_type\030\004"
-  " \001(\005\022\022\n\nimage_type\030\005 \001(\005\022\013\n\003fps\030\006 \001(\002\022,\n"
-  "\005datas\030\007 \003(\0132\035.IntelliSwing.ImageData.Im"
-  "age\032\254\001\n\005Image\022\014\n\004data\030\002 \001(\014\022\021\n\ttimeStamp"
-  "\030\003 \001(\004\022\013\n\003tag\030\007 \001(\t\0225\n\007markers\030\010 \003(\0132$.I"
-  "ntelliSwing.ImageData.Image.Marker\032>\n\006Ma"
-  "rker\022\'\n\010position\030\001 \001(\0132\025.IntelliSwing.Po"
-  "int2i\022\013\n\003tag\030\002 \001(\t*D\n\nGroundAttr\022\013\n\007FAIR"
-  "WAY\020\000\022\t\n\005ROUGH\020\001\022\n\n\006BUNKER\020\002\022\007\n\003TEE\020\003\022\t\n"
-  "\005GREEN\020\0042\232\010\n\024IntelliSwingProtocol\022D\n\nIni"
-  "tialize\022\033.IntelliSwing.InitializeMsg\032\027.I"
-  "ntelliSwing.ReturnMsg\"\000\022>\n\007Release\022\030.Int"
-  "elliSwing.ReleaseMsg\032\027.IntelliSwing.Retu"
-  "rnMsg\"\000\022;\n\006Reboot\022\026.google.protobuf.Empt"
-  "y\032\027.IntelliSwing.ReturnMsg\"\000\022C\n\005Start\022\026."
-  "IntelliSwing.StartMsg\032\036.IntelliSwing.Sen"
-  "sorRunningMsg\"\0000\001\0229\n\004Stop\022\026.google.proto"
-  "buf.Empty\032\027.IntelliSwing.ReturnMsg\"\000\022I\n\014"
-  "GetClubImage\022\036.IntelliSwing.ShotImageReq"
-  "uest\032\027.IntelliSwing.ImageData\"\000\022I\n\014GetBa"
-  "llImage\022\036.IntelliSwing.ShotImageRequest\032"
-  "\027.IntelliSwing.ImageData\"\000\022C\n\rGetDeviceI"
-  "nfo\022\026.google.protobuf.Empty\032\030.IntelliSwi"
-  "ng.DeviceInfo\"\000\022G\n\017GetDeviceStatus\022\026.goo"
-  "gle.protobuf.Empty\032\032.IntelliSwing.Device"
-  "Status\"\000\022>\n\006GetLog\022\030.IntelliSwing.LogReq"
-  "uest\032\030.IntelliSwing.LogMessage\"\000\022R\n\rGetS"
-  "tatistics\022\037.IntelliSwing.StatisticsReque"
-  "st\032\036.IntelliSwing.SensorStatistics\"\000\022a\n\022"
-  "RunSiteCalibration\022$.IntelliSwing.SiteCa"
-  "librationRequest\032#.IntelliSwing.SiteCali"
-  "brationResult\"\000\022[\n\016UpdateFirmware\022#.Inte"
-  "lliSwing.UpdateFirmwareRequest\032\".Intelli"
-  "Swing.UpdateFirmwareResult\"\000\022G\n\010GetImage"
-  "\022 .IntelliSwing.CameraImageRequest\032\027.Int"
-  "elliSwing.ImageData\"\000b\006proto3"
+  "5\020i\022\006\n\002W6\020j\022\006\n\002W7\020k\022\006\n\002W8\020l\022\006\n\002W9\020m\022\t\n\004I"
+  "ron\020\310\001\022\007\n\002I2\020\312\001\022\007\n\002I3\020\313\001\022\007\n\002I4\020\314\001\022\007\n\002I5\020"
+  "\315\001\022\007\n\002I6\020\316\001\022\007\n\002I7\020\317\001\022\007\n\002I8\020\320\001\022\007\n\002I9\020\321\001\022\n"
+  "\n\005Wedge\020\254\002\022\007\n\002PW\020\266\002\022\007\n\002SW\020\300\002\022\007\n\002LW\020\312\002\022\013\n"
+  "\006Hybrid\020\220\003\022\t\n\004UTIL\020\244\003\022\n\n\005UTIL2\020\246\003\022\n\n\005UTI"
+  "L3\020\247\003\022\n\n\005UTIL4\020\250\003\022\n\n\005UTIL5\020\251\003\022\n\n\005UTIL6\020\252"
+  "\003\022\n\n\005UTIL7\020\253\003\"\264\t\n\020SensorRunningMsg\022-\n\tti"
+  "meStamp\030\001 \001(\0132\032.google.protobuf.Timestam"
+  "p\0225\n\005ready\030\002 \001(\0132$.IntelliSwing.SensorRu"
+  "nningMsg.ReadyH\000\022;\n\010notReady\030\003 \001(\0132\'.Int"
+  "elliSwing.SensorRunningMsg.NotReadyH\000\022F\n"
+  "\rshotTriggered\030\004 \001(\0132-.IntelliSwing.Sens"
+  "orRunningMsg.ShortTriggeredH\000\022A\n\010ballInf"
+  "o\030\005 \001(\0132-.IntelliSwing.SensorRunningMsg."
+  "BallFlightInfoH\000\022\?\n\010clubInfo\030\006 \001(\0132+.Int"
+  "elliSwing.SensorRunningMsg.ClubPathInfoH"
+  "\000\032s\n\005Ready\022\'\n\010position\030\001 \001(\0132\025.IntelliSw"
+  "ing.Point3f\022\r\n\005isTee\030\002 \001(\010\0222\n\020goundAttri"
+  "bution\030\003 \001(\0162\030.IntelliSwing.GroundAttr\032\250"
+  "\001\n\010NotReady\022L\n\rnotReadyCause\030\001 \001(\01625.Int"
+  "elliSwing.SensorRunningMsg.NotReady.NotR"
+  "eadyCause\"N\n\rNotReadyCause\022\016\n\nNotDefined"
+  "\020\000\022\014\n\010OutBound\020\001\022\020\n\014BallNotFound\020\002\022\r\n\tMu"
+  "ltiBall\020\003\0323\n\016ShortTriggered\022\016\n\006shotId\030\001 "
+  "\001(\005\022\021\n\ttimestamp\030\002 \001(\004\032}\n\016BallFlightInfo"
+  "\022\016\n\006shotId\030\001 \001(\005\022\021\n\tballSpeed\030\002 \001(\002\022\021\n\tI"
+  "ncidence\030\003 \001(\002\022\021\n\tdirection\030\004 \001(\002\022\020\n\010bac"
+  "kSpin\030\005 \001(\002\022\020\n\010sideSpin\030\006 \001(\002\032\320\002\n\014ClubPa"
+  "thInfo\022\016\n\006shotId\030\001 \001(\005\022\021\n\theadSpeed\030\002 \001("
+  "\002\022>\n\004path\030\003 \001(\01320.IntelliSwing.SensorRun"
+  "ningMsg.ClubPathInfo.Path\022\021\n\tfaceAngle\030\004"
+  " \001(\002\022\023\n\013attackAngle\030\005 \001(\002\022L\n\013impactPoint"
+  "\030\006 \001(\01327.IntelliSwing.SensorRunningMsg.C"
+  "lubPathInfo.ImpactPoint\032\032\n\004Path\022\022\n\nGAClu"
+  "bPath\030\001 \001(\002\032K\n\013ImpactPoint\022\035\n\025GAClubImpa"
+  "ctPoint_Hor\030\001 \001(\002\022\035\n\025GAClubImpactPoint_V"
+  "er\030\002 \001(\002B\n\n\010runState\"\"\n\020ShotImageRequest"
+  "\022\016\n\006shotId\030\001 \001(\005\"\314\002\n\tImageData\022\r\n\005width\030"
+  "\001 \001(\005\022\016\n\006height\030\002 \001(\005\022\017\n\007channel\030\003 \001(\005\022\021"
+  "\n\tdata_type\030\004 \001(\005\022\022\n\nimage_type\030\005 \001(\005\022\013\n"
+  "\003fps\030\006 \001(\002\022,\n\005datas\030\007 \003(\0132\035.IntelliSwing"
+  ".ImageData.Image\032\254\001\n\005Image\022\014\n\004data\030\002 \001(\014"
+  "\022\021\n\ttimeStamp\030\003 \001(\004\022\013\n\003tag\030\007 \001(\t\0225\n\007mark"
+  "ers\030\010 \003(\0132$.IntelliSwing.ImageData.Image"
+  ".Marker\032>\n\006Marker\022\'\n\010position\030\001 \001(\0132\025.In"
+  "telliSwing.Point2i\022\013\n\003tag\030\002 \001(\t*D\n\nGroun"
+  "dAttr\022\013\n\007FAIRWAY\020\000\022\t\n\005ROUGH\020\001\022\n\n\006BUNKER\020"
+  "\002\022\007\n\003TEE\020\003\022\t\n\005GREEN\020\0042\232\010\n\024IntelliSwingPr"
+  "otocol\022D\n\nInitialize\022\033.IntelliSwing.Init"
+  "ializeMsg\032\027.IntelliSwing.ReturnMsg\"\000\022>\n\007"
+  "Release\022\030.IntelliSwing.ReleaseMsg\032\027.Inte"
+  "lliSwing.ReturnMsg\"\000\022;\n\006Reboot\022\026.google."
+  "protobuf.Empty\032\027.IntelliSwing.ReturnMsg\""
+  "\000\022C\n\005Start\022\026.IntelliSwing.StartMsg\032\036.Int"
+  "elliSwing.SensorRunningMsg\"\0000\001\0229\n\004Stop\022\026"
+  ".google.protobuf.Empty\032\027.IntelliSwing.Re"
+  "turnMsg\"\000\022I\n\014GetClubImage\022\036.IntelliSwing"
+  ".ShotImageRequest\032\027.IntelliSwing.ImageDa"
+  "ta\"\000\022I\n\014GetBallImage\022\036.IntelliSwing.Shot"
+  "ImageRequest\032\027.IntelliSwing.ImageData\"\000\022"
+  "C\n\rGetDeviceInfo\022\026.google.protobuf.Empty"
+  "\032\030.IntelliSwing.DeviceInfo\"\000\022G\n\017GetDevic"
+  "eStatus\022\026.google.protobuf.Empty\032\032.Intell"
+  "iSwing.DeviceStatus\"\000\022>\n\006GetLog\022\030.Intell"
+  "iSwing.LogRequest\032\030.IntelliSwing.LogMess"
+  "age\"\000\022R\n\rGetStatistics\022\037.IntelliSwing.St"
+  "atisticsRequest\032\036.IntelliSwing.SensorSta"
+  "tistics\"\000\022a\n\022RunSiteCalibration\022$.Intell"
+  "iSwing.SiteCalibrationRequest\032#.IntelliS"
+  "wing.SiteCalibrationResult\"\000\022[\n\016UpdateFi"
+  "rmware\022#.IntelliSwing.UpdateFirmwareRequ"
+  "est\032\".IntelliSwing.UpdateFirmwareResult\""
+  "\000\022G\n\010GetImage\022 .IntelliSwing.CameraImage"
+  "Request\032\027.IntelliSwing.ImageData\"\000b\006prot"
+  "o3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_IntelliSwingInterface_2eproto_deps[4] = {
   &::descriptor_table_IntelliSwingService_2eproto,
@@ -501,7 +505,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_IntelliSwingInterface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_IntelliSwingInterface_2eproto = {
-  false, false, 3349, descriptor_table_protodef_IntelliSwingInterface_2eproto, "IntelliSwingInterface.proto", 
+  false, false, 3482, descriptor_table_protodef_IntelliSwingInterface_2eproto, "IntelliSwingInterface.proto", 
   &descriptor_table_IntelliSwingInterface_2eproto_once, descriptor_table_IntelliSwingInterface_2eproto_deps, 4, 15,
   schemas, file_default_instances, TableStruct_IntelliSwingInterface_2eproto::offsets,
   file_level_metadata_IntelliSwingInterface_2eproto, file_level_enum_descriptors_IntelliSwingInterface_2eproto, file_level_service_descriptors_IntelliSwingInterface_2eproto,
@@ -552,7 +556,12 @@ bool StartMsg_ClubInformation_IsValid(int value) {
     case 103:
     case 104:
     case 105:
+    case 106:
+    case 107:
+    case 108:
+    case 109:
     case 200:
+    case 202:
     case 203:
     case 204:
     case 205:
@@ -563,7 +572,15 @@ bool StartMsg_ClubInformation_IsValid(int value) {
     case 300:
     case 310:
     case 320:
+    case 330:
     case 400:
+    case 420:
+    case 422:
+    case 423:
+    case 424:
+    case 425:
+    case 426:
+    case 427:
       return true;
     default:
       return false;
@@ -579,7 +596,12 @@ constexpr StartMsg_ClubInformation StartMsg::W2;
 constexpr StartMsg_ClubInformation StartMsg::W3;
 constexpr StartMsg_ClubInformation StartMsg::W4;
 constexpr StartMsg_ClubInformation StartMsg::W5;
+constexpr StartMsg_ClubInformation StartMsg::W6;
+constexpr StartMsg_ClubInformation StartMsg::W7;
+constexpr StartMsg_ClubInformation StartMsg::W8;
+constexpr StartMsg_ClubInformation StartMsg::W9;
 constexpr StartMsg_ClubInformation StartMsg::Iron;
+constexpr StartMsg_ClubInformation StartMsg::I2;
 constexpr StartMsg_ClubInformation StartMsg::I3;
 constexpr StartMsg_ClubInformation StartMsg::I4;
 constexpr StartMsg_ClubInformation StartMsg::I5;
@@ -590,7 +612,15 @@ constexpr StartMsg_ClubInformation StartMsg::I9;
 constexpr StartMsg_ClubInformation StartMsg::Wedge;
 constexpr StartMsg_ClubInformation StartMsg::PW;
 constexpr StartMsg_ClubInformation StartMsg::SW;
+constexpr StartMsg_ClubInformation StartMsg::LW;
 constexpr StartMsg_ClubInformation StartMsg::Hybrid;
+constexpr StartMsg_ClubInformation StartMsg::UTIL;
+constexpr StartMsg_ClubInformation StartMsg::UTIL2;
+constexpr StartMsg_ClubInformation StartMsg::UTIL3;
+constexpr StartMsg_ClubInformation StartMsg::UTIL4;
+constexpr StartMsg_ClubInformation StartMsg::UTIL5;
+constexpr StartMsg_ClubInformation StartMsg::UTIL6;
+constexpr StartMsg_ClubInformation StartMsg::UTIL7;
 constexpr StartMsg_ClubInformation StartMsg::ClubInformation_MIN;
 constexpr StartMsg_ClubInformation StartMsg::ClubInformation_MAX;
 constexpr int StartMsg::ClubInformation_ARRAYSIZE;

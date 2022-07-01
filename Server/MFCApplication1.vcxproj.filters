@@ -51,6 +51,9 @@
     <ClInclude Include="ZIntelliSwingServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CDialogShot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCApplication1.cpp">
@@ -75,6 +78,9 @@
       <Filter>Protobuf</Filter>
     </ClCompile>
     <ClCompile Include="ZIntelliSwingServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CDialogShot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

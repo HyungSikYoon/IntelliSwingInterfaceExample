@@ -296,7 +296,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;C:\Develop\Project\IntelliSwingProject\Interface\IntelliSwingInterfaceExample2005\Example2005\protobuf_x64-windows\include&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)\..\protobuf_x64-windows\include&quot;;&quot;$(ProjectDir)&quot;"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG"
 				MinimalRebuild="false"
 				RuntimeLibrary="2"

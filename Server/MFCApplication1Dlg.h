@@ -25,6 +25,7 @@ public:
 // Implementation
 private :
 	ZIntelliSwingServer *m_pServer = nullptr;
+	int m_nShotID = 0;
 
 protected:
 	HICON m_hIcon;
@@ -43,6 +44,9 @@ public:
 	afx_msg void OnBnClickedButtonSendTriggered();
 	afx_msg void OnBnClickedButtonSendBallInfo();
 	afx_msg void OnBnClickedButtonSendClubInfo();
+	afx_msg void OnBnClickedButtonSendEnd();
+	afx_msg void OnBnClickedButtonSendShot();
+	afx_msg void OnDestroy();
 
 	CButton m_ctrlButtonStart;
 	CButton m_ctrlButtonStop;
@@ -52,11 +56,10 @@ public:
 	CButton m_ctrlButtonBallFlight;
 	CButton m_ctrlButtonClubPath;
 	CButton m_ctrlButtonSendEnd;
+	CButton m_ctrlButtonSendShot;
 
-	afx_msg void OnDestroy();
 
 	void OnBeginServerToClient();
-
 	void OnEndServerToClient();
-	afx_msg void OnBnClickedButtonSendEnd();
+
 };

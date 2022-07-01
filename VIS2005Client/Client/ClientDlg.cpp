@@ -223,6 +223,7 @@ HCURSOR CClientDlg::OnQueryDragIcon()
 void CClientDlg::OnBnClickedButtonInitialize()
 {
 	// TODO: Add your control notification handler code here
+
 	ZSensor::InitializeMsg initializeMsg;
 	ZSensor::ReturnMsg returnMsg;
 	if(m_pIntelliSwingProtocolAdapter)
@@ -390,9 +391,11 @@ void CClientDlg::OnShortTriggered(ZSensor::ShortTriggered &shotTriggered)
 void CClientDlg::OnBallFlightInfo(ZSensor::BallFlightInfo &ballFlightInfo)
 {
 	LOG_BEGIN_END;
+	LOGW<<"Ball Speed "<<ballFlightInfo.ballSpeed<<", incidence "<<ballFlightInfo.Incidence;
 }
 void CClientDlg::OnClubPathInfo(ZSensor::ClubPathInfo &clubInfo)
 {
 	LOG_BEGIN_END;
+	LOGW<<"head Speed "<<clubInfo.headSpeed;
 }
 

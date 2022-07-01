@@ -160,7 +160,12 @@ enum StartMsg_ClubInformation : int {
   StartMsg_ClubInformation_W3 = 103,
   StartMsg_ClubInformation_W4 = 104,
   StartMsg_ClubInformation_W5 = 105,
+  StartMsg_ClubInformation_W6 = 106,
+  StartMsg_ClubInformation_W7 = 107,
+  StartMsg_ClubInformation_W8 = 108,
+  StartMsg_ClubInformation_W9 = 109,
   StartMsg_ClubInformation_Iron = 200,
+  StartMsg_ClubInformation_I2 = 202,
   StartMsg_ClubInformation_I3 = 203,
   StartMsg_ClubInformation_I4 = 204,
   StartMsg_ClubInformation_I5 = 205,
@@ -171,13 +176,21 @@ enum StartMsg_ClubInformation : int {
   StartMsg_ClubInformation_Wedge = 300,
   StartMsg_ClubInformation_PW = 310,
   StartMsg_ClubInformation_SW = 320,
+  StartMsg_ClubInformation_LW = 330,
   StartMsg_ClubInformation_Hybrid = 400,
+  StartMsg_ClubInformation_UTIL = 420,
+  StartMsg_ClubInformation_UTIL2 = 422,
+  StartMsg_ClubInformation_UTIL3 = 423,
+  StartMsg_ClubInformation_UTIL4 = 424,
+  StartMsg_ClubInformation_UTIL5 = 425,
+  StartMsg_ClubInformation_UTIL6 = 426,
+  StartMsg_ClubInformation_UTIL7 = 427,
   StartMsg_ClubInformation_StartMsg_ClubInformation_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   StartMsg_ClubInformation_StartMsg_ClubInformation_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool StartMsg_ClubInformation_IsValid(int value);
 constexpr StartMsg_ClubInformation StartMsg_ClubInformation_ClubInformation_MIN = StartMsg_ClubInformation_NonPutting;
-constexpr StartMsg_ClubInformation StartMsg_ClubInformation_ClubInformation_MAX = StartMsg_ClubInformation_Hybrid;
+constexpr StartMsg_ClubInformation StartMsg_ClubInformation_ClubInformation_MAX = StartMsg_ClubInformation_UTIL7;
 constexpr int StartMsg_ClubInformation_ClubInformation_ARRAYSIZE = StartMsg_ClubInformation_ClubInformation_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* StartMsg_ClubInformation_descriptor();
@@ -713,8 +726,18 @@ class StartMsg final :
     StartMsg_ClubInformation_W4;
   static constexpr ClubInformation W5 =
     StartMsg_ClubInformation_W5;
+  static constexpr ClubInformation W6 =
+    StartMsg_ClubInformation_W6;
+  static constexpr ClubInformation W7 =
+    StartMsg_ClubInformation_W7;
+  static constexpr ClubInformation W8 =
+    StartMsg_ClubInformation_W8;
+  static constexpr ClubInformation W9 =
+    StartMsg_ClubInformation_W9;
   static constexpr ClubInformation Iron =
     StartMsg_ClubInformation_Iron;
+  static constexpr ClubInformation I2 =
+    StartMsg_ClubInformation_I2;
   static constexpr ClubInformation I3 =
     StartMsg_ClubInformation_I3;
   static constexpr ClubInformation I4 =
@@ -735,8 +758,24 @@ class StartMsg final :
     StartMsg_ClubInformation_PW;
   static constexpr ClubInformation SW =
     StartMsg_ClubInformation_SW;
+  static constexpr ClubInformation LW =
+    StartMsg_ClubInformation_LW;
   static constexpr ClubInformation Hybrid =
     StartMsg_ClubInformation_Hybrid;
+  static constexpr ClubInformation UTIL =
+    StartMsg_ClubInformation_UTIL;
+  static constexpr ClubInformation UTIL2 =
+    StartMsg_ClubInformation_UTIL2;
+  static constexpr ClubInformation UTIL3 =
+    StartMsg_ClubInformation_UTIL3;
+  static constexpr ClubInformation UTIL4 =
+    StartMsg_ClubInformation_UTIL4;
+  static constexpr ClubInformation UTIL5 =
+    StartMsg_ClubInformation_UTIL5;
+  static constexpr ClubInformation UTIL6 =
+    StartMsg_ClubInformation_UTIL6;
+  static constexpr ClubInformation UTIL7 =
+    StartMsg_ClubInformation_UTIL7;
   static inline bool ClubInformation_IsValid(int value) {
     return StartMsg_ClubInformation_IsValid(value);
   }

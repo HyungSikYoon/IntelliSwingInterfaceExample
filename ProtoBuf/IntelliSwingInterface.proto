@@ -69,7 +69,12 @@ message StartMsg
 		W3		= 103;
 		W4		= 104; 
 		W5		= 105;
+		W6		= 106;
+		W7		= 107;
+		W8		= 108;
+		W9		= 109;
 		Iron	= 200;
+		I2		= 202;
 		I3		= 203;
 		I4		= 204;
 		I5		= 205;
@@ -80,8 +85,15 @@ message StartMsg
 		Wedge	= 300;
 		PW		= 310;
 		SW		= 320;
+		LW		= 330;
 		Hybrid	= 400;
-		
+		UTIL	= 420;
+		UTIL2   = 422;
+		UTIL3   = 423;
+		UTIL4   = 424;
+		UTIL5   = 425;
+		UTIL6   = 426;
+		UTIL7   = 427;
 	}
 	ClubInformation clubInformation = 1;
 	GroundAttr		goundAttribution = 2;

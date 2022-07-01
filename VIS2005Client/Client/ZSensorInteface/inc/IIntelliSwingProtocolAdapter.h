@@ -17,6 +17,7 @@ namespace ZSensor
 		Z_ERROR = -1,
 		Z_NOK = 0,
 		Z_OK = 1,
+		Z_ALREADY_CONNECTED =2,
 	};
 
 
@@ -69,7 +70,12 @@ namespace ZSensor
 		W3 = 103,
 		W4 = 104,
 		W5 = 105,
+		W6 = 106,
+		W7 = 107,
+		W8 = 108,
+		W9 = 109,
 		Iron = 200,
+		I2 = 202,
 		I3 = 203,
 		I4 = 204,
 		I5 = 205,
@@ -80,7 +86,15 @@ namespace ZSensor
 		Wedge = 300,
 		PW = 310,
 		SW = 320,
+		LW = 330,
 		Hybrid = 400,
+		UTIL = 420,
+		UTIL2 = 422,
+		UTIL3 = 423,
+		UTIL4 = 424,
+		UTIL5 = 425,
+		UTIL6 = 426,
+		UTIL7 = 427,
 	};
 	struct StartMsg
 	{
@@ -103,7 +117,21 @@ namespace ZSensor
 			unsigned long long timeStamp;
 			unsigned char* pByteBuffer;
 			int nBufferSize;
+			Image()
+			{
+				nBufferSize = 0;
+				pByteBuffer = NULL;
+				timeStamp = 0;
+			}
 		};
+
+		ImageData()
+		{
+			width = height = channel = data_type = image_type = 0;
+			fps = 0;
+			nImageArrayCount = 0;
+			pImageBuffer = NULL;
+		}
 		int width;
 		int height;
 		int channel;
@@ -228,6 +256,8 @@ namespace ZSensor
 		int RunSiteCalibration(SiteCalibrationRequest, OUT (SiteCalibrationResult);
 		int UpdateFirmware(UpdateFirmwareRequest, OUT (UpdateFirmwareResult);
 		int GetImage(CameraImageRequest, OUT (ImageData);*/
+
+		void ClearImageData(ImageData** ppImageData);
 	};
 
 }
