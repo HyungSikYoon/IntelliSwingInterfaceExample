@@ -258,6 +258,10 @@ namespace ZSensor
 		int GetImage(CameraImageRequest, OUT (ImageData);*/
 
 		void ClearImageData(ImageData** ppImageData);
+
+		const char *GetRevision();
+		const char *GetInterfaceDllVersion();
+		const char* GetUpdateDate();
 	};
 
 }

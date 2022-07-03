@@ -143,6 +143,8 @@ BOOL CClientDlg::OnInitDialog()
 	// extra initialization here
 
 	LOGW<<"OnInit Dialog";
+	LOGW<<"Revision "<<m_pIntelliSwingProtocolAdapter->GetRevision();
+	LOGW<<"Updatedate "<<m_pIntelliSwingProtocolAdapter->GetUpdateDate();
 	m_pIntelliSwingProtocolAdapter = new ZSensor::IIntelliSwingProtocolAdapter(this);
 	m_pIntelliSwingProtocolAdapter->Connect("localhost", 50051);
 
@@ -228,6 +230,7 @@ void CClientDlg::OnBnClickedButtonInitialize()
 	ZSensor::ReturnMsg returnMsg;
 	if(m_pIntelliSwingProtocolAdapter)
 	{
+
 		
 		m_pIntelliSwingProtocolAdapter->Initialize(initializeMsg, returnMsg);
 		LOGW<<"return result "<<returnMsg.isOK;
@@ -387,11 +390,14 @@ void CClientDlg::OnNotReady(ZSensor::NotReady &notReady)
 void CClientDlg::OnShortTriggered(ZSensor::ShortTriggered &shotTriggered)
 {
 	LOG_BEGIN_END;
+	LOGW<<"ShortTriggered  "<<shotTriggered.shotId<<", timestamp "<<shotTriggered.timestamp;
 }
 void CClientDlg::OnBallFlightInfo(ZSensor::BallFlightInfo &ballFlightInfo)
 {
 	LOG_BEGIN_END;
-	LOGW<<"Ball Speed "<<ballFlightInfo.ballSpeed<<", incidence "<<ballFlightInfo.Incidence;
+	LOGW<<"  Shot ID "<<ballFlightInfo.shotId;
+	LOGW<<"  Ball Speed "<<ballFlightInfo.ballSpeed<<", incidence "<<ballFlightInfo.Incidence<<", dir : " <<ballFlightInfo.direction;
+	LOGW<<"  Ball BS "<<ballFlightInfo.backSpin<<", SS "<<ballFlightInfo.sideSpin;
 }
 void CClientDlg::OnClubPathInfo(ZSensor::ClubPathInfo &clubInfo)
 {
