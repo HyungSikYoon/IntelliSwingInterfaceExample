@@ -226,6 +226,8 @@ void CMFCApplication1Dlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BUTTON7, m_ctrlButtonClubPath);
 	DDX_Control(pDX, IDC_BUTTON_SEND_END, m_ctrlButtonSendEnd);
 	DDX_Control(pDX, IDC_BUTTON_SEND_SHOT, m_ctrlButtonSendShot);
+	DDX_Control(pDX, IDC_CHECK_IS_ON_TEE, m_ctrlCheckIsOnTee);
+	DDX_Control(pDX, IDC_COMBO_GROUND, m_ctrlComboGroundType);
 }
 
 BEGIN_MESSAGE_MAP(CMFCApplication1Dlg, CDialogEx)
@@ -242,6 +244,7 @@ BEGIN_MESSAGE_MAP(CMFCApplication1Dlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_SEND_END, &CMFCApplication1Dlg::OnBnClickedButtonSendEnd)
 	ON_WM_DESTROY()
 	ON_BN_CLICKED(IDC_BUTTON_SEND_SHOT, &CMFCApplication1Dlg::OnBnClickedButtonSendShot)
+	ON_CBN_SELCHANGE(IDC_COMBO_GROUND, &CMFCApplication1Dlg::OnSelchangeComboGround)
 END_MESSAGE_MAP()
 
 
@@ -283,6 +286,14 @@ BOOL CMFCApplication1Dlg::OnInitDialog()
 	m_pServer->Start();
 	m_ctrlButtonStart.EnableWindow(false);
 	m_ctrlButtonStop.EnableWindow(true);
+
+	m_ctrlComboGroundType.AddString(_T("0:FAIRWAY"));
+	m_ctrlComboGroundType.AddString(_T("1:ROUGH"));
+	m_ctrlComboGroundType.AddString(_T("2:BUNKER"));
+	m_ctrlComboGroundType.AddString(_T("3:TEE"));
+	m_ctrlComboGroundType.AddString(_T("4:GREEN"));
+	m_ctrlComboGroundType.AddString(_T("5:NONE"));
+	m_ctrlComboGroundType.SetCurSel(0);
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -370,10 +381,11 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendReady()
 		*msg.mutable_timestamp() = google::protobuf::util::TimeUtil::GetCurrentTime();
 		
 		auto* pReady = msg.mutable_ready();
-		pReady->set_istee(true);
+		pReady->set_istee(m_ctrlCheckIsOnTee.GetCheck() );
 		pReady->mutable_position()->set_x(10);
 		pReady->mutable_position()->set_y(10);
 		pReady->mutable_position()->set_z(10);
+		pReady->set_goundattribution((IntelliSwing::GroundAttr) m_ctrlComboGroundType.GetCurSel());
 
 		g_serviceImpl.m_pWriter->Write(msg);
 	}
@@ -535,3 +547,10 @@ void CMFCApplication1Dlg::OnEndServerToClient()
 }
 
 
+
+
+void CMFCApplication1Dlg::OnSelchangeComboGround()
+{
+	// TODO: Add your control notification handler code here
+	std::cout << "Ground Index "<<m_ctrlComboGroundType.GetCurSel() << std::endl;
+}

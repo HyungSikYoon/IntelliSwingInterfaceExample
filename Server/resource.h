@@ -24,6 +24,9 @@
 #define IDC_EDIT_BALL_BACKSPIN          1013
 #define IDC_EDIT6                       1014
 #define IDC_BUTTON_SEND_SHOT            1015
+#define IDC_CHECK_IS_ON_TEE             1016
+#define IDC_COMBO1                      1017
+#define IDC_COMBO_GROUND                1017
 
 // Next default values for new objects
 // 
@@ -31,7 +34,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        132
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1016
+#define _APS_NEXT_CONTROL_VALUE         1018
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

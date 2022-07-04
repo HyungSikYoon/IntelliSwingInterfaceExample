@@ -62,4 +62,7 @@ public:
 	void OnBeginServerToClient();
 	void OnEndServerToClient();
 
+	CButton m_ctrlCheckIsOnTee;
+	CComboBox m_ctrlComboGroundType;
+	afx_msg void OnSelchangeComboGround();
 };
