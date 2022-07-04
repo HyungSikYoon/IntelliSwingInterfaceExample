@@ -240,12 +240,13 @@ enum GroundAttr : int {
   BUNKER = 2,
   TEE = 3,
   GREEN = 4,
+  NONE = 5,
   GroundAttr_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   GroundAttr_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool GroundAttr_IsValid(int value);
 constexpr GroundAttr GroundAttr_MIN = FAIRWAY;
-constexpr GroundAttr GroundAttr_MAX = GREEN;
+constexpr GroundAttr GroundAttr_MAX = NONE;
 constexpr int GroundAttr_ARRAYSIZE = GroundAttr_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* GroundAttr_descriptor();

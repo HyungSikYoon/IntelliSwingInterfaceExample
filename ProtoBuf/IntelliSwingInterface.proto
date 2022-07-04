@@ -55,6 +55,7 @@ enum GroundAttr
 	BUNKER    = 2;	//  : Bunker
 	TEE       = 3;	//  : Tee
 	GREEN     = 4;	//  : Green
+	NONE	  = 5; 
 }
 
 message StartMsg

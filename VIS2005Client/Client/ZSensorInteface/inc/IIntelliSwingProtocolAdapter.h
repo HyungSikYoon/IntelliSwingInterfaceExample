@@ -58,6 +58,7 @@ namespace ZSensor
 		BUNKER = 2,	//  : Bunker
 		TEE = 3,	//  : Tee
 		GREEN = 4,	//  : Green
+		NONE = 5
 	};
 
 	enum ClubInformation_TYPE

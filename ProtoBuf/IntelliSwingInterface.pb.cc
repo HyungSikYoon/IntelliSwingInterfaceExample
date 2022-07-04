@@ -466,36 +466,36 @@ const char descriptor_table_protodef_IntelliSwingInterface_2eproto[] PROTOBUF_SE
   "\022\021\n\ttimeStamp\030\003 \001(\004\022\013\n\003tag\030\007 \001(\t\0225\n\007mark"
   "ers\030\010 \003(\0132$.IntelliSwing.ImageData.Image"
   ".Marker\032>\n\006Marker\022\'\n\010position\030\001 \001(\0132\025.In"
-  "telliSwing.Point2i\022\013\n\003tag\030\002 \001(\t*D\n\nGroun"
+  "telliSwing.Point2i\022\013\n\003tag\030\002 \001(\t*N\n\nGroun"
   "dAttr\022\013\n\007FAIRWAY\020\000\022\t\n\005ROUGH\020\001\022\n\n\006BUNKER\020"
-  "\002\022\007\n\003TEE\020\003\022\t\n\005GREEN\020\0042\232\010\n\024IntelliSwingPr"
-  "otocol\022D\n\nInitialize\022\033.IntelliSwing.Init"
-  "ializeMsg\032\027.IntelliSwing.ReturnMsg\"\000\022>\n\007"
-  "Release\022\030.IntelliSwing.ReleaseMsg\032\027.Inte"
-  "lliSwing.ReturnMsg\"\000\022;\n\006Reboot\022\026.google."
-  "protobuf.Empty\032\027.IntelliSwing.ReturnMsg\""
-  "\000\022C\n\005Start\022\026.IntelliSwing.StartMsg\032\036.Int"
-  "elliSwing.SensorRunningMsg\"\0000\001\0229\n\004Stop\022\026"
-  ".google.protobuf.Empty\032\027.IntelliSwing.Re"
-  "turnMsg\"\000\022I\n\014GetClubImage\022\036.IntelliSwing"
-  ".ShotImageRequest\032\027.IntelliSwing.ImageDa"
-  "ta\"\000\022I\n\014GetBallImage\022\036.IntelliSwing.Shot"
-  "ImageRequest\032\027.IntelliSwing.ImageData\"\000\022"
-  "C\n\rGetDeviceInfo\022\026.google.protobuf.Empty"
-  "\032\030.IntelliSwing.DeviceInfo\"\000\022G\n\017GetDevic"
-  "eStatus\022\026.google.protobuf.Empty\032\032.Intell"
-  "iSwing.DeviceStatus\"\000\022>\n\006GetLog\022\030.Intell"
-  "iSwing.LogRequest\032\030.IntelliSwing.LogMess"
-  "age\"\000\022R\n\rGetStatistics\022\037.IntelliSwing.St"
-  "atisticsRequest\032\036.IntelliSwing.SensorSta"
-  "tistics\"\000\022a\n\022RunSiteCalibration\022$.Intell"
-  "iSwing.SiteCalibrationRequest\032#.IntelliS"
-  "wing.SiteCalibrationResult\"\000\022[\n\016UpdateFi"
-  "rmware\022#.IntelliSwing.UpdateFirmwareRequ"
-  "est\032\".IntelliSwing.UpdateFirmwareResult\""
-  "\000\022G\n\010GetImage\022 .IntelliSwing.CameraImage"
-  "Request\032\027.IntelliSwing.ImageData\"\000b\006prot"
-  "o3"
+  "\002\022\007\n\003TEE\020\003\022\t\n\005GREEN\020\004\022\010\n\004NONE\020\0052\232\010\n\024Inte"
+  "lliSwingProtocol\022D\n\nInitialize\022\033.Intelli"
+  "Swing.InitializeMsg\032\027.IntelliSwing.Retur"
+  "nMsg\"\000\022>\n\007Release\022\030.IntelliSwing.Release"
+  "Msg\032\027.IntelliSwing.ReturnMsg\"\000\022;\n\006Reboot"
+  "\022\026.google.protobuf.Empty\032\027.IntelliSwing."
+  "ReturnMsg\"\000\022C\n\005Start\022\026.IntelliSwing.Star"
+  "tMsg\032\036.IntelliSwing.SensorRunningMsg\"\0000\001"
+  "\0229\n\004Stop\022\026.google.protobuf.Empty\032\027.Intel"
+  "liSwing.ReturnMsg\"\000\022I\n\014GetClubImage\022\036.In"
+  "telliSwing.ShotImageRequest\032\027.IntelliSwi"
+  "ng.ImageData\"\000\022I\n\014GetBallImage\022\036.Intelli"
+  "Swing.ShotImageRequest\032\027.IntelliSwing.Im"
+  "ageData\"\000\022C\n\rGetDeviceInfo\022\026.google.prot"
+  "obuf.Empty\032\030.IntelliSwing.DeviceInfo\"\000\022G"
+  "\n\017GetDeviceStatus\022\026.google.protobuf.Empt"
+  "y\032\032.IntelliSwing.DeviceStatus\"\000\022>\n\006GetLo"
+  "g\022\030.IntelliSwing.LogRequest\032\030.IntelliSwi"
+  "ng.LogMessage\"\000\022R\n\rGetStatistics\022\037.Intel"
+  "liSwing.StatisticsRequest\032\036.IntelliSwing"
+  ".SensorStatistics\"\000\022a\n\022RunSiteCalibratio"
+  "n\022$.IntelliSwing.SiteCalibrationRequest\032"
+  "#.IntelliSwing.SiteCalibrationResult\"\000\022["
+  "\n\016UpdateFirmware\022#.IntelliSwing.UpdateFi"
+  "rmwareRequest\032\".IntelliSwing.UpdateFirmw"
+  "areResult\"\000\022G\n\010GetImage\022 .IntelliSwing.C"
+  "ameraImageRequest\032\027.IntelliSwing.ImageDa"
+  "ta\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_IntelliSwingInterface_2eproto_deps[4] = {
   &::descriptor_table_IntelliSwingService_2eproto,
@@ -505,7 +505,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_IntelliSwingInterface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_IntelliSwingInterface_2eproto = {
-  false, false, 3482, descriptor_table_protodef_IntelliSwingInterface_2eproto, "IntelliSwingInterface.proto", 
+  false, false, 3492, descriptor_table_protodef_IntelliSwingInterface_2eproto, "IntelliSwingInterface.proto", 
   &descriptor_table_IntelliSwingInterface_2eproto_once, descriptor_table_IntelliSwingInterface_2eproto_deps, 4, 15,
   schemas, file_default_instances, TableStruct_IntelliSwingInterface_2eproto::offsets,
   file_level_metadata_IntelliSwingInterface_2eproto, file_level_enum_descriptors_IntelliSwingInterface_2eproto, file_level_service_descriptors_IntelliSwingInterface_2eproto,
@@ -661,6 +661,7 @@ bool GroundAttr_IsValid(int value) {
     case 2:
     case 3:
     case 4:
+    case 5:
       return true;
     default:
       return false;
