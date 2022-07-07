@@ -181,9 +181,9 @@ message ImageData
 	
 	int32 width			= 1;	// pixel, 음수 일 경우 data에서 크기 추출
 	int32 height		= 2;	// pixel, 음수 일 경우 data에서 크기 추출
-	int32 channel		= 3;	// channel {0~1 : gray, 3 : rgb, 4 : rgba}, 음수 일 경우 data에서 크기 추출
-	int32 data_type		= 4;	// pixel data type : int, float, byte, 음수 일 경우 data에서 크기 추출
-	int32 image_type	= 5;	// {0 : raw, 1 : jpg, 2 : png, }
+	int32 channel		= 3;	// channel {1 : gray, 3 : rgb, 4 : rgba}, 음수 일 경우 data에서 크기 추출
+	int32 data_type		= 4;	// pixel data type : size of element(ex. byte : 8, short 16, int 32)음수 일 경우 data에서 크기 추출
+	int32 image_type	= 5;	// {0 : raw RGBA order, 1 : raw BGRA order, 2 : jpg, 3 : png, }
 	float fps			= 6;	// frame per second
 	repeated Image	datas	= 7;
 	message Image

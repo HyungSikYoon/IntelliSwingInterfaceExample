@@ -134,12 +134,12 @@ namespace ZSensor
 			pImageBuffer = NULL;
 		}
 
-		int width;
-		int height;
-		int channel;
-		int data_type;
-		int image_type;
-		float fps;	// frame per second
+		int width;		// pixel, 음수 일 경우 data에서 크기 추출
+		int height;		// pixel, 음수 일 경우 data에서 크기 추출
+		int channel;	// channel {1 : gray, 3 : rgb, 4 : rgba}, 음수 일 경우 data에서 크기 추출
+		int data_type;	// pixel data type : size of element(ex. byte : 8, short 16, int 32)음수 일 경우 data에서 크기 추출
+		int image_type; // // {0 : raw RGBA order, 1 : raw BGRA order, 2 : jpg, 3 : png, }
+		float fps;		// frame per second
 		int nImageArrayCount;
 		Image* pImageBuffer;
 	};
