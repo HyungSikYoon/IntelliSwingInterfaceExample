@@ -326,6 +326,8 @@ void CClientDlg::OnBnClickedButtonGetClubImg()
 		m_pIntelliSwingProtocolAdapter->GetClubImage(imageRequest, imageData);
 		
 		LOGW<<"return  image count = "<< imageData.nImageArrayCount;
+		
+		m_pIntelliSwingProtocolAdapter->ClearImageData(imageData);
 	}
 }
 
@@ -342,6 +344,8 @@ void CClientDlg::OnBnClickedButtonGetBallImg()
 		m_pIntelliSwingProtocolAdapter->GetBallImage(imageRequest, imageData);
 		
 		LOGW<<"return  image count = "<< imageData.nImageArrayCount;
+
+		m_pIntelliSwingProtocolAdapter->ClearImageData(imageData);
 	}
 }
 

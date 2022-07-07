@@ -133,6 +133,7 @@ namespace ZSensor
 			nImageArrayCount = 0;
 			pImageBuffer = NULL;
 		}
+
 		int width;
 		int height;
 		int channel;
@@ -258,7 +259,7 @@ namespace ZSensor
 		int UpdateFirmware(UpdateFirmwareRequest, OUT (UpdateFirmwareResult);
 		int GetImage(CameraImageRequest, OUT (ImageData);*/
 
-		void ClearImageData(ImageData** ppImageData);
+		void ClearImageData(ImageData &imageData);
 
 		const char *GetRevision();
 		const char *GetInterfaceDllVersion();

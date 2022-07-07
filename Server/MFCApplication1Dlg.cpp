@@ -9,6 +9,7 @@
 #include "afxdialogex.h"
 
 #include <iostream>
+#include <fstream>
 #include <condition_variable>
 #include <thread>
 #include <chrono>
@@ -151,12 +152,19 @@ public :
 	{
 		std::cout << "GetClubImage Received " << std::endl;
 
+		std::string filename = "imageData.bin";
+		std::ifstream _ifstream(filename, std::ios::binary);
+		response->ParseFromIstream(&_ifstream);
+		_ifstream.close();
 		return ::grpc::Status::OK;
 	}
 	virtual ::grpc::Status GetBallImage(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response)
 	{
 		std::cout << "GetBallImage Received " << std::endl;
-
+		std::string filename = "imageData.bin";
+		std::ifstream _ifstream(filename, std::ios::binary);
+		response->ParseFromIstream(&_ifstream);
+		_ifstream.close();
 		return ::grpc::Status::OK;
 	}
 
