@@ -157,6 +157,7 @@ namespace ZSensor
 	struct DeviceStatus
 	{
 		ReturnMsg systemState;
+		ReturnMsg connectionState;
 		float deviceTemperature;
 	};
 
@@ -235,6 +236,7 @@ namespace ZSensor
 		bool m_bEnableLog;
 		int m_nPort;
 		const char* m_szServerIpAddress;
+
 	public:
 		IIntelliSwingProtocolAdapter(iSensorRunnginEventHandler* pEventHandler, bool bEnableLog = false);
 		int Connect(Z_INPUT const char* szIpAddress, Z_INPUT const int port);
@@ -264,6 +266,7 @@ namespace ZSensor
 		const char *GetRevision();
 		const char *GetInterfaceDllVersion();
 		const char* GetUpdateDate();
+		const char* GetLastErrorMessage();
 	};
 
 }

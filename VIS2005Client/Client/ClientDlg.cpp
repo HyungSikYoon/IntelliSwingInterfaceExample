@@ -230,9 +230,10 @@ void CClientDlg::OnBnClickedButtonInitialize()
 	ZSensor::ReturnMsg returnMsg;
 	if(m_pIntelliSwingProtocolAdapter)
 	{
-
-		
-		m_pIntelliSwingProtocolAdapter->Initialize(initializeMsg, returnMsg);
+		if(m_pIntelliSwingProtocolAdapter->Initialize(initializeMsg, returnMsg) != ZSensor::Z_OK)
+		{
+			LOGW<<"return result Error "	<< m_pIntelliSwingProtocolAdapter->GetLastErrorMessage();
+		}
 		LOGW<<"return result "<<returnMsg.isOK;
 	}
 }
