@@ -50,4 +50,12 @@ public:
 	afx_msg void OnBnClickedButtonDeviceStatus();
 	afx_msg void OnBnClickedButtonGetLog();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	CStatic m_ctrlTxtShotStatus;
+	CStatic m_ctrlTXTShotId;
+	CStatic m_ctrlTXTBallSpeed;
+	CStatic m_ctrlTxtIncidence;
+	CStatic m_ctrlTXTBallDirection;
+	CStatic m_ctrlTXTSideSpin;
+	CStatic m_ctrlTXTBackSpin;
+	CStatic m_ctrlTXTHeadSpeed;
 };

@@ -7,7 +7,7 @@
 #include "Client.h"
 #include "ClientDlg.h"
 #include "afxdialogex.h"
-
+#include <string>
 #include <google/protobuf/util/time_util.h>
 
 
@@ -77,6 +77,14 @@ CClientDlg::CClientDlg(CWnd* pParent /*=nullptr*/)
 void CClientDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_TXT_STATUS, m_ctrlTxtShotStatus);
+	DDX_Control(pDX, IDC_TXT_SHOTID, m_ctrlTXTShotId);
+	DDX_Control(pDX, IDC_TXT_BALL_SPEED, m_ctrlTXTBallSpeed);
+	DDX_Control(pDX, IDC_TXT_INCIDENCE, m_ctrlTxtIncidence);
+	DDX_Control(pDX, IDC_TXT_DIRECTION, m_ctrlTXTBallDirection);
+	DDX_Control(pDX, IDC_TXT_SIDESPIN, m_ctrlTXTSideSpin);
+	DDX_Control(pDX, IDC_TXT_BACKSPIN, m_ctrlTXTBackSpin);
+	DDX_Control(pDX, IDC_TXT_HEAD_SPEED, m_ctrlTXTHeadSpeed);
 }
 
 BEGIN_MESSAGE_MAP(CClientDlg, CDialogEx)
@@ -264,6 +272,16 @@ void CClientDlg::OnBnClickedButtonStart()
 	IntelliSwing::StartMsg startMsg;
 	IntelliSwing::SensorRunningMsg runMsg;
 
+	m_ctrlTxtShotStatus.SetWindowTextW(_T("-"));
+	m_ctrlTXTShotId.SetWindowTextW(_T("-"));
+	m_ctrlTXTBallSpeed.SetWindowTextW(_T("-"));
+	m_ctrlTxtIncidence.SetWindowTextW(_T("-"));
+	m_ctrlTXTBallDirection.SetWindowTextW(_T("-"));
+	m_ctrlTXTSideSpin.SetWindowTextW(_T("-"));
+	m_ctrlTXTBackSpin.SetWindowTextW(_T("-"));
+	m_ctrlTXTHeadSpeed.SetWindowTextW(_T("-"));
+
+
 	startMsg.set_clubinformation(IntelliSwing::StartMsg_ClubInformation::StartMsg_ClubInformation_W1);
 	
 	m_reader = g_uptrStub->Start(m_pContext, startMsg);
@@ -386,6 +404,79 @@ void CClientDlg::OnTimer(UINT_PTR nIDEvent)
 					std::cout << ", timestamp : " << google::protobuf::util::TimeUtil::ToString(runMsg.timestamp()) << std::endl;
 				else
 					std::cout << std::endl;
+
+
+				switch (runMsg.runState_case())
+				{
+
+					case IntelliSwing::SensorRunningMsg::kReady:
+					{
+						std::cout<<"IntelliSwing::SensorRunningMsg::kReady " << std::endl;
+						m_ctrlTxtShotStatus.SetWindowTextW(_T("Ready"));
+						
+					}
+					break;
+
+					case IntelliSwing::SensorRunningMsg::kNotReady:
+					{
+						std::cout << "IntelliSwing::SensorRunningMsg::kReady " << std::endl;
+						m_ctrlTxtShotStatus.SetWindowTextW(_T("kNotReady"));
+						
+					}
+					break;
+
+					case IntelliSwing::SensorRunningMsg::kShotTriggered:
+					{
+						std::cout << "IntelliSwing::SensorRunningMsg::kShotTriggered " << std::endl;
+						m_ctrlTxtShotStatus.SetWindowTextW(_T("kShotTriggered"));
+
+					}
+					break;
+
+					case IntelliSwing::SensorRunningMsg::kBallInfo:
+					{
+						std::cout << "IntelliSwing::SensorRunningMsg::kBallInfo " << std::endl;
+						m_ctrlTxtShotStatus.SetWindowTextW(_T("kBallInfo"));
+						
+						const IntelliSwing::SensorRunningMsg_BallFlightInfo& ballInfoPB = runMsg.ballinfo();
+						m_ctrlTXTShotId.SetWindowTextW(std::to_wstring(ballInfoPB.shotid()).c_str());
+						m_ctrlTXTBallSpeed.SetWindowTextW(std::to_wstring(ballInfoPB.ballspeed()).c_str());
+						m_ctrlTxtIncidence.SetWindowTextW(std::to_wstring(ballInfoPB.incidence()).c_str());
+						m_ctrlTXTBallDirection.SetWindowTextW(std::to_wstring(ballInfoPB.direction()).c_str());
+						m_ctrlTXTSideSpin.SetWindowTextW(std::to_wstring(ballInfoPB.sidespin()).c_str());
+						m_ctrlTXTBackSpin.SetWindowTextW(std::to_wstring(ballInfoPB.backspin()).c_str());
+						
+						std::cout << "   ->shot information :  shotId " << ballInfoPB.shotid() << std::endl;
+						std::cout << "   ->shot information :  speed  " << ballInfoPB.ballspeed() << std::endl;;
+						std::cout << "   ->shot information :  direction " << ballInfoPB.direction() << ", Incidence " << ballInfoPB.incidence() << std::endl;
+						std::cout << "   ->shot information :  backSpin " << ballInfoPB.backspin() << "sideSpin  " << ballInfoPB.sidespin() << std::endl;
+					}
+					break;
+
+					case IntelliSwing::SensorRunningMsg::kClubInfo:
+					{
+						std::cout << "IntelliSwing::SensorRunningMsg::kClubInfo ";
+						m_ctrlTxtShotStatus.SetWindowTextW(_T("kBallInfo"));
+
+						const IntelliSwing::SensorRunningMsg_ClubPathInfo& clubPathInfoPB = runMsg.clubinfo();
+						m_ctrlTXTHeadSpeed.SetWindowTextW(std::to_wstring(clubPathInfoPB.headspeed()).c_str());
+
+						std::cout << "   ->club information :  shotId " << clubPathInfoPB.shotid() <<std::endl;
+						std::cout << "   ->club information :  headSpeed "<< clubPathInfoPB.headspeed() <<std::endl;
+					}
+					break;
+
+					case IntelliSwing::SensorRunningMsg::RUNSTATE_NOT_SET:
+					{
+						std::cout << "IntelliSwing::SensorRunningMsg::RUNSTATE_NOT_SET "<<std::endl;
+					}
+					break;
+					default:
+					{
+
+					}
+					break;
+				}
 
 			}
 			else
