@@ -339,6 +339,13 @@ void CClientDlg::OnBnClickedButtonGetClubImg()
 	if (status.ok())
 	{
 		std::cout << "OnBnClickedButtonGetClubImg OK" << std::endl;
+		std::cout << "  -> image width " << retMsgPB.width() << std::endl;
+		std::cout << "  -> image height " << retMsgPB.height() << std::endl;
+		std::cout << "  -> image channel " << retMsgPB.channel() << std::endl;
+		std::cout << "  -> image data_type " << retMsgPB.data_type() << std::endl;
+		std::cout << "  -> image image_type " << retMsgPB.image_type() << std::endl;
+		std::cout << "  -> image fps " << retMsgPB.fps() << std::endl;
+		std::cout << "  -> image datas " << retMsgPB.datas_size() << std::endl;
 	}
 	else
 	{
@@ -358,6 +365,14 @@ void CClientDlg::OnBnClickedButtonGetBallImg()
 	if (status.ok())
 	{
 		std::cout << "OnBnClickedButtonGetBallImg OK" << std::endl;
+
+		std::cout << "  -> image width " << retMsgPB.width() << std::endl;
+		std::cout << "  -> image height " << retMsgPB.height() << std::endl;
+		std::cout << "  -> image channel " << retMsgPB.channel() << std::endl;
+		std::cout << "  -> image data_type " << retMsgPB.data_type() << std::endl;
+		std::cout << "  -> image image_type " << retMsgPB.image_type() << std::endl;
+		std::cout << "  -> image fps " << retMsgPB.fps() << std::endl;
+		std::cout << "  -> image datas " << retMsgPB.datas_size() << std::endl;
 	}
 	else
 	{
