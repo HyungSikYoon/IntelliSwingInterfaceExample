@@ -7,12 +7,21 @@
 
 #include <plog/Log.h>
 
+#include <plog/Initializers/RollingFileInitializer.h>
+#include <plog/Formatters/TxtFormatter.h>
+#include <plog/Appenders/ColorConsoleAppender.h>
+#include <plog/Appenders/RollingFileAppender.h>
+
+
+#include <plog/Log.h>
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
 
-
+//const char *g_serverAddress = "100.100.100.200";
+//const int g_nPortnumber = 50051;
 
 #pragma comment(lib, "ZSensorInterfaceDll.lib")
 
@@ -35,6 +44,43 @@ public:
 	}
 
 };
+
+
+// CClientApp construction
+plog::ColorConsoleAppender<plog::TxtFormatter> g_consoleAppender;
+//plog::RollingFileAppender<plog::TxtFormatter> rfileAppender;
+void InitializeLog(BOOL bWriteFile)
+{
+	if(bWriteFile)
+	{
+		//CHAR logFileName[50] = {};
+		//SYSTEMTIME systemTime;
+		//GetLocalTime(&systemTime);
+		//sprintf_s(logFileName,
+		//	"log%04d%02d%02d_%u%02u%02u.log",
+		//	systemTime.wYear,
+		//	systemTime.wMonth,
+		//	systemTime.wDay,
+		//	systemTime.wHour,
+		//	systemTime.wMinute,
+		//	systemTime.wSecond);
+
+
+		//static plog::RollingFileAppender<plog::TxtFormatter> rfileAppender(logFileName, 100000,10);
+
+		//plog::init(plog::debug, &rfileAppender); // Initialize logging to the file.
+	 //   
+		//plog::get()->addAppender(&g_consoleAppender); // Also add logging to the console.
+		//LOGW<<"Log Initialized";
+	}
+	else
+	{
+		plog::init(plog::debug, &g_consoleAppender); // Initialize logging to the file.
+	    
+		LOGW<<"Log Initialized";
+	}
+	
+}
 
 
 #define LOG_BEGIN_END LogHelper helper(__FUNCTION__, __LINE__)
@@ -78,9 +124,19 @@ END_MESSAGE_MAP()
 
 CClientDlg::CClientDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CClientDlg::IDD, pParent)
+	, m_strIniPath(_T(INIFILENAME))
+	, m_nPortNumber(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
+	m_config.bAutoConnect = 0;
+	m_config.bWriteFile = 0;
+	m_config.IpAddressField[0] = 127;
+	m_config.IpAddressField[1] = 0;
+	m_config.IpAddressField[2] = 0;
+	m_config.IpAddressField[3] = 1;
+
+	m_config.nPortNumber = 50051;
 }
 
 void CClientDlg::DoDataExchange(CDataExchange* pDX)
@@ -88,6 +144,10 @@ void CClientDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 
 
+	DDX_Control(pDX, IDC_IPADDRESS_SERVER, m_ctrlServerIpAddress);
+	DDX_Control(pDX, IDC_CHECK_AUTO_CONNECT, m_ctrlButtonAutoConnect);
+	DDX_Text(pDX, IDC_EDIT_PORT, m_nPortNumber);
+	DDV_MinMaxUInt(pDX, m_nPortNumber, 0, 65535);
 }
 
 BEGIN_MESSAGE_MAP(CClientDlg, CDialog)
@@ -107,6 +167,9 @@ BEGIN_MESSAGE_MAP(CClientDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_GET_LOG, &CClientDlg::OnBnClickedButtonGetLog)
 	ON_WM_TIMER()
 	ON_WM_DESTROY()
+	ON_BN_CLICKED(IDC_BUTTON_CONNECT, &CClientDlg::OnBnClickedButtonConnect)
+	ON_BN_CLICKED(IDC_BUTTON_DISCONNECT, &CClientDlg::OnBnClickedButtonDisconnect)
+	ON_BN_CLICKED(IDC_BUTTON_OPEN_WORKING_FOLDER, &CClientDlg::OnBnClickedButtonOpenWorkingFolder)
 END_MESSAGE_MAP()
 
 
@@ -141,14 +204,36 @@ BOOL CClientDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// extra initialization here
+	CString strExePath;
+	GetExePath(strExePath);
+	m_strIniPath =strExePath+_T("\\") + _T(INIFILENAME) ;
+
+	ReadINI(m_strIniPath, m_config);
+
+	InitializeLog(m_config.bWriteFile);
+	m_ctrlServerIpAddress.SetAddress(m_config.IpAddressField[0],m_config.IpAddressField[1], m_config.IpAddressField[2], m_config.IpAddressField[3]); 
+
+	m_nPortNumber = m_config.nPortNumber;
 
 	LOGW<<"OnInit Dialog";
 	LOGW<<"Revision "<<m_pIntelliSwingProtocolAdapter->GetRevision();
 	LOGW<<"Updatedate "<<m_pIntelliSwingProtocolAdapter->GetUpdateDate();
+	
+	
+	EnableButtons(FALSE);
+
+
 	m_pIntelliSwingProtocolAdapter = new ZSensor::IIntelliSwingProtocolAdapter(this);
-	m_pIntelliSwingProtocolAdapter->Connect("localhost", 50051);
+	
+
+	//m_ctrlServerIpAddress.get
 
 	m_pEventThread = NULL;
+
+	UpdateData(FALSE);
+
+	if(m_config.bAutoConnect)
+		OnBnClickedButtonConnect();
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -161,8 +246,8 @@ void CClientDlg::OnDestroy()
 		StopSensor();
 		WaitForSingleObject(m_pEventThread->m_hThread,2000);
 	}
-
-
+	
+	UpdateINI(m_strIniPath, m_config);
 	// TODO: Add your message handler code here
 	delete m_pIntelliSwingProtocolAdapter;
 	m_pIntelliSwingProtocolAdapter = NULL;
@@ -410,3 +495,133 @@ void CClientDlg::OnClubPathInfo(ZSensor::ClubPathInfo &clubInfo)
 	LOGW<<"head Speed "<<clubInfo.headSpeed;
 }
 
+
+void CClientDlg::OnBnClickedButtonConnect()
+{
+
+	for(int i = 0;i < 4; i++)
+	{
+		if(m_config.IpAddressField[i]< 0 || m_config.IpAddressField[i] > 255)
+		{
+			CString ipAddress;
+			ipAddress.Format(_T("IP Address : %d.%d.%d.%d"), m_config.IpAddressField[0], m_config.IpAddressField[1], m_config.IpAddressField[2], m_config.IpAddressField[3]);
+			MessageBox(ipAddress, _T("Error"));
+			return;
+		}
+	}
+	if(m_config.nPortNumber < 0 || m_config.nPortNumber > 65535)
+	{
+		CString ipAddress;
+		ipAddress.Format(_T("Port number : %d"), m_config.nPortNumber);
+		MessageBox(ipAddress, _T("Error"));
+		return;
+	}
+	char buffer[100];
+	sprintf_s(buffer,100, "%d.%d.%d.%d", m_config.IpAddressField[0], m_config.IpAddressField[1], m_config.IpAddressField[2], m_config.IpAddressField[3]);
+	if(m_pIntelliSwingProtocolAdapter->Connect(buffer, m_config.nPortNumber))
+	{
+		EnableButtons(TRUE);
+	}
+}
+
+void CClientDlg::OnBnClickedButtonDisconnect()
+{
+	m_pIntelliSwingProtocolAdapter->Disconnect();
+	EnableButtons(FALSE);
+}
+
+void CClientDlg::OnBnClickedButtonOpenWorkingFolder()
+{
+	CString strFilePath;
+	GetExePath(strFilePath);
+	ShellExecute(NULL, _T("open"), strFilePath.GetBuffer(), NULL, NULL, SW_SHOWDEFAULT);
+}
+
+void CClientDlg::EnableButtons(BOOL bEnable)
+{
+	std::vector<int> vecControls;
+
+	vecControls.push_back(IDC_BUTTON_INITIALIZE           );
+	vecControls.push_back(IDC_BUTTON_RELEASE              );
+	vecControls.push_back(IDC_BUTTON_REBOOT               );
+	vecControls.push_back(IDC_BUTTON_START                );
+	vecControls.push_back(IDC_BUTTON_STOP                 );
+	vecControls.push_back(IDC_BUTTON_GET_CLUB_IMG         );
+	vecControls.push_back(IDC_BUTTON_GET_BALL_IMG         );
+	vecControls.push_back(IDC_BUTTON_GET_DEVICE_INFO      );
+	vecControls.push_back(IDC_BUTTON_DEVICE_STATUS        );
+	vecControls.push_back(IDC_BUTTON_GET_LOG              );
+	vecControls.push_back(IDC_CHECK_SHOW_SHOTINFO         );
+	vecControls.push_back(IDC_CHECK_SAVE_SHOT_INFO_TO_CSV );
+	vecControls.push_back(IDC_CHECK_AUTO_CONNECT          );
+	vecControls.push_back(IDC_BUTTON_DISCONNECT           );
+	
+	for(int i = 0; i < vecControls.size(); i++)
+	{
+		CWnd* pWind = AfxGetMainWnd()->GetDlgItem(vecControls[i]);
+		if(pWind)
+		{
+			(CButton*)(pWind)->EnableWindow(FALSE);
+		}
+	}
+}
+
+
+
+void CClientDlg::SetWorkingDirectory(CString Buffer)
+{
+	if( !SetCurrentDirectory(Buffer) )
+	{
+		printf("SetCurrentDirectory failed (%d)\n", GetLastError());
+		return;
+	}
+}
+
+void CClientDlg::UpdateINI(CString iniPath, INIField &out)
+{
+	CString value;
+	value.Format(_T("%d"),  out.bAutoConnect);
+	WritePrivateProfileString(_T("APPCONFIG"), _T("bAutoConnect"), value, iniPath );
+
+	value.Format(_T("%d"),  out.bWriteFile);
+	WritePrivateProfileString(_T("APPCONFIG"), _T("bWriteFile"), value, iniPath );
+
+	value.Format(_T("%d"),  out.IpAddressField[0]);
+	WritePrivateProfileString(_T("APPCONFIG"), _T("IpAddressField_0"), value, iniPath );
+	value.Format(_T("%d"),  out.IpAddressField[1]);
+	WritePrivateProfileString(_T("APPCONFIG"), _T("IpAddressField_1"), value, iniPath );
+	value.Format(_T("%d"),  out.IpAddressField[2]);
+	WritePrivateProfileString(_T("APPCONFIG"), _T("IpAddressField_2"), value, iniPath );
+	value.Format(_T("%d"),  out.IpAddressField[3]);
+	WritePrivateProfileString(_T("APPCONFIG"), _T("IpAddressField_3"), value, iniPath );
+	value.Format(_T("%d"),  out.nPortNumber);
+	WritePrivateProfileString(_T("APPCONFIG"), _T("nPortNumber"), value, iniPath );
+}
+
+void CClientDlg::ReadINI(CString iniPath, INIField &read)
+{
+	read.bAutoConnect = GetPrivateProfileInt(_T("APPCONFIG"), _T("bAutoConnect"), 0, iniPath );
+	read.bWriteFile = GetPrivateProfileInt(_T("APPCONFIG"), _T("bWriteFile"),  0, iniPath );
+	read.IpAddressField[0] = GetPrivateProfileInt(_T("APPCONFIG"), _T("IpAddressField_0"), 127, iniPath );
+	read.IpAddressField[1] = GetPrivateProfileInt(_T("APPCONFIG"), _T("IpAddressField_1"), 0,iniPath );
+	read.IpAddressField[2] = GetPrivateProfileInt(_T("APPCONFIG"), _T("IpAddressField_2"),  0,iniPath );
+	read.IpAddressField[3] = GetPrivateProfileInt(_T("APPCONFIG"), _T("IpAddressField_3"),  1, iniPath );
+	read.nPortNumber = GetPrivateProfileInt(_T("APPCONFIG"), _T("nPortNumber"), 50051, iniPath );
+}
+ 
+
+CString CClientDlg::GetExePath(CString &strFilePath)
+
+{
+    m_criticalExe.Lock();
+	{
+		static TCHAR pBuf[256] = {0, };
+		memset(pBuf, NULL, sizeof(pBuf));
+		GetModuleFileName( NULL, pBuf, sizeof( pBuf ) ); //현재 실행 경로를 가져오는 함수
+		strFilePath.Format( _T( "%s" ), pBuf );
+		strFilePath = strFilePath.Left( strFilePath.ReverseFind( _T( '\\' ) ) );
+	}
+    m_criticalExe.Unlock();
+
+    return strFilePath;
+}

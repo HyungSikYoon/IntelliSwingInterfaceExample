@@ -5,13 +5,7 @@
 #include "Client.h"
 #include "ClientDlg.h"
 
-#include <plog/Initializers/RollingFileInitializer.h>
-#include <plog/Formatters/TxtFormatter.h>
-#include <plog/Appenders/ColorConsoleAppender.h>
-#include <plog/Appenders/RollingFileAppender.h>
 
-
-#include <plog/Log.h>
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -23,30 +17,11 @@ BEGIN_MESSAGE_MAP(CClientApp, CWinApp)
 	ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
 END_MESSAGE_MAP()
 
-// CClientApp construction
-plog::ColorConsoleAppender<plog::TxtFormatter> g_consoleAppender;
 CClientApp::CClientApp()
 {
 	// TODO: add construction code here,
 	// Place all significant initialization in InitInstance
-	CHAR logFileName[50] = {};
-	SYSTEMTIME systemTime;
-	GetLocalTime(&systemTime);
-	sprintf_s(logFileName,
-		"log%04d%02d%02d_%u%02u%02u.log",
-		systemTime.wYear,
-		systemTime.wMonth,
-		systemTime.wDay,
-		systemTime.wHour,
-		systemTime.wMinute,
-		systemTime.wSecond);
-
-	static plog::RollingFileAppender<plog::TxtFormatter> rfileAppender(logFileName, 100000,10);
-
-	plog::init(plog::debug, &rfileAppender); // Initialize logging to the file.
-    
-    plog::get()->addAppender(&g_consoleAppender); // Also add logging to the console.
-	LOGW<<"Log Initialized";
+	
 }
 
 

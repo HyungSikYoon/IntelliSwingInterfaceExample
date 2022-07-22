@@ -5,6 +5,20 @@
 
 #define TIMER_ID_READ_FROM_SERVER 1000
 #include <ZSensorInteface/inc/IIntelliSwingProtocolAdapter.h>
+#include "afxcmn.h"
+#include "afxwin.h"
+#include "afxmt.h"
+
+#define INIFILENAME "ZSensorDiag.ini"
+
+struct INIField
+{
+	int bWriteFile;
+	int bAutoConnect;
+	int IpAddressField[4];
+	int nPortNumber;
+
+};
 
 // CClientDlg dialog
 class CClientDlg : public CDialog, public ZSensor::iSensorRunnginEventHandler
@@ -24,6 +38,15 @@ public:
 private :
 	ZSensor::IIntelliSwingProtocolAdapter *m_pIntelliSwingProtocolAdapter;
 	CWinThread*     m_pEventThread;
+	CCriticalSection m_criticalExe;
+	INIField m_config;
+	CString m_strIniPath;
+
+	CString GetExePath(CString &strFilePath);
+	void SetWorkingDirectory(CString Buffer);
+	void UpdateINI(CString iniPath, INIField &out);
+	void ReadINI(CString iniPath, INIField &read);
+	void EnableButtons(BOOL bEnable);
 
 protected:
 	HICON m_hIcon;
@@ -45,6 +68,10 @@ public:
 	afx_msg void OnBnClickedButtonGetBallImg();
 	afx_msg void OnBnClickedButtonDeviceStatus();
 	afx_msg void OnBnClickedButtonGetLog();
+	afx_msg void OnBnClickedButtonConnect();
+	afx_msg void OnBnClickedButtonDisconnect();
+	afx_msg void OnBnClickedButtonOpenWorkingFolder();
+
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnDestroy();
 
@@ -56,4 +83,9 @@ public:
 
 	void StartSensor();
 	void StopSensor();
+
+	CIPAddressCtrl m_ctrlServerIpAddress;
+	CButton m_ctrlButtonAutoConnect;
+	
+	UINT m_nPortNumber;
 };
