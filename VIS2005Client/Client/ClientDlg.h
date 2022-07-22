@@ -41,12 +41,17 @@ private :
 	CCriticalSection m_criticalExe;
 	INIField m_config;
 	CString m_strIniPath;
+	CString m_strCSVPath;
 
-	CString GetExePath(CString &strFilePath);
-	void SetWorkingDirectory(CString Buffer);
-	void UpdateINI(CString iniPath, INIField &out);
-	void ReadINI(CString iniPath, INIField &read);
-	void EnableButtons(BOOL bEnable);
+	CIPAddressCtrl m_ctrlServerIpAddress;
+	CButton m_ctrlButtonAutoConnect;
+
+	UINT m_nPortNumber;
+	CListBox m_ctrlListBallInfo;
+	CListBox m_ctrlListClubInfo;
+	CStatic m_ctrlTxtStatus;
+	CButton m_ctrlChkCSVWrite;
+
 
 protected:
 	HICON m_hIcon;
@@ -71,6 +76,8 @@ public:
 	afx_msg void OnBnClickedButtonConnect();
 	afx_msg void OnBnClickedButtonDisconnect();
 	afx_msg void OnBnClickedButtonOpenWorkingFolder();
+	afx_msg void OnBnClickedCheckAutoConnect();
+	afx_msg void OnBnClickedCheckSaveShotInfoToCsv();
 
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnDestroy();
@@ -81,11 +88,15 @@ public:
 	virtual void OnBallFlightInfo(ZSensor::BallFlightInfo &ballFlightInfo);
 	virtual void OnClubPathInfo(ZSensor::ClubPathInfo &clubInfo);
 
+	void ConnectServer();
 	void StartSensor();
 	void StopSensor();
+	void SetCSVPath();
+	void SetWorkingDirectory(CString Buffer);
+	void UpdateINI(CString iniPath, INIField &out);
+	void ReadINI(CString iniPath, INIField &read);
+	void EnableButtons(BOOL bEnable);
+	CString GetExePath(CString &strFilePath);
 
-	CIPAddressCtrl m_ctrlServerIpAddress;
-	CButton m_ctrlButtonAutoConnect;
-	
-	UINT m_nPortNumber;
+
 };

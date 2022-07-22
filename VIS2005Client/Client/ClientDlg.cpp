@@ -53,25 +53,25 @@ void InitializeLog(BOOL bWriteFile)
 {
 	if(bWriteFile)
 	{
-		//CHAR logFileName[50] = {};
-		//SYSTEMTIME systemTime;
-		//GetLocalTime(&systemTime);
-		//sprintf_s(logFileName,
-		//	"log%04d%02d%02d_%u%02u%02u.log",
-		//	systemTime.wYear,
-		//	systemTime.wMonth,
-		//	systemTime.wDay,
-		//	systemTime.wHour,
-		//	systemTime.wMinute,
-		//	systemTime.wSecond);
+		CHAR logFileName[60] = {};
+		SYSTEMTIME systemTime;
+		GetLocalTime(&systemTime);
+		sprintf_s(logFileName,
+			"log%04d%02d%02d_%u%02u%02u.log",
+			systemTime.wYear,
+			systemTime.wMonth,
+			systemTime.wDay,
+			systemTime.wHour,
+			systemTime.wMinute,
+			systemTime.wSecond);
 
 
-		//static plog::RollingFileAppender<plog::TxtFormatter> rfileAppender(logFileName, 100000,10);
+		static plog::RollingFileAppender<plog::TxtFormatter> rfileAppender(logFileName, 100000,10);
 
-		//plog::init(plog::debug, &rfileAppender); // Initialize logging to the file.
-	 //   
-		//plog::get()->addAppender(&g_consoleAppender); // Also add logging to the console.
-		//LOGW<<"Log Initialized";
+		plog::init(plog::debug, &rfileAppender); // Initialize logging to the file.
+	    
+		plog::get()->addAppender(&g_consoleAppender); // Also add logging to the console.
+		LOGW<<"Log Initialized with file "<< logFileName;
 	}
 	else
 	{
@@ -148,6 +148,10 @@ void CClientDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_CHECK_AUTO_CONNECT, m_ctrlButtonAutoConnect);
 	DDX_Text(pDX, IDC_EDIT_PORT, m_nPortNumber);
 	DDV_MinMaxUInt(pDX, m_nPortNumber, 0, 65535);
+	DDX_Control(pDX, IDC_LIST_BALL_INFO, m_ctrlListBallInfo);
+	DDX_Control(pDX, IDC_LIST_CLUB_INFO, m_ctrlListClubInfo);
+	DDX_Control(pDX, IDC_TXT_STATUS, m_ctrlTxtStatus);
+	DDX_Control(pDX, IDC_CHECK_SAVE_SHOT_INFO_TO_CSV, m_ctrlChkCSVWrite);
 }
 
 BEGIN_MESSAGE_MAP(CClientDlg, CDialog)
@@ -170,6 +174,8 @@ BEGIN_MESSAGE_MAP(CClientDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_CONNECT, &CClientDlg::OnBnClickedButtonConnect)
 	ON_BN_CLICKED(IDC_BUTTON_DISCONNECT, &CClientDlg::OnBnClickedButtonDisconnect)
 	ON_BN_CLICKED(IDC_BUTTON_OPEN_WORKING_FOLDER, &CClientDlg::OnBnClickedButtonOpenWorkingFolder)
+	ON_BN_CLICKED(IDC_CHECK_AUTO_CONNECT, &CClientDlg::OnBnClickedCheckAutoConnect)
+	ON_BN_CLICKED(IDC_CHECK_SAVE_SHOT_INFO_TO_CSV, &CClientDlg::OnBnClickedCheckSaveShotInfoToCsv)
 END_MESSAGE_MAP()
 
 
@@ -224,16 +230,21 @@ BOOL CClientDlg::OnInitDialog()
 
 
 	m_pIntelliSwingProtocolAdapter = new ZSensor::IIntelliSwingProtocolAdapter(this);
-	
 
-	//m_ctrlServerIpAddress.get
+	if(m_ctrlChkCSVWrite.GetCheck())
+	{
+		SetCSVPath();
+	}
+
+	if(m_config.bAutoConnect)
+		m_ctrlButtonAutoConnect.SetCheck(TRUE);
 
 	m_pEventThread = NULL;
 
 	UpdateData(FALSE);
 
 	if(m_config.bAutoConnect)
-		OnBnClickedButtonConnect();
+		ConnectServer();
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -472,15 +483,27 @@ void CClientDlg::OnTimer(UINT_PTR nIDEvent)
 void CClientDlg::OnReady(ZSensor::Ready &ready)
 {
 	LOG_BEGIN_END;
+	m_ctrlTxtStatus.SetWindowTextW(_T("Status : Ready"));
 }
 void CClientDlg::OnNotReady(ZSensor::NotReady &notReady)
 {
 	LOG_BEGIN_END;
+	CString strStatus;
+	strStatus.Format(_T("Status : Not Ready %d"), (int)notReady.notReadyCause);
+	m_ctrlTxtStatus.SetWindowTextW(strStatus);
 }
 void CClientDlg::OnShortTriggered(ZSensor::ShortTriggered &shotTriggered)
 {
 	LOG_BEGIN_END;
 	LOGW<<"ShortTriggered  "<<shotTriggered.shotId<<", timestamp "<<shotTriggered.timestamp;
+
+	CString strStatus;
+	strStatus.Format(_T("Status : Shot Triggered %d"), shotTriggered.shotId);
+
+	m_ctrlTxtStatus.SetWindowTextW(strStatus);
+
+	m_ctrlListBallInfo.ResetContent();
+	m_ctrlListClubInfo.ResetContent();
 }
 void CClientDlg::OnBallFlightInfo(ZSensor::BallFlightInfo &ballFlightInfo)
 {
@@ -488,16 +511,68 @@ void CClientDlg::OnBallFlightInfo(ZSensor::BallFlightInfo &ballFlightInfo)
 	LOGW<<"  Shot ID "<<ballFlightInfo.shotId;
 	LOGW<<"  Ball Speed "<<ballFlightInfo.ballSpeed<<", incidence "<<ballFlightInfo.Incidence<<", dir : " <<ballFlightInfo.direction;
 	LOGW<<"  Ball BS "<<ballFlightInfo.backSpin<<", SS "<<ballFlightInfo.sideSpin;
+	m_ctrlTxtStatus.SetWindowTextW(_T("Status : RECV Ball Info"));
+
+	CString shotID;
+	CString ballSpeed;
+	CString ballDirection;
+	CString spinInfo;
+
+	shotID.Format(_T("Shot ID %04d"), ballFlightInfo.shotId);
+	ballSpeed.Format(_T("Speed  %.2f"), ballFlightInfo.ballSpeed);
+	ballDirection.Format(_T("incidence: %.1f, dir: %.1f"), ballFlightInfo.Incidence, ballFlightInfo.direction);
+	spinInfo.Format(_T("SideSpin: %.1f, BackSPin: %.1f"), ballFlightInfo.sideSpin, ballFlightInfo.backSpin);
+
+	m_ctrlListBallInfo.AddString(shotID);
+	m_ctrlListBallInfo.AddString(ballSpeed);
+	m_ctrlListBallInfo.AddString(ballDirection);
+	m_ctrlListBallInfo.AddString(spinInfo);
+
+	if(m_ctrlChkCSVWrite.GetCheck())
+	{
+
+		SYSTEMTIME systemTime;
+		GetLocalTime(&systemTime);
+
+		FILE *fp = _tfopen(m_strCSVPath, _T("at"));
+		if(fp)
+		{
+			fprintf(fp, "%02d-%02d, %u:%02u:%02u,", systemTime.wMonth,systemTime.wDay,systemTime.wHour,systemTime.wMinute,systemTime.wSecond);
+			fprintf(fp, "%04d,", ballFlightInfo.shotId);
+			fprintf(fp, "%.2f,", ballFlightInfo.ballSpeed);
+			fprintf(fp, "%.1f, %.1f, ", ballFlightInfo.Incidence, ballFlightInfo.direction);
+			fprintf(fp, "%.1f, %.1f\n", ballFlightInfo.sideSpin, ballFlightInfo.backSpin);
+			fclose(fp);
+		}
+	}
 }
 void CClientDlg::OnClubPathInfo(ZSensor::ClubPathInfo &clubInfo)
 {
 	LOG_BEGIN_END;
 	LOGW<<"head Speed "<<clubInfo.headSpeed;
+	m_ctrlTxtStatus.SetWindowTextW(_T("Status : RECV Club Info"));
+
+	CString shotID;
+	CString ballSpeed;
+
+	shotID.Format(_T("Shot ID %04d"), clubInfo.shotId);
+	ballSpeed.Format(_T("Speed  %.2f"), clubInfo.headSpeed);
+
+	m_ctrlListClubInfo.AddString(shotID);
+	m_ctrlListClubInfo.AddString(ballSpeed);
 }
 
-
-void CClientDlg::OnBnClickedButtonConnect()
+void CClientDlg::ConnectServer()
 {
+	BYTE address[4];
+	m_ctrlServerIpAddress.GetAddress(address[0], address[1], address[2], address[3]);
+
+	m_config.IpAddressField[0] = address[0];
+	m_config.IpAddressField[1] = address[1];
+	m_config.IpAddressField[2] = address[2];
+	m_config.IpAddressField[3] = address[3];
+
+	m_config.nPortNumber = m_nPortNumber;
 
 	for(int i = 0;i < 4; i++)
 	{
@@ -505,7 +580,7 @@ void CClientDlg::OnBnClickedButtonConnect()
 		{
 			CString ipAddress;
 			ipAddress.Format(_T("IP Address : %d.%d.%d.%d"), m_config.IpAddressField[0], m_config.IpAddressField[1], m_config.IpAddressField[2], m_config.IpAddressField[3]);
-			MessageBox(ipAddress, _T("Error"));
+			MessageBox(ipAddress, _T("Connection Error"));
 			return;
 		}
 	}
@@ -513,7 +588,7 @@ void CClientDlg::OnBnClickedButtonConnect()
 	{
 		CString ipAddress;
 		ipAddress.Format(_T("Port number : %d"), m_config.nPortNumber);
-		MessageBox(ipAddress, _T("Error"));
+		MessageBox(ipAddress, _T("Connection Error"));
 		return;
 	}
 	char buffer[100];
@@ -523,6 +598,13 @@ void CClientDlg::OnBnClickedButtonConnect()
 		EnableButtons(TRUE);
 	}
 }
+
+void CClientDlg::OnBnClickedButtonConnect()
+{
+	UpdateData();
+	ConnectServer();
+}
+
 
 void CClientDlg::OnBnClickedButtonDisconnect()
 {
@@ -551,7 +633,6 @@ void CClientDlg::EnableButtons(BOOL bEnable)
 	vecControls.push_back(IDC_BUTTON_GET_DEVICE_INFO      );
 	vecControls.push_back(IDC_BUTTON_DEVICE_STATUS        );
 	vecControls.push_back(IDC_BUTTON_GET_LOG              );
-	vecControls.push_back(IDC_CHECK_SHOW_SHOTINFO         );
 	vecControls.push_back(IDC_CHECK_SAVE_SHOT_INFO_TO_CSV );
 	vecControls.push_back(IDC_CHECK_AUTO_CONNECT          );
 	vecControls.push_back(IDC_BUTTON_DISCONNECT           );
@@ -561,7 +642,7 @@ void CClientDlg::EnableButtons(BOOL bEnable)
 		CWnd* pWind = AfxGetMainWnd()->GetDlgItem(vecControls[i]);
 		if(pWind)
 		{
-			(CButton*)(pWind)->EnableWindow(FALSE);
+			(CButton*)(pWind)->EnableWindow(bEnable);
 		}
 	}
 }
@@ -624,4 +705,51 @@ CString CClientDlg::GetExePath(CString &strFilePath)
     m_criticalExe.Unlock();
 
     return strFilePath;
+}
+void CClientDlg::OnBnClickedCheckAutoConnect()
+{
+
+	if(m_ctrlButtonAutoConnect.GetCheck())
+	{
+		m_config.bAutoConnect = TRUE;
+	}
+	else
+	{
+		m_config.bAutoConnect = FALSE;
+	}
+}
+
+void CClientDlg::OnBnClickedCheckSaveShotInfoToCsv()
+{
+	// TODO: Add your control notification handler code here
+	if(m_ctrlChkCSVWrite.GetCheck())
+	{
+		SetCSVPath();
+	}
+}
+
+void CClientDlg::SetCSVPath()
+{
+	CString strCSVFIleName;
+
+	SYSTEMTIME systemTime;
+	GetLocalTime(&systemTime);
+
+	strCSVFIleName.Format(_T("DATA_%04d%02d%02d_%u%02u%02u.csv"),
+		systemTime.wYear,
+		systemTime.wMonth,
+		systemTime.wDay,
+		systemTime.wHour,
+		systemTime.wMinute,
+		systemTime.wSecond);
+		
+
+	m_strCSVPath = strCSVFIleName;
+
+	FILE *fp = _tfopen(m_strCSVPath, _T("wt"));
+	if(fp)
+	{
+		fprintf(fp, "Date, time, ShotID, ballSpeed, incidence, direction, SideSpin, BackSPin\n"); 
+		fclose(fp);
+	}
 }
