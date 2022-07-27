@@ -152,6 +152,7 @@ void CClientDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LIST_CLUB_INFO, m_ctrlListClubInfo);
 	DDX_Control(pDX, IDC_TXT_STATUS, m_ctrlTxtStatus);
 	DDX_Control(pDX, IDC_CHECK_SAVE_SHOT_INFO_TO_CSV, m_ctrlChkCSVWrite);
+	DDX_Control(pDX, IDC_CHECK_AUTO_STOP, m_ctrlChkAutoStop);
 }
 
 BEGIN_MESSAGE_MAP(CClientDlg, CDialog)
@@ -245,6 +246,8 @@ BOOL CClientDlg::OnInitDialog()
 
 	if(m_config.bAutoConnect)
 		ConnectServer();
+
+	m_ctrlChkAutoStop.SetCheck(TRUE);
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -477,6 +480,24 @@ void CClientDlg::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: Add your message handler code here and/or call default
 
+	if(nIDEvent == TIMER_ID_AUTO_STOP)
+	{
+		KillTimer(TIMER_ID_AUTO_STOP);
+		if(m_ctrlChkAutoStop.GetCheck())
+		{
+			OnBnClickedButtonStop();
+			SetTimer(TIMER_ID_AUTO_START, 1500, NULL);
+		}
+	}
+	if(nIDEvent == TIMER_ID_AUTO_START)
+	{
+		KillTimer(TIMER_ID_AUTO_START);
+		if(m_ctrlChkAutoStop.GetCheck())
+		{
+			OnBnClickedButtonStart();
+		}
+	}
+
 	CDialog::OnTimer(nIDEvent);
 }
 
@@ -504,6 +525,12 @@ void CClientDlg::OnShortTriggered(ZSensor::ShortTriggered &shotTriggered)
 
 	m_ctrlListBallInfo.ResetContent();
 	m_ctrlListClubInfo.ResetContent();
+
+	if(m_ctrlChkAutoStop.GetCheck())
+	{
+		SetTimer(TIMER_ID_AUTO_STOP, 5000, NULL);
+	}
+
 }
 void CClientDlg::OnBallFlightInfo(ZSensor::BallFlightInfo &ballFlightInfo)
 {

@@ -4,6 +4,10 @@
 #pragma once
 
 #define TIMER_ID_READ_FROM_SERVER 1000
+#define TIMER_ID_AUTO_STOP 2001
+#define TIMER_ID_AUTO_START 2002
+
+
 #include <ZSensorInteface/inc/IIntelliSwingProtocolAdapter.h>
 #include "afxcmn.h"
 #include "afxwin.h"
@@ -51,6 +55,7 @@ private :
 	CListBox m_ctrlListClubInfo;
 	CStatic m_ctrlTxtStatus;
 	CButton m_ctrlChkCSVWrite;
+	CButton m_ctrlChkAutoStop;
 
 
 protected:
