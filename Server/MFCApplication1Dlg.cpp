@@ -152,7 +152,7 @@ public :
 	{
 		std::cout << "GetClubImage Received " << std::endl;
 
-		std::string filename = "imageData.bin";
+		std::string filename = "imageDataClub.bin";
 		std::ifstream _ifstream(filename, std::ios::binary);
 		response->ParseFromIstream(&_ifstream);
 		_ifstream.close();
@@ -161,7 +161,7 @@ public :
 	virtual ::grpc::Status GetBallImage(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response)
 	{
 		std::cout << "GetBallImage Received " << std::endl;
-		std::string filename = "imageData.bin";
+		std::string filename = "imageDataBall.bin";
 		std::ifstream _ifstream(filename, std::ios::binary);
 		response->ParseFromIstream(&_ifstream);
 		_ifstream.close();
