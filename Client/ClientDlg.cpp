@@ -139,7 +139,13 @@ BOOL CClientDlg::OnInitDialog()
 	// extra initialization 
 
 	std::string target_str = "localhost:50051";
-	std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials());
+
+	//std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials());
+	grpc::ChannelArguments channelArguments;
+	channelArguments.SetMaxReceiveMessageSize(GRPC_DEFAULT_MAX_RECV_MESSAGE_LENGTH * 2);
+	channelArguments.SetMaxSendMessageSize(GRPC_DEFAULT_MAX_RECV_MESSAGE_LENGTH * 2);
+
+	std::shared_ptr<grpc::Channel> channel = grpc::CreateCustomChannel(target_str, grpc::InsecureChannelCredentials(), channelArguments);
 	if (channel)
 	{
 		std::cout << "Channel create complete " << target_str << std::endl;

@@ -14,6 +14,12 @@ bool ZIntelliSwingServer::OnStart()
 	m_ThreadCtx.m_pUserData = this;
 
 	grpc::ServerBuilder builder;
+	//GRPC_DEFAULT_MAX_SEND_MESSAGE_LENGTH
+	builder.SetMaxSendMessageSize(GRPC_DEFAULT_MAX_RECV_MESSAGE_LENGTH *2 );
+	builder.SetMaxReceiveMessageSize(GRPC_DEFAULT_MAX_RECV_MESSAGE_LENGTH * 2);
+	
+	std::cout << "Max Buffer Size changed " << std::endl;
+	
 	// Listen on the given address without any authentication mechanism.
 	builder.AddListeningPort(m_strServerAddress, grpc::InsecureServerCredentials());
 	// Register "service" as the instance through which we'll communicate with
@@ -21,6 +27,7 @@ bool ZIntelliSwingServer::OnStart()
 	builder.RegisterService(m_pService);
 	// Finally assemble the server.
 	m_upServer = builder.BuildAndStart();
+	
 	return true;
 }
 
