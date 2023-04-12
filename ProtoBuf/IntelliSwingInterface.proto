@@ -4,7 +4,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 import "type.proto";
 import "IntelliSwingService.proto";
-
+//
 package IntelliSwing;
 
 service IntelliSwingProtocol
@@ -28,6 +28,10 @@ service IntelliSwingProtocol
 	rpc RunSiteCalibration(SiteCalibrationRequest) returns (SiteCalibrationResult){}
 	rpc UpdateFirmware(UpdateFirmwareRequest) returns (UpdateFirmwareResult){}
 	rpc GetImage(CameraImageRequest) returns (ImageData){}
+	rpc GetDebugImage(DebugImageRequest) returns (DebugImage){}
+	rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty) {}
+	rpc SendCommand(CMessage) returns (CMessage) {}
+	rpc SetTime(TimeRequest) returns (google.protobuf.Empty){}
 }
 
 message InitializeMsg
@@ -199,4 +203,32 @@ message ImageData
 		repeated Marker markers = 8; // marker information
 	}
 	
+}
+
+
+message DebugImage
+{
+	float fps			= 6;	// frame per second
+	repeated Image	datas	= 7;
+	message Image
+	{
+		int32 id			= 1;
+		bytes data			= 2;	// byte stream
+		uint64 timeStamp    = 3;
+		int32 width			= 4;	// pixel, 음수 일 경우 data에서 크기 추출
+		int32 height		= 5;	// pixel, 음수 일 경우 data에서 크기 추출
+		int32 channel		= 6;	// channel {1 : gray, 3 : rgb, 4 : rgba}, 음수 일 경우 data에서 크기 추출
+		int32 data_type		= 7;	// 
+		int32 image_type	= 8;	// {0 : raw RGBA order, 1 : raw BGRA order, 2 : jpg, 3 : png, }
+		
+	}
+	
+}
+
+
+message CMessage
+{
+	int32			command	= 1;
+	repeated int32	param	= 2;
+	string			message	= 3;
 }

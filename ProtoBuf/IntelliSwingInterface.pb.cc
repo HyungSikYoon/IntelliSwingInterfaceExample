@@ -228,12 +228,59 @@ struct ImageDataDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImageDataDefaultTypeInternal _ImageData_default_instance_;
+constexpr DebugImage_Image::DebugImage_Image(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : data_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , id_(0)
+  , width_(0)
+  , timestamp_(uint64_t{0u})
+  , height_(0)
+  , channel_(0)
+  , data_type_(0)
+  , image_type_(0){}
+struct DebugImage_ImageDefaultTypeInternal {
+  constexpr DebugImage_ImageDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DebugImage_ImageDefaultTypeInternal() {}
+  union {
+    DebugImage_Image _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DebugImage_ImageDefaultTypeInternal _DebugImage_Image_default_instance_;
+constexpr DebugImage::DebugImage(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : datas_()
+  , fps_(0){}
+struct DebugImageDefaultTypeInternal {
+  constexpr DebugImageDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DebugImageDefaultTypeInternal() {}
+  union {
+    DebugImage _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DebugImageDefaultTypeInternal _DebugImage_default_instance_;
+constexpr CMessage::CMessage(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : param_()
+  , _param_cached_byte_size_(0)
+  , message_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , command_(0){}
+struct CMessageDefaultTypeInternal {
+  constexpr CMessageDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMessageDefaultTypeInternal() {}
+  union {
+    CMessage _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMessageDefaultTypeInternal _CMessage_default_instance_;
 }  // namespace IntelliSwing
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_IntelliSwingInterface_2eproto[15];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_IntelliSwingInterface_2eproto[18];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_IntelliSwingInterface_2eproto[4];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_IntelliSwingInterface_2eproto = nullptr;
 
-const uint32_t TableStruct_IntelliSwingInterface_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_IntelliSwingInterface_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::InitializeMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -370,6 +417,37 @@ const uint32_t TableStruct_IntelliSwingInterface_2eproto::offsets[] PROTOBUF_SEC
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::ImageData, image_type_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::ImageData, fps_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::ImageData, datas_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage_Image, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage_Image, id_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage_Image, data_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage_Image, timestamp_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage_Image, width_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage_Image, height_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage_Image, channel_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage_Image, data_type_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage_Image, image_type_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage, fps_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImage, datas_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::CMessage, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::CMessage, command_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::CMessage, param_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::CMessage, message_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::IntelliSwing::InitializeMsg)},
@@ -387,6 +465,9 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 105, -1, -1, sizeof(::IntelliSwing::ImageData_Image_Marker)},
   { 113, -1, -1, sizeof(::IntelliSwing::ImageData_Image)},
   { 123, -1, -1, sizeof(::IntelliSwing::ImageData)},
+  { 136, -1, -1, sizeof(::IntelliSwing::DebugImage_Image)},
+  { 150, -1, -1, sizeof(::IntelliSwing::DebugImage)},
+  { 158, -1, -1, sizeof(::IntelliSwing::CMessage)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -405,6 +486,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_ImageData_Image_Marker_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_ImageData_Image_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_ImageData_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_DebugImage_Image_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_DebugImage_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_CMessage_default_instance_),
 };
 
 const char descriptor_table_protodef_IntelliSwingInterface_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -466,36 +550,49 @@ const char descriptor_table_protodef_IntelliSwingInterface_2eproto[] PROTOBUF_SE
   "\022\021\n\ttimeStamp\030\003 \001(\004\022\013\n\003tag\030\007 \001(\t\0225\n\007mark"
   "ers\030\010 \003(\0132$.IntelliSwing.ImageData.Image"
   ".Marker\032>\n\006Marker\022\'\n\010position\030\001 \001(\0132\025.In"
-  "telliSwing.Point2i\022\013\n\003tag\030\002 \001(\t*N\n\nGroun"
-  "dAttr\022\013\n\007FAIRWAY\020\000\022\t\n\005ROUGH\020\001\022\n\n\006BUNKER\020"
-  "\002\022\007\n\003TEE\020\003\022\t\n\005GREEN\020\004\022\010\n\004NONE\020\0052\232\010\n\024Inte"
-  "lliSwingProtocol\022D\n\nInitialize\022\033.Intelli"
-  "Swing.InitializeMsg\032\027.IntelliSwing.Retur"
-  "nMsg\"\000\022>\n\007Release\022\030.IntelliSwing.Release"
-  "Msg\032\027.IntelliSwing.ReturnMsg\"\000\022;\n\006Reboot"
-  "\022\026.google.protobuf.Empty\032\027.IntelliSwing."
-  "ReturnMsg\"\000\022C\n\005Start\022\026.IntelliSwing.Star"
-  "tMsg\032\036.IntelliSwing.SensorRunningMsg\"\0000\001"
-  "\0229\n\004Stop\022\026.google.protobuf.Empty\032\027.Intel"
-  "liSwing.ReturnMsg\"\000\022I\n\014GetClubImage\022\036.In"
-  "telliSwing.ShotImageRequest\032\027.IntelliSwi"
-  "ng.ImageData\"\000\022I\n\014GetBallImage\022\036.Intelli"
-  "Swing.ShotImageRequest\032\027.IntelliSwing.Im"
-  "ageData\"\000\022C\n\rGetDeviceInfo\022\026.google.prot"
-  "obuf.Empty\032\030.IntelliSwing.DeviceInfo\"\000\022G"
-  "\n\017GetDeviceStatus\022\026.google.protobuf.Empt"
-  "y\032\032.IntelliSwing.DeviceStatus\"\000\022>\n\006GetLo"
-  "g\022\030.IntelliSwing.LogRequest\032\030.IntelliSwi"
-  "ng.LogMessage\"\000\022R\n\rGetStatistics\022\037.Intel"
-  "liSwing.StatisticsRequest\032\036.IntelliSwing"
-  ".SensorStatistics\"\000\022a\n\022RunSiteCalibratio"
-  "n\022$.IntelliSwing.SiteCalibrationRequest\032"
-  "#.IntelliSwing.SiteCalibrationResult\"\000\022["
-  "\n\016UpdateFirmware\022#.IntelliSwing.UpdateFi"
-  "rmwareRequest\032\".IntelliSwing.UpdateFirmw"
-  "areResult\"\000\022G\n\010GetImage\022 .IntelliSwing.C"
-  "ameraImageRequest\032\027.IntelliSwing.ImageDa"
-  "ta\"\000b\006proto3"
+  "telliSwing.Point2i\022\013\n\003tag\030\002 \001(\t\"\326\001\n\nDebu"
+  "gImage\022\013\n\003fps\030\006 \001(\002\022-\n\005datas\030\007 \003(\0132\036.Int"
+  "elliSwing.DebugImage.Image\032\213\001\n\005Image\022\n\n\002"
+  "id\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\022\021\n\ttimeStamp\030\003 \001("
+  "\004\022\r\n\005width\030\004 \001(\005\022\016\n\006height\030\005 \001(\005\022\017\n\007chan"
+  "nel\030\006 \001(\005\022\021\n\tdata_type\030\007 \001(\005\022\022\n\nimage_ty"
+  "pe\030\010 \001(\005\";\n\010CMessage\022\017\n\007command\030\001 \001(\005\022\r\n"
+  "\005param\030\002 \003(\005\022\017\n\007message\030\003 \001(\t*N\n\nGroundA"
+  "ttr\022\013\n\007FAIRWAY\020\000\022\t\n\005ROUGH\020\001\022\n\n\006BUNKER\020\002\022"
+  "\007\n\003TEE\020\003\022\t\n\005GREEN\020\004\022\010\n\004NONE\020\0052\243\n\n\024Intell"
+  "iSwingProtocol\022D\n\nInitialize\022\033.IntelliSw"
+  "ing.InitializeMsg\032\027.IntelliSwing.ReturnM"
+  "sg\"\000\022>\n\007Release\022\030.IntelliSwing.ReleaseMs"
+  "g\032\027.IntelliSwing.ReturnMsg\"\000\022;\n\006Reboot\022\026"
+  ".google.protobuf.Empty\032\027.IntelliSwing.Re"
+  "turnMsg\"\000\022C\n\005Start\022\026.IntelliSwing.StartM"
+  "sg\032\036.IntelliSwing.SensorRunningMsg\"\0000\001\0229"
+  "\n\004Stop\022\026.google.protobuf.Empty\032\027.Intelli"
+  "Swing.ReturnMsg\"\000\022I\n\014GetClubImage\022\036.Inte"
+  "lliSwing.ShotImageRequest\032\027.IntelliSwing"
+  ".ImageData\"\000\022I\n\014GetBallImage\022\036.IntelliSw"
+  "ing.ShotImageRequest\032\027.IntelliSwing.Imag"
+  "eData\"\000\022C\n\rGetDeviceInfo\022\026.google.protob"
+  "uf.Empty\032\030.IntelliSwing.DeviceInfo\"\000\022G\n\017"
+  "GetDeviceStatus\022\026.google.protobuf.Empty\032"
+  "\032.IntelliSwing.DeviceStatus\"\000\022>\n\006GetLog\022"
+  "\030.IntelliSwing.LogRequest\032\030.IntelliSwing"
+  ".LogMessage\"\000\022R\n\rGetStatistics\022\037.Intelli"
+  "Swing.StatisticsRequest\032\036.IntelliSwing.S"
+  "ensorStatistics\"\000\022a\n\022RunSiteCalibration\022"
+  "$.IntelliSwing.SiteCalibrationRequest\032#."
+  "IntelliSwing.SiteCalibrationResult\"\000\022[\n\016"
+  "UpdateFirmware\022#.IntelliSwing.UpdateFirm"
+  "wareRequest\032\".IntelliSwing.UpdateFirmwar"
+  "eResult\"\000\022G\n\010GetImage\022 .IntelliSwing.Cam"
+  "eraImageRequest\032\027.IntelliSwing.ImageData"
+  "\"\000\022L\n\rGetDebugImage\022\037.IntelliSwing.Debug"
+  "ImageRequest\032\030.IntelliSwing.DebugImage\"\000"
+  "\0228\n\004Ping\022\026.google.protobuf.Empty\032\026.googl"
+  "e.protobuf.Empty\"\000\022\?\n\013SendCommand\022\026.Inte"
+  "lliSwing.CMessage\032\026.IntelliSwing.CMessag"
+  "e\"\000\022>\n\007SetTime\022\031.IntelliSwing.TimeReques"
+  "t\032\026.google.protobuf.Empty\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_IntelliSwingInterface_2eproto_deps[4] = {
   &::descriptor_table_IntelliSwingService_2eproto,
@@ -505,8 +602,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_IntelliSwingInterface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_IntelliSwingInterface_2eproto = {
-  false, false, 3492, descriptor_table_protodef_IntelliSwingInterface_2eproto, "IntelliSwingInterface.proto", 
-  &descriptor_table_IntelliSwingInterface_2eproto_once, descriptor_table_IntelliSwingInterface_2eproto_deps, 4, 15,
+  false, false, 4035, descriptor_table_protodef_IntelliSwingInterface_2eproto, "IntelliSwingInterface.proto", 
+  &descriptor_table_IntelliSwingInterface_2eproto_once, descriptor_table_IntelliSwingInterface_2eproto_deps, 4, 18,
   schemas, file_default_instances, TableStruct_IntelliSwingInterface_2eproto::offsets,
   file_level_metadata_IntelliSwingInterface_2eproto, file_level_enum_descriptors_IntelliSwingInterface_2eproto, file_level_service_descriptors_IntelliSwingInterface_2eproto,
 };
@@ -533,7 +630,7 @@ bool InitializeMsg_Client_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 constexpr InitializeMsg_Client InitializeMsg::GDR;
 constexpr InitializeMsg_Client InitializeMsg::NextGDR;
 constexpr InitializeMsg_Client InitializeMsg::Vision;
@@ -541,7 +638,7 @@ constexpr InitializeMsg_Client InitializeMsg::Ohter;
 constexpr InitializeMsg_Client InitializeMsg::Client_MIN;
 constexpr InitializeMsg_Client InitializeMsg::Client_MAX;
 constexpr int InitializeMsg::Client_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* StartMsg_ClubInformation_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_IntelliSwingInterface_2eproto);
   return file_level_enum_descriptors_IntelliSwingInterface_2eproto[1];
@@ -587,7 +684,7 @@ bool StartMsg_ClubInformation_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 constexpr StartMsg_ClubInformation StartMsg::NonPutting;
 constexpr StartMsg_ClubInformation StartMsg::Putting;
 constexpr StartMsg_ClubInformation StartMsg::Wood;
@@ -624,7 +721,7 @@ constexpr StartMsg_ClubInformation StartMsg::UTIL7;
 constexpr StartMsg_ClubInformation StartMsg::ClubInformation_MIN;
 constexpr StartMsg_ClubInformation StartMsg::ClubInformation_MAX;
 constexpr int StartMsg::ClubInformation_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SensorRunningMsg_NotReady_NotReadyCause_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_IntelliSwingInterface_2eproto);
   return file_level_enum_descriptors_IntelliSwingInterface_2eproto[2];
@@ -641,7 +738,7 @@ bool SensorRunningMsg_NotReady_NotReadyCause_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::NotDefined;
 constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::OutBound;
 constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::BallNotFound;
@@ -649,7 +746,7 @@ constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::Mul
 constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::NotReadyCause_MIN;
 constexpr SensorRunningMsg_NotReady_NotReadyCause SensorRunningMsg_NotReady::NotReadyCause_MAX;
 constexpr int SensorRunningMsg_NotReady::NotReadyCause_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* GroundAttr_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_IntelliSwingInterface_2eproto);
   return file_level_enum_descriptors_IntelliSwingInterface_2eproto[3];
@@ -691,7 +788,7 @@ InitializeMsg::InitializeMsg(const InitializeMsg& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.InitializeMsg)
 }
 
-inline void InitializeMsg::SharedCtor() {
+void InitializeMsg::SharedCtor() {
 client_ = 0;
 }
 
@@ -718,7 +815,7 @@ void InitializeMsg::SetCachedSize(int size) const {
 
 void InitializeMsg::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.InitializeMsg)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -729,13 +826,13 @@ void InitializeMsg::Clear() {
 const char* InitializeMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .IntelliSwing.InitializeMsg.Client client = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_client(static_cast<::IntelliSwing::InitializeMsg_Client>(val));
         } else
@@ -764,10 +861,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* InitializeMsg::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* InitializeMsg::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.InitializeMsg)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .IntelliSwing.InitializeMsg.Client client = 4;
@@ -789,7 +886,7 @@ size_t InitializeMsg::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.InitializeMsg)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -818,7 +915,7 @@ void InitializeMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void InitializeMsg::MergeFrom(const InitializeMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.InitializeMsg)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_client() != 0) {
@@ -872,7 +969,7 @@ ReleaseMsg::ReleaseMsg(const ReleaseMsg& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.ReleaseMsg)
 }
 
-inline void ReleaseMsg::SharedCtor() {
+void ReleaseMsg::SharedCtor() {
 id_ = 0;
 }
 
@@ -899,7 +996,7 @@ void ReleaseMsg::SetCachedSize(int size) const {
 
 void ReleaseMsg::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.ReleaseMsg)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -910,13 +1007,13 @@ void ReleaseMsg::Clear() {
 const char* ReleaseMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -944,10 +1041,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* ReleaseMsg::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* ReleaseMsg::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.ReleaseMsg)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 id = 1;
@@ -968,7 +1065,7 @@ size_t ReleaseMsg::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.ReleaseMsg)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -996,7 +1093,7 @@ void ReleaseMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void ReleaseMsg::MergeFrom(const ReleaseMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.ReleaseMsg)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_id() != 0) {
@@ -1052,7 +1149,7 @@ StartMsg::StartMsg(const StartMsg& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.StartMsg)
 }
 
-inline void StartMsg::SharedCtor() {
+void StartMsg::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&clubinformation_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&goundattribution_) -
@@ -1082,7 +1179,7 @@ void StartMsg::SetCachedSize(int size) const {
 
 void StartMsg::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.StartMsg)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1095,13 +1192,13 @@ void StartMsg::Clear() {
 const char* StartMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .IntelliSwing.StartMsg.ClubInformation clubInformation = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_clubinformation(static_cast<::IntelliSwing::StartMsg_ClubInformation>(val));
         } else
@@ -1109,8 +1206,8 @@ const char* StartMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
         continue;
       // .IntelliSwing.GroundAttr goundAttribution = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_goundattribution(static_cast<::IntelliSwing::GroundAttr>(val));
         } else
@@ -1139,10 +1236,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* StartMsg::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* StartMsg::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.StartMsg)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .IntelliSwing.StartMsg.ClubInformation clubInformation = 1;
@@ -1171,7 +1268,7 @@ size_t StartMsg::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.StartMsg)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1206,7 +1303,7 @@ void StartMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void StartMsg::MergeFrom(const StartMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.StartMsg)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_clubinformation() != 0) {
@@ -1286,7 +1383,7 @@ SensorRunningMsg_Ready::SensorRunningMsg_Ready(const SensorRunningMsg_Ready& fro
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.Ready)
 }
 
-inline void SensorRunningMsg_Ready::SharedCtor() {
+void SensorRunningMsg_Ready::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&position_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&goundattribution_) -
@@ -1317,7 +1414,7 @@ void SensorRunningMsg_Ready::SetCachedSize(int size) const {
 
 void SensorRunningMsg_Ready::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorRunningMsg.Ready)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1334,12 +1431,12 @@ void SensorRunningMsg_Ready::Clear() {
 const char* SensorRunningMsg_Ready::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .IntelliSwing.Point3f position = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_position(), ptr);
           CHK_(ptr);
         } else
@@ -1347,7 +1444,7 @@ const char* SensorRunningMsg_Ready::_InternalParse(const char* ptr, ::PROTOBUF_N
         continue;
       // bool isTee = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           istee_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
@@ -1355,8 +1452,8 @@ const char* SensorRunningMsg_Ready::_InternalParse(const char* ptr, ::PROTOBUF_N
         continue;
       // .IntelliSwing.GroundAttr goundAttribution = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_goundattribution(static_cast<::IntelliSwing::GroundAttr>(val));
         } else
@@ -1385,10 +1482,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SensorRunningMsg_Ready::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* SensorRunningMsg_Ready::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorRunningMsg.Ready)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .IntelliSwing.Point3f position = 1;
@@ -1424,7 +1521,7 @@ size_t SensorRunningMsg_Ready::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorRunningMsg.Ready)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1465,7 +1562,7 @@ void SensorRunningMsg_Ready::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SensorRunningMsg_Ready::MergeFrom(const SensorRunningMsg_Ready& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorRunningMsg.Ready)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_position()) {
@@ -1530,7 +1627,7 @@ SensorRunningMsg_NotReady::SensorRunningMsg_NotReady(const SensorRunningMsg_NotR
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.NotReady)
 }
 
-inline void SensorRunningMsg_NotReady::SharedCtor() {
+void SensorRunningMsg_NotReady::SharedCtor() {
 notreadycause_ = 0;
 }
 
@@ -1557,7 +1654,7 @@ void SensorRunningMsg_NotReady::SetCachedSize(int size) const {
 
 void SensorRunningMsg_NotReady::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorRunningMsg.NotReady)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1568,13 +1665,13 @@ void SensorRunningMsg_NotReady::Clear() {
 const char* SensorRunningMsg_NotReady::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .IntelliSwing.SensorRunningMsg.NotReady.NotReadyCause notReadyCause = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_notreadycause(static_cast<::IntelliSwing::SensorRunningMsg_NotReady_NotReadyCause>(val));
         } else
@@ -1603,10 +1700,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SensorRunningMsg_NotReady::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* SensorRunningMsg_NotReady::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorRunningMsg.NotReady)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .IntelliSwing.SensorRunningMsg.NotReady.NotReadyCause notReadyCause = 1;
@@ -1628,7 +1725,7 @@ size_t SensorRunningMsg_NotReady::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorRunningMsg.NotReady)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1657,7 +1754,7 @@ void SensorRunningMsg_NotReady::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SensorRunningMsg_NotReady::MergeFrom(const SensorRunningMsg_NotReady& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorRunningMsg.NotReady)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_notreadycause() != 0) {
@@ -1713,7 +1810,7 @@ SensorRunningMsg_ShortTriggered::SensorRunningMsg_ShortTriggered(const SensorRun
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.ShortTriggered)
 }
 
-inline void SensorRunningMsg_ShortTriggered::SharedCtor() {
+void SensorRunningMsg_ShortTriggered::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&timestamp_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&shotid_) -
@@ -1743,7 +1840,7 @@ void SensorRunningMsg_ShortTriggered::SetCachedSize(int size) const {
 
 void SensorRunningMsg_ShortTriggered::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorRunningMsg.ShortTriggered)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1756,20 +1853,20 @@ void SensorRunningMsg_ShortTriggered::Clear() {
 const char* SensorRunningMsg_ShortTriggered::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 shotId = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          shotid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          shotid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
       // uint64 timestamp = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
@@ -1798,10 +1895,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SensorRunningMsg_ShortTriggered::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* SensorRunningMsg_ShortTriggered::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorRunningMsg.ShortTriggered)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 shotId = 1;
@@ -1828,7 +1925,7 @@ size_t SensorRunningMsg_ShortTriggered::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorRunningMsg.ShortTriggered)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1861,7 +1958,7 @@ void SensorRunningMsg_ShortTriggered::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
 void SensorRunningMsg_ShortTriggered::MergeFrom(const SensorRunningMsg_ShortTriggered& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorRunningMsg.ShortTriggered)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_timestamp() != 0) {
@@ -1925,7 +2022,7 @@ SensorRunningMsg_BallFlightInfo::SensorRunningMsg_BallFlightInfo(const SensorRun
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.BallFlightInfo)
 }
 
-inline void SensorRunningMsg_BallFlightInfo::SharedCtor() {
+void SensorRunningMsg_BallFlightInfo::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&shotid_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&sidespin_) -
@@ -1955,7 +2052,7 @@ void SensorRunningMsg_BallFlightInfo::SetCachedSize(int size) const {
 
 void SensorRunningMsg_BallFlightInfo::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorRunningMsg.BallFlightInfo)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1968,20 +2065,20 @@ void SensorRunningMsg_BallFlightInfo::Clear() {
 const char* SensorRunningMsg_BallFlightInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 shotId = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          shotid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          shotid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
       // float ballSpeed = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
           ballspeed_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -1989,7 +2086,7 @@ const char* SensorRunningMsg_BallFlightInfo::_InternalParse(const char* ptr, ::P
         continue;
       // float Incidence = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
           incidence_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -1997,7 +2094,7 @@ const char* SensorRunningMsg_BallFlightInfo::_InternalParse(const char* ptr, ::P
         continue;
       // float direction = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 37)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
           direction_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -2005,7 +2102,7 @@ const char* SensorRunningMsg_BallFlightInfo::_InternalParse(const char* ptr, ::P
         continue;
       // float backSpin = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 45)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
           backspin_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -2013,7 +2110,7 @@ const char* SensorRunningMsg_BallFlightInfo::_InternalParse(const char* ptr, ::P
         continue;
       // float sideSpin = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 53)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53)) {
           sidespin_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -2042,10 +2139,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SensorRunningMsg_BallFlightInfo::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* SensorRunningMsg_BallFlightInfo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorRunningMsg.BallFlightInfo)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 shotId = 1;
@@ -2055,51 +2152,31 @@ uint8_t* SensorRunningMsg_BallFlightInfo::_InternalSerialize(
   }
 
   // float ballSpeed = 2;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_ballspeed = this->_internal_ballspeed();
-  uint32_t raw_ballspeed;
-  memcpy(&raw_ballspeed, &tmp_ballspeed, sizeof(tmp_ballspeed));
-  if (raw_ballspeed != 0) {
+  if (!(this->_internal_ballspeed() <= 0 && this->_internal_ballspeed() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_ballspeed(), target);
   }
 
   // float Incidence = 3;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_incidence = this->_internal_incidence();
-  uint32_t raw_incidence;
-  memcpy(&raw_incidence, &tmp_incidence, sizeof(tmp_incidence));
-  if (raw_incidence != 0) {
+  if (!(this->_internal_incidence() <= 0 && this->_internal_incidence() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_incidence(), target);
   }
 
   // float direction = 4;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_direction = this->_internal_direction();
-  uint32_t raw_direction;
-  memcpy(&raw_direction, &tmp_direction, sizeof(tmp_direction));
-  if (raw_direction != 0) {
+  if (!(this->_internal_direction() <= 0 && this->_internal_direction() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_direction(), target);
   }
 
   // float backSpin = 5;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_backspin = this->_internal_backspin();
-  uint32_t raw_backspin;
-  memcpy(&raw_backspin, &tmp_backspin, sizeof(tmp_backspin));
-  if (raw_backspin != 0) {
+  if (!(this->_internal_backspin() <= 0 && this->_internal_backspin() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_backspin(), target);
   }
 
   // float sideSpin = 6;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_sidespin = this->_internal_sidespin();
-  uint32_t raw_sidespin;
-  memcpy(&raw_sidespin, &tmp_sidespin, sizeof(tmp_sidespin));
-  if (raw_sidespin != 0) {
+  if (!(this->_internal_sidespin() <= 0 && this->_internal_sidespin() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_sidespin(), target);
   }
@@ -2116,7 +2193,7 @@ size_t SensorRunningMsg_BallFlightInfo::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorRunningMsg.BallFlightInfo)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2126,47 +2203,27 @@ size_t SensorRunningMsg_BallFlightInfo::ByteSizeLong() const {
   }
 
   // float ballSpeed = 2;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_ballspeed = this->_internal_ballspeed();
-  uint32_t raw_ballspeed;
-  memcpy(&raw_ballspeed, &tmp_ballspeed, sizeof(tmp_ballspeed));
-  if (raw_ballspeed != 0) {
+  if (!(this->_internal_ballspeed() <= 0 && this->_internal_ballspeed() >= 0)) {
     total_size += 1 + 4;
   }
 
   // float Incidence = 3;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_incidence = this->_internal_incidence();
-  uint32_t raw_incidence;
-  memcpy(&raw_incidence, &tmp_incidence, sizeof(tmp_incidence));
-  if (raw_incidence != 0) {
+  if (!(this->_internal_incidence() <= 0 && this->_internal_incidence() >= 0)) {
     total_size += 1 + 4;
   }
 
   // float direction = 4;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_direction = this->_internal_direction();
-  uint32_t raw_direction;
-  memcpy(&raw_direction, &tmp_direction, sizeof(tmp_direction));
-  if (raw_direction != 0) {
+  if (!(this->_internal_direction() <= 0 && this->_internal_direction() >= 0)) {
     total_size += 1 + 4;
   }
 
   // float backSpin = 5;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_backspin = this->_internal_backspin();
-  uint32_t raw_backspin;
-  memcpy(&raw_backspin, &tmp_backspin, sizeof(tmp_backspin));
-  if (raw_backspin != 0) {
+  if (!(this->_internal_backspin() <= 0 && this->_internal_backspin() >= 0)) {
     total_size += 1 + 4;
   }
 
   // float sideSpin = 6;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_sidespin = this->_internal_sidespin();
-  uint32_t raw_sidespin;
-  memcpy(&raw_sidespin, &tmp_sidespin, sizeof(tmp_sidespin));
-  if (raw_sidespin != 0) {
+  if (!(this->_internal_sidespin() <= 0 && this->_internal_sidespin() >= 0)) {
     total_size += 1 + 4;
   }
 
@@ -2189,45 +2246,25 @@ void SensorRunningMsg_BallFlightInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
 void SensorRunningMsg_BallFlightInfo::MergeFrom(const SensorRunningMsg_BallFlightInfo& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorRunningMsg.BallFlightInfo)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_shotid() != 0) {
     _internal_set_shotid(from._internal_shotid());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_ballspeed = from._internal_ballspeed();
-  uint32_t raw_ballspeed;
-  memcpy(&raw_ballspeed, &tmp_ballspeed, sizeof(tmp_ballspeed));
-  if (raw_ballspeed != 0) {
+  if (!(from._internal_ballspeed() <= 0 && from._internal_ballspeed() >= 0)) {
     _internal_set_ballspeed(from._internal_ballspeed());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_incidence = from._internal_incidence();
-  uint32_t raw_incidence;
-  memcpy(&raw_incidence, &tmp_incidence, sizeof(tmp_incidence));
-  if (raw_incidence != 0) {
+  if (!(from._internal_incidence() <= 0 && from._internal_incidence() >= 0)) {
     _internal_set_incidence(from._internal_incidence());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_direction = from._internal_direction();
-  uint32_t raw_direction;
-  memcpy(&raw_direction, &tmp_direction, sizeof(tmp_direction));
-  if (raw_direction != 0) {
+  if (!(from._internal_direction() <= 0 && from._internal_direction() >= 0)) {
     _internal_set_direction(from._internal_direction());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_backspin = from._internal_backspin();
-  uint32_t raw_backspin;
-  memcpy(&raw_backspin, &tmp_backspin, sizeof(tmp_backspin));
-  if (raw_backspin != 0) {
+  if (!(from._internal_backspin() <= 0 && from._internal_backspin() >= 0)) {
     _internal_set_backspin(from._internal_backspin());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_sidespin = from._internal_sidespin();
-  uint32_t raw_sidespin;
-  memcpy(&raw_sidespin, &tmp_sidespin, sizeof(tmp_sidespin));
-  if (raw_sidespin != 0) {
+  if (!(from._internal_sidespin() <= 0 && from._internal_sidespin() >= 0)) {
     _internal_set_sidespin(from._internal_sidespin());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -2283,7 +2320,7 @@ SensorRunningMsg_ClubPathInfo_Path::SensorRunningMsg_ClubPathInfo_Path(const Sen
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
 }
 
-inline void SensorRunningMsg_ClubPathInfo_Path::SharedCtor() {
+void SensorRunningMsg_ClubPathInfo_Path::SharedCtor() {
 gaclubpath_ = 0;
 }
 
@@ -2310,7 +2347,7 @@ void SensorRunningMsg_ClubPathInfo_Path::SetCachedSize(int size) const {
 
 void SensorRunningMsg_ClubPathInfo_Path::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2321,12 +2358,12 @@ void SensorRunningMsg_ClubPathInfo_Path::Clear() {
 const char* SensorRunningMsg_ClubPathInfo_Path::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // float GAClubPath = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 13)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13)) {
           gaclubpath_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -2355,18 +2392,14 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SensorRunningMsg_ClubPathInfo_Path::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* SensorRunningMsg_ClubPathInfo_Path::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // float GAClubPath = 1;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_gaclubpath = this->_internal_gaclubpath();
-  uint32_t raw_gaclubpath;
-  memcpy(&raw_gaclubpath, &tmp_gaclubpath, sizeof(tmp_gaclubpath));
-  if (raw_gaclubpath != 0) {
+  if (!(this->_internal_gaclubpath() <= 0 && this->_internal_gaclubpath() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_gaclubpath(), target);
   }
@@ -2383,16 +2416,12 @@ size_t SensorRunningMsg_ClubPathInfo_Path::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // float GAClubPath = 1;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_gaclubpath = this->_internal_gaclubpath();
-  uint32_t raw_gaclubpath;
-  memcpy(&raw_gaclubpath, &tmp_gaclubpath, sizeof(tmp_gaclubpath));
-  if (raw_gaclubpath != 0) {
+  if (!(this->_internal_gaclubpath() <= 0 && this->_internal_gaclubpath() >= 0)) {
     total_size += 1 + 4;
   }
 
@@ -2415,14 +2444,10 @@ void SensorRunningMsg_ClubPathInfo_Path::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mess
 void SensorRunningMsg_ClubPathInfo_Path::MergeFrom(const SensorRunningMsg_ClubPathInfo_Path& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_gaclubpath = from._internal_gaclubpath();
-  uint32_t raw_gaclubpath;
-  memcpy(&raw_gaclubpath, &tmp_gaclubpath, sizeof(tmp_gaclubpath));
-  if (raw_gaclubpath != 0) {
+  if (!(from._internal_gaclubpath() <= 0 && from._internal_gaclubpath() >= 0)) {
     _internal_set_gaclubpath(from._internal_gaclubpath());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -2475,7 +2500,7 @@ SensorRunningMsg_ClubPathInfo_ImpactPoint::SensorRunningMsg_ClubPathInfo_ImpactP
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
 }
 
-inline void SensorRunningMsg_ClubPathInfo_ImpactPoint::SharedCtor() {
+void SensorRunningMsg_ClubPathInfo_ImpactPoint::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&gaclubimpactpoint_hor_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&gaclubimpactpoint_ver_) -
@@ -2505,7 +2530,7 @@ void SensorRunningMsg_ClubPathInfo_ImpactPoint::SetCachedSize(int size) const {
 
 void SensorRunningMsg_ClubPathInfo_ImpactPoint::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2518,12 +2543,12 @@ void SensorRunningMsg_ClubPathInfo_ImpactPoint::Clear() {
 const char* SensorRunningMsg_ClubPathInfo_ImpactPoint::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // float GAClubImpactPoint_Hor = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 13)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13)) {
           gaclubimpactpoint_hor_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -2531,7 +2556,7 @@ const char* SensorRunningMsg_ClubPathInfo_ImpactPoint::_InternalParse(const char
         continue;
       // float GAClubImpactPoint_Ver = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
           gaclubimpactpoint_ver_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -2560,28 +2585,20 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SensorRunningMsg_ClubPathInfo_ImpactPoint::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* SensorRunningMsg_ClubPathInfo_ImpactPoint::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // float GAClubImpactPoint_Hor = 1;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_gaclubimpactpoint_hor = this->_internal_gaclubimpactpoint_hor();
-  uint32_t raw_gaclubimpactpoint_hor;
-  memcpy(&raw_gaclubimpactpoint_hor, &tmp_gaclubimpactpoint_hor, sizeof(tmp_gaclubimpactpoint_hor));
-  if (raw_gaclubimpactpoint_hor != 0) {
+  if (!(this->_internal_gaclubimpactpoint_hor() <= 0 && this->_internal_gaclubimpactpoint_hor() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_gaclubimpactpoint_hor(), target);
   }
 
   // float GAClubImpactPoint_Ver = 2;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_gaclubimpactpoint_ver = this->_internal_gaclubimpactpoint_ver();
-  uint32_t raw_gaclubimpactpoint_ver;
-  memcpy(&raw_gaclubimpactpoint_ver, &tmp_gaclubimpactpoint_ver, sizeof(tmp_gaclubimpactpoint_ver));
-  if (raw_gaclubimpactpoint_ver != 0) {
+  if (!(this->_internal_gaclubimpactpoint_ver() <= 0 && this->_internal_gaclubimpactpoint_ver() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_gaclubimpactpoint_ver(), target);
   }
@@ -2598,25 +2615,17 @@ size_t SensorRunningMsg_ClubPathInfo_ImpactPoint::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // float GAClubImpactPoint_Hor = 1;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_gaclubimpactpoint_hor = this->_internal_gaclubimpactpoint_hor();
-  uint32_t raw_gaclubimpactpoint_hor;
-  memcpy(&raw_gaclubimpactpoint_hor, &tmp_gaclubimpactpoint_hor, sizeof(tmp_gaclubimpactpoint_hor));
-  if (raw_gaclubimpactpoint_hor != 0) {
+  if (!(this->_internal_gaclubimpactpoint_hor() <= 0 && this->_internal_gaclubimpactpoint_hor() >= 0)) {
     total_size += 1 + 4;
   }
 
   // float GAClubImpactPoint_Ver = 2;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_gaclubimpactpoint_ver = this->_internal_gaclubimpactpoint_ver();
-  uint32_t raw_gaclubimpactpoint_ver;
-  memcpy(&raw_gaclubimpactpoint_ver, &tmp_gaclubimpactpoint_ver, sizeof(tmp_gaclubimpactpoint_ver));
-  if (raw_gaclubimpactpoint_ver != 0) {
+  if (!(this->_internal_gaclubimpactpoint_ver() <= 0 && this->_internal_gaclubimpactpoint_ver() >= 0)) {
     total_size += 1 + 4;
   }
 
@@ -2639,21 +2648,13 @@ void SensorRunningMsg_ClubPathInfo_ImpactPoint::MergeImpl(::PROTOBUF_NAMESPACE_I
 void SensorRunningMsg_ClubPathInfo_ImpactPoint::MergeFrom(const SensorRunningMsg_ClubPathInfo_ImpactPoint& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_gaclubimpactpoint_hor = from._internal_gaclubimpactpoint_hor();
-  uint32_t raw_gaclubimpactpoint_hor;
-  memcpy(&raw_gaclubimpactpoint_hor, &tmp_gaclubimpactpoint_hor, sizeof(tmp_gaclubimpactpoint_hor));
-  if (raw_gaclubimpactpoint_hor != 0) {
+  if (!(from._internal_gaclubimpactpoint_hor() <= 0 && from._internal_gaclubimpactpoint_hor() >= 0)) {
     _internal_set_gaclubimpactpoint_hor(from._internal_gaclubimpactpoint_hor());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_gaclubimpactpoint_ver = from._internal_gaclubimpactpoint_ver();
-  uint32_t raw_gaclubimpactpoint_ver;
-  memcpy(&raw_gaclubimpactpoint_ver, &tmp_gaclubimpactpoint_ver, sizeof(tmp_gaclubimpactpoint_ver));
-  if (raw_gaclubimpactpoint_ver != 0) {
+  if (!(from._internal_gaclubimpactpoint_ver() <= 0 && from._internal_gaclubimpactpoint_ver() >= 0)) {
     _internal_set_gaclubimpactpoint_ver(from._internal_gaclubimpactpoint_ver());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -2731,7 +2732,7 @@ SensorRunningMsg_ClubPathInfo::SensorRunningMsg_ClubPathInfo(const SensorRunning
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.ClubPathInfo)
 }
 
-inline void SensorRunningMsg_ClubPathInfo::SharedCtor() {
+void SensorRunningMsg_ClubPathInfo::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&path_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&attackangle_) -
@@ -2763,7 +2764,7 @@ void SensorRunningMsg_ClubPathInfo::SetCachedSize(int size) const {
 
 void SensorRunningMsg_ClubPathInfo::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorRunningMsg.ClubPathInfo)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2784,20 +2785,20 @@ void SensorRunningMsg_ClubPathInfo::Clear() {
 const char* SensorRunningMsg_ClubPathInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 shotId = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          shotid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          shotid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
       // float headSpeed = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
           headspeed_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -2805,7 +2806,7 @@ const char* SensorRunningMsg_ClubPathInfo::_InternalParse(const char* ptr, ::PRO
         continue;
       // .IntelliSwing.SensorRunningMsg.ClubPathInfo.Path path = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_path(), ptr);
           CHK_(ptr);
         } else
@@ -2813,7 +2814,7 @@ const char* SensorRunningMsg_ClubPathInfo::_InternalParse(const char* ptr, ::PRO
         continue;
       // float faceAngle = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 37)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
           faceangle_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -2821,7 +2822,7 @@ const char* SensorRunningMsg_ClubPathInfo::_InternalParse(const char* ptr, ::PRO
         continue;
       // float attackAngle = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 45)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
           attackangle_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -2829,7 +2830,7 @@ const char* SensorRunningMsg_ClubPathInfo::_InternalParse(const char* ptr, ::PRO
         continue;
       // .IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint impactPoint = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_impactpoint(), ptr);
           CHK_(ptr);
         } else
@@ -2858,10 +2859,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SensorRunningMsg_ClubPathInfo::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* SensorRunningMsg_ClubPathInfo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorRunningMsg.ClubPathInfo)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 shotId = 1;
@@ -2871,11 +2872,7 @@ uint8_t* SensorRunningMsg_ClubPathInfo::_InternalSerialize(
   }
 
   // float headSpeed = 2;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_headspeed = this->_internal_headspeed();
-  uint32_t raw_headspeed;
-  memcpy(&raw_headspeed, &tmp_headspeed, sizeof(tmp_headspeed));
-  if (raw_headspeed != 0) {
+  if (!(this->_internal_headspeed() <= 0 && this->_internal_headspeed() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_headspeed(), target);
   }
@@ -2889,21 +2886,13 @@ uint8_t* SensorRunningMsg_ClubPathInfo::_InternalSerialize(
   }
 
   // float faceAngle = 4;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_faceangle = this->_internal_faceangle();
-  uint32_t raw_faceangle;
-  memcpy(&raw_faceangle, &tmp_faceangle, sizeof(tmp_faceangle));
-  if (raw_faceangle != 0) {
+  if (!(this->_internal_faceangle() <= 0 && this->_internal_faceangle() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_faceangle(), target);
   }
 
   // float attackAngle = 5;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_attackangle = this->_internal_attackangle();
-  uint32_t raw_attackangle;
-  memcpy(&raw_attackangle, &tmp_attackangle, sizeof(tmp_attackangle));
-  if (raw_attackangle != 0) {
+  if (!(this->_internal_attackangle() <= 0 && this->_internal_attackangle() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_attackangle(), target);
   }
@@ -2928,7 +2917,7 @@ size_t SensorRunningMsg_ClubPathInfo::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorRunningMsg.ClubPathInfo)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2952,29 +2941,17 @@ size_t SensorRunningMsg_ClubPathInfo::ByteSizeLong() const {
   }
 
   // float headSpeed = 2;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_headspeed = this->_internal_headspeed();
-  uint32_t raw_headspeed;
-  memcpy(&raw_headspeed, &tmp_headspeed, sizeof(tmp_headspeed));
-  if (raw_headspeed != 0) {
+  if (!(this->_internal_headspeed() <= 0 && this->_internal_headspeed() >= 0)) {
     total_size += 1 + 4;
   }
 
   // float faceAngle = 4;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_faceangle = this->_internal_faceangle();
-  uint32_t raw_faceangle;
-  memcpy(&raw_faceangle, &tmp_faceangle, sizeof(tmp_faceangle));
-  if (raw_faceangle != 0) {
+  if (!(this->_internal_faceangle() <= 0 && this->_internal_faceangle() >= 0)) {
     total_size += 1 + 4;
   }
 
   // float attackAngle = 5;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_attackangle = this->_internal_attackangle();
-  uint32_t raw_attackangle;
-  memcpy(&raw_attackangle, &tmp_attackangle, sizeof(tmp_attackangle));
-  if (raw_attackangle != 0) {
+  if (!(this->_internal_attackangle() <= 0 && this->_internal_attackangle() >= 0)) {
     total_size += 1 + 4;
   }
 
@@ -2997,7 +2974,7 @@ void SensorRunningMsg_ClubPathInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* 
 void SensorRunningMsg_ClubPathInfo::MergeFrom(const SensorRunningMsg_ClubPathInfo& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorRunningMsg.ClubPathInfo)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_path()) {
@@ -3009,25 +2986,13 @@ void SensorRunningMsg_ClubPathInfo::MergeFrom(const SensorRunningMsg_ClubPathInf
   if (from._internal_shotid() != 0) {
     _internal_set_shotid(from._internal_shotid());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_headspeed = from._internal_headspeed();
-  uint32_t raw_headspeed;
-  memcpy(&raw_headspeed, &tmp_headspeed, sizeof(tmp_headspeed));
-  if (raw_headspeed != 0) {
+  if (!(from._internal_headspeed() <= 0 && from._internal_headspeed() >= 0)) {
     _internal_set_headspeed(from._internal_headspeed());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_faceangle = from._internal_faceangle();
-  uint32_t raw_faceangle;
-  memcpy(&raw_faceangle, &tmp_faceangle, sizeof(tmp_faceangle));
-  if (raw_faceangle != 0) {
+  if (!(from._internal_faceangle() <= 0 && from._internal_faceangle() >= 0)) {
     _internal_set_faceangle(from._internal_faceangle());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_attackangle = from._internal_attackangle();
-  uint32_t raw_attackangle;
-  memcpy(&raw_attackangle, &tmp_attackangle, sizeof(tmp_attackangle));
-  if (raw_attackangle != 0) {
+  if (!(from._internal_attackangle() <= 0 && from._internal_attackangle() >= 0)) {
     _internal_set_attackangle(from._internal_attackangle());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -3224,7 +3189,7 @@ SensorRunningMsg::SensorRunningMsg(const SensorRunningMsg& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg)
 }
 
-inline void SensorRunningMsg::SharedCtor() {
+void SensorRunningMsg::SharedCtor() {
 timestamp_ = nullptr;
 clear_has_runState();
 }
@@ -3297,7 +3262,7 @@ void SensorRunningMsg::clear_runState() {
 
 void SensorRunningMsg::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorRunningMsg)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3312,12 +3277,12 @@ void SensorRunningMsg::Clear() {
 const char* SensorRunningMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .google.protobuf.Timestamp timeStamp = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_timestamp(), ptr);
           CHK_(ptr);
         } else
@@ -3325,7 +3290,7 @@ const char* SensorRunningMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         continue;
       // .IntelliSwing.SensorRunningMsg.Ready ready = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_ready(), ptr);
           CHK_(ptr);
         } else
@@ -3333,7 +3298,7 @@ const char* SensorRunningMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         continue;
       // .IntelliSwing.SensorRunningMsg.NotReady notReady = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_notready(), ptr);
           CHK_(ptr);
         } else
@@ -3341,7 +3306,7 @@ const char* SensorRunningMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         continue;
       // .IntelliSwing.SensorRunningMsg.ShortTriggered shotTriggered = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_shottriggered(), ptr);
           CHK_(ptr);
         } else
@@ -3349,7 +3314,7 @@ const char* SensorRunningMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         continue;
       // .IntelliSwing.SensorRunningMsg.BallFlightInfo ballInfo = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_ballinfo(), ptr);
           CHK_(ptr);
         } else
@@ -3357,7 +3322,7 @@ const char* SensorRunningMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         continue;
       // .IntelliSwing.SensorRunningMsg.ClubPathInfo clubInfo = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_clubinfo(), ptr);
           CHK_(ptr);
         } else
@@ -3386,10 +3351,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SensorRunningMsg::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* SensorRunningMsg::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorRunningMsg)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .google.protobuf.Timestamp timeStamp = 1;
@@ -3452,7 +3417,7 @@ size_t SensorRunningMsg::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorRunningMsg)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3522,7 +3487,7 @@ void SensorRunningMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SensorRunningMsg::MergeFrom(const SensorRunningMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorRunningMsg)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_timestamp()) {
@@ -3603,7 +3568,7 @@ ShotImageRequest::ShotImageRequest(const ShotImageRequest& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.ShotImageRequest)
 }
 
-inline void ShotImageRequest::SharedCtor() {
+void ShotImageRequest::SharedCtor() {
 shotid_ = 0;
 }
 
@@ -3630,7 +3595,7 @@ void ShotImageRequest::SetCachedSize(int size) const {
 
 void ShotImageRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.ShotImageRequest)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3641,13 +3606,13 @@ void ShotImageRequest::Clear() {
 const char* ShotImageRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 shotId = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          shotid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          shotid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3675,10 +3640,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* ShotImageRequest::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* ShotImageRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.ShotImageRequest)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 shotId = 1;
@@ -3699,7 +3664,7 @@ size_t ShotImageRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.ShotImageRequest)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3727,7 +3692,7 @@ void ShotImageRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void ShotImageRequest::MergeFrom(const ShotImageRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.ShotImageRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_shotid() != 0) {
@@ -3789,9 +3754,6 @@ ImageData_Image_Marker::ImageData_Image_Marker(const ImageData_Image_Marker& fro
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   tag_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    tag_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_tag().empty()) {
     tag_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_tag(), 
       GetArenaForAllocation());
@@ -3804,11 +3766,8 @@ ImageData_Image_Marker::ImageData_Image_Marker(const ImageData_Image_Marker& fro
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.ImageData.Image.Marker)
 }
 
-inline void ImageData_Image_Marker::SharedCtor() {
+void ImageData_Image_Marker::SharedCtor() {
 tag_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  tag_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 position_ = nullptr;
 }
 
@@ -3837,7 +3796,7 @@ void ImageData_Image_Marker::SetCachedSize(int size) const {
 
 void ImageData_Image_Marker::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.ImageData.Image.Marker)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3852,12 +3811,12 @@ void ImageData_Image_Marker::Clear() {
 const char* ImageData_Image_Marker::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .IntelliSwing.Point2i position = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_position(), ptr);
           CHK_(ptr);
         } else
@@ -3865,7 +3824,7 @@ const char* ImageData_Image_Marker::_InternalParse(const char* ptr, ::PROTOBUF_N
         continue;
       // string tag = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_tag();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IntelliSwing.ImageData.Image.Marker.tag"));
@@ -3896,10 +3855,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* ImageData_Image_Marker::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* ImageData_Image_Marker::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.ImageData.Image.Marker)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .IntelliSwing.Point2i position = 1;
@@ -3932,7 +3891,7 @@ size_t ImageData_Image_Marker::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.ImageData.Image.Marker)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3969,7 +3928,7 @@ void ImageData_Image_Marker::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void ImageData_Image_Marker::MergeFrom(const ImageData_Image_Marker& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.ImageData.Image.Marker)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_tag().empty()) {
@@ -4032,17 +3991,11 @@ ImageData_Image::ImageData_Image(const ImageData_Image& from)
       markers_(from.markers_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_data().empty()) {
     data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_data(), 
       GetArenaForAllocation());
   }
   tag_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    tag_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_tag().empty()) {
     tag_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_tag(), 
       GetArenaForAllocation());
@@ -4051,15 +4004,9 @@ ImageData_Image::ImageData_Image(const ImageData_Image& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.ImageData.Image)
 }
 
-inline void ImageData_Image::SharedCtor() {
+void ImageData_Image::SharedCtor() {
 data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 tag_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  tag_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 timestamp_ = uint64_t{0u};
 }
 
@@ -4088,7 +4035,7 @@ void ImageData_Image::SetCachedSize(int size) const {
 
 void ImageData_Image::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.ImageData.Image)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4102,12 +4049,12 @@ void ImageData_Image::Clear() {
 const char* ImageData_Image::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bytes data = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_data();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -4116,7 +4063,7 @@ const char* ImageData_Image::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
         continue;
       // uint64 timeStamp = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
@@ -4124,7 +4071,7 @@ const char* ImageData_Image::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
         continue;
       // string tag = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_tag();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IntelliSwing.ImageData.Image.tag"));
@@ -4134,7 +4081,7 @@ const char* ImageData_Image::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
         continue;
       // repeated .IntelliSwing.ImageData.Image.Marker markers = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -4168,10 +4115,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* ImageData_Image::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* ImageData_Image::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.ImageData.Image)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bytes data = 2;
@@ -4216,7 +4163,7 @@ size_t ImageData_Image::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.ImageData.Image)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4265,7 +4212,7 @@ void ImageData_Image::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void ImageData_Image::MergeFrom(const ImageData_Image& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.ImageData.Image)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   markers_.MergeFrom(from.markers_);
@@ -4343,7 +4290,7 @@ ImageData::ImageData(const ImageData& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.ImageData)
 }
 
-inline void ImageData::SharedCtor() {
+void ImageData::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&width_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&fps_) -
@@ -4373,7 +4320,7 @@ void ImageData::SetCachedSize(int size) const {
 
 void ImageData::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.ImageData)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4387,52 +4334,52 @@ void ImageData::Clear() {
 const char* ImageData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 width = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
       // int32 height = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
       // int32 channel = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          channel_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          channel_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
       // int32 data_type = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          data_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          data_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
       // int32 image_type = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          image_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          image_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
       // float fps = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 53)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53)) {
           fps_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -4440,7 +4387,7 @@ const char* ImageData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
         continue;
       // repeated .IntelliSwing.ImageData.Image datas = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -4474,10 +4421,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* ImageData::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* ImageData::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.ImageData)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 width = 1;
@@ -4511,11 +4458,7 @@ uint8_t* ImageData::_InternalSerialize(
   }
 
   // float fps = 6;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_fps = this->_internal_fps();
-  uint32_t raw_fps;
-  memcpy(&raw_fps, &tmp_fps, sizeof(tmp_fps));
-  if (raw_fps != 0) {
+  if (!(this->_internal_fps() <= 0 && this->_internal_fps() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_fps(), target);
   }
@@ -4540,7 +4483,7 @@ size_t ImageData::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.ImageData)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4577,11 +4520,7 @@ size_t ImageData::ByteSizeLong() const {
   }
 
   // float fps = 6;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_fps = this->_internal_fps();
-  uint32_t raw_fps;
-  memcpy(&raw_fps, &tmp_fps, sizeof(tmp_fps));
-  if (raw_fps != 0) {
+  if (!(this->_internal_fps() <= 0 && this->_internal_fps() >= 0)) {
     total_size += 1 + 4;
   }
 
@@ -4604,7 +4543,7 @@ void ImageData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void ImageData::MergeFrom(const ImageData& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.ImageData)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   datas_.MergeFrom(from.datas_);
@@ -4623,11 +4562,7 @@ void ImageData::MergeFrom(const ImageData& from) {
   if (from._internal_image_type() != 0) {
     _internal_set_image_type(from._internal_image_type());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_fps = from._internal_fps();
-  uint32_t raw_fps;
-  memcpy(&raw_fps, &tmp_fps, sizeof(tmp_fps));
-  if (raw_fps != 0) {
+  if (!(from._internal_fps() <= 0 && from._internal_fps() >= 0)) {
     _internal_set_fps(from._internal_fps());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -4660,6 +4595,842 @@ void ImageData::InternalSwap(ImageData* other) {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
       file_level_metadata_IntelliSwingInterface_2eproto[14]);
+}
+
+// ===================================================================
+
+class DebugImage_Image::_Internal {
+ public:
+};
+
+DebugImage_Image::DebugImage_Image(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:IntelliSwing.DebugImage.Image)
+}
+DebugImage_Image::DebugImage_Image(const DebugImage_Image& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_data().empty()) {
+    data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_data(), 
+      GetArenaForAllocation());
+  }
+  ::memcpy(&id_, &from.id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&image_type_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(image_type_));
+  // @@protoc_insertion_point(copy_constructor:IntelliSwing.DebugImage.Image)
+}
+
+void DebugImage_Image::SharedCtor() {
+data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&image_type_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(image_type_));
+}
+
+DebugImage_Image::~DebugImage_Image() {
+  // @@protoc_insertion_point(destructor:IntelliSwing.DebugImage.Image)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void DebugImage_Image::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void DebugImage_Image::ArenaDtor(void* object) {
+  DebugImage_Image* _this = reinterpret_cast< DebugImage_Image* >(object);
+  (void)_this;
+}
+void DebugImage_Image::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DebugImage_Image::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DebugImage_Image::Clear() {
+// @@protoc_insertion_point(message_clear_start:IntelliSwing.DebugImage.Image)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  data_.ClearToEmpty();
+  ::memset(&id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&image_type_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(image_type_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DebugImage_Image::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes data = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_data();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 timeStamp = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 width = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 height = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 channel = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          channel_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 data_type = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          data_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 image_type = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          image_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DebugImage_Image::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.DebugImage.Image)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 id = 1;
+  if (this->_internal_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_id(), target);
+  }
+
+  // bytes data = 2;
+  if (!this->_internal_data().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_data(), target);
+  }
+
+  // uint64 timeStamp = 3;
+  if (this->_internal_timestamp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_timestamp(), target);
+  }
+
+  // int32 width = 4;
+  if (this->_internal_width() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_width(), target);
+  }
+
+  // int32 height = 5;
+  if (this->_internal_height() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_height(), target);
+  }
+
+  // int32 channel = 6;
+  if (this->_internal_channel() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_channel(), target);
+  }
+
+  // int32 data_type = 7;
+  if (this->_internal_data_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(7, this->_internal_data_type(), target);
+  }
+
+  // int32 image_type = 8;
+  if (this->_internal_image_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(8, this->_internal_image_type(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IntelliSwing.DebugImage.Image)
+  return target;
+}
+
+size_t DebugImage_Image::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IntelliSwing.DebugImage.Image)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes data = 2;
+  if (!this->_internal_data().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_data());
+  }
+
+  // int32 id = 1;
+  if (this->_internal_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_id());
+  }
+
+  // int32 width = 4;
+  if (this->_internal_width() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_width());
+  }
+
+  // uint64 timeStamp = 3;
+  if (this->_internal_timestamp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_timestamp());
+  }
+
+  // int32 height = 5;
+  if (this->_internal_height() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_height());
+  }
+
+  // int32 channel = 6;
+  if (this->_internal_channel() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_channel());
+  }
+
+  // int32 data_type = 7;
+  if (this->_internal_data_type() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_data_type());
+  }
+
+  // int32 image_type = 8;
+  if (this->_internal_image_type() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_image_type());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DebugImage_Image::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    DebugImage_Image::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DebugImage_Image::GetClassData() const { return &_class_data_; }
+
+void DebugImage_Image::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<DebugImage_Image *>(to)->MergeFrom(
+      static_cast<const DebugImage_Image &>(from));
+}
+
+
+void DebugImage_Image::MergeFrom(const DebugImage_Image& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.DebugImage.Image)
+  GOOGLE_DCHECK_NE(&from, this);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_data().empty()) {
+    _internal_set_data(from._internal_data());
+  }
+  if (from._internal_id() != 0) {
+    _internal_set_id(from._internal_id());
+  }
+  if (from._internal_width() != 0) {
+    _internal_set_width(from._internal_width());
+  }
+  if (from._internal_timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
+  }
+  if (from._internal_height() != 0) {
+    _internal_set_height(from._internal_height());
+  }
+  if (from._internal_channel() != 0) {
+    _internal_set_channel(from._internal_channel());
+  }
+  if (from._internal_data_type() != 0) {
+    _internal_set_data_type(from._internal_data_type());
+  }
+  if (from._internal_image_type() != 0) {
+    _internal_set_image_type(from._internal_image_type());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DebugImage_Image::CopyFrom(const DebugImage_Image& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IntelliSwing.DebugImage.Image)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DebugImage_Image::IsInitialized() const {
+  return true;
+}
+
+void DebugImage_Image::InternalSwap(DebugImage_Image* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &data_, lhs_arena,
+      &other->data_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DebugImage_Image, image_type_)
+      + sizeof(DebugImage_Image::image_type_)
+      - PROTOBUF_FIELD_OFFSET(DebugImage_Image, id_)>(
+          reinterpret_cast<char*>(&id_),
+          reinterpret_cast<char*>(&other->id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DebugImage_Image::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
+      file_level_metadata_IntelliSwingInterface_2eproto[15]);
+}
+
+// ===================================================================
+
+class DebugImage::_Internal {
+ public:
+};
+
+DebugImage::DebugImage(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  datas_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:IntelliSwing.DebugImage)
+}
+DebugImage::DebugImage(const DebugImage& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      datas_(from.datas_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  fps_ = from.fps_;
+  // @@protoc_insertion_point(copy_constructor:IntelliSwing.DebugImage)
+}
+
+void DebugImage::SharedCtor() {
+fps_ = 0;
+}
+
+DebugImage::~DebugImage() {
+  // @@protoc_insertion_point(destructor:IntelliSwing.DebugImage)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void DebugImage::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void DebugImage::ArenaDtor(void* object) {
+  DebugImage* _this = reinterpret_cast< DebugImage* >(object);
+  (void)_this;
+}
+void DebugImage::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DebugImage::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DebugImage::Clear() {
+// @@protoc_insertion_point(message_clear_start:IntelliSwing.DebugImage)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  datas_.Clear();
+  fps_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DebugImage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // float fps = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53)) {
+          fps_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .IntelliSwing.DebugImage.Image datas = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_datas(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DebugImage::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.DebugImage)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // float fps = 6;
+  if (!(this->_internal_fps() <= 0 && this->_internal_fps() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_fps(), target);
+  }
+
+  // repeated .IntelliSwing.DebugImage.Image datas = 7;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_datas_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(7, this->_internal_datas(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IntelliSwing.DebugImage)
+  return target;
+}
+
+size_t DebugImage::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IntelliSwing.DebugImage)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .IntelliSwing.DebugImage.Image datas = 7;
+  total_size += 1UL * this->_internal_datas_size();
+  for (const auto& msg : this->datas_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // float fps = 6;
+  if (!(this->_internal_fps() <= 0 && this->_internal_fps() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DebugImage::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    DebugImage::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DebugImage::GetClassData() const { return &_class_data_; }
+
+void DebugImage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<DebugImage *>(to)->MergeFrom(
+      static_cast<const DebugImage &>(from));
+}
+
+
+void DebugImage::MergeFrom(const DebugImage& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.DebugImage)
+  GOOGLE_DCHECK_NE(&from, this);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  datas_.MergeFrom(from.datas_);
+  if (!(from._internal_fps() <= 0 && from._internal_fps() >= 0)) {
+    _internal_set_fps(from._internal_fps());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DebugImage::CopyFrom(const DebugImage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IntelliSwing.DebugImage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DebugImage::IsInitialized() const {
+  return true;
+}
+
+void DebugImage::InternalSwap(DebugImage* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  datas_.InternalSwap(&other->datas_);
+  swap(fps_, other->fps_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DebugImage::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
+      file_level_metadata_IntelliSwingInterface_2eproto[16]);
+}
+
+// ===================================================================
+
+class CMessage::_Internal {
+ public:
+};
+
+CMessage::CMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  param_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:IntelliSwing.CMessage)
+}
+CMessage::CMessage(const CMessage& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      param_(from.param_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_message().empty()) {
+    message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_message(), 
+      GetArenaForAllocation());
+  }
+  command_ = from.command_;
+  // @@protoc_insertion_point(copy_constructor:IntelliSwing.CMessage)
+}
+
+void CMessage::SharedCtor() {
+message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+command_ = 0;
+}
+
+CMessage::~CMessage() {
+  // @@protoc_insertion_point(destructor:IntelliSwing.CMessage)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void CMessage::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CMessage::ArenaDtor(void* object) {
+  CMessage* _this = reinterpret_cast< CMessage* >(object);
+  (void)_this;
+}
+void CMessage::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMessage::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:IntelliSwing.CMessage)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  param_.Clear();
+  message_.ClearToEmpty();
+  command_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 command = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          command_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated int32 param = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_param(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
+          _internal_add_param(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string message = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_message();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IntelliSwing.CMessage.message"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMessage::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.CMessage)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 command = 1;
+  if (this->_internal_command() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_command(), target);
+  }
+
+  // repeated int32 param = 2;
+  {
+    int byte_size = _param_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt32Packed(
+          2, _internal_param(), byte_size, target);
+    }
+  }
+
+  // string message = 3;
+  if (!this->_internal_message().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_message().data(), static_cast<int>(this->_internal_message().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "IntelliSwing.CMessage.message");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_message(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IntelliSwing.CMessage)
+  return target;
+}
+
+size_t CMessage::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IntelliSwing.CMessage)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated int32 param = 2;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      Int32Size(this->param_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _param_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // string message = 3;
+  if (!this->_internal_message().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_message());
+  }
+
+  // int32 command = 1;
+  if (this->_internal_command() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_command());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMessage::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CMessage::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMessage::GetClassData() const { return &_class_data_; }
+
+void CMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CMessage *>(to)->MergeFrom(
+      static_cast<const CMessage &>(from));
+}
+
+
+void CMessage::MergeFrom(const CMessage& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.CMessage)
+  GOOGLE_DCHECK_NE(&from, this);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  param_.MergeFrom(from.param_);
+  if (!from._internal_message().empty()) {
+    _internal_set_message(from._internal_message());
+  }
+  if (from._internal_command() != 0) {
+    _internal_set_command(from._internal_command());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMessage::CopyFrom(const CMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IntelliSwing.CMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMessage::IsInitialized() const {
+  return true;
+}
+
+void CMessage::InternalSwap(CMessage* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  param_.InternalSwap(&other->param_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &message_, lhs_arena,
+      &other->message_, rhs_arena
+  );
+  swap(command_, other->command_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMessage::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_IntelliSwingInterface_2eproto_getter, &descriptor_table_IntelliSwingInterface_2eproto_once,
+      file_level_metadata_IntelliSwingInterface_2eproto[17]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -4709,6 +5480,15 @@ template<> PROTOBUF_NOINLINE ::IntelliSwing::ImageData_Image* Arena::CreateMaybe
 }
 template<> PROTOBUF_NOINLINE ::IntelliSwing::ImageData* Arena::CreateMaybeMessage< ::IntelliSwing::ImageData >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IntelliSwing::ImageData >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IntelliSwing::DebugImage_Image* Arena::CreateMaybeMessage< ::IntelliSwing::DebugImage_Image >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IntelliSwing::DebugImage_Image >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IntelliSwing::DebugImage* Arena::CreateMaybeMessage< ::IntelliSwing::DebugImage >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IntelliSwing::DebugImage >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IntelliSwing::CMessage* Arena::CreateMaybeMessage< ::IntelliSwing::CMessage >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IntelliSwing::CMessage >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

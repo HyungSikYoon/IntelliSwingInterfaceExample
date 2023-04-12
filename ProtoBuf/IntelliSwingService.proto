@@ -27,7 +27,15 @@ message SiteCalibrationRequest
 
 message CameraImageRequest
 {
-	int32 type = 1;
+	int32 camId = 1;
+	float exposure = 2; // ms 
+	float gain = 3;
+}
+
+message DebugImageRequest
+{
+	repeated int32  channel = 1;
+	string key				= 2;
 }
 
 
@@ -53,7 +61,14 @@ message LogMessage
 
 message SensorStatistics
 {
-	int32 shot_count = 1;
+	uint64 total_shot_count		= 1;
+	uint64 total_trigger_count	= 2;
+	uint64 total_missing_count	= 3;
+
+	uint64 shot_count			= 4;
+	uint64 trigger_count		= 5;
+	uint64 missing_count		= 6;
+
 }
 
 message SiteCalibrationResult
@@ -73,3 +88,14 @@ message UpdateFirmwareResult
 	ReturnMsg SensorSW	= 2;
 }
 
+message TimeRequest
+{
+	int32 year = 1;
+	int32 month = 2;
+	int32 day = 3;
+	int32 hour = 4;
+	int32 min = 5;
+	int32 sec = 6;
+	int32 msec = 7;
+
+}

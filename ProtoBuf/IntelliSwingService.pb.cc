@@ -60,7 +60,9 @@ struct SiteCalibrationRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SiteCalibrationRequestDefaultTypeInternal _SiteCalibrationRequest_default_instance_;
 constexpr CameraImageRequest::CameraImageRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : type_(0){}
+  : camid_(0)
+  , exposure_(0)
+  , gain_(0){}
 struct CameraImageRequestDefaultTypeInternal {
   constexpr CameraImageRequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -70,6 +72,20 @@ struct CameraImageRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CameraImageRequestDefaultTypeInternal _CameraImageRequest_default_instance_;
+constexpr DebugImageRequest::DebugImageRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : channel_()
+  , _channel_cached_byte_size_(0)
+  , key_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct DebugImageRequestDefaultTypeInternal {
+  constexpr DebugImageRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DebugImageRequestDefaultTypeInternal() {}
+  union {
+    DebugImageRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DebugImageRequestDefaultTypeInternal _DebugImageRequest_default_instance_;
 constexpr DeviceStatus::DeviceStatus(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : sensorstate_()
@@ -113,7 +129,12 @@ struct LogMessageDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT LogMessageDefaultTypeInternal _LogMessage_default_instance_;
 constexpr SensorStatistics::SensorStatistics(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : shot_count_(0){}
+  : total_shot_count_(uint64_t{0u})
+  , total_trigger_count_(uint64_t{0u})
+  , total_missing_count_(uint64_t{0u})
+  , shot_count_(uint64_t{0u})
+  , trigger_count_(uint64_t{0u})
+  , missing_count_(uint64_t{0u}){}
 struct SensorStatisticsDefaultTypeInternal {
   constexpr SensorStatisticsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -161,12 +182,30 @@ struct UpdateFirmwareResultDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UpdateFirmwareResultDefaultTypeInternal _UpdateFirmwareResult_default_instance_;
+constexpr TimeRequest::TimeRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : year_(0)
+  , month_(0)
+  , day_(0)
+  , hour_(0)
+  , min_(0)
+  , sec_(0)
+  , msec_(0){}
+struct TimeRequestDefaultTypeInternal {
+  constexpr TimeRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~TimeRequestDefaultTypeInternal() {}
+  union {
+    TimeRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT TimeRequestDefaultTypeInternal _TimeRequest_default_instance_;
 }  // namespace IntelliSwing
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_IntelliSwingService_2eproto[11];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_IntelliSwingService_2eproto[13];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_IntelliSwingService_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_IntelliSwingService_2eproto = nullptr;
 
-const uint32_t TableStruct_IntelliSwingService_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_IntelliSwingService_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::DeviceInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -199,7 +238,17 @@ const uint32_t TableStruct_IntelliSwingService_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::IntelliSwing::CameraImageRequest, type_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::CameraImageRequest, camid_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::CameraImageRequest, exposure_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::CameraImageRequest, gain_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImageRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImageRequest, channel_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::DebugImageRequest, key_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::DeviceStatus, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -232,7 +281,12 @@ const uint32_t TableStruct_IntelliSwingService_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorStatistics, total_shot_count_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorStatistics, total_trigger_count_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorStatistics, total_missing_count_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorStatistics, shot_count_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorStatistics, trigger_count_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorStatistics, missing_count_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SiteCalibrationResult, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -256,19 +310,34 @@ const uint32_t TableStruct_IntelliSwingService_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::UpdateFirmwareResult, fpgastate_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::UpdateFirmwareResult, sensorsw_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::TimeRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::TimeRequest, year_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::TimeRequest, month_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::TimeRequest, day_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::TimeRequest, hour_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::TimeRequest, min_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::TimeRequest, sec_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::TimeRequest, msec_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::IntelliSwing::DeviceInfo)},
   { 12, -1, -1, sizeof(::IntelliSwing::StatisticsRequest)},
   { 19, -1, -1, sizeof(::IntelliSwing::SiteCalibrationRequest)},
   { 26, -1, -1, sizeof(::IntelliSwing::CameraImageRequest)},
-  { 33, -1, -1, sizeof(::IntelliSwing::DeviceStatus)},
-  { 43, -1, -1, sizeof(::IntelliSwing::LogRequest)},
-  { 51, -1, -1, sizeof(::IntelliSwing::LogMessage)},
-  { 59, -1, -1, sizeof(::IntelliSwing::SensorStatistics)},
-  { 66, -1, -1, sizeof(::IntelliSwing::SiteCalibrationResult)},
-  { 73, -1, -1, sizeof(::IntelliSwing::UpdateFirmwareRequest)},
-  { 81, -1, -1, sizeof(::IntelliSwing::UpdateFirmwareResult)},
+  { 35, -1, -1, sizeof(::IntelliSwing::DebugImageRequest)},
+  { 43, -1, -1, sizeof(::IntelliSwing::DeviceStatus)},
+  { 53, -1, -1, sizeof(::IntelliSwing::LogRequest)},
+  { 61, -1, -1, sizeof(::IntelliSwing::LogMessage)},
+  { 69, -1, -1, sizeof(::IntelliSwing::SensorStatistics)},
+  { 81, -1, -1, sizeof(::IntelliSwing::SiteCalibrationResult)},
+  { 88, -1, -1, sizeof(::IntelliSwing::UpdateFirmwareRequest)},
+  { 96, -1, -1, sizeof(::IntelliSwing::UpdateFirmwareResult)},
+  { 104, -1, -1, sizeof(::IntelliSwing::TimeRequest)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -276,6 +345,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_StatisticsRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_SiteCalibrationRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_CameraImageRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_DebugImageRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_DeviceStatus_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_LogRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_LogMessage_default_instance_),
@@ -283,6 +353,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_SiteCalibrationResult_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_UpdateFirmwareRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_UpdateFirmwareResult_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IntelliSwing::_TimeRequest_default_instance_),
 };
 
 const char descriptor_table_protodef_IntelliSwingService_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -292,30 +363,38 @@ const char descriptor_table_protodef_IntelliSwingService_2eproto[] PROTOBUF_SECT
   "\003 \001(\t\022\024\n\014serialNumber\030\004 \001(\t\022\022\n\nsensorNam"
   "e\030\005 \001(\t\022\020\n\010handType\030\006 \001(\005\"!\n\021StatisticsR"
   "equest\022\014\n\004type\030\001 \001(\005\"&\n\026SiteCalibrationR"
-  "equest\022\014\n\004type\030\001 \001(\005\"\"\n\022CameraImageReque"
-  "st\022\014\n\004type\030\001 \001(\005\"\232\001\n\014DeviceStatus\022,\n\013sen"
-  "sorState\030\001 \003(\0132\027.IntelliSwing.ReturnMsg\022"
-  ",\n\013systemState\030\002 \001(\0132\027.IntelliSwing.Retu"
-  "rnMsg\022\031\n\021deviceTemperature\030\005 \001(\002\022\023\n\013batt"
-  "eryInfo\030\006 \001(\002\"=\n\nLogRequest\022\023\n\013systemRan"
-  "ge\030\001 \001(\005\022\032\n\022processingLogrange\030\002 \001(\005\"6\n\n"
-  "LogMessage\022\021\n\tsystemLog\030\001 \003(\t\022\025\n\rprocess"
-  "ingLog\030\002 \003(\t\"&\n\020SensorStatistics\022\022\n\nshot"
-  "_count\030\001 \001(\005\"\?\n\025SiteCalibrationResult\022&\n"
-  "\005state\030\001 \001(\0132\027.IntelliSwing.ReturnMsg\"E\n"
-  "\025UpdateFirmwareRequest\022\026\n\016sensorFirmware"
-  "\030\001 \001(\014\022\024\n\014fpgaFirmware\030\002 \001(\014\"m\n\024UpdateFi"
-  "rmwareResult\022*\n\tFpgaState\030\001 \001(\0132\027.Intell"
-  "iSwing.ReturnMsg\022)\n\010SensorSW\030\002 \001(\0132\027.Int"
-  "elliSwing.ReturnMsgb\006proto3"
+  "equest\022\014\n\004type\030\001 \001(\005\"C\n\022CameraImageReque"
+  "st\022\r\n\005camId\030\001 \001(\005\022\020\n\010exposure\030\002 \001(\002\022\014\n\004g"
+  "ain\030\003 \001(\002\"1\n\021DebugImageRequest\022\017\n\007channe"
+  "l\030\001 \003(\005\022\013\n\003key\030\002 \001(\t\"\232\001\n\014DeviceStatus\022,\n"
+  "\013sensorState\030\001 \003(\0132\027.IntelliSwing.Return"
+  "Msg\022,\n\013systemState\030\002 \001(\0132\027.IntelliSwing."
+  "ReturnMsg\022\031\n\021deviceTemperature\030\005 \001(\002\022\023\n\013"
+  "batteryInfo\030\006 \001(\002\"=\n\nLogRequest\022\023\n\013syste"
+  "mRange\030\001 \001(\005\022\032\n\022processingLogrange\030\002 \001(\005"
+  "\"6\n\nLogMessage\022\021\n\tsystemLog\030\001 \003(\t\022\025\n\rpro"
+  "cessingLog\030\002 \003(\t\"\250\001\n\020SensorStatistics\022\030\n"
+  "\020total_shot_count\030\001 \001(\004\022\033\n\023total_trigger"
+  "_count\030\002 \001(\004\022\033\n\023total_missing_count\030\003 \001("
+  "\004\022\022\n\nshot_count\030\004 \001(\004\022\025\n\rtrigger_count\030\005"
+  " \001(\004\022\025\n\rmissing_count\030\006 \001(\004\"\?\n\025SiteCalib"
+  "rationResult\022&\n\005state\030\001 \001(\0132\027.IntelliSwi"
+  "ng.ReturnMsg\"E\n\025UpdateFirmwareRequest\022\026\n"
+  "\016sensorFirmware\030\001 \001(\014\022\024\n\014fpgaFirmware\030\002 "
+  "\001(\014\"m\n\024UpdateFirmwareResult\022*\n\tFpgaState"
+  "\030\001 \001(\0132\027.IntelliSwing.ReturnMsg\022)\n\010Senso"
+  "rSW\030\002 \001(\0132\027.IntelliSwing.ReturnMsg\"m\n\013Ti"
+  "meRequest\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013"
+  "\n\003day\030\003 \001(\005\022\014\n\004hour\030\004 \001(\005\022\013\n\003min\030\005 \001(\005\022\013"
+  "\n\003sec\030\006 \001(\005\022\014\n\004msec\030\007 \001(\005b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_IntelliSwingService_2eproto_deps[1] = {
   &::descriptor_table_type_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_IntelliSwingService_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_IntelliSwingService_2eproto = {
-  false, false, 867, descriptor_table_protodef_IntelliSwingService_2eproto, "IntelliSwingService.proto", 
-  &descriptor_table_IntelliSwingService_2eproto_once, descriptor_table_IntelliSwingService_2eproto_deps, 1, 11,
+  false, false, 1193, descriptor_table_protodef_IntelliSwingService_2eproto, "IntelliSwingService.proto", 
+  &descriptor_table_IntelliSwingService_2eproto_once, descriptor_table_IntelliSwingService_2eproto_deps, 1, 13,
   schemas, file_default_instances, TableStruct_IntelliSwingService_2eproto::offsets,
   file_level_metadata_IntelliSwingService_2eproto, file_level_enum_descriptors_IntelliSwingService_2eproto, file_level_service_descriptors_IntelliSwingService_2eproto,
 };
@@ -346,41 +425,26 @@ DeviceInfo::DeviceInfo(const DeviceInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   devicever_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    devicever_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_devicever().empty()) {
     devicever_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_devicever(), 
       GetArenaForAllocation());
   }
   fpgaver_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    fpgaver_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_fpgaver().empty()) {
     fpgaver_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_fpgaver(), 
       GetArenaForAllocation());
   }
   softwarever_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    softwarever_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_softwarever().empty()) {
     softwarever_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_softwarever(), 
       GetArenaForAllocation());
   }
   serialnumber_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    serialnumber_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_serialnumber().empty()) {
     serialnumber_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_serialnumber(), 
       GetArenaForAllocation());
   }
   sensorname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    sensorname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_sensorname().empty()) {
     sensorname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_sensorname(), 
       GetArenaForAllocation());
@@ -389,27 +453,12 @@ DeviceInfo::DeviceInfo(const DeviceInfo& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.DeviceInfo)
 }
 
-inline void DeviceInfo::SharedCtor() {
+void DeviceInfo::SharedCtor() {
 devicever_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  devicever_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 fpgaver_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  fpgaver_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 softwarever_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  softwarever_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 serialnumber_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  serialnumber_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 sensorname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  sensorname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 handtype_ = 0;
 }
 
@@ -441,7 +490,7 @@ void DeviceInfo::SetCachedSize(int size) const {
 
 void DeviceInfo::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.DeviceInfo)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -457,12 +506,12 @@ void DeviceInfo::Clear() {
 const char* DeviceInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string deviceVer = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_devicever();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IntelliSwing.DeviceInfo.deviceVer"));
@@ -472,7 +521,7 @@ const char* DeviceInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         continue;
       // string fpgaVer = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_fpgaver();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IntelliSwing.DeviceInfo.fpgaVer"));
@@ -482,7 +531,7 @@ const char* DeviceInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         continue;
       // string softwareVer = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_softwarever();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IntelliSwing.DeviceInfo.softwareVer"));
@@ -492,7 +541,7 @@ const char* DeviceInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         continue;
       // string serialNumber = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_serialnumber();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IntelliSwing.DeviceInfo.serialNumber"));
@@ -502,7 +551,7 @@ const char* DeviceInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         continue;
       // string sensorName = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_sensorname();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IntelliSwing.DeviceInfo.sensorName"));
@@ -512,8 +561,8 @@ const char* DeviceInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         continue;
       // int32 handType = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
-          handtype_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          handtype_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -541,10 +590,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* DeviceInfo::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* DeviceInfo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.DeviceInfo)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string deviceVer = 1;
@@ -615,7 +664,7 @@ size_t DeviceInfo::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.DeviceInfo)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -678,7 +727,7 @@ void DeviceInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void DeviceInfo::MergeFrom(const DeviceInfo& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.DeviceInfo)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_devicever().empty()) {
@@ -774,7 +823,7 @@ StatisticsRequest::StatisticsRequest(const StatisticsRequest& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.StatisticsRequest)
 }
 
-inline void StatisticsRequest::SharedCtor() {
+void StatisticsRequest::SharedCtor() {
 type_ = 0;
 }
 
@@ -801,7 +850,7 @@ void StatisticsRequest::SetCachedSize(int size) const {
 
 void StatisticsRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.StatisticsRequest)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -812,13 +861,13 @@ void StatisticsRequest::Clear() {
 const char* StatisticsRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 type = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -846,10 +895,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* StatisticsRequest::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* StatisticsRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.StatisticsRequest)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 type = 1;
@@ -870,7 +919,7 @@ size_t StatisticsRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.StatisticsRequest)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -898,7 +947,7 @@ void StatisticsRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void StatisticsRequest::MergeFrom(const StatisticsRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.StatisticsRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_type() != 0) {
@@ -952,7 +1001,7 @@ SiteCalibrationRequest::SiteCalibrationRequest(const SiteCalibrationRequest& fro
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SiteCalibrationRequest)
 }
 
-inline void SiteCalibrationRequest::SharedCtor() {
+void SiteCalibrationRequest::SharedCtor() {
 type_ = 0;
 }
 
@@ -979,7 +1028,7 @@ void SiteCalibrationRequest::SetCachedSize(int size) const {
 
 void SiteCalibrationRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.SiteCalibrationRequest)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -990,13 +1039,13 @@ void SiteCalibrationRequest::Clear() {
 const char* SiteCalibrationRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 type = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1024,10 +1073,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SiteCalibrationRequest::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* SiteCalibrationRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SiteCalibrationRequest)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 type = 1;
@@ -1048,7 +1097,7 @@ size_t SiteCalibrationRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SiteCalibrationRequest)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1076,7 +1125,7 @@ void SiteCalibrationRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SiteCalibrationRequest::MergeFrom(const SiteCalibrationRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SiteCalibrationRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_type() != 0) {
@@ -1126,12 +1175,17 @@ CameraImageRequest::CameraImageRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 CameraImageRequest::CameraImageRequest(const CameraImageRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  type_ = from.type_;
+  ::memcpy(&camid_, &from.camid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&gain_) -
+    reinterpret_cast<char*>(&camid_)) + sizeof(gain_));
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.CameraImageRequest)
 }
 
-inline void CameraImageRequest::SharedCtor() {
-type_ = 0;
+void CameraImageRequest::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&camid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&gain_) -
+    reinterpret_cast<char*>(&camid_)) + sizeof(gain_));
 }
 
 CameraImageRequest::~CameraImageRequest() {
@@ -1157,24 +1211,274 @@ void CameraImageRequest::SetCachedSize(int size) const {
 
 void CameraImageRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.CameraImageRequest)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  type_ = 0;
+  ::memset(&camid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&gain_) -
+      reinterpret_cast<char*>(&camid_)) + sizeof(gain_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* CameraImageRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 type = 1;
+      // int32 camId = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          camid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // float exposure = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
+          exposure_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // float gain = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
+          gain_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CameraImageRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.CameraImageRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 camId = 1;
+  if (this->_internal_camid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_camid(), target);
+  }
+
+  // float exposure = 2;
+  if (!(this->_internal_exposure() <= 0 && this->_internal_exposure() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_exposure(), target);
+  }
+
+  // float gain = 3;
+  if (!(this->_internal_gain() <= 0 && this->_internal_gain() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_gain(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IntelliSwing.CameraImageRequest)
+  return target;
+}
+
+size_t CameraImageRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IntelliSwing.CameraImageRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 camId = 1;
+  if (this->_internal_camid() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_camid());
+  }
+
+  // float exposure = 2;
+  if (!(this->_internal_exposure() <= 0 && this->_internal_exposure() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float gain = 3;
+  if (!(this->_internal_gain() <= 0 && this->_internal_gain() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CameraImageRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CameraImageRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CameraImageRequest::GetClassData() const { return &_class_data_; }
+
+void CameraImageRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CameraImageRequest *>(to)->MergeFrom(
+      static_cast<const CameraImageRequest &>(from));
+}
+
+
+void CameraImageRequest::MergeFrom(const CameraImageRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.CameraImageRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_camid() != 0) {
+    _internal_set_camid(from._internal_camid());
+  }
+  if (!(from._internal_exposure() <= 0 && from._internal_exposure() >= 0)) {
+    _internal_set_exposure(from._internal_exposure());
+  }
+  if (!(from._internal_gain() <= 0 && from._internal_gain() >= 0)) {
+    _internal_set_gain(from._internal_gain());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CameraImageRequest::CopyFrom(const CameraImageRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IntelliSwing.CameraImageRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CameraImageRequest::IsInitialized() const {
+  return true;
+}
+
+void CameraImageRequest::InternalSwap(CameraImageRequest* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CameraImageRequest, gain_)
+      + sizeof(CameraImageRequest::gain_)
+      - PROTOBUF_FIELD_OFFSET(CameraImageRequest, camid_)>(
+          reinterpret_cast<char*>(&camid_),
+          reinterpret_cast<char*>(&other->camid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CameraImageRequest::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_IntelliSwingService_2eproto_getter, &descriptor_table_IntelliSwingService_2eproto_once,
+      file_level_metadata_IntelliSwingService_2eproto[3]);
+}
+
+// ===================================================================
+
+class DebugImageRequest::_Internal {
+ public:
+};
+
+DebugImageRequest::DebugImageRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  channel_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:IntelliSwing.DebugImageRequest)
+}
+DebugImageRequest::DebugImageRequest(const DebugImageRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      channel_(from.channel_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_key().empty()) {
+    key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_key(), 
+      GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:IntelliSwing.DebugImageRequest)
+}
+
+void DebugImageRequest::SharedCtor() {
+key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+DebugImageRequest::~DebugImageRequest() {
+  // @@protoc_insertion_point(destructor:IntelliSwing.DebugImageRequest)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void DebugImageRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  key_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void DebugImageRequest::ArenaDtor(void* object) {
+  DebugImageRequest* _this = reinterpret_cast< DebugImageRequest* >(object);
+  (void)_this;
+}
+void DebugImageRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DebugImageRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DebugImageRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:IntelliSwing.DebugImageRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  channel_.Clear();
+  key_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DebugImageRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated int32 channel = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_channel(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
+          _internal_add_channel(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string key = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_key();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IntelliSwing.DebugImageRequest.key"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1202,88 +1506,126 @@ failure:
 #undef CHK_
 }
 
-uint8_t* CameraImageRequest::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.CameraImageRequest)
-  uint32_t cached_has_bits = 0;
+::PROTOBUF_NAMESPACE_ID::uint8* DebugImageRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.DebugImageRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 type = 1;
-  if (this->_internal_type() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_type(), target);
+  // repeated int32 channel = 1;
+  {
+    int byte_size = _channel_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt32Packed(
+          1, _internal_channel(), byte_size, target);
+    }
+  }
+
+  // string key = 2;
+  if (!this->_internal_key().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_key().data(), static_cast<int>(this->_internal_key().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "IntelliSwing.DebugImageRequest.key");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_key(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:IntelliSwing.CameraImageRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:IntelliSwing.DebugImageRequest)
   return target;
 }
 
-size_t CameraImageRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:IntelliSwing.CameraImageRequest)
+size_t DebugImageRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IntelliSwing.DebugImageRequest)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int32 type = 1;
-  if (this->_internal_type() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_type());
+  // repeated int32 channel = 1;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      Int32Size(this->channel_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _channel_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // string key = 2;
+  if (!this->_internal_key().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_key());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CameraImageRequest::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DebugImageRequest::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    CameraImageRequest::MergeImpl
+    DebugImageRequest::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CameraImageRequest::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DebugImageRequest::GetClassData() const { return &_class_data_; }
 
-void CameraImageRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void DebugImageRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<CameraImageRequest *>(to)->MergeFrom(
-      static_cast<const CameraImageRequest &>(from));
+  static_cast<DebugImageRequest *>(to)->MergeFrom(
+      static_cast<const DebugImageRequest &>(from));
 }
 
 
-void CameraImageRequest::MergeFrom(const CameraImageRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.CameraImageRequest)
+void DebugImageRequest::MergeFrom(const DebugImageRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.DebugImageRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_type() != 0) {
-    _internal_set_type(from._internal_type());
+  channel_.MergeFrom(from.channel_);
+  if (!from._internal_key().empty()) {
+    _internal_set_key(from._internal_key());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void CameraImageRequest::CopyFrom(const CameraImageRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:IntelliSwing.CameraImageRequest)
+void DebugImageRequest::CopyFrom(const DebugImageRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IntelliSwing.DebugImageRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CameraImageRequest::IsInitialized() const {
+bool DebugImageRequest::IsInitialized() const {
   return true;
 }
 
-void CameraImageRequest::InternalSwap(CameraImageRequest* other) {
+void DebugImageRequest::InternalSwap(DebugImageRequest* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(type_, other->type_);
+  channel_.InternalSwap(&other->channel_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &key_, lhs_arena,
+      &other->key_, rhs_arena
+  );
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CameraImageRequest::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata DebugImageRequest::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingService_2eproto_getter, &descriptor_table_IntelliSwingService_2eproto_once,
-      file_level_metadata_IntelliSwingService_2eproto[3]);
+      file_level_metadata_IntelliSwingService_2eproto[4]);
 }
 
 // ===================================================================
@@ -1331,7 +1673,7 @@ DeviceStatus::DeviceStatus(const DeviceStatus& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.DeviceStatus)
 }
 
-inline void DeviceStatus::SharedCtor() {
+void DeviceStatus::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&systemstate_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&batteryinfo_) -
@@ -1362,7 +1704,7 @@ void DeviceStatus::SetCachedSize(int size) const {
 
 void DeviceStatus::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.DeviceStatus)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1380,12 +1722,12 @@ void DeviceStatus::Clear() {
 const char* DeviceStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .IntelliSwing.ReturnMsg sensorState = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -1398,7 +1740,7 @@ const char* DeviceStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
         continue;
       // .IntelliSwing.ReturnMsg systemState = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_systemstate(), ptr);
           CHK_(ptr);
         } else
@@ -1406,7 +1748,7 @@ const char* DeviceStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
         continue;
       // float deviceTemperature = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 45)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
           devicetemperature_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -1414,7 +1756,7 @@ const char* DeviceStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
         continue;
       // float batteryInfo = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 53)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53)) {
           batteryinfo_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -1443,10 +1785,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* DeviceStatus::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* DeviceStatus::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.DeviceStatus)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated .IntelliSwing.ReturnMsg sensorState = 1;
@@ -1466,21 +1808,13 @@ uint8_t* DeviceStatus::_InternalSerialize(
   }
 
   // float deviceTemperature = 5;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_devicetemperature = this->_internal_devicetemperature();
-  uint32_t raw_devicetemperature;
-  memcpy(&raw_devicetemperature, &tmp_devicetemperature, sizeof(tmp_devicetemperature));
-  if (raw_devicetemperature != 0) {
+  if (!(this->_internal_devicetemperature() <= 0 && this->_internal_devicetemperature() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_devicetemperature(), target);
   }
 
   // float batteryInfo = 6;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_batteryinfo = this->_internal_batteryinfo();
-  uint32_t raw_batteryinfo;
-  memcpy(&raw_batteryinfo, &tmp_batteryinfo, sizeof(tmp_batteryinfo));
-  if (raw_batteryinfo != 0) {
+  if (!(this->_internal_batteryinfo() <= 0 && this->_internal_batteryinfo() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_batteryinfo(), target);
   }
@@ -1497,7 +1831,7 @@ size_t DeviceStatus::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.DeviceStatus)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1516,20 +1850,12 @@ size_t DeviceStatus::ByteSizeLong() const {
   }
 
   // float deviceTemperature = 5;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_devicetemperature = this->_internal_devicetemperature();
-  uint32_t raw_devicetemperature;
-  memcpy(&raw_devicetemperature, &tmp_devicetemperature, sizeof(tmp_devicetemperature));
-  if (raw_devicetemperature != 0) {
+  if (!(this->_internal_devicetemperature() <= 0 && this->_internal_devicetemperature() >= 0)) {
     total_size += 1 + 4;
   }
 
   // float batteryInfo = 6;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_batteryinfo = this->_internal_batteryinfo();
-  uint32_t raw_batteryinfo;
-  memcpy(&raw_batteryinfo, &tmp_batteryinfo, sizeof(tmp_batteryinfo));
-  if (raw_batteryinfo != 0) {
+  if (!(this->_internal_batteryinfo() <= 0 && this->_internal_batteryinfo() >= 0)) {
     total_size += 1 + 4;
   }
 
@@ -1552,25 +1878,17 @@ void DeviceStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void DeviceStatus::MergeFrom(const DeviceStatus& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.DeviceStatus)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   sensorstate_.MergeFrom(from.sensorstate_);
   if (from._internal_has_systemstate()) {
     _internal_mutable_systemstate()->::IntelliSwing::ReturnMsg::MergeFrom(from._internal_systemstate());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_devicetemperature = from._internal_devicetemperature();
-  uint32_t raw_devicetemperature;
-  memcpy(&raw_devicetemperature, &tmp_devicetemperature, sizeof(tmp_devicetemperature));
-  if (raw_devicetemperature != 0) {
+  if (!(from._internal_devicetemperature() <= 0 && from._internal_devicetemperature() >= 0)) {
     _internal_set_devicetemperature(from._internal_devicetemperature());
   }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_batteryinfo = from._internal_batteryinfo();
-  uint32_t raw_batteryinfo;
-  memcpy(&raw_batteryinfo, &tmp_batteryinfo, sizeof(tmp_batteryinfo));
-  if (raw_batteryinfo != 0) {
+  if (!(from._internal_batteryinfo() <= 0 && from._internal_batteryinfo() >= 0)) {
     _internal_set_batteryinfo(from._internal_batteryinfo());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1602,7 +1920,7 @@ void DeviceStatus::InternalSwap(DeviceStatus* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata DeviceStatus::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingService_2eproto_getter, &descriptor_table_IntelliSwingService_2eproto_once,
-      file_level_metadata_IntelliSwingService_2eproto[4]);
+      file_level_metadata_IntelliSwingService_2eproto[5]);
 }
 
 // ===================================================================
@@ -1629,7 +1947,7 @@ LogRequest::LogRequest(const LogRequest& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.LogRequest)
 }
 
-inline void LogRequest::SharedCtor() {
+void LogRequest::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&systemrange_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&processinglogrange_) -
@@ -1659,7 +1977,7 @@ void LogRequest::SetCachedSize(int size) const {
 
 void LogRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.LogRequest)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1672,21 +1990,21 @@ void LogRequest::Clear() {
 const char* LogRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 systemRange = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          systemrange_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          systemrange_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
       // int32 processingLogrange = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          processinglogrange_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          processinglogrange_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1714,10 +2032,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* LogRequest::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* LogRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.LogRequest)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 systemRange = 1;
@@ -1744,7 +2062,7 @@ size_t LogRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.LogRequest)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1777,7 +2095,7 @@ void LogRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void LogRequest::MergeFrom(const LogRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.LogRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_systemrange() != 0) {
@@ -1814,7 +2132,7 @@ void LogRequest::InternalSwap(LogRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata LogRequest::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingService_2eproto_getter, &descriptor_table_IntelliSwingService_2eproto_once,
-      file_level_metadata_IntelliSwingService_2eproto[5]);
+      file_level_metadata_IntelliSwingService_2eproto[6]);
 }
 
 // ===================================================================
@@ -1842,7 +2160,7 @@ LogMessage::LogMessage(const LogMessage& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.LogMessage)
 }
 
-inline void LogMessage::SharedCtor() {
+void LogMessage::SharedCtor() {
 }
 
 LogMessage::~LogMessage() {
@@ -1868,7 +2186,7 @@ void LogMessage::SetCachedSize(int size) const {
 
 void LogMessage::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.LogMessage)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1880,12 +2198,12 @@ void LogMessage::Clear() {
 const char* LogMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated string systemLog = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -1900,7 +2218,7 @@ const char* LogMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         continue;
       // repeated string processingLog = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -1936,10 +2254,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* LogMessage::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* LogMessage::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.LogMessage)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated string systemLog = 1;
@@ -1974,7 +2292,7 @@ size_t LogMessage::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.LogMessage)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2013,7 +2331,7 @@ void LogMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void LogMessage::MergeFrom(const LogMessage& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.LogMessage)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   systemlog_.MergeFrom(from.systemlog_);
@@ -2042,7 +2360,7 @@ void LogMessage::InternalSwap(LogMessage* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata LogMessage::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingService_2eproto_getter, &descriptor_table_IntelliSwingService_2eproto_once,
-      file_level_metadata_IntelliSwingService_2eproto[6]);
+      file_level_metadata_IntelliSwingService_2eproto[7]);
 }
 
 // ===================================================================
@@ -2063,12 +2381,17 @@ SensorStatistics::SensorStatistics(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 SensorStatistics::SensorStatistics(const SensorStatistics& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  shot_count_ = from.shot_count_;
+  ::memcpy(&total_shot_count_, &from.total_shot_count_,
+    static_cast<size_t>(reinterpret_cast<char*>(&missing_count_) -
+    reinterpret_cast<char*>(&total_shot_count_)) + sizeof(missing_count_));
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorStatistics)
 }
 
-inline void SensorStatistics::SharedCtor() {
-shot_count_ = 0;
+void SensorStatistics::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&total_shot_count_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&missing_count_) -
+    reinterpret_cast<char*>(&total_shot_count_)) + sizeof(missing_count_));
 }
 
 SensorStatistics::~SensorStatistics() {
@@ -2094,24 +2417,66 @@ void SensorStatistics::SetCachedSize(int size) const {
 
 void SensorStatistics::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.SensorStatistics)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  shot_count_ = 0;
+  ::memset(&total_shot_count_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&missing_count_) -
+      reinterpret_cast<char*>(&total_shot_count_)) + sizeof(missing_count_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* SensorStatistics::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 shot_count = 1;
+      // uint64 total_shot_count = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          shot_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          total_shot_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 total_trigger_count = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          total_trigger_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 total_missing_count = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          total_missing_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 shot_count = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          shot_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 trigger_count = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          trigger_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 missing_count = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          missing_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2139,16 +2504,46 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SensorStatistics::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* SensorStatistics::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SensorStatistics)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 shot_count = 1;
+  // uint64 total_shot_count = 1;
+  if (this->_internal_total_shot_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_total_shot_count(), target);
+  }
+
+  // uint64 total_trigger_count = 2;
+  if (this->_internal_total_trigger_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_total_trigger_count(), target);
+  }
+
+  // uint64 total_missing_count = 3;
+  if (this->_internal_total_missing_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_total_missing_count(), target);
+  }
+
+  // uint64 shot_count = 4;
   if (this->_internal_shot_count() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_shot_count(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_shot_count(), target);
+  }
+
+  // uint64 trigger_count = 5;
+  if (this->_internal_trigger_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_trigger_count(), target);
+  }
+
+  // uint64 missing_count = 6;
+  if (this->_internal_missing_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(6, this->_internal_missing_count(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2163,13 +2558,38 @@ size_t SensorStatistics::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SensorStatistics)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int32 shot_count = 1;
+  // uint64 total_shot_count = 1;
+  if (this->_internal_total_shot_count() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_total_shot_count());
+  }
+
+  // uint64 total_trigger_count = 2;
+  if (this->_internal_total_trigger_count() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_total_trigger_count());
+  }
+
+  // uint64 total_missing_count = 3;
+  if (this->_internal_total_missing_count() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_total_missing_count());
+  }
+
+  // uint64 shot_count = 4;
   if (this->_internal_shot_count() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_shot_count());
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_shot_count());
+  }
+
+  // uint64 trigger_count = 5;
+  if (this->_internal_trigger_count() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_trigger_count());
+  }
+
+  // uint64 missing_count = 6;
+  if (this->_internal_missing_count() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_missing_count());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -2191,11 +2611,26 @@ void SensorStatistics::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SensorStatistics::MergeFrom(const SensorStatistics& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SensorStatistics)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from._internal_total_shot_count() != 0) {
+    _internal_set_total_shot_count(from._internal_total_shot_count());
+  }
+  if (from._internal_total_trigger_count() != 0) {
+    _internal_set_total_trigger_count(from._internal_total_trigger_count());
+  }
+  if (from._internal_total_missing_count() != 0) {
+    _internal_set_total_missing_count(from._internal_total_missing_count());
+  }
   if (from._internal_shot_count() != 0) {
     _internal_set_shot_count(from._internal_shot_count());
+  }
+  if (from._internal_trigger_count() != 0) {
+    _internal_set_trigger_count(from._internal_trigger_count());
+  }
+  if (from._internal_missing_count() != 0) {
+    _internal_set_missing_count(from._internal_missing_count());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2214,13 +2649,18 @@ bool SensorStatistics::IsInitialized() const {
 void SensorStatistics::InternalSwap(SensorStatistics* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(shot_count_, other->shot_count_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SensorStatistics, missing_count_)
+      + sizeof(SensorStatistics::missing_count_)
+      - PROTOBUF_FIELD_OFFSET(SensorStatistics, total_shot_count_)>(
+          reinterpret_cast<char*>(&total_shot_count_),
+          reinterpret_cast<char*>(&other->total_shot_count_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SensorStatistics::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingService_2eproto_getter, &descriptor_table_IntelliSwingService_2eproto_once,
-      file_level_metadata_IntelliSwingService_2eproto[7]);
+      file_level_metadata_IntelliSwingService_2eproto[8]);
 }
 
 // ===================================================================
@@ -2260,7 +2700,7 @@ SiteCalibrationResult::SiteCalibrationResult(const SiteCalibrationResult& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SiteCalibrationResult)
 }
 
-inline void SiteCalibrationResult::SharedCtor() {
+void SiteCalibrationResult::SharedCtor() {
 state_ = nullptr;
 }
 
@@ -2288,7 +2728,7 @@ void SiteCalibrationResult::SetCachedSize(int size) const {
 
 void SiteCalibrationResult::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.SiteCalibrationResult)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2302,12 +2742,12 @@ void SiteCalibrationResult::Clear() {
 const char* SiteCalibrationResult::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .IntelliSwing.ReturnMsg state = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_state(), ptr);
           CHK_(ptr);
         } else
@@ -2336,10 +2776,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SiteCalibrationResult::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* SiteCalibrationResult::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.SiteCalibrationResult)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .IntelliSwing.ReturnMsg state = 1;
@@ -2362,7 +2802,7 @@ size_t SiteCalibrationResult::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.SiteCalibrationResult)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2392,7 +2832,7 @@ void SiteCalibrationResult::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SiteCalibrationResult::MergeFrom(const SiteCalibrationResult& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.SiteCalibrationResult)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_state()) {
@@ -2421,7 +2861,7 @@ void SiteCalibrationResult::InternalSwap(SiteCalibrationResult* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SiteCalibrationResult::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingService_2eproto_getter, &descriptor_table_IntelliSwingService_2eproto_once,
-      file_level_metadata_IntelliSwingService_2eproto[8]);
+      file_level_metadata_IntelliSwingService_2eproto[9]);
 }
 
 // ===================================================================
@@ -2443,17 +2883,11 @@ UpdateFirmwareRequest::UpdateFirmwareRequest(const UpdateFirmwareRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   sensorfirmware_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    sensorfirmware_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_sensorfirmware().empty()) {
     sensorfirmware_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_sensorfirmware(), 
       GetArenaForAllocation());
   }
   fpgafirmware_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    fpgafirmware_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_fpgafirmware().empty()) {
     fpgafirmware_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_fpgafirmware(), 
       GetArenaForAllocation());
@@ -2461,15 +2895,9 @@ UpdateFirmwareRequest::UpdateFirmwareRequest(const UpdateFirmwareRequest& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.UpdateFirmwareRequest)
 }
 
-inline void UpdateFirmwareRequest::SharedCtor() {
+void UpdateFirmwareRequest::SharedCtor() {
 sensorfirmware_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  sensorfirmware_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 fpgafirmware_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  fpgafirmware_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 UpdateFirmwareRequest::~UpdateFirmwareRequest() {
@@ -2497,7 +2925,7 @@ void UpdateFirmwareRequest::SetCachedSize(int size) const {
 
 void UpdateFirmwareRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.UpdateFirmwareRequest)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2509,12 +2937,12 @@ void UpdateFirmwareRequest::Clear() {
 const char* UpdateFirmwareRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bytes sensorFirmware = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_sensorfirmware();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -2523,7 +2951,7 @@ const char* UpdateFirmwareRequest::_InternalParse(const char* ptr, ::PROTOBUF_NA
         continue;
       // bytes fpgaFirmware = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_fpgafirmware();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -2553,10 +2981,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* UpdateFirmwareRequest::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* UpdateFirmwareRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.UpdateFirmwareRequest)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bytes sensorFirmware = 1;
@@ -2583,7 +3011,7 @@ size_t UpdateFirmwareRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.UpdateFirmwareRequest)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2620,7 +3048,7 @@ void UpdateFirmwareRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void UpdateFirmwareRequest::MergeFrom(const UpdateFirmwareRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.UpdateFirmwareRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_sensorfirmware().empty()) {
@@ -2663,7 +3091,7 @@ void UpdateFirmwareRequest::InternalSwap(UpdateFirmwareRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UpdateFirmwareRequest::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingService_2eproto_getter, &descriptor_table_IntelliSwingService_2eproto_once,
-      file_level_metadata_IntelliSwingService_2eproto[9]);
+      file_level_metadata_IntelliSwingService_2eproto[10]);
 }
 
 // ===================================================================
@@ -2719,7 +3147,7 @@ UpdateFirmwareResult::UpdateFirmwareResult(const UpdateFirmwareResult& from)
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.UpdateFirmwareResult)
 }
 
-inline void UpdateFirmwareResult::SharedCtor() {
+void UpdateFirmwareResult::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&fpgastate_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&sensorsw_) -
@@ -2751,7 +3179,7 @@ void UpdateFirmwareResult::SetCachedSize(int size) const {
 
 void UpdateFirmwareResult::Clear() {
 // @@protoc_insertion_point(message_clear_start:IntelliSwing.UpdateFirmwareResult)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2769,12 +3197,12 @@ void UpdateFirmwareResult::Clear() {
 const char* UpdateFirmwareResult::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    uint32_t tag;
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .IntelliSwing.ReturnMsg FpgaState = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_fpgastate(), ptr);
           CHK_(ptr);
         } else
@@ -2782,7 +3210,7 @@ const char* UpdateFirmwareResult::_InternalParse(const char* ptr, ::PROTOBUF_NAM
         continue;
       // .IntelliSwing.ReturnMsg SensorSW = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_sensorsw(), ptr);
           CHK_(ptr);
         } else
@@ -2811,10 +3239,10 @@ failure:
 #undef CHK_
 }
 
-uint8_t* UpdateFirmwareResult::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::PROTOBUF_NAMESPACE_ID::uint8* UpdateFirmwareResult::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.UpdateFirmwareResult)
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .IntelliSwing.ReturnMsg FpgaState = 1;
@@ -2845,7 +3273,7 @@ size_t UpdateFirmwareResult::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:IntelliSwing.UpdateFirmwareResult)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2882,7 +3310,7 @@ void UpdateFirmwareResult::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void UpdateFirmwareResult::MergeFrom(const UpdateFirmwareResult& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.UpdateFirmwareResult)
   GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_fpgastate()) {
@@ -2919,7 +3347,329 @@ void UpdateFirmwareResult::InternalSwap(UpdateFirmwareResult* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UpdateFirmwareResult::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_IntelliSwingService_2eproto_getter, &descriptor_table_IntelliSwingService_2eproto_once,
-      file_level_metadata_IntelliSwingService_2eproto[10]);
+      file_level_metadata_IntelliSwingService_2eproto[11]);
+}
+
+// ===================================================================
+
+class TimeRequest::_Internal {
+ public:
+};
+
+TimeRequest::TimeRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:IntelliSwing.TimeRequest)
+}
+TimeRequest::TimeRequest(const TimeRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&year_, &from.year_,
+    static_cast<size_t>(reinterpret_cast<char*>(&msec_) -
+    reinterpret_cast<char*>(&year_)) + sizeof(msec_));
+  // @@protoc_insertion_point(copy_constructor:IntelliSwing.TimeRequest)
+}
+
+void TimeRequest::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&year_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&msec_) -
+    reinterpret_cast<char*>(&year_)) + sizeof(msec_));
+}
+
+TimeRequest::~TimeRequest() {
+  // @@protoc_insertion_point(destructor:IntelliSwing.TimeRequest)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void TimeRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void TimeRequest::ArenaDtor(void* object) {
+  TimeRequest* _this = reinterpret_cast< TimeRequest* >(object);
+  (void)_this;
+}
+void TimeRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void TimeRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void TimeRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:IntelliSwing.TimeRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&year_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&msec_) -
+      reinterpret_cast<char*>(&year_)) + sizeof(msec_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* TimeRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 year = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          year_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 month = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          month_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 day = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          day_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 hour = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          hour_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 min = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          min_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 sec = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          sec_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 msec = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          msec_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* TimeRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IntelliSwing.TimeRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 year = 1;
+  if (this->_internal_year() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_year(), target);
+  }
+
+  // int32 month = 2;
+  if (this->_internal_month() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_month(), target);
+  }
+
+  // int32 day = 3;
+  if (this->_internal_day() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_day(), target);
+  }
+
+  // int32 hour = 4;
+  if (this->_internal_hour() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_hour(), target);
+  }
+
+  // int32 min = 5;
+  if (this->_internal_min() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_min(), target);
+  }
+
+  // int32 sec = 6;
+  if (this->_internal_sec() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_sec(), target);
+  }
+
+  // int32 msec = 7;
+  if (this->_internal_msec() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(7, this->_internal_msec(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IntelliSwing.TimeRequest)
+  return target;
+}
+
+size_t TimeRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IntelliSwing.TimeRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 year = 1;
+  if (this->_internal_year() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_year());
+  }
+
+  // int32 month = 2;
+  if (this->_internal_month() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_month());
+  }
+
+  // int32 day = 3;
+  if (this->_internal_day() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_day());
+  }
+
+  // int32 hour = 4;
+  if (this->_internal_hour() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_hour());
+  }
+
+  // int32 min = 5;
+  if (this->_internal_min() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_min());
+  }
+
+  // int32 sec = 6;
+  if (this->_internal_sec() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_sec());
+  }
+
+  // int32 msec = 7;
+  if (this->_internal_msec() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_msec());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData TimeRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    TimeRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*TimeRequest::GetClassData() const { return &_class_data_; }
+
+void TimeRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<TimeRequest *>(to)->MergeFrom(
+      static_cast<const TimeRequest &>(from));
+}
+
+
+void TimeRequest::MergeFrom(const TimeRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IntelliSwing.TimeRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_year() != 0) {
+    _internal_set_year(from._internal_year());
+  }
+  if (from._internal_month() != 0) {
+    _internal_set_month(from._internal_month());
+  }
+  if (from._internal_day() != 0) {
+    _internal_set_day(from._internal_day());
+  }
+  if (from._internal_hour() != 0) {
+    _internal_set_hour(from._internal_hour());
+  }
+  if (from._internal_min() != 0) {
+    _internal_set_min(from._internal_min());
+  }
+  if (from._internal_sec() != 0) {
+    _internal_set_sec(from._internal_sec());
+  }
+  if (from._internal_msec() != 0) {
+    _internal_set_msec(from._internal_msec());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void TimeRequest::CopyFrom(const TimeRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IntelliSwing.TimeRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TimeRequest::IsInitialized() const {
+  return true;
+}
+
+void TimeRequest::InternalSwap(TimeRequest* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(TimeRequest, msec_)
+      + sizeof(TimeRequest::msec_)
+      - PROTOBUF_FIELD_OFFSET(TimeRequest, year_)>(
+          reinterpret_cast<char*>(&year_),
+          reinterpret_cast<char*>(&other->year_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata TimeRequest::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_IntelliSwingService_2eproto_getter, &descriptor_table_IntelliSwingService_2eproto_once,
+      file_level_metadata_IntelliSwingService_2eproto[12]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -2936,6 +3686,9 @@ template<> PROTOBUF_NOINLINE ::IntelliSwing::SiteCalibrationRequest* Arena::Crea
 }
 template<> PROTOBUF_NOINLINE ::IntelliSwing::CameraImageRequest* Arena::CreateMaybeMessage< ::IntelliSwing::CameraImageRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IntelliSwing::CameraImageRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IntelliSwing::DebugImageRequest* Arena::CreateMaybeMessage< ::IntelliSwing::DebugImageRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IntelliSwing::DebugImageRequest >(arena);
 }
 template<> PROTOBUF_NOINLINE ::IntelliSwing::DeviceStatus* Arena::CreateMaybeMessage< ::IntelliSwing::DeviceStatus >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IntelliSwing::DeviceStatus >(arena);
@@ -2957,6 +3710,9 @@ template<> PROTOBUF_NOINLINE ::IntelliSwing::UpdateFirmwareRequest* Arena::Creat
 }
 template<> PROTOBUF_NOINLINE ::IntelliSwing::UpdateFirmwareResult* Arena::CreateMaybeMessage< ::IntelliSwing::UpdateFirmwareResult >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IntelliSwing::UpdateFirmwareResult >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IntelliSwing::TimeRequest* Arena::CreateMaybeMessage< ::IntelliSwing::TimeRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IntelliSwing::TimeRequest >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

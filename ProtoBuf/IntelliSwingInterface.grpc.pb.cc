@@ -36,6 +36,10 @@ static const char* IntelliSwingProtocol_method_names[] = {
   "/IntelliSwing.IntelliSwingProtocol/RunSiteCalibration",
   "/IntelliSwing.IntelliSwingProtocol/UpdateFirmware",
   "/IntelliSwing.IntelliSwingProtocol/GetImage",
+  "/IntelliSwing.IntelliSwingProtocol/GetDebugImage",
+  "/IntelliSwing.IntelliSwingProtocol/Ping",
+  "/IntelliSwing.IntelliSwingProtocol/SendCommand",
+  "/IntelliSwing.IntelliSwingProtocol/SetTime",
 };
 
 std::unique_ptr< IntelliSwingProtocol::Stub> IntelliSwingProtocol::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -59,17 +63,21 @@ IntelliSwingProtocol::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface
   , rpcmethod_RunSiteCalibration_(IntelliSwingProtocol_method_names[11], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_UpdateFirmware_(IntelliSwingProtocol_method_names[12], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetImage_(IntelliSwingProtocol_method_names[13], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetDebugImage_(IntelliSwingProtocol_method_names[14], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Ping_(IntelliSwingProtocol_method_names[15], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendCommand_(IntelliSwingProtocol_method_names[16], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetTime_(IntelliSwingProtocol_method_names[17], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status IntelliSwingProtocol::Stub::Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg& request, ::IntelliSwing::ReturnMsg* response) {
   return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::InitializeMsg, ::IntelliSwing::ReturnMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Initialize_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::InitializeMsg, ::IntelliSwing::ReturnMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Initialize_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Initialize_, context, request, response, reactor);
 }
 
@@ -88,11 +96,11 @@ void IntelliSwingProtocol::Stub::async::Initialize(::grpc::ClientContext* contex
   return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::ReleaseMsg, ::IntelliSwing::ReturnMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Release_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::Release(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::Release(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::ReleaseMsg, ::IntelliSwing::ReturnMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Release_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::Release(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::Release(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Release_, context, request, response, reactor);
 }
 
@@ -111,11 +119,11 @@ void IntelliSwingProtocol::Stub::async::Release(::grpc::ClientContext* context, 
   return ::grpc::internal::BlockingUnaryCall< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Reboot_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::Reboot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::Reboot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Reboot_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::Reboot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::Reboot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Reboot_, context, request, response, reactor);
 }
 
@@ -134,7 +142,7 @@ void IntelliSwingProtocol::Stub::async::Reboot(::grpc::ClientContext* context, c
   return ::grpc::internal::ClientReaderFactory< ::IntelliSwing::SensorRunningMsg>::Create(channel_.get(), rpcmethod_Start_, context, request);
 }
 
-void IntelliSwingProtocol::Stub::async::Start(::grpc::ClientContext* context, const ::IntelliSwing::StartMsg* request, ::grpc::ClientReadReactor< ::IntelliSwing::SensorRunningMsg>* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::Start(::grpc::ClientContext* context, const ::IntelliSwing::StartMsg* request, ::grpc::experimental::ClientReadReactor< ::IntelliSwing::SensorRunningMsg>* reactor) {
   ::grpc::internal::ClientCallbackReaderFactory< ::IntelliSwing::SensorRunningMsg>::Create(stub_->channel_.get(), stub_->rpcmethod_Start_, context, request, reactor);
 }
 
@@ -150,11 +158,11 @@ void IntelliSwingProtocol::Stub::async::Start(::grpc::ClientContext* context, co
   return ::grpc::internal::BlockingUnaryCall< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Stop_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::Stop(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::Stop(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Stop_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::Stop(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::Stop(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Stop_, context, request, response, reactor);
 }
 
@@ -173,11 +181,11 @@ void IntelliSwingProtocol::Stub::async::Stop(::grpc::ClientContext* context, con
   return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetClubImage_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::GetClubImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::GetClubImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetClubImage_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::GetClubImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::GetClubImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetClubImage_, context, request, response, reactor);
 }
 
@@ -196,11 +204,11 @@ void IntelliSwingProtocol::Stub::async::GetClubImage(::grpc::ClientContext* cont
   return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetBallImage_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBallImage_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBallImage_, context, request, response, reactor);
 }
 
@@ -219,11 +227,11 @@ void IntelliSwingProtocol::Stub::async::GetBallImage(::grpc::ClientContext* cont
   return ::grpc::internal::BlockingUnaryCall< ::google::protobuf::Empty, ::IntelliSwing::DeviceInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetDeviceInfo_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::google::protobuf::Empty, ::IntelliSwing::DeviceInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetDeviceInfo_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetDeviceInfo_, context, request, response, reactor);
 }
 
@@ -242,11 +250,11 @@ void IntelliSwingProtocol::Stub::async::GetDeviceInfo(::grpc::ClientContext* con
   return ::grpc::internal::BlockingUnaryCall< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetDeviceStatus_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetDeviceStatus_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetDeviceStatus_, context, request, response, reactor);
 }
 
@@ -265,11 +273,11 @@ void IntelliSwingProtocol::Stub::async::GetDeviceStatus(::grpc::ClientContext* c
   return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::LogRequest, ::IntelliSwing::LogMessage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetLog_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::LogRequest, ::IntelliSwing::LogMessage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetLog_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetLog_, context, request, response, reactor);
 }
 
@@ -288,11 +296,11 @@ void IntelliSwingProtocol::Stub::async::GetLog(::grpc::ClientContext* context, c
   return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetStatistics_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetStatistics_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetStatistics_, context, request, response, reactor);
 }
 
@@ -311,11 +319,11 @@ void IntelliSwingProtocol::Stub::async::GetStatistics(::grpc::ClientContext* con
   return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_RunSiteCalibration_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RunSiteCalibration_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RunSiteCalibration_, context, request, response, reactor);
 }
 
@@ -334,11 +342,11 @@ void IntelliSwingProtocol::Stub::async::RunSiteCalibration(::grpc::ClientContext
   return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_UpdateFirmware_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateFirmware_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateFirmware_, context, request, response, reactor);
 }
 
@@ -357,11 +365,11 @@ void IntelliSwingProtocol::Stub::async::UpdateFirmware(::grpc::ClientContext* co
   return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetImage_, context, request, response);
 }
 
-void IntelliSwingProtocol::Stub::async::GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)> f) {
+void IntelliSwingProtocol::Stub::experimental_async::GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetImage_, context, request, response, std::move(f));
 }
 
-void IntelliSwingProtocol::Stub::async::GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) {
+void IntelliSwingProtocol::Stub::experimental_async::GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetImage_, context, request, response, reactor);
 }
 
@@ -372,6 +380,98 @@ void IntelliSwingProtocol::Stub::async::GetImage(::grpc::ClientContext* context,
 ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>* IntelliSwingProtocol::Stub::AsyncGetImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetImageRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status IntelliSwingProtocol::Stub::GetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::IntelliSwing::DebugImage* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetDebugImage_, context, request, response);
+}
+
+void IntelliSwingProtocol::Stub::experimental_async::GetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest* request, ::IntelliSwing::DebugImage* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetDebugImage_, context, request, response, std::move(f));
+}
+
+void IntelliSwingProtocol::Stub::experimental_async::GetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest* request, ::IntelliSwing::DebugImage* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetDebugImage_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::IntelliSwing::DebugImage>* IntelliSwingProtocol::Stub::PrepareAsyncGetDebugImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::IntelliSwing::DebugImage, ::IntelliSwing::DebugImageRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetDebugImage_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::IntelliSwing::DebugImage>* IntelliSwingProtocol::Stub::AsyncGetDebugImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetDebugImageRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status IntelliSwingProtocol::Stub::Ping(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::google::protobuf::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::google::protobuf::Empty, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Ping_, context, request, response);
+}
+
+void IntelliSwingProtocol::Stub::experimental_async::Ping(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::google::protobuf::Empty, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Ping_, context, request, response, std::move(f));
+}
+
+void IntelliSwingProtocol::Stub::experimental_async::Ping(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Ping_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* IntelliSwingProtocol::Stub::PrepareAsyncPingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Ping_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* IntelliSwingProtocol::Stub::AsyncPingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncPingRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status IntelliSwingProtocol::Stub::SendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::IntelliSwing::CMessage* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::CMessage, ::IntelliSwing::CMessage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendCommand_, context, request, response);
+}
+
+void IntelliSwingProtocol::Stub::experimental_async::SendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage* request, ::IntelliSwing::CMessage* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::CMessage, ::IntelliSwing::CMessage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendCommand_, context, request, response, std::move(f));
+}
+
+void IntelliSwingProtocol::Stub::experimental_async::SendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage* request, ::IntelliSwing::CMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendCommand_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::IntelliSwing::CMessage>* IntelliSwingProtocol::Stub::PrepareAsyncSendCommandRaw(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::IntelliSwing::CMessage, ::IntelliSwing::CMessage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SendCommand_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::IntelliSwing::CMessage>* IntelliSwingProtocol::Stub::AsyncSendCommandRaw(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSendCommandRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status IntelliSwingProtocol::Stub::SetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::google::protobuf::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::IntelliSwing::TimeRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetTime_, context, request, response);
+}
+
+void IntelliSwingProtocol::Stub::experimental_async::SetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::IntelliSwing::TimeRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetTime_, context, request, response, std::move(f));
+}
+
+void IntelliSwingProtocol::Stub::experimental_async::SetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetTime_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* IntelliSwingProtocol::Stub::PrepareAsyncSetTimeRaw(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::IntelliSwing::TimeRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetTime_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* IntelliSwingProtocol::Stub::AsyncSetTimeRaw(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSetTimeRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -517,6 +617,46 @@ IntelliSwingProtocol::Service::Service() {
              ::IntelliSwing::ImageData* resp) {
                return service->GetImage(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      IntelliSwingProtocol_method_names[14],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](IntelliSwingProtocol::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::IntelliSwing::DebugImageRequest* req,
+             ::IntelliSwing::DebugImage* resp) {
+               return service->GetDebugImage(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      IntelliSwingProtocol_method_names[15],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::google::protobuf::Empty, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](IntelliSwingProtocol::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::google::protobuf::Empty* req,
+             ::google::protobuf::Empty* resp) {
+               return service->Ping(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      IntelliSwingProtocol_method_names[16],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::IntelliSwing::CMessage, ::IntelliSwing::CMessage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](IntelliSwingProtocol::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::IntelliSwing::CMessage* req,
+             ::IntelliSwing::CMessage* resp) {
+               return service->SendCommand(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      IntelliSwingProtocol_method_names[17],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::IntelliSwing::TimeRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](IntelliSwingProtocol::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::IntelliSwing::TimeRequest* req,
+             ::google::protobuf::Empty* resp) {
+               return service->SetTime(ctx, req, resp);
+             }, this)));
 }
 
 IntelliSwingProtocol::Service::~Service() {
@@ -614,6 +754,34 @@ IntelliSwingProtocol::Service::~Service() {
 }
 
 ::grpc::Status IntelliSwingProtocol::Service::GetImage(::grpc::ServerContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status IntelliSwingProtocol::Service::GetDebugImage(::grpc::ServerContext* context, const ::IntelliSwing::DebugImageRequest* request, ::IntelliSwing::DebugImage* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status IntelliSwingProtocol::Service::Ping(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status IntelliSwingProtocol::Service::SendCommand(::grpc::ServerContext* context, const ::IntelliSwing::CMessage* request, ::IntelliSwing::CMessage* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status IntelliSwingProtocol::Service::SetTime(::grpc::ServerContext* context, const ::IntelliSwing::TimeRequest* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

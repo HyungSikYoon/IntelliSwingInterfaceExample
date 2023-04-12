@@ -7,6 +7,7 @@
 #include "IntelliSwingInterface.pb.h"
 
 #include <functional>
+#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
@@ -138,44 +139,156 @@ class IntelliSwingProtocol final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>> PrepareAsyncGetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>>(PrepareAsyncGetImageRaw(context, request, cq));
     }
-    class async_interface {
+    virtual ::grpc::Status GetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::IntelliSwing::DebugImage* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DebugImage>> AsyncGetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DebugImage>>(AsyncGetDebugImageRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DebugImage>> PrepareAsyncGetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DebugImage>>(PrepareAsyncGetDebugImageRaw(context, request, cq));
+    }
+    virtual ::grpc::Status Ping(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncPing(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncPingRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncPing(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncPingRaw(context, request, cq));
+    }
+    virtual ::grpc::Status SendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::IntelliSwing::CMessage* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::CMessage>> AsyncSendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::CMessage>>(AsyncSendCommandRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::CMessage>> PrepareAsyncSendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::CMessage>>(PrepareAsyncSendCommandRaw(context, request, cq));
+    }
+    virtual ::grpc::Status SetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncSetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncSetTimeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncSetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncSetTimeRaw(context, request, cq));
+    }
+    class experimental_async_interface {
      public:
-      virtual ~async_interface() {}
+      virtual ~experimental_async_interface() {}
       // Common
       virtual void Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void Release(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void Release(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Release(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void Reboot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void Reboot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Reboot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       // Sensor
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void Start(::grpc::ClientContext* context, const ::IntelliSwing::StartMsg* request, ::grpc::ClientReadReactor< ::IntelliSwing::SensorRunningMsg>* reactor) = 0;
+      #else
+      virtual void Start(::grpc::ClientContext* context, const ::IntelliSwing::StartMsg* request, ::grpc::experimental::ClientReadReactor< ::IntelliSwing::SensorRunningMsg>* reactor) = 0;
+      #endif
       virtual void Stop(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void Stop(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Stop(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void GetClubImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetClubImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetClubImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       // Service
       virtual void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void GetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest* request, ::IntelliSwing::DebugImage* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest* request, ::IntelliSwing::DebugImage* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest* request, ::IntelliSwing::DebugImage* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void Ping(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Ping(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Ping(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void SendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage* request, ::IntelliSwing::CMessage* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage* request, ::IntelliSwing::CMessage* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage* request, ::IntelliSwing::CMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void SetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
-    typedef class async_interface experimental_async_interface;
-    virtual class async_interface* async() { return nullptr; }
-    class async_interface* experimental_async() { return async(); }
-   private:
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
+    virtual class experimental_async_interface* experimental_async() { return nullptr; }
+  private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ReturnMsg>* AsyncInitializeRaw(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ReturnMsg>* PrepareAsyncInitializeRaw(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ReturnMsg>* AsyncReleaseRaw(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg& request, ::grpc::CompletionQueue* cq) = 0;
@@ -205,6 +318,14 @@ class IntelliSwingProtocol final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::UpdateFirmwareResult>* PrepareAsyncUpdateFirmwareRaw(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>* AsyncGetImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>* PrepareAsyncGetImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DebugImage>* AsyncGetDebugImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DebugImage>* PrepareAsyncGetDebugImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncPingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncPingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::CMessage>* AsyncSendCommandRaw(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::CMessage>* PrepareAsyncSendCommandRaw(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncSetTimeRaw(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncSetTimeRaw(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -309,47 +430,155 @@ class IntelliSwingProtocol final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>> PrepareAsyncGetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>>(PrepareAsyncGetImageRaw(context, request, cq));
     }
-    class async final :
-      public StubInterface::async_interface {
+    ::grpc::Status GetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::IntelliSwing::DebugImage* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DebugImage>> AsyncGetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DebugImage>>(AsyncGetDebugImageRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DebugImage>> PrepareAsyncGetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DebugImage>>(PrepareAsyncGetDebugImageRaw(context, request, cq));
+    }
+    ::grpc::Status Ping(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncPing(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncPingRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncPing(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncPingRaw(context, request, cq));
+    }
+    ::grpc::Status SendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::IntelliSwing::CMessage* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::CMessage>> AsyncSendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::CMessage>>(AsyncSendCommandRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::CMessage>> PrepareAsyncSendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::CMessage>>(PrepareAsyncSendCommandRaw(context, request, cq));
+    }
+    ::grpc::Status SetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncSetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncSetTimeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncSetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncSetTimeRaw(context, request, cq));
+    }
+    class experimental_async final :
+      public StubInterface::experimental_async_interface {
      public:
       void Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void Release(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void Release(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Release(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void Reboot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void Reboot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Reboot(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void Start(::grpc::ClientContext* context, const ::IntelliSwing::StartMsg* request, ::grpc::ClientReadReactor< ::IntelliSwing::SensorRunningMsg>* reactor) override;
+      #else
+      void Start(::grpc::ClientContext* context, const ::IntelliSwing::StartMsg* request, ::grpc::experimental::ClientReadReactor< ::IntelliSwing::SensorRunningMsg>* reactor) override;
+      #endif
       void Stop(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void Stop(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Stop(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void GetClubImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetClubImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetClubImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetDeviceStatus(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetLog(::grpc::ClientContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetStatistics(::grpc::ClientContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void RunSiteCalibration(::grpc::ClientContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void UpdateFirmware(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetImage(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void GetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest* request, ::IntelliSwing::DebugImage* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest* request, ::IntelliSwing::DebugImage* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetDebugImage(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest* request, ::IntelliSwing::DebugImage* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void Ping(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Ping(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Ping(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage* request, ::IntelliSwing::CMessage* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage* request, ::IntelliSwing::CMessage* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendCommand(::grpc::ClientContext* context, const ::IntelliSwing::CMessage* request, ::IntelliSwing::CMessage* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SetTime(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
-      explicit async(Stub* stub): stub_(stub) { }
+      explicit experimental_async(Stub* stub): stub_(stub) { }
       Stub* stub() { return stub_; }
       Stub* stub_;
     };
-    class async* async() override { return &async_stub_; }
+    class experimental_async_interface* experimental_async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    class async async_stub_{this};
+    class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ReturnMsg>* AsyncInitializeRaw(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ReturnMsg>* PrepareAsyncInitializeRaw(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ReturnMsg>* AsyncReleaseRaw(::grpc::ClientContext* context, const ::IntelliSwing::ReleaseMsg& request, ::grpc::CompletionQueue* cq) override;
@@ -379,6 +608,14 @@ class IntelliSwingProtocol final {
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::UpdateFirmwareResult>* PrepareAsyncUpdateFirmwareRaw(::grpc::ClientContext* context, const ::IntelliSwing::UpdateFirmwareRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>* AsyncGetImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>* PrepareAsyncGetImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::CameraImageRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DebugImage>* AsyncGetDebugImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DebugImage>* PrepareAsyncGetDebugImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncPingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncPingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::CMessage>* AsyncSendCommandRaw(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::IntelliSwing::CMessage>* PrepareAsyncSendCommandRaw(::grpc::ClientContext* context, const ::IntelliSwing::CMessage& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncSetTimeRaw(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncSetTimeRaw(::grpc::ClientContext* context, const ::IntelliSwing::TimeRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Initialize_;
     const ::grpc::internal::RpcMethod rpcmethod_Release_;
     const ::grpc::internal::RpcMethod rpcmethod_Reboot_;
@@ -393,6 +630,10 @@ class IntelliSwingProtocol final {
     const ::grpc::internal::RpcMethod rpcmethod_RunSiteCalibration_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateFirmware_;
     const ::grpc::internal::RpcMethod rpcmethod_GetImage_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetDebugImage_;
+    const ::grpc::internal::RpcMethod rpcmethod_Ping_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendCommand_;
+    const ::grpc::internal::RpcMethod rpcmethod_SetTime_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -417,6 +658,10 @@ class IntelliSwingProtocol final {
     virtual ::grpc::Status RunSiteCalibration(::grpc::ServerContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response);
     virtual ::grpc::Status UpdateFirmware(::grpc::ServerContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response);
     virtual ::grpc::Status GetImage(::grpc::ServerContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response);
+    virtual ::grpc::Status GetDebugImage(::grpc::ServerContext* context, const ::IntelliSwing::DebugImageRequest* request, ::IntelliSwing::DebugImage* response);
+    virtual ::grpc::Status Ping(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status SendCommand(::grpc::ServerContext* context, const ::IntelliSwing::CMessage* request, ::IntelliSwing::CMessage* response);
+    virtual ::grpc::Status SetTime(::grpc::ServerContext* context, const ::IntelliSwing::TimeRequest* request, ::google::protobuf::Empty* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_Initialize : public BaseClass {
@@ -698,24 +943,118 @@ class IntelliSwingProtocol final {
       ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Initialize<WithAsyncMethod_Release<WithAsyncMethod_Reboot<WithAsyncMethod_Start<WithAsyncMethod_Stop<WithAsyncMethod_GetClubImage<WithAsyncMethod_GetBallImage<WithAsyncMethod_GetDeviceInfo<WithAsyncMethod_GetDeviceStatus<WithAsyncMethod_GetLog<WithAsyncMethod_GetStatistics<WithAsyncMethod_RunSiteCalibration<WithAsyncMethod_UpdateFirmware<WithAsyncMethod_GetImage<Service > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
-  class WithCallbackMethod_Initialize : public BaseClass {
+  class WithAsyncMethod_GetDebugImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_Initialize() {
-      ::grpc::Service::MarkMethodCallback(0,
+    WithAsyncMethod_GetDebugImage() {
+      ::grpc::Service::MarkMethodAsync(14);
+    }
+    ~WithAsyncMethod_GetDebugImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetDebugImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::DebugImageRequest* /*request*/, ::IntelliSwing::DebugImage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetDebugImage(::grpc::ServerContext* context, ::IntelliSwing::DebugImageRequest* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::DebugImage>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_Ping() {
+      ::grpc::Service::MarkMethodAsync(15);
+    }
+    ~WithAsyncMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestPing(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SendCommand() {
+      ::grpc::Service::MarkMethodAsync(16);
+    }
+    ~WithAsyncMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CMessage* /*request*/, ::IntelliSwing::CMessage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendCommand(::grpc::ServerContext* context, ::IntelliSwing::CMessage* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::CMessage>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SetTime : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SetTime() {
+      ::grpc::Service::MarkMethodAsync(17);
+    }
+    ~WithAsyncMethod_SetTime() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetTime(::grpc::ServerContext* /*context*/, const ::IntelliSwing::TimeRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetTime(::grpc::ServerContext* context, ::IntelliSwing::TimeRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_Initialize<WithAsyncMethod_Release<WithAsyncMethod_Reboot<WithAsyncMethod_Start<WithAsyncMethod_Stop<WithAsyncMethod_GetClubImage<WithAsyncMethod_GetBallImage<WithAsyncMethod_GetDeviceInfo<WithAsyncMethod_GetDeviceStatus<WithAsyncMethod_GetLog<WithAsyncMethod_GetStatistics<WithAsyncMethod_RunSiteCalibration<WithAsyncMethod_UpdateFirmware<WithAsyncMethod_GetImage<WithAsyncMethod_GetDebugImage<WithAsyncMethod_Ping<WithAsyncMethod_SendCommand<WithAsyncMethod_SetTime<Service > > > > > > > > > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_Initialize : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_Initialize() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::InitializeMsg, ::IntelliSwing::ReturnMsg>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response) { return this->Initialize(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::InitializeMsg* request, ::IntelliSwing::ReturnMsg* response) { return this->Initialize(context, request, response); }));}
     void SetMessageAllocatorFor_Initialize(
-        ::grpc::MessageAllocator< ::IntelliSwing::InitializeMsg, ::IntelliSwing::ReturnMsg>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::InitializeMsg, ::IntelliSwing::ReturnMsg>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::InitializeMsg, ::IntelliSwing::ReturnMsg>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_Initialize() override {
+    ~ExperimentalWithCallbackMethod_Initialize() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -723,26 +1062,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* Initialize(
-      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::InitializeMsg* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::InitializeMsg* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Initialize(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::InitializeMsg* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_Release : public BaseClass {
+  class ExperimentalWithCallbackMethod_Release : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_Release() {
-      ::grpc::Service::MarkMethodCallback(1,
+    ExperimentalWithCallbackMethod_Release() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::ReleaseMsg, ::IntelliSwing::ReturnMsg>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response) { return this->Release(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::ReleaseMsg* request, ::IntelliSwing::ReturnMsg* response) { return this->Release(context, request, response); }));}
     void SetMessageAllocatorFor_Release(
-        ::grpc::MessageAllocator< ::IntelliSwing::ReleaseMsg, ::IntelliSwing::ReturnMsg>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::ReleaseMsg, ::IntelliSwing::ReturnMsg>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::ReleaseMsg, ::IntelliSwing::ReturnMsg>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_Release() override {
+    ~ExperimentalWithCallbackMethod_Release() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -750,26 +1109,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* Release(
-      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::ReleaseMsg* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::ReleaseMsg* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Release(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::ReleaseMsg* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_Reboot : public BaseClass {
+  class ExperimentalWithCallbackMethod_Reboot : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_Reboot() {
-      ::grpc::Service::MarkMethodCallback(2,
+    ExperimentalWithCallbackMethod_Reboot() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response) { return this->Reboot(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response) { return this->Reboot(context, request, response); }));}
     void SetMessageAllocatorFor_Reboot(
-        ::grpc::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_Reboot() override {
+    ~ExperimentalWithCallbackMethod_Reboot() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -777,21 +1156,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* Reboot(
-      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Reboot(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_Start : public BaseClass {
+  class ExperimentalWithCallbackMethod_Start : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_Start() {
-      ::grpc::Service::MarkMethodCallback(3,
+    ExperimentalWithCallbackMethod_Start() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(3,
           new ::grpc::internal::CallbackServerStreamingHandler< ::IntelliSwing::StartMsg, ::IntelliSwing::SensorRunningMsg>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::StartMsg* request) { return this->Start(context, request); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::StartMsg* request) { return this->Start(context, request); }));
     }
-    ~WithCallbackMethod_Start() override {
+    ~ExperimentalWithCallbackMethod_Start() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -799,26 +1194,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerWriteReactor< ::IntelliSwing::SensorRunningMsg>* Start(
-      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::StartMsg* /*request*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::StartMsg* /*request*/)
+    #else
+    virtual ::grpc::experimental::ServerWriteReactor< ::IntelliSwing::SensorRunningMsg>* Start(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::StartMsg* /*request*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_Stop : public BaseClass {
+  class ExperimentalWithCallbackMethod_Stop : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_Stop() {
-      ::grpc::Service::MarkMethodCallback(4,
+    ExperimentalWithCallbackMethod_Stop() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response) { return this->Stop(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response) { return this->Stop(context, request, response); }));}
     void SetMessageAllocatorFor_Stop(
-        ::grpc::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::ReturnMsg>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_Stop() override {
+    ~ExperimentalWithCallbackMethod_Stop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -826,26 +1241,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* Stop(
-      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Stop(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::ReturnMsg* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetClubImage : public BaseClass {
+  class ExperimentalWithCallbackMethod_GetClubImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetClubImage() {
-      ::grpc::Service::MarkMethodCallback(5,
+    ExperimentalWithCallbackMethod_GetClubImage() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response) { return this->GetClubImage(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response) { return this->GetClubImage(context, request, response); }));}
     void SetMessageAllocatorFor_GetClubImage(
-        ::grpc::MessageAllocator< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetClubImage() override {
+    ~ExperimentalWithCallbackMethod_GetClubImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -853,26 +1288,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetClubImage(
-      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetClubImage(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetBallImage : public BaseClass {
+  class ExperimentalWithCallbackMethod_GetBallImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetBallImage() {
-      ::grpc::Service::MarkMethodCallback(6,
+    ExperimentalWithCallbackMethod_GetBallImage() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response) { return this->GetBallImage(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response) { return this->GetBallImage(context, request, response); }));}
     void SetMessageAllocatorFor_GetBallImage(
-        ::grpc::MessageAllocator< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetBallImage() override {
+    ~ExperimentalWithCallbackMethod_GetBallImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -880,26 +1335,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetBallImage(
-      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetBallImage(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetDeviceInfo : public BaseClass {
+  class ExperimentalWithCallbackMethod_GetDeviceInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetDeviceInfo() {
-      ::grpc::Service::MarkMethodCallback(7,
+    ExperimentalWithCallbackMethod_GetDeviceInfo() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DeviceInfo>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response) { return this->GetDeviceInfo(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response) { return this->GetDeviceInfo(context, request, response); }));}
     void SetMessageAllocatorFor_GetDeviceInfo(
-        ::grpc::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::DeviceInfo>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::DeviceInfo>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DeviceInfo>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetDeviceInfo() override {
+    ~ExperimentalWithCallbackMethod_GetDeviceInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -907,26 +1382,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetDeviceInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceInfo* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceInfo* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetDeviceInfo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceInfo* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetDeviceStatus : public BaseClass {
+  class ExperimentalWithCallbackMethod_GetDeviceStatus : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetDeviceStatus() {
-      ::grpc::Service::MarkMethodCallback(8,
+    ExperimentalWithCallbackMethod_GetDeviceStatus() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response) { return this->GetDeviceStatus(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response) { return this->GetDeviceStatus(context, request, response); }));}
     void SetMessageAllocatorFor_GetDeviceStatus(
-        ::grpc::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetDeviceStatus() override {
+    ~ExperimentalWithCallbackMethod_GetDeviceStatus() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -934,26 +1429,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetDeviceStatus(
-      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceStatus* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceStatus* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetDeviceStatus(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::IntelliSwing::DeviceStatus* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetLog : public BaseClass {
+  class ExperimentalWithCallbackMethod_GetLog : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetLog() {
-      ::grpc::Service::MarkMethodCallback(9,
+    ExperimentalWithCallbackMethod_GetLog() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::LogRequest, ::IntelliSwing::LogMessage>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response) { return this->GetLog(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::LogRequest* request, ::IntelliSwing::LogMessage* response) { return this->GetLog(context, request, response); }));}
     void SetMessageAllocatorFor_GetLog(
-        ::grpc::MessageAllocator< ::IntelliSwing::LogRequest, ::IntelliSwing::LogMessage>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::LogRequest, ::IntelliSwing::LogMessage>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::LogRequest, ::IntelliSwing::LogMessage>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetLog() override {
+    ~ExperimentalWithCallbackMethod_GetLog() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -961,26 +1476,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetLog(
-      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::LogRequest* /*request*/, ::IntelliSwing::LogMessage* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::LogRequest* /*request*/, ::IntelliSwing::LogMessage* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetLog(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::LogRequest* /*request*/, ::IntelliSwing::LogMessage* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetStatistics : public BaseClass {
+  class ExperimentalWithCallbackMethod_GetStatistics : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetStatistics() {
-      ::grpc::Service::MarkMethodCallback(10,
+    ExperimentalWithCallbackMethod_GetStatistics() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response) { return this->GetStatistics(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::StatisticsRequest* request, ::IntelliSwing::SensorStatistics* response) { return this->GetStatistics(context, request, response); }));}
     void SetMessageAllocatorFor_GetStatistics(
-        ::grpc::MessageAllocator< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetStatistics() override {
+    ~ExperimentalWithCallbackMethod_GetStatistics() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -988,26 +1523,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetStatistics(
-      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::StatisticsRequest* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::StatisticsRequest* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetStatistics(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::StatisticsRequest* /*request*/, ::IntelliSwing::SensorStatistics* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_RunSiteCalibration : public BaseClass {
+  class ExperimentalWithCallbackMethod_RunSiteCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_RunSiteCalibration() {
-      ::grpc::Service::MarkMethodCallback(11,
+    ExperimentalWithCallbackMethod_RunSiteCalibration() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response) { return this->RunSiteCalibration(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::SiteCalibrationRequest* request, ::IntelliSwing::SiteCalibrationResult* response) { return this->RunSiteCalibration(context, request, response); }));}
     void SetMessageAllocatorFor_RunSiteCalibration(
-        ::grpc::MessageAllocator< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(11);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_RunSiteCalibration() override {
+    ~ExperimentalWithCallbackMethod_RunSiteCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1015,26 +1570,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* RunSiteCalibration(
-      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::SiteCalibrationRequest* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::SiteCalibrationRequest* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* RunSiteCalibration(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::SiteCalibrationRequest* /*request*/, ::IntelliSwing::SiteCalibrationResult* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_UpdateFirmware : public BaseClass {
+  class ExperimentalWithCallbackMethod_UpdateFirmware : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_UpdateFirmware() {
-      ::grpc::Service::MarkMethodCallback(12,
+    ExperimentalWithCallbackMethod_UpdateFirmware() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response) { return this->UpdateFirmware(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::UpdateFirmwareRequest* request, ::IntelliSwing::UpdateFirmwareResult* response) { return this->UpdateFirmware(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateFirmware(
-        ::grpc::MessageAllocator< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(12);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_UpdateFirmware() override {
+    ~ExperimentalWithCallbackMethod_UpdateFirmware() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1042,26 +1617,46 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateFirmware(
-      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::UpdateFirmwareRequest* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::UpdateFirmwareRequest* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* UpdateFirmware(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::UpdateFirmwareRequest* /*request*/, ::IntelliSwing::UpdateFirmwareResult* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetImage : public BaseClass {
+  class ExperimentalWithCallbackMethod_GetImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetImage() {
-      ::grpc::Service::MarkMethodCallback(13,
+    ExperimentalWithCallbackMethod_GetImage() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response) { return this->GetImage(context, request, response); }));}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::CameraImageRequest* request, ::IntelliSwing::ImageData* response) { return this->GetImage(context, request, response); }));}
     void SetMessageAllocatorFor_GetImage(
-        ::grpc::MessageAllocator< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(13);
+    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetImage() override {
+    ~ExperimentalWithCallbackMethod_GetImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1069,11 +1664,208 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetImage(
-      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::CameraImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::CameraImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetImage(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::CameraImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/)
+    #endif
+      { return nullptr; }
   };
-  typedef WithCallbackMethod_Initialize<WithCallbackMethod_Release<WithCallbackMethod_Reboot<WithCallbackMethod_Start<WithCallbackMethod_Stop<WithCallbackMethod_GetClubImage<WithCallbackMethod_GetBallImage<WithCallbackMethod_GetDeviceInfo<WithCallbackMethod_GetDeviceStatus<WithCallbackMethod_GetLog<WithCallbackMethod_GetStatistics<WithCallbackMethod_RunSiteCalibration<WithCallbackMethod_UpdateFirmware<WithCallbackMethod_GetImage<Service > > > > > > > > > > > > > > CallbackService;
-  typedef CallbackService ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_GetDebugImage : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_GetDebugImage() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(14,
+          new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::DebugImageRequest* request, ::IntelliSwing::DebugImage* response) { return this->GetDebugImage(context, request, response); }));}
+    void SetMessageAllocatorFor_GetDebugImage(
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(14);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_GetDebugImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetDebugImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::DebugImageRequest* /*request*/, ::IntelliSwing::DebugImage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetDebugImage(
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::DebugImageRequest* /*request*/, ::IntelliSwing::DebugImage* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetDebugImage(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::DebugImageRequest* /*request*/, ::IntelliSwing::DebugImage* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_Ping() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(15,
+          new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::google::protobuf::Empty>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response) { return this->Ping(context, request, response); }));}
+    void SetMessageAllocatorFor_Ping(
+        ::grpc::experimental::MessageAllocator< ::google::protobuf::Empty, ::google::protobuf::Empty>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(15);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::google::protobuf::Empty>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Ping(
+      ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::google::protobuf::Empty* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Ping(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::google::protobuf::Empty* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SendCommand() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(16,
+          new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::CMessage, ::IntelliSwing::CMessage>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::CMessage* request, ::IntelliSwing::CMessage* response) { return this->SendCommand(context, request, response); }));}
+    void SetMessageAllocatorFor_SendCommand(
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::CMessage, ::IntelliSwing::CMessage>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(16);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(16);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::CMessage, ::IntelliSwing::CMessage>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CMessage* /*request*/, ::IntelliSwing::CMessage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendCommand(
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::CMessage* /*request*/, ::IntelliSwing::CMessage* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendCommand(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::CMessage* /*request*/, ::IntelliSwing::CMessage* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SetTime : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SetTime() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(17,
+          new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::TimeRequest, ::google::protobuf::Empty>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::TimeRequest* request, ::google::protobuf::Empty* response) { return this->SetTime(context, request, response); }));}
+    void SetMessageAllocatorFor_SetTime(
+        ::grpc::experimental::MessageAllocator< ::IntelliSwing::TimeRequest, ::google::protobuf::Empty>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(17);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::TimeRequest, ::google::protobuf::Empty>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SetTime() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetTime(::grpc::ServerContext* /*context*/, const ::IntelliSwing::TimeRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SetTime(
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::TimeRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SetTime(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::TimeRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_Initialize<ExperimentalWithCallbackMethod_Release<ExperimentalWithCallbackMethod_Reboot<ExperimentalWithCallbackMethod_Start<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_GetClubImage<ExperimentalWithCallbackMethod_GetBallImage<ExperimentalWithCallbackMethod_GetDeviceInfo<ExperimentalWithCallbackMethod_GetDeviceStatus<ExperimentalWithCallbackMethod_GetLog<ExperimentalWithCallbackMethod_GetStatistics<ExperimentalWithCallbackMethod_RunSiteCalibration<ExperimentalWithCallbackMethod_UpdateFirmware<ExperimentalWithCallbackMethod_GetImage<ExperimentalWithCallbackMethod_GetDebugImage<ExperimentalWithCallbackMethod_Ping<ExperimentalWithCallbackMethod_SendCommand<ExperimentalWithCallbackMethod_SetTime<Service > > > > > > > > > > > > > > > > > > CallbackService;
+  #endif
+
+  typedef ExperimentalWithCallbackMethod_Initialize<ExperimentalWithCallbackMethod_Release<ExperimentalWithCallbackMethod_Reboot<ExperimentalWithCallbackMethod_Start<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_GetClubImage<ExperimentalWithCallbackMethod_GetBallImage<ExperimentalWithCallbackMethod_GetDeviceInfo<ExperimentalWithCallbackMethod_GetDeviceStatus<ExperimentalWithCallbackMethod_GetLog<ExperimentalWithCallbackMethod_GetStatistics<ExperimentalWithCallbackMethod_RunSiteCalibration<ExperimentalWithCallbackMethod_UpdateFirmware<ExperimentalWithCallbackMethod_GetImage<ExperimentalWithCallbackMethod_GetDebugImage<ExperimentalWithCallbackMethod_Ping<ExperimentalWithCallbackMethod_SendCommand<ExperimentalWithCallbackMethod_SetTime<Service > > > > > > > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Initialize : public BaseClass {
    private:
@@ -1308,6 +2100,74 @@ class IntelliSwingProtocol final {
     }
     // disable synchronous version of this method
     ::grpc::Status GetImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CameraImageRequest* /*request*/, ::IntelliSwing::ImageData* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_GetDebugImage : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_GetDebugImage() {
+      ::grpc::Service::MarkMethodGeneric(14);
+    }
+    ~WithGenericMethod_GetDebugImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetDebugImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::DebugImageRequest* /*request*/, ::IntelliSwing::DebugImage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_Ping() {
+      ::grpc::Service::MarkMethodGeneric(15);
+    }
+    ~WithGenericMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SendCommand() {
+      ::grpc::Service::MarkMethodGeneric(16);
+    }
+    ~WithGenericMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CMessage* /*request*/, ::IntelliSwing::CMessage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SetTime : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SetTime() {
+      ::grpc::Service::MarkMethodGeneric(17);
+    }
+    ~WithGenericMethod_SetTime() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetTime(::grpc::ServerContext* /*context*/, const ::IntelliSwing::TimeRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1593,17 +2453,107 @@ class IntelliSwingProtocol final {
     }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_Initialize : public BaseClass {
+  class WithRawMethod_GetDebugImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_Initialize() {
-      ::grpc::Service::MarkMethodRawCallback(0,
+    WithRawMethod_GetDebugImage() {
+      ::grpc::Service::MarkMethodRaw(14);
+    }
+    ~WithRawMethod_GetDebugImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetDebugImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::DebugImageRequest* /*request*/, ::IntelliSwing::DebugImage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetDebugImage(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_Ping() {
+      ::grpc::Service::MarkMethodRaw(15);
+    }
+    ~WithRawMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestPing(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SendCommand() {
+      ::grpc::Service::MarkMethodRaw(16);
+    }
+    ~WithRawMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CMessage* /*request*/, ::IntelliSwing::CMessage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendCommand(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SetTime : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SetTime() {
+      ::grpc::Service::MarkMethodRaw(17);
+    }
+    ~WithRawMethod_SetTime() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetTime(::grpc::ServerContext* /*context*/, const ::IntelliSwing::TimeRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetTime(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_Initialize : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_Initialize() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Initialize(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Initialize(context, request, response); }));
     }
-    ~WithRawCallbackMethod_Initialize() override {
+    ~ExperimentalWithRawCallbackMethod_Initialize() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1611,21 +2561,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* Initialize(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Initialize(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_Release : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_Release : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_Release() {
-      ::grpc::Service::MarkMethodRawCallback(1,
+    ExperimentalWithRawCallbackMethod_Release() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Release(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Release(context, request, response); }));
     }
-    ~WithRawCallbackMethod_Release() override {
+    ~ExperimentalWithRawCallbackMethod_Release() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1633,21 +2599,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* Release(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Release(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_Reboot : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_Reboot : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_Reboot() {
-      ::grpc::Service::MarkMethodRawCallback(2,
+    ExperimentalWithRawCallbackMethod_Reboot() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Reboot(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Reboot(context, request, response); }));
     }
-    ~WithRawCallbackMethod_Reboot() override {
+    ~ExperimentalWithRawCallbackMethod_Reboot() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1655,21 +2637,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* Reboot(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Reboot(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_Start : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_Start : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_Start() {
-      ::grpc::Service::MarkMethodRawCallback(3,
+    ExperimentalWithRawCallbackMethod_Start() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->Start(context, request); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const::grpc::ByteBuffer* request) { return this->Start(context, request); }));
     }
-    ~WithRawCallbackMethod_Start() override {
+    ~ExperimentalWithRawCallbackMethod_Start() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1677,21 +2675,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* Start(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
+    #else
+    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer>* Start(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_Stop : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_Stop : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_Stop() {
-      ::grpc::Service::MarkMethodRawCallback(4,
+    ExperimentalWithRawCallbackMethod_Stop() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Stop(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Stop(context, request, response); }));
     }
-    ~WithRawCallbackMethod_Stop() override {
+    ~ExperimentalWithRawCallbackMethod_Stop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1699,21 +2713,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* Stop(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Stop(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetClubImage : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_GetClubImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetClubImage() {
-      ::grpc::Service::MarkMethodRawCallback(5,
+    ExperimentalWithRawCallbackMethod_GetClubImage() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetClubImage(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetClubImage(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetClubImage() override {
+    ~ExperimentalWithRawCallbackMethod_GetClubImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1721,21 +2751,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetClubImage(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetClubImage(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetBallImage : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_GetBallImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetBallImage() {
-      ::grpc::Service::MarkMethodRawCallback(6,
+    ExperimentalWithRawCallbackMethod_GetBallImage() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetBallImage(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetBallImage(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetBallImage() override {
+    ~ExperimentalWithRawCallbackMethod_GetBallImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1743,21 +2789,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetBallImage(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetBallImage(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetDeviceInfo : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_GetDeviceInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetDeviceInfo() {
-      ::grpc::Service::MarkMethodRawCallback(7,
+    ExperimentalWithRawCallbackMethod_GetDeviceInfo() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetDeviceInfo(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetDeviceInfo(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetDeviceInfo() override {
+    ~ExperimentalWithRawCallbackMethod_GetDeviceInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1765,21 +2827,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetDeviceInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetDeviceInfo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetDeviceStatus : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_GetDeviceStatus : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetDeviceStatus() {
-      ::grpc::Service::MarkMethodRawCallback(8,
+    ExperimentalWithRawCallbackMethod_GetDeviceStatus() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetDeviceStatus(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetDeviceStatus(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetDeviceStatus() override {
+    ~ExperimentalWithRawCallbackMethod_GetDeviceStatus() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1787,21 +2865,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetDeviceStatus(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetDeviceStatus(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetLog : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_GetLog : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetLog() {
-      ::grpc::Service::MarkMethodRawCallback(9,
+    ExperimentalWithRawCallbackMethod_GetLog() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetLog(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetLog(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetLog() override {
+    ~ExperimentalWithRawCallbackMethod_GetLog() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1809,21 +2903,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetLog(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetLog(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetStatistics : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_GetStatistics : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetStatistics() {
-      ::grpc::Service::MarkMethodRawCallback(10,
+    ExperimentalWithRawCallbackMethod_GetStatistics() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetStatistics(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetStatistics(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetStatistics() override {
+    ~ExperimentalWithRawCallbackMethod_GetStatistics() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1831,21 +2941,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetStatistics(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetStatistics(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_RunSiteCalibration : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_RunSiteCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_RunSiteCalibration() {
-      ::grpc::Service::MarkMethodRawCallback(11,
+    ExperimentalWithRawCallbackMethod_RunSiteCalibration() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RunSiteCalibration(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RunSiteCalibration(context, request, response); }));
     }
-    ~WithRawCallbackMethod_RunSiteCalibration() override {
+    ~ExperimentalWithRawCallbackMethod_RunSiteCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1853,21 +2979,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* RunSiteCalibration(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* RunSiteCalibration(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_UpdateFirmware : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_UpdateFirmware : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_UpdateFirmware() {
-      ::grpc::Service::MarkMethodRawCallback(12,
+    ExperimentalWithRawCallbackMethod_UpdateFirmware() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateFirmware(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateFirmware(context, request, response); }));
     }
-    ~WithRawCallbackMethod_UpdateFirmware() override {
+    ~ExperimentalWithRawCallbackMethod_UpdateFirmware() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1875,21 +3017,37 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateFirmware(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* UpdateFirmware(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetImage : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_GetImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetImage() {
-      ::grpc::Service::MarkMethodRawCallback(13,
+    ExperimentalWithRawCallbackMethod_GetImage() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetImage(context, request, response); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetImage(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetImage() override {
+    ~ExperimentalWithRawCallbackMethod_GetImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1897,8 +3055,166 @@ class IntelliSwingProtocol final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetImage(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetImage(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_GetDebugImage : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_GetDebugImage() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(14,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetDebugImage(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_GetDebugImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetDebugImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::DebugImageRequest* /*request*/, ::IntelliSwing::DebugImage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetDebugImage(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetDebugImage(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_Ping() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(15,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Ping(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Ping(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Ping(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SendCommand() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(16,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendCommand(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CMessage* /*request*/, ::IntelliSwing::CMessage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendCommand(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendCommand(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SetTime : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SetTime() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(17,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetTime(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SetTime() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetTime(::grpc::ServerContext* /*context*/, const ::IntelliSwing::TimeRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SetTime(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SetTime(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Initialize : public BaseClass {
@@ -2251,7 +3567,115 @@ class IntelliSwingProtocol final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGetImage(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::IntelliSwing::CameraImageRequest,::IntelliSwing::ImageData>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_Initialize<WithStreamedUnaryMethod_Release<WithStreamedUnaryMethod_Reboot<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_GetClubImage<WithStreamedUnaryMethod_GetBallImage<WithStreamedUnaryMethod_GetDeviceInfo<WithStreamedUnaryMethod_GetDeviceStatus<WithStreamedUnaryMethod_GetLog<WithStreamedUnaryMethod_GetStatistics<WithStreamedUnaryMethod_RunSiteCalibration<WithStreamedUnaryMethod_UpdateFirmware<WithStreamedUnaryMethod_GetImage<Service > > > > > > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_GetDebugImage : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_GetDebugImage() {
+      ::grpc::Service::MarkMethodStreamed(14,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage>* streamer) {
+                       return this->StreamedGetDebugImage(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_GetDebugImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetDebugImage(::grpc::ServerContext* /*context*/, const ::IntelliSwing::DebugImageRequest* /*request*/, ::IntelliSwing::DebugImage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGetDebugImage(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::IntelliSwing::DebugImageRequest,::IntelliSwing::DebugImage>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_Ping() {
+      ::grpc::Service::MarkMethodStreamed(15,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::google::protobuf::Empty, ::google::protobuf::Empty>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::google::protobuf::Empty, ::google::protobuf::Empty>* streamer) {
+                       return this->StreamedPing(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedPing(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::protobuf::Empty,::google::protobuf::Empty>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SendCommand() {
+      ::grpc::Service::MarkMethodStreamed(16,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::IntelliSwing::CMessage, ::IntelliSwing::CMessage>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::IntelliSwing::CMessage, ::IntelliSwing::CMessage>* streamer) {
+                       return this->StreamedSendCommand(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* /*context*/, const ::IntelliSwing::CMessage* /*request*/, ::IntelliSwing::CMessage* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSendCommand(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::IntelliSwing::CMessage,::IntelliSwing::CMessage>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SetTime : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SetTime() {
+      ::grpc::Service::MarkMethodStreamed(17,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::IntelliSwing::TimeRequest, ::google::protobuf::Empty>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::IntelliSwing::TimeRequest, ::google::protobuf::Empty>* streamer) {
+                       return this->StreamedSetTime(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SetTime() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SetTime(::grpc::ServerContext* /*context*/, const ::IntelliSwing::TimeRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSetTime(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::IntelliSwing::TimeRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_Initialize<WithStreamedUnaryMethod_Release<WithStreamedUnaryMethod_Reboot<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_GetClubImage<WithStreamedUnaryMethod_GetBallImage<WithStreamedUnaryMethod_GetDeviceInfo<WithStreamedUnaryMethod_GetDeviceStatus<WithStreamedUnaryMethod_GetLog<WithStreamedUnaryMethod_GetStatistics<WithStreamedUnaryMethod_RunSiteCalibration<WithStreamedUnaryMethod_UpdateFirmware<WithStreamedUnaryMethod_GetImage<WithStreamedUnaryMethod_GetDebugImage<WithStreamedUnaryMethod_Ping<WithStreamedUnaryMethod_SendCommand<WithStreamedUnaryMethod_SetTime<Service > > > > > > > > > > > > > > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_Start : public BaseClass {
    private:
@@ -2280,7 +3704,7 @@ class IntelliSwingProtocol final {
     virtual ::grpc::Status StreamedStart(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::IntelliSwing::StartMsg,::IntelliSwing::SensorRunningMsg>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_Start<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_Initialize<WithStreamedUnaryMethod_Release<WithStreamedUnaryMethod_Reboot<WithSplitStreamingMethod_Start<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_GetClubImage<WithStreamedUnaryMethod_GetBallImage<WithStreamedUnaryMethod_GetDeviceInfo<WithStreamedUnaryMethod_GetDeviceStatus<WithStreamedUnaryMethod_GetLog<WithStreamedUnaryMethod_GetStatistics<WithStreamedUnaryMethod_RunSiteCalibration<WithStreamedUnaryMethod_UpdateFirmware<WithStreamedUnaryMethod_GetImage<Service > > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_Initialize<WithStreamedUnaryMethod_Release<WithStreamedUnaryMethod_Reboot<WithSplitStreamingMethod_Start<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_GetClubImage<WithStreamedUnaryMethod_GetBallImage<WithStreamedUnaryMethod_GetDeviceInfo<WithStreamedUnaryMethod_GetDeviceStatus<WithStreamedUnaryMethod_GetLog<WithStreamedUnaryMethod_GetStatistics<WithStreamedUnaryMethod_RunSiteCalibration<WithStreamedUnaryMethod_UpdateFirmware<WithStreamedUnaryMethod_GetImage<WithStreamedUnaryMethod_GetDebugImage<WithStreamedUnaryMethod_Ping<WithStreamedUnaryMethod_SendCommand<WithStreamedUnaryMethod_SetTime<Service > > > > > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace IntelliSwing

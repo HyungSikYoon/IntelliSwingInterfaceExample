@@ -4,7 +4,6 @@
 """Generated protocol buffer code."""
 from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
-from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
@@ -19,9 +18,61 @@ import type_pb2 as type__pb2
 import IntelliSwingService_pb2 as IntelliSwingService__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bIntelliSwingInterface.proto\x12\x0cIntelliSwing\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\ntype.proto\x1a\x19IntelliSwingService.proto\"z\n\rInitializeMsg\x12\x32\n\x06\x63lient\x18\x04 \x01(\x0e\x32\".IntelliSwing.InitializeMsg.Client\"5\n\x06\x43lient\x12\x07\n\x03GDR\x10\x00\x12\x0b\n\x07NextGDR\x10\x01\x12\n\n\x06Vision\x10\x02\x12\t\n\x05Ohter\x10\x03\"\x18\n\nReleaseMsg\x12\n\n\x02id\x18\x01 \x01(\x05\"\xdc\x03\n\x08StartMsg\x12?\n\x0f\x63lubInformation\x18\x01 \x01(\x0e\x32&.IntelliSwing.StartMsg.ClubInformation\x12\x32\n\x10goundAttribution\x18\x02 \x01(\x0e\x32\x18.IntelliSwing.GroundAttr\"\xda\x02\n\x0f\x43lubInformation\x12\x0e\n\nNonPutting\x10\x00\x12\x0b\n\x07Putting\x10\x01\x12\x08\n\x04Wood\x10\x64\x12\x06\n\x02W1\x10\x65\x12\x06\n\x02W2\x10\x66\x12\x06\n\x02W3\x10g\x12\x06\n\x02W4\x10h\x12\x06\n\x02W5\x10i\x12\x06\n\x02W6\x10j\x12\x06\n\x02W7\x10k\x12\x06\n\x02W8\x10l\x12\x06\n\x02W9\x10m\x12\t\n\x04Iron\x10\xc8\x01\x12\x07\n\x02I2\x10\xca\x01\x12\x07\n\x02I3\x10\xcb\x01\x12\x07\n\x02I4\x10\xcc\x01\x12\x07\n\x02I5\x10\xcd\x01\x12\x07\n\x02I6\x10\xce\x01\x12\x07\n\x02I7\x10\xcf\x01\x12\x07\n\x02I8\x10\xd0\x01\x12\x07\n\x02I9\x10\xd1\x01\x12\n\n\x05Wedge\x10\xac\x02\x12\x07\n\x02PW\x10\xb6\x02\x12\x07\n\x02SW\x10\xc0\x02\x12\x07\n\x02LW\x10\xca\x02\x12\x0b\n\x06Hybrid\x10\x90\x03\x12\t\n\x04UTIL\x10\xa4\x03\x12\n\n\x05UTIL2\x10\xa6\x03\x12\n\n\x05UTIL3\x10\xa7\x03\x12\n\n\x05UTIL4\x10\xa8\x03\x12\n\n\x05UTIL5\x10\xa9\x03\x12\n\n\x05UTIL6\x10\xaa\x03\x12\n\n\x05UTIL7\x10\xab\x03\"\xb4\t\n\x10SensorRunningMsg\x12-\n\ttimeStamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x35\n\x05ready\x18\x02 \x01(\x0b\x32$.IntelliSwing.SensorRunningMsg.ReadyH\x00\x12;\n\x08notReady\x18\x03 \x01(\x0b\x32\'.IntelliSwing.SensorRunningMsg.NotReadyH\x00\x12\x46\n\rshotTriggered\x18\x04 \x01(\x0b\x32-.IntelliSwing.SensorRunningMsg.ShortTriggeredH\x00\x12\x41\n\x08\x62\x61llInfo\x18\x05 \x01(\x0b\x32-.IntelliSwing.SensorRunningMsg.BallFlightInfoH\x00\x12?\n\x08\x63lubInfo\x18\x06 \x01(\x0b\x32+.IntelliSwing.SensorRunningMsg.ClubPathInfoH\x00\x1as\n\x05Ready\x12\'\n\x08position\x18\x01 \x01(\x0b\x32\x15.IntelliSwing.Point3f\x12\r\n\x05isTee\x18\x02 \x01(\x08\x12\x32\n\x10goundAttribution\x18\x03 \x01(\x0e\x32\x18.IntelliSwing.GroundAttr\x1a\xa8\x01\n\x08NotReady\x12L\n\rnotReadyCause\x18\x01 \x01(\x0e\x32\x35.IntelliSwing.SensorRunningMsg.NotReady.NotReadyCause\"N\n\rNotReadyCause\x12\x0e\n\nNotDefined\x10\x00\x12\x0c\n\x08OutBound\x10\x01\x12\x10\n\x0c\x42\x61llNotFound\x10\x02\x12\r\n\tMultiBall\x10\x03\x1a\x33\n\x0eShortTriggered\x12\x0e\n\x06shotId\x18\x01 \x01(\x05\x12\x11\n\ttimestamp\x18\x02 \x01(\x04\x1a}\n\x0e\x42\x61llFlightInfo\x12\x0e\n\x06shotId\x18\x01 \x01(\x05\x12\x11\n\tballSpeed\x18\x02 \x01(\x02\x12\x11\n\tIncidence\x18\x03 \x01(\x02\x12\x11\n\tdirection\x18\x04 \x01(\x02\x12\x10\n\x08\x62\x61\x63kSpin\x18\x05 \x01(\x02\x12\x10\n\x08sideSpin\x18\x06 \x01(\x02\x1a\xd0\x02\n\x0c\x43lubPathInfo\x12\x0e\n\x06shotId\x18\x01 \x01(\x05\x12\x11\n\theadSpeed\x18\x02 \x01(\x02\x12>\n\x04path\x18\x03 \x01(\x0b\x32\x30.IntelliSwing.SensorRunningMsg.ClubPathInfo.Path\x12\x11\n\tfaceAngle\x18\x04 \x01(\x02\x12\x13\n\x0b\x61ttackAngle\x18\x05 \x01(\x02\x12L\n\x0bimpactPoint\x18\x06 \x01(\x0b\x32\x37.IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint\x1a\x1a\n\x04Path\x12\x12\n\nGAClubPath\x18\x01 \x01(\x02\x1aK\n\x0bImpactPoint\x12\x1d\n\x15GAClubImpactPoint_Hor\x18\x01 \x01(\x02\x12\x1d\n\x15GAClubImpactPoint_Ver\x18\x02 \x01(\x02\x42\n\n\x08runState\"\"\n\x10ShotImageRequest\x12\x0e\n\x06shotId\x18\x01 \x01(\x05\"\xcc\x02\n\tImageData\x12\r\n\x05width\x18\x01 \x01(\x05\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12\x0f\n\x07\x63hannel\x18\x03 \x01(\x05\x12\x11\n\tdata_type\x18\x04 \x01(\x05\x12\x12\n\nimage_type\x18\x05 \x01(\x05\x12\x0b\n\x03\x66ps\x18\x06 \x01(\x02\x12,\n\x05\x64\x61tas\x18\x07 \x03(\x0b\x32\x1d.IntelliSwing.ImageData.Image\x1a\xac\x01\n\x05Image\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12\x11\n\ttimeStamp\x18\x03 \x01(\x04\x12\x0b\n\x03tag\x18\x07 \x01(\t\x12\x35\n\x07markers\x18\x08 \x03(\x0b\x32$.IntelliSwing.ImageData.Image.Marker\x1a>\n\x06Marker\x12\'\n\x08position\x18\x01 \x01(\x0b\x32\x15.IntelliSwing.Point2i\x12\x0b\n\x03tag\x18\x02 \x01(\t*N\n\nGroundAttr\x12\x0b\n\x07\x46\x41IRWAY\x10\x00\x12\t\n\x05ROUGH\x10\x01\x12\n\n\x06\x42UNKER\x10\x02\x12\x07\n\x03TEE\x10\x03\x12\t\n\x05GREEN\x10\x04\x12\x08\n\x04NONE\x10\x05\x32\x9a\x08\n\x14IntelliSwingProtocol\x12\x44\n\nInitialize\x12\x1b.IntelliSwing.InitializeMsg\x1a\x17.IntelliSwing.ReturnMsg\"\x00\x12>\n\x07Release\x12\x18.IntelliSwing.ReleaseMsg\x1a\x17.IntelliSwing.ReturnMsg\"\x00\x12;\n\x06Reboot\x12\x16.google.protobuf.Empty\x1a\x17.IntelliSwing.ReturnMsg\"\x00\x12\x43\n\x05Start\x12\x16.IntelliSwing.StartMsg\x1a\x1e.IntelliSwing.SensorRunningMsg\"\x00\x30\x01\x12\x39\n\x04Stop\x12\x16.google.protobuf.Empty\x1a\x17.IntelliSwing.ReturnMsg\"\x00\x12I\n\x0cGetClubImage\x12\x1e.IntelliSwing.ShotImageRequest\x1a\x17.IntelliSwing.ImageData\"\x00\x12I\n\x0cGetBallImage\x12\x1e.IntelliSwing.ShotImageRequest\x1a\x17.IntelliSwing.ImageData\"\x00\x12\x43\n\rGetDeviceInfo\x12\x16.google.protobuf.Empty\x1a\x18.IntelliSwing.DeviceInfo\"\x00\x12G\n\x0fGetDeviceStatus\x12\x16.google.protobuf.Empty\x1a\x1a.IntelliSwing.DeviceStatus\"\x00\x12>\n\x06GetLog\x12\x18.IntelliSwing.LogRequest\x1a\x18.IntelliSwing.LogMessage\"\x00\x12R\n\rGetStatistics\x12\x1f.IntelliSwing.StatisticsRequest\x1a\x1e.IntelliSwing.SensorStatistics\"\x00\x12\x61\n\x12RunSiteCalibration\x12$.IntelliSwing.SiteCalibrationRequest\x1a#.IntelliSwing.SiteCalibrationResult\"\x00\x12[\n\x0eUpdateFirmware\x12#.IntelliSwing.UpdateFirmwareRequest\x1a\".IntelliSwing.UpdateFirmwareResult\"\x00\x12G\n\x08GetImage\x12 .IntelliSwing.CameraImageRequest\x1a\x17.IntelliSwing.ImageData\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor.FileDescriptor(
+  name='IntelliSwingInterface.proto',
+  package='IntelliSwing',
+  syntax='proto3',
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b'\n\x1bIntelliSwingInterface.proto\x12\x0cIntelliSwing\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\ntype.proto\x1a\x19IntelliSwingService.proto\"z\n\rInitializeMsg\x12\x32\n\x06\x63lient\x18\x04 \x01(\x0e\x32\".IntelliSwing.InitializeMsg.Client\"5\n\x06\x43lient\x12\x07\n\x03GDR\x10\x00\x12\x0b\n\x07NextGDR\x10\x01\x12\n\n\x06Vision\x10\x02\x12\t\n\x05Ohter\x10\x03\"\x18\n\nReleaseMsg\x12\n\n\x02id\x18\x01 \x01(\x05\"\xdc\x03\n\x08StartMsg\x12?\n\x0f\x63lubInformation\x18\x01 \x01(\x0e\x32&.IntelliSwing.StartMsg.ClubInformation\x12\x32\n\x10goundAttribution\x18\x02 \x01(\x0e\x32\x18.IntelliSwing.GroundAttr\"\xda\x02\n\x0f\x43lubInformation\x12\x0e\n\nNonPutting\x10\x00\x12\x0b\n\x07Putting\x10\x01\x12\x08\n\x04Wood\x10\x64\x12\x06\n\x02W1\x10\x65\x12\x06\n\x02W2\x10\x66\x12\x06\n\x02W3\x10g\x12\x06\n\x02W4\x10h\x12\x06\n\x02W5\x10i\x12\x06\n\x02W6\x10j\x12\x06\n\x02W7\x10k\x12\x06\n\x02W8\x10l\x12\x06\n\x02W9\x10m\x12\t\n\x04Iron\x10\xc8\x01\x12\x07\n\x02I2\x10\xca\x01\x12\x07\n\x02I3\x10\xcb\x01\x12\x07\n\x02I4\x10\xcc\x01\x12\x07\n\x02I5\x10\xcd\x01\x12\x07\n\x02I6\x10\xce\x01\x12\x07\n\x02I7\x10\xcf\x01\x12\x07\n\x02I8\x10\xd0\x01\x12\x07\n\x02I9\x10\xd1\x01\x12\n\n\x05Wedge\x10\xac\x02\x12\x07\n\x02PW\x10\xb6\x02\x12\x07\n\x02SW\x10\xc0\x02\x12\x07\n\x02LW\x10\xca\x02\x12\x0b\n\x06Hybrid\x10\x90\x03\x12\t\n\x04UTIL\x10\xa4\x03\x12\n\n\x05UTIL2\x10\xa6\x03\x12\n\n\x05UTIL3\x10\xa7\x03\x12\n\n\x05UTIL4\x10\xa8\x03\x12\n\n\x05UTIL5\x10\xa9\x03\x12\n\n\x05UTIL6\x10\xaa\x03\x12\n\n\x05UTIL7\x10\xab\x03\"\xb4\t\n\x10SensorRunningMsg\x12-\n\ttimeStamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x35\n\x05ready\x18\x02 \x01(\x0b\x32$.IntelliSwing.SensorRunningMsg.ReadyH\x00\x12;\n\x08notReady\x18\x03 \x01(\x0b\x32\'.IntelliSwing.SensorRunningMsg.NotReadyH\x00\x12\x46\n\rshotTriggered\x18\x04 \x01(\x0b\x32-.IntelliSwing.SensorRunningMsg.ShortTriggeredH\x00\x12\x41\n\x08\x62\x61llInfo\x18\x05 \x01(\x0b\x32-.IntelliSwing.SensorRunningMsg.BallFlightInfoH\x00\x12?\n\x08\x63lubInfo\x18\x06 \x01(\x0b\x32+.IntelliSwing.SensorRunningMsg.ClubPathInfoH\x00\x1as\n\x05Ready\x12\'\n\x08position\x18\x01 \x01(\x0b\x32\x15.IntelliSwing.Point3f\x12\r\n\x05isTee\x18\x02 \x01(\x08\x12\x32\n\x10goundAttribution\x18\x03 \x01(\x0e\x32\x18.IntelliSwing.GroundAttr\x1a\xa8\x01\n\x08NotReady\x12L\n\rnotReadyCause\x18\x01 \x01(\x0e\x32\x35.IntelliSwing.SensorRunningMsg.NotReady.NotReadyCause\"N\n\rNotReadyCause\x12\x0e\n\nNotDefined\x10\x00\x12\x0c\n\x08OutBound\x10\x01\x12\x10\n\x0c\x42\x61llNotFound\x10\x02\x12\r\n\tMultiBall\x10\x03\x1a\x33\n\x0eShortTriggered\x12\x0e\n\x06shotId\x18\x01 \x01(\x05\x12\x11\n\ttimestamp\x18\x02 \x01(\x04\x1a}\n\x0e\x42\x61llFlightInfo\x12\x0e\n\x06shotId\x18\x01 \x01(\x05\x12\x11\n\tballSpeed\x18\x02 \x01(\x02\x12\x11\n\tIncidence\x18\x03 \x01(\x02\x12\x11\n\tdirection\x18\x04 \x01(\x02\x12\x10\n\x08\x62\x61\x63kSpin\x18\x05 \x01(\x02\x12\x10\n\x08sideSpin\x18\x06 \x01(\x02\x1a\xd0\x02\n\x0c\x43lubPathInfo\x12\x0e\n\x06shotId\x18\x01 \x01(\x05\x12\x11\n\theadSpeed\x18\x02 \x01(\x02\x12>\n\x04path\x18\x03 \x01(\x0b\x32\x30.IntelliSwing.SensorRunningMsg.ClubPathInfo.Path\x12\x11\n\tfaceAngle\x18\x04 \x01(\x02\x12\x13\n\x0b\x61ttackAngle\x18\x05 \x01(\x02\x12L\n\x0bimpactPoint\x18\x06 \x01(\x0b\x32\x37.IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint\x1a\x1a\n\x04Path\x12\x12\n\nGAClubPath\x18\x01 \x01(\x02\x1aK\n\x0bImpactPoint\x12\x1d\n\x15GAClubImpactPoint_Hor\x18\x01 \x01(\x02\x12\x1d\n\x15GAClubImpactPoint_Ver\x18\x02 \x01(\x02\x42\n\n\x08runState\"\"\n\x10ShotImageRequest\x12\x0e\n\x06shotId\x18\x01 \x01(\x05\"\xcc\x02\n\tImageData\x12\r\n\x05width\x18\x01 \x01(\x05\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12\x0f\n\x07\x63hannel\x18\x03 \x01(\x05\x12\x11\n\tdata_type\x18\x04 \x01(\x05\x12\x12\n\nimage_type\x18\x05 \x01(\x05\x12\x0b\n\x03\x66ps\x18\x06 \x01(\x02\x12,\n\x05\x64\x61tas\x18\x07 \x03(\x0b\x32\x1d.IntelliSwing.ImageData.Image\x1a\xac\x01\n\x05Image\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12\x11\n\ttimeStamp\x18\x03 \x01(\x04\x12\x0b\n\x03tag\x18\x07 \x01(\t\x12\x35\n\x07markers\x18\x08 \x03(\x0b\x32$.IntelliSwing.ImageData.Image.Marker\x1a>\n\x06Marker\x12\'\n\x08position\x18\x01 \x01(\x0b\x32\x15.IntelliSwing.Point2i\x12\x0b\n\x03tag\x18\x02 \x01(\t\"\xd6\x01\n\nDebugImage\x12\x0b\n\x03\x66ps\x18\x06 \x01(\x02\x12-\n\x05\x64\x61tas\x18\x07 \x03(\x0b\x32\x1e.IntelliSwing.DebugImage.Image\x1a\x8b\x01\n\x05Image\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12\x11\n\ttimeStamp\x18\x03 \x01(\x04\x12\r\n\x05width\x18\x04 \x01(\x05\x12\x0e\n\x06height\x18\x05 \x01(\x05\x12\x0f\n\x07\x63hannel\x18\x06 \x01(\x05\x12\x11\n\tdata_type\x18\x07 \x01(\x05\x12\x12\n\nimage_type\x18\x08 \x01(\x05\";\n\x08\x43Message\x12\x0f\n\x07\x63ommand\x18\x01 \x01(\x05\x12\r\n\x05param\x18\x02 \x03(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t*N\n\nGroundAttr\x12\x0b\n\x07\x46\x41IRWAY\x10\x00\x12\t\n\x05ROUGH\x10\x01\x12\n\n\x06\x42UNKER\x10\x02\x12\x07\n\x03TEE\x10\x03\x12\t\n\x05GREEN\x10\x04\x12\x08\n\x04NONE\x10\x05\x32\xa3\n\n\x14IntelliSwingProtocol\x12\x44\n\nInitialize\x12\x1b.IntelliSwing.InitializeMsg\x1a\x17.IntelliSwing.ReturnMsg\"\x00\x12>\n\x07Release\x12\x18.IntelliSwing.ReleaseMsg\x1a\x17.IntelliSwing.ReturnMsg\"\x00\x12;\n\x06Reboot\x12\x16.google.protobuf.Empty\x1a\x17.IntelliSwing.ReturnMsg\"\x00\x12\x43\n\x05Start\x12\x16.IntelliSwing.StartMsg\x1a\x1e.IntelliSwing.SensorRunningMsg\"\x00\x30\x01\x12\x39\n\x04Stop\x12\x16.google.protobuf.Empty\x1a\x17.IntelliSwing.ReturnMsg\"\x00\x12I\n\x0cGetClubImage\x12\x1e.IntelliSwing.ShotImageRequest\x1a\x17.IntelliSwing.ImageData\"\x00\x12I\n\x0cGetBallImage\x12\x1e.IntelliSwing.ShotImageRequest\x1a\x17.IntelliSwing.ImageData\"\x00\x12\x43\n\rGetDeviceInfo\x12\x16.google.protobuf.Empty\x1a\x18.IntelliSwing.DeviceInfo\"\x00\x12G\n\x0fGetDeviceStatus\x12\x16.google.protobuf.Empty\x1a\x1a.IntelliSwing.DeviceStatus\"\x00\x12>\n\x06GetLog\x12\x18.IntelliSwing.LogRequest\x1a\x18.IntelliSwing.LogMessage\"\x00\x12R\n\rGetStatistics\x12\x1f.IntelliSwing.StatisticsRequest\x1a\x1e.IntelliSwing.SensorStatistics\"\x00\x12\x61\n\x12RunSiteCalibration\x12$.IntelliSwing.SiteCalibrationRequest\x1a#.IntelliSwing.SiteCalibrationResult\"\x00\x12[\n\x0eUpdateFirmware\x12#.IntelliSwing.UpdateFirmwareRequest\x1a\".IntelliSwing.UpdateFirmwareResult\"\x00\x12G\n\x08GetImage\x12 .IntelliSwing.CameraImageRequest\x1a\x17.IntelliSwing.ImageData\"\x00\x12L\n\rGetDebugImage\x12\x1f.IntelliSwing.DebugImageRequest\x1a\x18.IntelliSwing.DebugImage\"\x00\x12\x38\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00\x12?\n\x0bSendCommand\x12\x16.IntelliSwing.CMessage\x1a\x16.IntelliSwing.CMessage\"\x00\x12>\n\x07SetTime\x12\x19.IntelliSwing.TimeRequest\x1a\x16.google.protobuf.Empty\"\x00\x62\x06proto3'
+  ,
+  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,type__pb2.DESCRIPTOR,IntelliSwingService__pb2.DESCRIPTOR,])
 
-_GROUNDATTR = DESCRIPTOR.enum_types_by_name['GroundAttr']
+_GROUNDATTR = _descriptor.EnumDescriptor(
+  name='GroundAttr',
+  full_name='IntelliSwing.GroundAttr',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='FAIRWAY', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ROUGH', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BUNKER', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TEE', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='GREEN', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NONE', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2631,
+  serialized_end=2709,
+)
+_sym_db.RegisterEnumDescriptor(_GROUNDATTR)
+
 GroundAttr = enum_type_wrapper.EnumTypeWrapper(_GROUNDATTR)
 FAIRWAY = 0
 ROUGH = 1
@@ -31,24 +82,1167 @@ GREEN = 4
 NONE = 5
 
 
-_INITIALIZEMSG = DESCRIPTOR.message_types_by_name['InitializeMsg']
-_RELEASEMSG = DESCRIPTOR.message_types_by_name['ReleaseMsg']
-_STARTMSG = DESCRIPTOR.message_types_by_name['StartMsg']
-_SENSORRUNNINGMSG = DESCRIPTOR.message_types_by_name['SensorRunningMsg']
-_SENSORRUNNINGMSG_READY = _SENSORRUNNINGMSG.nested_types_by_name['Ready']
-_SENSORRUNNINGMSG_NOTREADY = _SENSORRUNNINGMSG.nested_types_by_name['NotReady']
-_SENSORRUNNINGMSG_SHORTTRIGGERED = _SENSORRUNNINGMSG.nested_types_by_name['ShortTriggered']
-_SENSORRUNNINGMSG_BALLFLIGHTINFO = _SENSORRUNNINGMSG.nested_types_by_name['BallFlightInfo']
-_SENSORRUNNINGMSG_CLUBPATHINFO = _SENSORRUNNINGMSG.nested_types_by_name['ClubPathInfo']
-_SENSORRUNNINGMSG_CLUBPATHINFO_PATH = _SENSORRUNNINGMSG_CLUBPATHINFO.nested_types_by_name['Path']
-_SENSORRUNNINGMSG_CLUBPATHINFO_IMPACTPOINT = _SENSORRUNNINGMSG_CLUBPATHINFO.nested_types_by_name['ImpactPoint']
-_SHOTIMAGEREQUEST = DESCRIPTOR.message_types_by_name['ShotImageRequest']
-_IMAGEDATA = DESCRIPTOR.message_types_by_name['ImageData']
-_IMAGEDATA_IMAGE = _IMAGEDATA.nested_types_by_name['Image']
-_IMAGEDATA_IMAGE_MARKER = _IMAGEDATA_IMAGE.nested_types_by_name['Marker']
-_INITIALIZEMSG_CLIENT = _INITIALIZEMSG.enum_types_by_name['Client']
-_STARTMSG_CLUBINFORMATION = _STARTMSG.enum_types_by_name['ClubInformation']
-_SENSORRUNNINGMSG_NOTREADY_NOTREADYCAUSE = _SENSORRUNNINGMSG_NOTREADY.enum_types_by_name['NotReadyCause']
+_INITIALIZEMSG_CLIENT = _descriptor.EnumDescriptor(
+  name='Client',
+  full_name='IntelliSwing.InitializeMsg.Client',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GDR', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NextGDR', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='Vision', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='Ohter', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=215,
+  serialized_end=268,
+)
+_sym_db.RegisterEnumDescriptor(_INITIALIZEMSG_CLIENT)
+
+_STARTMSG_CLUBINFORMATION = _descriptor.EnumDescriptor(
+  name='ClubInformation',
+  full_name='IntelliSwing.StartMsg.ClubInformation',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='NonPutting', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='Putting', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='Wood', index=2, number=100,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='W1', index=3, number=101,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='W2', index=4, number=102,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='W3', index=5, number=103,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='W4', index=6, number=104,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='W5', index=7, number=105,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='W6', index=8, number=106,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='W7', index=9, number=107,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='W8', index=10, number=108,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='W9', index=11, number=109,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='Iron', index=12, number=200,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='I2', index=13, number=202,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='I3', index=14, number=203,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='I4', index=15, number=204,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='I5', index=16, number=205,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='I6', index=17, number=206,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='I7', index=18, number=207,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='I8', index=19, number=208,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='I9', index=20, number=209,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='Wedge', index=21, number=300,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PW', index=22, number=310,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SW', index=23, number=320,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='LW', index=24, number=330,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='Hybrid', index=25, number=400,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UTIL', index=26, number=420,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UTIL2', index=27, number=422,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UTIL3', index=28, number=423,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UTIL4', index=29, number=424,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UTIL5', index=30, number=425,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UTIL6', index=31, number=426,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UTIL7', index=32, number=427,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=427,
+  serialized_end=773,
+)
+_sym_db.RegisterEnumDescriptor(_STARTMSG_CLUBINFORMATION)
+
+_SENSORRUNNINGMSG_NOTREADY_NOTREADYCAUSE = _descriptor.EnumDescriptor(
+  name='NotReadyCause',
+  full_name='IntelliSwing.SensorRunningMsg.NotReady.NotReadyCause',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='NotDefined', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='OutBound', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BallNotFound', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='MultiBall', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1371,
+  serialized_end=1449,
+)
+_sym_db.RegisterEnumDescriptor(_SENSORRUNNINGMSG_NOTREADY_NOTREADYCAUSE)
+
+
+_INITIALIZEMSG = _descriptor.Descriptor(
+  name='InitializeMsg',
+  full_name='IntelliSwing.InitializeMsg',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='client', full_name='IntelliSwing.InitializeMsg.client', index=0,
+      number=4, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _INITIALIZEMSG_CLIENT,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=146,
+  serialized_end=268,
+)
+
+
+_RELEASEMSG = _descriptor.Descriptor(
+  name='ReleaseMsg',
+  full_name='IntelliSwing.ReleaseMsg',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='IntelliSwing.ReleaseMsg.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=270,
+  serialized_end=294,
+)
+
+
+_STARTMSG = _descriptor.Descriptor(
+  name='StartMsg',
+  full_name='IntelliSwing.StartMsg',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='clubInformation', full_name='IntelliSwing.StartMsg.clubInformation', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='goundAttribution', full_name='IntelliSwing.StartMsg.goundAttribution', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _STARTMSG_CLUBINFORMATION,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=297,
+  serialized_end=773,
+)
+
+
+_SENSORRUNNINGMSG_READY = _descriptor.Descriptor(
+  name='Ready',
+  full_name='IntelliSwing.SensorRunningMsg.Ready',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='position', full_name='IntelliSwing.SensorRunningMsg.Ready.position', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='isTee', full_name='IntelliSwing.SensorRunningMsg.Ready.isTee', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='goundAttribution', full_name='IntelliSwing.SensorRunningMsg.Ready.goundAttribution', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1163,
+  serialized_end=1278,
+)
+
+_SENSORRUNNINGMSG_NOTREADY = _descriptor.Descriptor(
+  name='NotReady',
+  full_name='IntelliSwing.SensorRunningMsg.NotReady',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='notReadyCause', full_name='IntelliSwing.SensorRunningMsg.NotReady.notReadyCause', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _SENSORRUNNINGMSG_NOTREADY_NOTREADYCAUSE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1281,
+  serialized_end=1449,
+)
+
+_SENSORRUNNINGMSG_SHORTTRIGGERED = _descriptor.Descriptor(
+  name='ShortTriggered',
+  full_name='IntelliSwing.SensorRunningMsg.ShortTriggered',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='shotId', full_name='IntelliSwing.SensorRunningMsg.ShortTriggered.shotId', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='timestamp', full_name='IntelliSwing.SensorRunningMsg.ShortTriggered.timestamp', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1451,
+  serialized_end=1502,
+)
+
+_SENSORRUNNINGMSG_BALLFLIGHTINFO = _descriptor.Descriptor(
+  name='BallFlightInfo',
+  full_name='IntelliSwing.SensorRunningMsg.BallFlightInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='shotId', full_name='IntelliSwing.SensorRunningMsg.BallFlightInfo.shotId', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ballSpeed', full_name='IntelliSwing.SensorRunningMsg.BallFlightInfo.ballSpeed', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Incidence', full_name='IntelliSwing.SensorRunningMsg.BallFlightInfo.Incidence', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='direction', full_name='IntelliSwing.SensorRunningMsg.BallFlightInfo.direction', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='backSpin', full_name='IntelliSwing.SensorRunningMsg.BallFlightInfo.backSpin', index=4,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sideSpin', full_name='IntelliSwing.SensorRunningMsg.BallFlightInfo.sideSpin', index=5,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1504,
+  serialized_end=1629,
+)
+
+_SENSORRUNNINGMSG_CLUBPATHINFO_PATH = _descriptor.Descriptor(
+  name='Path',
+  full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo.Path',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='GAClubPath', full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.GAClubPath', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1865,
+  serialized_end=1891,
+)
+
+_SENSORRUNNINGMSG_CLUBPATHINFO_IMPACTPOINT = _descriptor.Descriptor(
+  name='ImpactPoint',
+  full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='GAClubImpactPoint_Hor', full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint.GAClubImpactPoint_Hor', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='GAClubImpactPoint_Ver', full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint.GAClubImpactPoint_Ver', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1893,
+  serialized_end=1968,
+)
+
+_SENSORRUNNINGMSG_CLUBPATHINFO = _descriptor.Descriptor(
+  name='ClubPathInfo',
+  full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='shotId', full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo.shotId', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='headSpeed', full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo.headSpeed', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='path', full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo.path', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='faceAngle', full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo.faceAngle', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='attackAngle', full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo.attackAngle', index=4,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='impactPoint', full_name='IntelliSwing.SensorRunningMsg.ClubPathInfo.impactPoint', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SENSORRUNNINGMSG_CLUBPATHINFO_PATH, _SENSORRUNNINGMSG_CLUBPATHINFO_IMPACTPOINT, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1632,
+  serialized_end=1968,
+)
+
+_SENSORRUNNINGMSG = _descriptor.Descriptor(
+  name='SensorRunningMsg',
+  full_name='IntelliSwing.SensorRunningMsg',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='timeStamp', full_name='IntelliSwing.SensorRunningMsg.timeStamp', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ready', full_name='IntelliSwing.SensorRunningMsg.ready', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='notReady', full_name='IntelliSwing.SensorRunningMsg.notReady', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='shotTriggered', full_name='IntelliSwing.SensorRunningMsg.shotTriggered', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ballInfo', full_name='IntelliSwing.SensorRunningMsg.ballInfo', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='clubInfo', full_name='IntelliSwing.SensorRunningMsg.clubInfo', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SENSORRUNNINGMSG_READY, _SENSORRUNNINGMSG_NOTREADY, _SENSORRUNNINGMSG_SHORTTRIGGERED, _SENSORRUNNINGMSG_BALLFLIGHTINFO, _SENSORRUNNINGMSG_CLUBPATHINFO, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='runState', full_name='IntelliSwing.SensorRunningMsg.runState',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=776,
+  serialized_end=1980,
+)
+
+
+_SHOTIMAGEREQUEST = _descriptor.Descriptor(
+  name='ShotImageRequest',
+  full_name='IntelliSwing.ShotImageRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='shotId', full_name='IntelliSwing.ShotImageRequest.shotId', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1982,
+  serialized_end=2016,
+)
+
+
+_IMAGEDATA_IMAGE_MARKER = _descriptor.Descriptor(
+  name='Marker',
+  full_name='IntelliSwing.ImageData.Image.Marker',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='position', full_name='IntelliSwing.ImageData.Image.Marker.position', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tag', full_name='IntelliSwing.ImageData.Image.Marker.tag', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2289,
+  serialized_end=2351,
+)
+
+_IMAGEDATA_IMAGE = _descriptor.Descriptor(
+  name='Image',
+  full_name='IntelliSwing.ImageData.Image',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='data', full_name='IntelliSwing.ImageData.Image.data', index=0,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='timeStamp', full_name='IntelliSwing.ImageData.Image.timeStamp', index=1,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tag', full_name='IntelliSwing.ImageData.Image.tag', index=2,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='markers', full_name='IntelliSwing.ImageData.Image.markers', index=3,
+      number=8, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_IMAGEDATA_IMAGE_MARKER, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2179,
+  serialized_end=2351,
+)
+
+_IMAGEDATA = _descriptor.Descriptor(
+  name='ImageData',
+  full_name='IntelliSwing.ImageData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='width', full_name='IntelliSwing.ImageData.width', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='height', full_name='IntelliSwing.ImageData.height', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='channel', full_name='IntelliSwing.ImageData.channel', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data_type', full_name='IntelliSwing.ImageData.data_type', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='image_type', full_name='IntelliSwing.ImageData.image_type', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='fps', full_name='IntelliSwing.ImageData.fps', index=5,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='datas', full_name='IntelliSwing.ImageData.datas', index=6,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_IMAGEDATA_IMAGE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2019,
+  serialized_end=2351,
+)
+
+
+_DEBUGIMAGE_IMAGE = _descriptor.Descriptor(
+  name='Image',
+  full_name='IntelliSwing.DebugImage.Image',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='IntelliSwing.DebugImage.Image.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='IntelliSwing.DebugImage.Image.data', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='timeStamp', full_name='IntelliSwing.DebugImage.Image.timeStamp', index=2,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='width', full_name='IntelliSwing.DebugImage.Image.width', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='height', full_name='IntelliSwing.DebugImage.Image.height', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='channel', full_name='IntelliSwing.DebugImage.Image.channel', index=5,
+      number=6, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data_type', full_name='IntelliSwing.DebugImage.Image.data_type', index=6,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='image_type', full_name='IntelliSwing.DebugImage.Image.image_type', index=7,
+      number=8, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2429,
+  serialized_end=2568,
+)
+
+_DEBUGIMAGE = _descriptor.Descriptor(
+  name='DebugImage',
+  full_name='IntelliSwing.DebugImage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='fps', full_name='IntelliSwing.DebugImage.fps', index=0,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='datas', full_name='IntelliSwing.DebugImage.datas', index=1,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_DEBUGIMAGE_IMAGE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2354,
+  serialized_end=2568,
+)
+
+
+_CMESSAGE = _descriptor.Descriptor(
+  name='CMessage',
+  full_name='IntelliSwing.CMessage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='command', full_name='IntelliSwing.CMessage.command', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='param', full_name='IntelliSwing.CMessage.param', index=1,
+      number=2, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='message', full_name='IntelliSwing.CMessage.message', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2570,
+  serialized_end=2629,
+)
+
+_INITIALIZEMSG.fields_by_name['client'].enum_type = _INITIALIZEMSG_CLIENT
+_INITIALIZEMSG_CLIENT.containing_type = _INITIALIZEMSG
+_STARTMSG.fields_by_name['clubInformation'].enum_type = _STARTMSG_CLUBINFORMATION
+_STARTMSG.fields_by_name['goundAttribution'].enum_type = _GROUNDATTR
+_STARTMSG_CLUBINFORMATION.containing_type = _STARTMSG
+_SENSORRUNNINGMSG_READY.fields_by_name['position'].message_type = type__pb2._POINT3F
+_SENSORRUNNINGMSG_READY.fields_by_name['goundAttribution'].enum_type = _GROUNDATTR
+_SENSORRUNNINGMSG_READY.containing_type = _SENSORRUNNINGMSG
+_SENSORRUNNINGMSG_NOTREADY.fields_by_name['notReadyCause'].enum_type = _SENSORRUNNINGMSG_NOTREADY_NOTREADYCAUSE
+_SENSORRUNNINGMSG_NOTREADY.containing_type = _SENSORRUNNINGMSG
+_SENSORRUNNINGMSG_NOTREADY_NOTREADYCAUSE.containing_type = _SENSORRUNNINGMSG_NOTREADY
+_SENSORRUNNINGMSG_SHORTTRIGGERED.containing_type = _SENSORRUNNINGMSG
+_SENSORRUNNINGMSG_BALLFLIGHTINFO.containing_type = _SENSORRUNNINGMSG
+_SENSORRUNNINGMSG_CLUBPATHINFO_PATH.containing_type = _SENSORRUNNINGMSG_CLUBPATHINFO
+_SENSORRUNNINGMSG_CLUBPATHINFO_IMPACTPOINT.containing_type = _SENSORRUNNINGMSG_CLUBPATHINFO
+_SENSORRUNNINGMSG_CLUBPATHINFO.fields_by_name['path'].message_type = _SENSORRUNNINGMSG_CLUBPATHINFO_PATH
+_SENSORRUNNINGMSG_CLUBPATHINFO.fields_by_name['impactPoint'].message_type = _SENSORRUNNINGMSG_CLUBPATHINFO_IMPACTPOINT
+_SENSORRUNNINGMSG_CLUBPATHINFO.containing_type = _SENSORRUNNINGMSG
+_SENSORRUNNINGMSG.fields_by_name['timeStamp'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SENSORRUNNINGMSG.fields_by_name['ready'].message_type = _SENSORRUNNINGMSG_READY
+_SENSORRUNNINGMSG.fields_by_name['notReady'].message_type = _SENSORRUNNINGMSG_NOTREADY
+_SENSORRUNNINGMSG.fields_by_name['shotTriggered'].message_type = _SENSORRUNNINGMSG_SHORTTRIGGERED
+_SENSORRUNNINGMSG.fields_by_name['ballInfo'].message_type = _SENSORRUNNINGMSG_BALLFLIGHTINFO
+_SENSORRUNNINGMSG.fields_by_name['clubInfo'].message_type = _SENSORRUNNINGMSG_CLUBPATHINFO
+_SENSORRUNNINGMSG.oneofs_by_name['runState'].fields.append(
+  _SENSORRUNNINGMSG.fields_by_name['ready'])
+_SENSORRUNNINGMSG.fields_by_name['ready'].containing_oneof = _SENSORRUNNINGMSG.oneofs_by_name['runState']
+_SENSORRUNNINGMSG.oneofs_by_name['runState'].fields.append(
+  _SENSORRUNNINGMSG.fields_by_name['notReady'])
+_SENSORRUNNINGMSG.fields_by_name['notReady'].containing_oneof = _SENSORRUNNINGMSG.oneofs_by_name['runState']
+_SENSORRUNNINGMSG.oneofs_by_name['runState'].fields.append(
+  _SENSORRUNNINGMSG.fields_by_name['shotTriggered'])
+_SENSORRUNNINGMSG.fields_by_name['shotTriggered'].containing_oneof = _SENSORRUNNINGMSG.oneofs_by_name['runState']
+_SENSORRUNNINGMSG.oneofs_by_name['runState'].fields.append(
+  _SENSORRUNNINGMSG.fields_by_name['ballInfo'])
+_SENSORRUNNINGMSG.fields_by_name['ballInfo'].containing_oneof = _SENSORRUNNINGMSG.oneofs_by_name['runState']
+_SENSORRUNNINGMSG.oneofs_by_name['runState'].fields.append(
+  _SENSORRUNNINGMSG.fields_by_name['clubInfo'])
+_SENSORRUNNINGMSG.fields_by_name['clubInfo'].containing_oneof = _SENSORRUNNINGMSG.oneofs_by_name['runState']
+_IMAGEDATA_IMAGE_MARKER.fields_by_name['position'].message_type = type__pb2._POINT2I
+_IMAGEDATA_IMAGE_MARKER.containing_type = _IMAGEDATA_IMAGE
+_IMAGEDATA_IMAGE.fields_by_name['markers'].message_type = _IMAGEDATA_IMAGE_MARKER
+_IMAGEDATA_IMAGE.containing_type = _IMAGEDATA
+_IMAGEDATA.fields_by_name['datas'].message_type = _IMAGEDATA_IMAGE
+_DEBUGIMAGE_IMAGE.containing_type = _DEBUGIMAGE
+_DEBUGIMAGE.fields_by_name['datas'].message_type = _DEBUGIMAGE_IMAGE
+DESCRIPTOR.message_types_by_name['InitializeMsg'] = _INITIALIZEMSG
+DESCRIPTOR.message_types_by_name['ReleaseMsg'] = _RELEASEMSG
+DESCRIPTOR.message_types_by_name['StartMsg'] = _STARTMSG
+DESCRIPTOR.message_types_by_name['SensorRunningMsg'] = _SENSORRUNNINGMSG
+DESCRIPTOR.message_types_by_name['ShotImageRequest'] = _SHOTIMAGEREQUEST
+DESCRIPTOR.message_types_by_name['ImageData'] = _IMAGEDATA
+DESCRIPTOR.message_types_by_name['DebugImage'] = _DEBUGIMAGE
+DESCRIPTOR.message_types_by_name['CMessage'] = _CMESSAGE
+DESCRIPTOR.enum_types_by_name['GroundAttr'] = _GROUNDATTR
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
 InitializeMsg = _reflection.GeneratedProtocolMessageType('InitializeMsg', (_message.Message,), {
   'DESCRIPTOR' : _INITIALIZEMSG,
   '__module__' : 'IntelliSwingInterface_pb2'
@@ -163,48 +1357,223 @@ _sym_db.RegisterMessage(ImageData)
 _sym_db.RegisterMessage(ImageData.Image)
 _sym_db.RegisterMessage(ImageData.Image.Marker)
 
-_INTELLISWINGPROTOCOL = DESCRIPTOR.services_by_name['IntelliSwingProtocol']
-if _descriptor._USE_C_DESCRIPTORS == False:
+DebugImage = _reflection.GeneratedProtocolMessageType('DebugImage', (_message.Message,), {
 
-  DESCRIPTOR._options = None
-  _GROUNDATTR._serialized_start=2353
-  _GROUNDATTR._serialized_end=2431
-  _INITIALIZEMSG._serialized_start=146
-  _INITIALIZEMSG._serialized_end=268
-  _INITIALIZEMSG_CLIENT._serialized_start=215
-  _INITIALIZEMSG_CLIENT._serialized_end=268
-  _RELEASEMSG._serialized_start=270
-  _RELEASEMSG._serialized_end=294
-  _STARTMSG._serialized_start=297
-  _STARTMSG._serialized_end=773
-  _STARTMSG_CLUBINFORMATION._serialized_start=427
-  _STARTMSG_CLUBINFORMATION._serialized_end=773
-  _SENSORRUNNINGMSG._serialized_start=776
-  _SENSORRUNNINGMSG._serialized_end=1980
-  _SENSORRUNNINGMSG_READY._serialized_start=1163
-  _SENSORRUNNINGMSG_READY._serialized_end=1278
-  _SENSORRUNNINGMSG_NOTREADY._serialized_start=1281
-  _SENSORRUNNINGMSG_NOTREADY._serialized_end=1449
-  _SENSORRUNNINGMSG_NOTREADY_NOTREADYCAUSE._serialized_start=1371
-  _SENSORRUNNINGMSG_NOTREADY_NOTREADYCAUSE._serialized_end=1449
-  _SENSORRUNNINGMSG_SHORTTRIGGERED._serialized_start=1451
-  _SENSORRUNNINGMSG_SHORTTRIGGERED._serialized_end=1502
-  _SENSORRUNNINGMSG_BALLFLIGHTINFO._serialized_start=1504
-  _SENSORRUNNINGMSG_BALLFLIGHTINFO._serialized_end=1629
-  _SENSORRUNNINGMSG_CLUBPATHINFO._serialized_start=1632
-  _SENSORRUNNINGMSG_CLUBPATHINFO._serialized_end=1968
-  _SENSORRUNNINGMSG_CLUBPATHINFO_PATH._serialized_start=1865
-  _SENSORRUNNINGMSG_CLUBPATHINFO_PATH._serialized_end=1891
-  _SENSORRUNNINGMSG_CLUBPATHINFO_IMPACTPOINT._serialized_start=1893
-  _SENSORRUNNINGMSG_CLUBPATHINFO_IMPACTPOINT._serialized_end=1968
-  _SHOTIMAGEREQUEST._serialized_start=1982
-  _SHOTIMAGEREQUEST._serialized_end=2016
-  _IMAGEDATA._serialized_start=2019
-  _IMAGEDATA._serialized_end=2351
-  _IMAGEDATA_IMAGE._serialized_start=2179
-  _IMAGEDATA_IMAGE._serialized_end=2351
-  _IMAGEDATA_IMAGE_MARKER._serialized_start=2289
-  _IMAGEDATA_IMAGE_MARKER._serialized_end=2351
-  _INTELLISWINGPROTOCOL._serialized_start=2434
-  _INTELLISWINGPROTOCOL._serialized_end=3484
+  'Image' : _reflection.GeneratedProtocolMessageType('Image', (_message.Message,), {
+    'DESCRIPTOR' : _DEBUGIMAGE_IMAGE,
+    '__module__' : 'IntelliSwingInterface_pb2'
+    # @@protoc_insertion_point(class_scope:IntelliSwing.DebugImage.Image)
+    })
+  ,
+  'DESCRIPTOR' : _DEBUGIMAGE,
+  '__module__' : 'IntelliSwingInterface_pb2'
+  # @@protoc_insertion_point(class_scope:IntelliSwing.DebugImage)
+  })
+_sym_db.RegisterMessage(DebugImage)
+_sym_db.RegisterMessage(DebugImage.Image)
+
+CMessage = _reflection.GeneratedProtocolMessageType('CMessage', (_message.Message,), {
+  'DESCRIPTOR' : _CMESSAGE,
+  '__module__' : 'IntelliSwingInterface_pb2'
+  # @@protoc_insertion_point(class_scope:IntelliSwing.CMessage)
+  })
+_sym_db.RegisterMessage(CMessage)
+
+
+
+_INTELLISWINGPROTOCOL = _descriptor.ServiceDescriptor(
+  name='IntelliSwingProtocol',
+  full_name='IntelliSwing.IntelliSwingProtocol',
+  file=DESCRIPTOR,
+  index=0,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=2712,
+  serialized_end=4027,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='Initialize',
+    full_name='IntelliSwing.IntelliSwingProtocol.Initialize',
+    index=0,
+    containing_service=None,
+    input_type=_INITIALIZEMSG,
+    output_type=type__pb2._RETURNMSG,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Release',
+    full_name='IntelliSwing.IntelliSwingProtocol.Release',
+    index=1,
+    containing_service=None,
+    input_type=_RELEASEMSG,
+    output_type=type__pb2._RETURNMSG,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Reboot',
+    full_name='IntelliSwing.IntelliSwingProtocol.Reboot',
+    index=2,
+    containing_service=None,
+    input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    output_type=type__pb2._RETURNMSG,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Start',
+    full_name='IntelliSwing.IntelliSwingProtocol.Start',
+    index=3,
+    containing_service=None,
+    input_type=_STARTMSG,
+    output_type=_SENSORRUNNINGMSG,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Stop',
+    full_name='IntelliSwing.IntelliSwingProtocol.Stop',
+    index=4,
+    containing_service=None,
+    input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    output_type=type__pb2._RETURNMSG,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetClubImage',
+    full_name='IntelliSwing.IntelliSwingProtocol.GetClubImage',
+    index=5,
+    containing_service=None,
+    input_type=_SHOTIMAGEREQUEST,
+    output_type=_IMAGEDATA,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetBallImage',
+    full_name='IntelliSwing.IntelliSwingProtocol.GetBallImage',
+    index=6,
+    containing_service=None,
+    input_type=_SHOTIMAGEREQUEST,
+    output_type=_IMAGEDATA,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetDeviceInfo',
+    full_name='IntelliSwing.IntelliSwingProtocol.GetDeviceInfo',
+    index=7,
+    containing_service=None,
+    input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    output_type=IntelliSwingService__pb2._DEVICEINFO,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetDeviceStatus',
+    full_name='IntelliSwing.IntelliSwingProtocol.GetDeviceStatus',
+    index=8,
+    containing_service=None,
+    input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    output_type=IntelliSwingService__pb2._DEVICESTATUS,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetLog',
+    full_name='IntelliSwing.IntelliSwingProtocol.GetLog',
+    index=9,
+    containing_service=None,
+    input_type=IntelliSwingService__pb2._LOGREQUEST,
+    output_type=IntelliSwingService__pb2._LOGMESSAGE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetStatistics',
+    full_name='IntelliSwing.IntelliSwingProtocol.GetStatistics',
+    index=10,
+    containing_service=None,
+    input_type=IntelliSwingService__pb2._STATISTICSREQUEST,
+    output_type=IntelliSwingService__pb2._SENSORSTATISTICS,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='RunSiteCalibration',
+    full_name='IntelliSwing.IntelliSwingProtocol.RunSiteCalibration',
+    index=11,
+    containing_service=None,
+    input_type=IntelliSwingService__pb2._SITECALIBRATIONREQUEST,
+    output_type=IntelliSwingService__pb2._SITECALIBRATIONRESULT,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateFirmware',
+    full_name='IntelliSwing.IntelliSwingProtocol.UpdateFirmware',
+    index=12,
+    containing_service=None,
+    input_type=IntelliSwingService__pb2._UPDATEFIRMWAREREQUEST,
+    output_type=IntelliSwingService__pb2._UPDATEFIRMWARERESULT,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetImage',
+    full_name='IntelliSwing.IntelliSwingProtocol.GetImage',
+    index=13,
+    containing_service=None,
+    input_type=IntelliSwingService__pb2._CAMERAIMAGEREQUEST,
+    output_type=_IMAGEDATA,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetDebugImage',
+    full_name='IntelliSwing.IntelliSwingProtocol.GetDebugImage',
+    index=14,
+    containing_service=None,
+    input_type=IntelliSwingService__pb2._DEBUGIMAGEREQUEST,
+    output_type=_DEBUGIMAGE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Ping',
+    full_name='IntelliSwing.IntelliSwingProtocol.Ping',
+    index=15,
+    containing_service=None,
+    input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SendCommand',
+    full_name='IntelliSwing.IntelliSwingProtocol.SendCommand',
+    index=16,
+    containing_service=None,
+    input_type=_CMESSAGE,
+    output_type=_CMESSAGE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SetTime',
+    full_name='IntelliSwing.IntelliSwingProtocol.SetTime',
+    index=17,
+    containing_service=None,
+    input_type=IntelliSwingService__pb2._TIMEREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_INTELLISWINGPROTOCOL)
+
+DESCRIPTOR.services_by_name['IntelliSwingProtocol'] = _INTELLISWINGPROTOCOL
+
 # @@protoc_insertion_point(module_scope)

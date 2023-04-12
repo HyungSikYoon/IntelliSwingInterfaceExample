@@ -3,7 +3,6 @@
 # source: IntelliSwingService.proto
 """Generated protocol buffer code."""
 from google.protobuf import descriptor as _descriptor
-from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
@@ -15,21 +14,636 @@ _sym_db = _symbol_database.Default()
 import type_pb2 as type__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19IntelliSwingService.proto\x12\x0cIntelliSwing\x1a\ntype.proto\"\x81\x01\n\nDeviceInfo\x12\x11\n\tdeviceVer\x18\x01 \x01(\t\x12\x0f\n\x07\x66pgaVer\x18\x02 \x01(\t\x12\x13\n\x0bsoftwareVer\x18\x03 \x01(\t\x12\x14\n\x0cserialNumber\x18\x04 \x01(\t\x12\x12\n\nsensorName\x18\x05 \x01(\t\x12\x10\n\x08handType\x18\x06 \x01(\x05\"!\n\x11StatisticsRequest\x12\x0c\n\x04type\x18\x01 \x01(\x05\"&\n\x16SiteCalibrationRequest\x12\x0c\n\x04type\x18\x01 \x01(\x05\"\"\n\x12\x43\x61meraImageRequest\x12\x0c\n\x04type\x18\x01 \x01(\x05\"\x9a\x01\n\x0c\x44\x65viceStatus\x12,\n\x0bsensorState\x18\x01 \x03(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12,\n\x0bsystemState\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12\x19\n\x11\x64\x65viceTemperature\x18\x05 \x01(\x02\x12\x13\n\x0b\x62\x61tteryInfo\x18\x06 \x01(\x02\"=\n\nLogRequest\x12\x13\n\x0bsystemRange\x18\x01 \x01(\x05\x12\x1a\n\x12processingLogrange\x18\x02 \x01(\x05\"6\n\nLogMessage\x12\x11\n\tsystemLog\x18\x01 \x03(\t\x12\x15\n\rprocessingLog\x18\x02 \x03(\t\"&\n\x10SensorStatistics\x12\x12\n\nshot_count\x18\x01 \x01(\x05\"?\n\x15SiteCalibrationResult\x12&\n\x05state\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\"E\n\x15UpdateFirmwareRequest\x12\x16\n\x0esensorFirmware\x18\x01 \x01(\x0c\x12\x14\n\x0c\x66pgaFirmware\x18\x02 \x01(\x0c\"m\n\x14UpdateFirmwareResult\x12*\n\tFpgaState\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12)\n\x08SensorSW\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsgb\x06proto3')
+DESCRIPTOR = _descriptor.FileDescriptor(
+  name='IntelliSwingService.proto',
+  package='IntelliSwing',
+  syntax='proto3',
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b'\n\x19IntelliSwingService.proto\x12\x0cIntelliSwing\x1a\ntype.proto\"\x81\x01\n\nDeviceInfo\x12\x11\n\tdeviceVer\x18\x01 \x01(\t\x12\x0f\n\x07\x66pgaVer\x18\x02 \x01(\t\x12\x13\n\x0bsoftwareVer\x18\x03 \x01(\t\x12\x14\n\x0cserialNumber\x18\x04 \x01(\t\x12\x12\n\nsensorName\x18\x05 \x01(\t\x12\x10\n\x08handType\x18\x06 \x01(\x05\"!\n\x11StatisticsRequest\x12\x0c\n\x04type\x18\x01 \x01(\x05\"&\n\x16SiteCalibrationRequest\x12\x0c\n\x04type\x18\x01 \x01(\x05\"C\n\x12\x43\x61meraImageRequest\x12\r\n\x05\x63\x61mId\x18\x01 \x01(\x05\x12\x10\n\x08\x65xposure\x18\x02 \x01(\x02\x12\x0c\n\x04gain\x18\x03 \x01(\x02\"1\n\x11\x44\x65\x62ugImageRequest\x12\x0f\n\x07\x63hannel\x18\x01 \x03(\x05\x12\x0b\n\x03key\x18\x02 \x01(\t\"\x9a\x01\n\x0c\x44\x65viceStatus\x12,\n\x0bsensorState\x18\x01 \x03(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12,\n\x0bsystemState\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12\x19\n\x11\x64\x65viceTemperature\x18\x05 \x01(\x02\x12\x13\n\x0b\x62\x61tteryInfo\x18\x06 \x01(\x02\"=\n\nLogRequest\x12\x13\n\x0bsystemRange\x18\x01 \x01(\x05\x12\x1a\n\x12processingLogrange\x18\x02 \x01(\x05\"6\n\nLogMessage\x12\x11\n\tsystemLog\x18\x01 \x03(\t\x12\x15\n\rprocessingLog\x18\x02 \x03(\t\"\xa8\x01\n\x10SensorStatistics\x12\x18\n\x10total_shot_count\x18\x01 \x01(\x04\x12\x1b\n\x13total_trigger_count\x18\x02 \x01(\x04\x12\x1b\n\x13total_missing_count\x18\x03 \x01(\x04\x12\x12\n\nshot_count\x18\x04 \x01(\x04\x12\x15\n\rtrigger_count\x18\x05 \x01(\x04\x12\x15\n\rmissing_count\x18\x06 \x01(\x04\"?\n\x15SiteCalibrationResult\x12&\n\x05state\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\"E\n\x15UpdateFirmwareRequest\x12\x16\n\x0esensorFirmware\x18\x01 \x01(\x0c\x12\x14\n\x0c\x66pgaFirmware\x18\x02 \x01(\x0c\"m\n\x14UpdateFirmwareResult\x12*\n\tFpgaState\x18\x01 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\x12)\n\x08SensorSW\x18\x02 \x01(\x0b\x32\x17.IntelliSwing.ReturnMsg\"m\n\x0bTimeRequest\x12\x0c\n\x04year\x18\x01 \x01(\x05\x12\r\n\x05month\x18\x02 \x01(\x05\x12\x0b\n\x03\x64\x61y\x18\x03 \x01(\x05\x12\x0c\n\x04hour\x18\x04 \x01(\x05\x12\x0b\n\x03min\x18\x05 \x01(\x05\x12\x0b\n\x03sec\x18\x06 \x01(\x05\x12\x0c\n\x04msec\x18\x07 \x01(\x05\x62\x06proto3'
+  ,
+  dependencies=[type__pb2.DESCRIPTOR,])
 
 
 
-_DEVICEINFO = DESCRIPTOR.message_types_by_name['DeviceInfo']
-_STATISTICSREQUEST = DESCRIPTOR.message_types_by_name['StatisticsRequest']
-_SITECALIBRATIONREQUEST = DESCRIPTOR.message_types_by_name['SiteCalibrationRequest']
-_CAMERAIMAGEREQUEST = DESCRIPTOR.message_types_by_name['CameraImageRequest']
-_DEVICESTATUS = DESCRIPTOR.message_types_by_name['DeviceStatus']
-_LOGREQUEST = DESCRIPTOR.message_types_by_name['LogRequest']
-_LOGMESSAGE = DESCRIPTOR.message_types_by_name['LogMessage']
-_SENSORSTATISTICS = DESCRIPTOR.message_types_by_name['SensorStatistics']
-_SITECALIBRATIONRESULT = DESCRIPTOR.message_types_by_name['SiteCalibrationResult']
-_UPDATEFIRMWAREREQUEST = DESCRIPTOR.message_types_by_name['UpdateFirmwareRequest']
-_UPDATEFIRMWARERESULT = DESCRIPTOR.message_types_by_name['UpdateFirmwareResult']
+
+_DEVICEINFO = _descriptor.Descriptor(
+  name='DeviceInfo',
+  full_name='IntelliSwing.DeviceInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='deviceVer', full_name='IntelliSwing.DeviceInfo.deviceVer', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='fpgaVer', full_name='IntelliSwing.DeviceInfo.fpgaVer', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='softwareVer', full_name='IntelliSwing.DeviceInfo.softwareVer', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='serialNumber', full_name='IntelliSwing.DeviceInfo.serialNumber', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sensorName', full_name='IntelliSwing.DeviceInfo.sensorName', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='handType', full_name='IntelliSwing.DeviceInfo.handType', index=5,
+      number=6, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=56,
+  serialized_end=185,
+)
+
+
+_STATISTICSREQUEST = _descriptor.Descriptor(
+  name='StatisticsRequest',
+  full_name='IntelliSwing.StatisticsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='IntelliSwing.StatisticsRequest.type', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=187,
+  serialized_end=220,
+)
+
+
+_SITECALIBRATIONREQUEST = _descriptor.Descriptor(
+  name='SiteCalibrationRequest',
+  full_name='IntelliSwing.SiteCalibrationRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='IntelliSwing.SiteCalibrationRequest.type', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=222,
+  serialized_end=260,
+)
+
+
+_CAMERAIMAGEREQUEST = _descriptor.Descriptor(
+  name='CameraImageRequest',
+  full_name='IntelliSwing.CameraImageRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='camId', full_name='IntelliSwing.CameraImageRequest.camId', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='exposure', full_name='IntelliSwing.CameraImageRequest.exposure', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gain', full_name='IntelliSwing.CameraImageRequest.gain', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=262,
+  serialized_end=329,
+)
+
+
+_DEBUGIMAGEREQUEST = _descriptor.Descriptor(
+  name='DebugImageRequest',
+  full_name='IntelliSwing.DebugImageRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='channel', full_name='IntelliSwing.DebugImageRequest.channel', index=0,
+      number=1, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='IntelliSwing.DebugImageRequest.key', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=331,
+  serialized_end=380,
+)
+
+
+_DEVICESTATUS = _descriptor.Descriptor(
+  name='DeviceStatus',
+  full_name='IntelliSwing.DeviceStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sensorState', full_name='IntelliSwing.DeviceStatus.sensorState', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='systemState', full_name='IntelliSwing.DeviceStatus.systemState', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deviceTemperature', full_name='IntelliSwing.DeviceStatus.deviceTemperature', index=2,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='batteryInfo', full_name='IntelliSwing.DeviceStatus.batteryInfo', index=3,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=383,
+  serialized_end=537,
+)
+
+
+_LOGREQUEST = _descriptor.Descriptor(
+  name='LogRequest',
+  full_name='IntelliSwing.LogRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='systemRange', full_name='IntelliSwing.LogRequest.systemRange', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='processingLogrange', full_name='IntelliSwing.LogRequest.processingLogrange', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=539,
+  serialized_end=600,
+)
+
+
+_LOGMESSAGE = _descriptor.Descriptor(
+  name='LogMessage',
+  full_name='IntelliSwing.LogMessage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='systemLog', full_name='IntelliSwing.LogMessage.systemLog', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='processingLog', full_name='IntelliSwing.LogMessage.processingLog', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=602,
+  serialized_end=656,
+)
+
+
+_SENSORSTATISTICS = _descriptor.Descriptor(
+  name='SensorStatistics',
+  full_name='IntelliSwing.SensorStatistics',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='total_shot_count', full_name='IntelliSwing.SensorStatistics.total_shot_count', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_trigger_count', full_name='IntelliSwing.SensorStatistics.total_trigger_count', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_missing_count', full_name='IntelliSwing.SensorStatistics.total_missing_count', index=2,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='shot_count', full_name='IntelliSwing.SensorStatistics.shot_count', index=3,
+      number=4, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='trigger_count', full_name='IntelliSwing.SensorStatistics.trigger_count', index=4,
+      number=5, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='missing_count', full_name='IntelliSwing.SensorStatistics.missing_count', index=5,
+      number=6, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=659,
+  serialized_end=827,
+)
+
+
+_SITECALIBRATIONRESULT = _descriptor.Descriptor(
+  name='SiteCalibrationResult',
+  full_name='IntelliSwing.SiteCalibrationResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='state', full_name='IntelliSwing.SiteCalibrationResult.state', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=829,
+  serialized_end=892,
+)
+
+
+_UPDATEFIRMWAREREQUEST = _descriptor.Descriptor(
+  name='UpdateFirmwareRequest',
+  full_name='IntelliSwing.UpdateFirmwareRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sensorFirmware', full_name='IntelliSwing.UpdateFirmwareRequest.sensorFirmware', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='fpgaFirmware', full_name='IntelliSwing.UpdateFirmwareRequest.fpgaFirmware', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=894,
+  serialized_end=963,
+)
+
+
+_UPDATEFIRMWARERESULT = _descriptor.Descriptor(
+  name='UpdateFirmwareResult',
+  full_name='IntelliSwing.UpdateFirmwareResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='FpgaState', full_name='IntelliSwing.UpdateFirmwareResult.FpgaState', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='SensorSW', full_name='IntelliSwing.UpdateFirmwareResult.SensorSW', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=965,
+  serialized_end=1074,
+)
+
+
+_TIMEREQUEST = _descriptor.Descriptor(
+  name='TimeRequest',
+  full_name='IntelliSwing.TimeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='year', full_name='IntelliSwing.TimeRequest.year', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='month', full_name='IntelliSwing.TimeRequest.month', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='day', full_name='IntelliSwing.TimeRequest.day', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='hour', full_name='IntelliSwing.TimeRequest.hour', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='min', full_name='IntelliSwing.TimeRequest.min', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sec', full_name='IntelliSwing.TimeRequest.sec', index=5,
+      number=6, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='msec', full_name='IntelliSwing.TimeRequest.msec', index=6,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1076,
+  serialized_end=1185,
+)
+
+_DEVICESTATUS.fields_by_name['sensorState'].message_type = type__pb2._RETURNMSG
+_DEVICESTATUS.fields_by_name['systemState'].message_type = type__pb2._RETURNMSG
+_SITECALIBRATIONRESULT.fields_by_name['state'].message_type = type__pb2._RETURNMSG
+_UPDATEFIRMWARERESULT.fields_by_name['FpgaState'].message_type = type__pb2._RETURNMSG
+_UPDATEFIRMWARERESULT.fields_by_name['SensorSW'].message_type = type__pb2._RETURNMSG
+DESCRIPTOR.message_types_by_name['DeviceInfo'] = _DEVICEINFO
+DESCRIPTOR.message_types_by_name['StatisticsRequest'] = _STATISTICSREQUEST
+DESCRIPTOR.message_types_by_name['SiteCalibrationRequest'] = _SITECALIBRATIONREQUEST
+DESCRIPTOR.message_types_by_name['CameraImageRequest'] = _CAMERAIMAGEREQUEST
+DESCRIPTOR.message_types_by_name['DebugImageRequest'] = _DEBUGIMAGEREQUEST
+DESCRIPTOR.message_types_by_name['DeviceStatus'] = _DEVICESTATUS
+DESCRIPTOR.message_types_by_name['LogRequest'] = _LOGREQUEST
+DESCRIPTOR.message_types_by_name['LogMessage'] = _LOGMESSAGE
+DESCRIPTOR.message_types_by_name['SensorStatistics'] = _SENSORSTATISTICS
+DESCRIPTOR.message_types_by_name['SiteCalibrationResult'] = _SITECALIBRATIONRESULT
+DESCRIPTOR.message_types_by_name['UpdateFirmwareRequest'] = _UPDATEFIRMWAREREQUEST
+DESCRIPTOR.message_types_by_name['UpdateFirmwareResult'] = _UPDATEFIRMWARERESULT
+DESCRIPTOR.message_types_by_name['TimeRequest'] = _TIMEREQUEST
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
 DeviceInfo = _reflection.GeneratedProtocolMessageType('DeviceInfo', (_message.Message,), {
   'DESCRIPTOR' : _DEVICEINFO,
   '__module__' : 'IntelliSwingService_pb2'
@@ -57,6 +671,13 @@ CameraImageRequest = _reflection.GeneratedProtocolMessageType('CameraImageReques
   # @@protoc_insertion_point(class_scope:IntelliSwing.CameraImageRequest)
   })
 _sym_db.RegisterMessage(CameraImageRequest)
+
+DebugImageRequest = _reflection.GeneratedProtocolMessageType('DebugImageRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DEBUGIMAGEREQUEST,
+  '__module__' : 'IntelliSwingService_pb2'
+  # @@protoc_insertion_point(class_scope:IntelliSwing.DebugImageRequest)
+  })
+_sym_db.RegisterMessage(DebugImageRequest)
 
 DeviceStatus = _reflection.GeneratedProtocolMessageType('DeviceStatus', (_message.Message,), {
   'DESCRIPTOR' : _DEVICESTATUS,
@@ -107,29 +728,12 @@ UpdateFirmwareResult = _reflection.GeneratedProtocolMessageType('UpdateFirmwareR
   })
 _sym_db.RegisterMessage(UpdateFirmwareResult)
 
-if _descriptor._USE_C_DESCRIPTORS == False:
+TimeRequest = _reflection.GeneratedProtocolMessageType('TimeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TIMEREQUEST,
+  '__module__' : 'IntelliSwingService_pb2'
+  # @@protoc_insertion_point(class_scope:IntelliSwing.TimeRequest)
+  })
+_sym_db.RegisterMessage(TimeRequest)
 
-  DESCRIPTOR._options = None
-  _DEVICEINFO._serialized_start=56
-  _DEVICEINFO._serialized_end=185
-  _STATISTICSREQUEST._serialized_start=187
-  _STATISTICSREQUEST._serialized_end=220
-  _SITECALIBRATIONREQUEST._serialized_start=222
-  _SITECALIBRATIONREQUEST._serialized_end=260
-  _CAMERAIMAGEREQUEST._serialized_start=262
-  _CAMERAIMAGEREQUEST._serialized_end=296
-  _DEVICESTATUS._serialized_start=299
-  _DEVICESTATUS._serialized_end=453
-  _LOGREQUEST._serialized_start=455
-  _LOGREQUEST._serialized_end=516
-  _LOGMESSAGE._serialized_start=518
-  _LOGMESSAGE._serialized_end=572
-  _SENSORSTATISTICS._serialized_start=574
-  _SENSORSTATISTICS._serialized_end=612
-  _SITECALIBRATIONRESULT._serialized_start=614
-  _SITECALIBRATIONRESULT._serialized_end=677
-  _UPDATEFIRMWAREREQUEST._serialized_start=679
-  _UPDATEFIRMWAREREQUEST._serialized_end=748
-  _UPDATEFIRMWARERESULT._serialized_start=750
-  _UPDATEFIRMWARERESULT._serialized_end=859
+
 # @@protoc_insertion_point(module_scope)

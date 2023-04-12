@@ -87,6 +87,26 @@ class IntelliSwingProtocolStub(object):
                 request_serializer=IntelliSwingService__pb2.CameraImageRequest.SerializeToString,
                 response_deserializer=IntelliSwingInterface__pb2.ImageData.FromString,
                 )
+        self.GetDebugImage = channel.unary_unary(
+                '/IntelliSwing.IntelliSwingProtocol/GetDebugImage',
+                request_serializer=IntelliSwingService__pb2.DebugImageRequest.SerializeToString,
+                response_deserializer=IntelliSwingInterface__pb2.DebugImage.FromString,
+                )
+        self.Ping = channel.unary_unary(
+                '/IntelliSwing.IntelliSwingProtocol/Ping',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
+        self.SendCommand = channel.unary_unary(
+                '/IntelliSwing.IntelliSwingProtocol/SendCommand',
+                request_serializer=IntelliSwingInterface__pb2.CMessage.SerializeToString,
+                response_deserializer=IntelliSwingInterface__pb2.CMessage.FromString,
+                )
+        self.SetTime = channel.unary_unary(
+                '/IntelliSwing.IntelliSwingProtocol/SetTime',
+                request_serializer=IntelliSwingService__pb2.TimeRequest.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
 
 
 class IntelliSwingProtocolServicer(object):
@@ -179,6 +199,30 @@ class IntelliSwingProtocolServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetDebugImage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Ping(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SendCommand(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetTime(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_IntelliSwingProtocolServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -251,6 +295,26 @@ def add_IntelliSwingProtocolServicer_to_server(servicer, server):
                     servicer.GetImage,
                     request_deserializer=IntelliSwingService__pb2.CameraImageRequest.FromString,
                     response_serializer=IntelliSwingInterface__pb2.ImageData.SerializeToString,
+            ),
+            'GetDebugImage': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDebugImage,
+                    request_deserializer=IntelliSwingService__pb2.DebugImageRequest.FromString,
+                    response_serializer=IntelliSwingInterface__pb2.DebugImage.SerializeToString,
+            ),
+            'Ping': grpc.unary_unary_rpc_method_handler(
+                    servicer.Ping,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'SendCommand': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendCommand,
+                    request_deserializer=IntelliSwingInterface__pb2.CMessage.FromString,
+                    response_serializer=IntelliSwingInterface__pb2.CMessage.SerializeToString,
+            ),
+            'SetTime': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetTime,
+                    request_deserializer=IntelliSwingService__pb2.TimeRequest.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -497,5 +561,73 @@ class IntelliSwingProtocol(object):
         return grpc.experimental.unary_unary(request, target, '/IntelliSwing.IntelliSwingProtocol/GetImage',
             IntelliSwingService__pb2.CameraImageRequest.SerializeToString,
             IntelliSwingInterface__pb2.ImageData.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDebugImage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/IntelliSwing.IntelliSwingProtocol/GetDebugImage',
+            IntelliSwingService__pb2.DebugImageRequest.SerializeToString,
+            IntelliSwingInterface__pb2.DebugImage.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Ping(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/IntelliSwing.IntelliSwingProtocol/Ping',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SendCommand(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/IntelliSwing.IntelliSwingProtocol/SendCommand',
+            IntelliSwingInterface__pb2.CMessage.SerializeToString,
+            IntelliSwingInterface__pb2.CMessage.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetTime(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/IntelliSwing.IntelliSwingProtocol/SetTime',
+            IntelliSwingService__pb2.TimeRequest.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
