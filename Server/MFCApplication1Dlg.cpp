@@ -44,9 +44,9 @@ public:
 
 // Implementation
 protected:
-	DECLARE_MESSAGE_MAP()
+
 public:
-	afx_msg void OnButtonSendTerminited();
+
 };
 
 CAboutDlg::CAboutDlg() : CDialogEx(IDD_ABOUTBOX)
@@ -57,10 +57,6 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 }
-
-BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
-	ON_COMMAND(IDC_BUTTON_SEND_TERMINITED, &CAboutDlg::OnButtonSendTerminited)
-END_MESSAGE_MAP()
 
 
 // CMFCApplication1Dlg dialog
@@ -240,7 +236,7 @@ void CMFCApplication1Dlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BUTTON_SEND_SHOT, m_ctrlButtonSendShot);
 	DDX_Control(pDX, IDC_CHECK_IS_ON_TEE, m_ctrlCheckIsOnTee);
 	DDX_Control(pDX, IDC_COMBO_GROUND, m_ctrlComboGroundType);
-	DDX_Control(pDX, IDC_BUTTON_SEND_TERMINITED, m_ctrlBtnSetServerStopped);
+	DDX_Control(pDX, IDC_BUTTON_SEND_TERMINITED, m_ctrlButtonStopped);
 }
 
 BEGIN_MESSAGE_MAP(CMFCApplication1Dlg, CDialogEx)
@@ -258,6 +254,7 @@ BEGIN_MESSAGE_MAP(CMFCApplication1Dlg, CDialogEx)
 	ON_WM_DESTROY()
 	ON_BN_CLICKED(IDC_BUTTON_SEND_SHOT, &CMFCApplication1Dlg::OnBnClickedButtonSendShot)
 	ON_CBN_SELCHANGE(IDC_COMBO_GROUND, &CMFCApplication1Dlg::OnSelchangeComboGround)
+	ON_BN_CLICKED(IDC_BUTTON_SEND_TERMINITED, &CMFCApplication1Dlg::OnClickedButtonSendTerminited)
 END_MESSAGE_MAP()
 
 
@@ -514,20 +511,6 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendShot()
 
 		Sleep(100);
 
-		//send ball image ready
-		{
-			::IntelliSwing::SensorRunningMsg msg;
-
-			auto* timestamp = msg.mutable_timestamp();
-			*timestamp = google::protobuf::util::TimeUtil::GetCurrentTime();
-
-			auto* pBallImageReady = msg.mutable_imageready();
-			pBallImageReady->set_shotid(m_nShotID);
-			pBallImageReady->set_isballimageprepared(true);
-
-			g_serviceImpl.m_pWriter->Write(msg);
-		}
-		Sleep(100);
 		//send club imag ready
 		{
 			::IntelliSwing::SensorRunningMsg msg;
@@ -542,7 +525,6 @@ void CMFCApplication1Dlg::OnBnClickedButtonSendShot()
 
 			g_serviceImpl.m_pWriter->Write(msg);
 		}
-
 	}
 }
 
@@ -574,6 +556,7 @@ void CMFCApplication1Dlg::OnBeginServerToClient()
 	m_ctrlButtonClubPath.EnableWindow(true);
 	m_ctrlButtonSendEnd.EnableWindow(true);
 	m_ctrlButtonSendShot.EnableWindow(true);
+	m_ctrlButtonStopped.EnableWindow(true);
 	Invalidate(TRUE);
 	UpdateWindow();
 }
@@ -587,6 +570,7 @@ void CMFCApplication1Dlg::OnEndServerToClient()
 	m_ctrlButtonClubPath.EnableWindow(false);
 	m_ctrlButtonSendEnd.EnableWindow(false);
 	m_ctrlButtonSendShot.EnableWindow(false);
+	m_ctrlButtonStopped.EnableWindow(false);
 	Invalidate(TRUE);
 	UpdateWindow();
 }
@@ -600,19 +584,21 @@ void CMFCApplication1Dlg::OnSelchangeComboGround()
 	std::cout << "Ground Index "<<m_ctrlComboGroundType.GetCurSel() << std::endl;
 }
 
-
-void CAboutDlg::OnButtonSendTerminited()
+void CMFCApplication1Dlg::OnClickedButtonSendTerminited()
 {
-	// TODO: Add your command handler code here
+	LogHelper log("OnButtonSendTerminited");
+
+	std::lock_guard< std::mutex> lg(cv_m);
 	::IntelliSwing::SensorRunningMsg msg;
 	*msg.mutable_timestamp() = google::protobuf::util::TimeUtil::GetCurrentTime();
 	auto* pStopped = msg.mutable_sensorstopped();
 	pStopped->set_stopcause(::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause::SensorRunningMsg_SensorStopped_StopCause_Sleep);
 	uint64_t timestampI64 = google::protobuf::util::TimeUtil::TimestampToMilliseconds(google::protobuf::util::TimeUtil::GetCurrentTime());
-	
+
 	g_serviceImpl.m_pWriter->Write(msg);
 
 	Sleep(10);
+	g_Ready = true;
 
-	//todo server stop
+	conditional_variable.notify_all();
 }

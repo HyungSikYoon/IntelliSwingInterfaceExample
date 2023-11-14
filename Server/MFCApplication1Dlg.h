@@ -57,7 +57,7 @@ public:
 	CButton m_ctrlButtonClubPath;
 	CButton m_ctrlButtonSendEnd;
 	CButton m_ctrlButtonSendShot;
-	CButton m_ctrlBtnSetServerStopped;
+	CButton m_ctrlButtonStopped;
 
 
 	void OnBeginServerToClient();
@@ -66,4 +66,5 @@ public:
 	CButton m_ctrlCheckIsOnTee;
 	CComboBox m_ctrlComboGroundType;
 	afx_msg void OnSelchangeComboGround();
+	afx_msg void OnClickedButtonSendTerminited();
 };
