@@ -57,6 +57,7 @@ public:
 	CButton m_ctrlButtonClubPath;
 	CButton m_ctrlButtonSendEnd;
 	CButton m_ctrlButtonSendShot;
+	CButton m_ctrlBtnSetServerStopped;
 
 
 	void OnBeginServerToClient();

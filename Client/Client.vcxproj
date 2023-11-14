@@ -76,8 +76,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(zLib)\grpc_v1.38.1\inc;$(zLib)\protobuf_v3.18.0\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>$(zLib)\protobuf_v3.18.0\lib\$(platform)\$(configuration);$(zLib)\grpc_v1.38.1\lib\$(platform)\$(configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(zLib)\ocv440\include;$(zLib)\grpc_v1.38.1\inc;$(zLib)\protobuf_v3.18.0\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>$(zLib)\ocv440\lib;;$(zLib)\protobuf_v3.18.0\lib\$(platform)\$(configuration);$(zLib)\grpc_v1.38.1\lib\$(platform)\$(configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>

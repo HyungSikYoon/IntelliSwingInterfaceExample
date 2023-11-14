@@ -25,6 +25,9 @@
 #define IDC_TXT_SIDESPIN                1015
 #define IDC_TXT_BACKSPIN                1016
 #define IDC_TXT_HEAD_SPEED              1017
+#define IDC_BUTTON_SHOW_DBG_IMG         1018
+#define IDC_BUTTON2                     1019
+#define IDC_BUTTON_GET_IMAGE            1019
 
 // Next default values for new objects
 // 
@@ -32,7 +35,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1018
+#define _APS_NEXT_CONTROL_VALUE         1020
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

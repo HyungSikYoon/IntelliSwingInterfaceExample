@@ -5,8 +5,8 @@
 #pragma once
 #include <grpcpp/grpcpp.h>
 #include "../ProtoBuf/IntelliSwingInterface.grpc.pb.h"
+#include <opencv2/opencv.hpp>
 
-#define TIMER_ID_READ_FROM_SERVER 1000
 
 // CClientDlg dialog
 class CClientDlg : public CDialogEx
@@ -29,6 +29,8 @@ private :
 	std::unique_ptr<IntelliSwing::IntelliSwingProtocol::Stub> g_uptrStub;
 	std::unique_ptr< ::grpc::ClientReader< ::IntelliSwing::SensorRunningMsg>> m_reader;
 	grpc::ClientContext *m_pContext = nullptr;
+	std::vector<cv::Mat> m_vecDebugImage;
+	std::vector<cv::Mat> m_vecCamImage;
 protected:
 	HICON m_hIcon;
 
@@ -58,4 +60,10 @@ public:
 	CStatic m_ctrlTXTSideSpin;
 	CStatic m_ctrlTXTBackSpin;
 	CStatic m_ctrlTXTHeadSpeed;
+	afx_msg void OnBnClickedButtonShowDbgImg();
+	afx_msg void OnBnClickedButtonGetImage();
+	afx_msg void OnDestroy();
+
+	void StartRunner();
+
 };

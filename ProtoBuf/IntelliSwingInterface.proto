@@ -43,8 +43,15 @@ message InitializeMsg
 		Vision = 2;
 		Ohter = 3;
 	}
-	
-	Client client = 4;
+
+	enum HandType
+	{
+		Right	= 0;
+		Left	= 1;
+	}
+
+	HandType handType	= 1; //{0 : right-hand, 1 : left_hand}
+	Client client		= 4;
 }
 
 message ReleaseMsg
@@ -111,11 +118,13 @@ message SensorRunningMsg
 
 	oneof runState
 	{
-		Ready			ready		= 2;
-		NotReady		notReady	= 3;
-		ShortTriggered	shotTriggered = 4;
-		BallFlightInfo	ballInfo	= 5;
-		ClubPathInfo	clubInfo	= 6;
+		Ready			ready			= 2;
+		NotReady		notReady		= 3;
+		ShortTriggered	shotTriggered	= 4;
+		BallFlightInfo	ballInfo		= 5;
+		ClubPathInfo	clubInfo		= 6;
+		SensorStopped	sensorStopped	= 7;
+		ImageReady		imageReady		= 8;
 	}
 
 	message Ready
@@ -151,6 +160,8 @@ message SensorRunningMsg
 		float direction		= 4;	// degree
 		float backSpin		= 5;	// rpm
 		float sideSpin		= 6;	// rpm
+		float totalSpin		= 7;
+		float spinAxis		= 8;
 	}
 
 	message ClubPathInfo
@@ -158,19 +169,53 @@ message SensorRunningMsg
 		message Path
 		{
 			float GAClubPath	= 1;//degree        클럽패스 각도(Out to In,  Straight, In to Out)
+			float impactIndex	= 2;// impact index : ex 3.2, 
+			repeated Point3f hoselTop	= 3;
+			repeated Point3f shaftDir	= 4;
+			repeated Point3f faceCenter	= 5;
+			repeated Point3f faceNormal	= 6;
 		}
 
 		message ImpactPoint
 		{
-			float GAClubImpactPoint_Hor	= 1;//수평성분의 임팩트포인트(음수값이 Heel방향, 양수값이 Toe방향)
-			float GAClubImpactPoint_Ver	= 2;//수직성분의 임팩트포인트(음수값이 Bottom방향, 양수값이 Top방향)
+			float GAClubImpactPoint_Hor		= 1;//수평성분의 임팩트포인트(음수값이 Heel방향, 양수값이 Toe방향)
+			float GAClubImpactPoint_Ver		= 2;//수직성분의 임팩트포인트(음수값이 Bottom방향, 양수값이 Top방향)
+			float GAClubImpactAreaWidth		= 3;
+			float GAClubImpactAreaHeight	= 4;
 		}
 		int32 shotId			= 1;
 		float headSpeed			= 2;	// m/s
 		Path path				= 3;	
 		float faceAngle			= 4;	// degree
 		float attackAngle		= 5;	// degree
-		ImpactPoint impactPoint = 6;
+		ImpactPoint impactPoint = 6;	
+		float dynamicLoft		= 7;	// amount of loft on the club face at impact and is measured relative to the horizon.
+		float swingPlane		= 8;	// angle and path your club travels as you swing back from address to the top of your backswing and then back through the ball.
+		float swingDirection	= 9;	// the angle between the base of the hulahoop and the target line.
+		float lowPoint			= 10;	// Low Point
+		float clubLie			= 11;	// Club Lie (Lie Toe)
+		float clubClosureRate	= 12;	// how quickly the clubface is rotating from an open position to a closed position as it impacts the golf ball.
+		float clubFAxis			= 13;	// The axis of rotation that affects the ball formed by the club at the moment of impact
+		float toeHeelDiff		= 14;	// Height difference between toe and hill.
+	}
+
+	message SensorStopped
+	{
+		enum StopCause
+		{
+			Other		= 000;
+			Sleep		= 001;
+			Calibration	= 002;
+			Device		= 100;
+		}
+		StopCause stopCause	= 1;
+	}
+
+	message ImageReady
+	{
+		int32 shotId	= 1;
+		bool isBallImagePrepared = 2;
+		bool isClubImagePrepared = 3;
 	}
 }
 

@@ -51,7 +51,7 @@ struct TableStruct_IntelliSwingInterface_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[18]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[20]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -98,12 +98,18 @@ extern SensorRunningMsg_ClubPathInfo_ImpactPointDefaultTypeInternal _SensorRunni
 class SensorRunningMsg_ClubPathInfo_Path;
 struct SensorRunningMsg_ClubPathInfo_PathDefaultTypeInternal;
 extern SensorRunningMsg_ClubPathInfo_PathDefaultTypeInternal _SensorRunningMsg_ClubPathInfo_Path_default_instance_;
+class SensorRunningMsg_ImageReady;
+struct SensorRunningMsg_ImageReadyDefaultTypeInternal;
+extern SensorRunningMsg_ImageReadyDefaultTypeInternal _SensorRunningMsg_ImageReady_default_instance_;
 class SensorRunningMsg_NotReady;
 struct SensorRunningMsg_NotReadyDefaultTypeInternal;
 extern SensorRunningMsg_NotReadyDefaultTypeInternal _SensorRunningMsg_NotReady_default_instance_;
 class SensorRunningMsg_Ready;
 struct SensorRunningMsg_ReadyDefaultTypeInternal;
 extern SensorRunningMsg_ReadyDefaultTypeInternal _SensorRunningMsg_Ready_default_instance_;
+class SensorRunningMsg_SensorStopped;
+struct SensorRunningMsg_SensorStoppedDefaultTypeInternal;
+extern SensorRunningMsg_SensorStoppedDefaultTypeInternal _SensorRunningMsg_SensorStopped_default_instance_;
 class SensorRunningMsg_ShortTriggered;
 struct SensorRunningMsg_ShortTriggeredDefaultTypeInternal;
 extern SensorRunningMsg_ShortTriggeredDefaultTypeInternal _SensorRunningMsg_ShortTriggered_default_instance_;
@@ -128,8 +134,10 @@ template<> ::IntelliSwing::SensorRunningMsg_BallFlightInfo* Arena::CreateMaybeMe
 template<> ::IntelliSwing::SensorRunningMsg_ClubPathInfo* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_ClubPathInfo>(Arena*);
 template<> ::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint>(Arena*);
 template<> ::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path>(Arena*);
+template<> ::IntelliSwing::SensorRunningMsg_ImageReady* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_ImageReady>(Arena*);
 template<> ::IntelliSwing::SensorRunningMsg_NotReady* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_NotReady>(Arena*);
 template<> ::IntelliSwing::SensorRunningMsg_Ready* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_Ready>(Arena*);
+template<> ::IntelliSwing::SensorRunningMsg_SensorStopped* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_SensorStopped>(Arena*);
 template<> ::IntelliSwing::SensorRunningMsg_ShortTriggered* Arena::CreateMaybeMessage<::IntelliSwing::SensorRunningMsg_ShortTriggered>(Arena*);
 template<> ::IntelliSwing::ShotImageRequest* Arena::CreateMaybeMessage<::IntelliSwing::ShotImageRequest>(Arena*);
 template<> ::IntelliSwing::StartMsg* Arena::CreateMaybeMessage<::IntelliSwing::StartMsg>(Arena*);
@@ -162,6 +170,31 @@ inline bool InitializeMsg_Client_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, InitializeMsg_Client* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<InitializeMsg_Client>(
     InitializeMsg_Client_descriptor(), name, value);
+}
+enum InitializeMsg_HandType : int {
+  InitializeMsg_HandType_Right = 0,
+  InitializeMsg_HandType_Left = 1,
+  InitializeMsg_HandType_InitializeMsg_HandType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  InitializeMsg_HandType_InitializeMsg_HandType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool InitializeMsg_HandType_IsValid(int value);
+constexpr InitializeMsg_HandType InitializeMsg_HandType_HandType_MIN = InitializeMsg_HandType_Right;
+constexpr InitializeMsg_HandType InitializeMsg_HandType_HandType_MAX = InitializeMsg_HandType_Left;
+constexpr int InitializeMsg_HandType_HandType_ARRAYSIZE = InitializeMsg_HandType_HandType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* InitializeMsg_HandType_descriptor();
+template<typename T>
+inline const std::string& InitializeMsg_HandType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, InitializeMsg_HandType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function InitializeMsg_HandType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    InitializeMsg_HandType_descriptor(), enum_t_value);
+}
+inline bool InitializeMsg_HandType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, InitializeMsg_HandType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<InitializeMsg_HandType>(
+    InitializeMsg_HandType_descriptor(), name, value);
 }
 enum StartMsg_ClubInformation : int {
   StartMsg_ClubInformation_NonPutting = 0,
@@ -245,6 +278,33 @@ inline bool SensorRunningMsg_NotReady_NotReadyCause_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SensorRunningMsg_NotReady_NotReadyCause* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SensorRunningMsg_NotReady_NotReadyCause>(
     SensorRunningMsg_NotReady_NotReadyCause_descriptor(), name, value);
+}
+enum SensorRunningMsg_SensorStopped_StopCause : int {
+  SensorRunningMsg_SensorStopped_StopCause_Other = 0,
+  SensorRunningMsg_SensorStopped_StopCause_Sleep = 1,
+  SensorRunningMsg_SensorStopped_StopCause_Calibration = 2,
+  SensorRunningMsg_SensorStopped_StopCause_Device = 100,
+  SensorRunningMsg_SensorStopped_StopCause_SensorRunningMsg_SensorStopped_StopCause_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  SensorRunningMsg_SensorStopped_StopCause_SensorRunningMsg_SensorStopped_StopCause_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool SensorRunningMsg_SensorStopped_StopCause_IsValid(int value);
+constexpr SensorRunningMsg_SensorStopped_StopCause SensorRunningMsg_SensorStopped_StopCause_StopCause_MIN = SensorRunningMsg_SensorStopped_StopCause_Other;
+constexpr SensorRunningMsg_SensorStopped_StopCause SensorRunningMsg_SensorStopped_StopCause_StopCause_MAX = SensorRunningMsg_SensorStopped_StopCause_Device;
+constexpr int SensorRunningMsg_SensorStopped_StopCause_StopCause_ARRAYSIZE = SensorRunningMsg_SensorStopped_StopCause_StopCause_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SensorRunningMsg_SensorStopped_StopCause_descriptor();
+template<typename T>
+inline const std::string& SensorRunningMsg_SensorStopped_StopCause_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SensorRunningMsg_SensorStopped_StopCause>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SensorRunningMsg_SensorStopped_StopCause_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SensorRunningMsg_SensorStopped_StopCause_descriptor(), enum_t_value);
+}
+inline bool SensorRunningMsg_SensorStopped_StopCause_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SensorRunningMsg_SensorStopped_StopCause* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SensorRunningMsg_SensorStopped_StopCause>(
+    SensorRunningMsg_SensorStopped_StopCause_descriptor(), name, value);
 }
 enum GroundAttr : int {
   FAIRWAY = 0,
@@ -427,11 +487,51 @@ class InitializeMsg final :
     return InitializeMsg_Client_Parse(name, value);
   }
 
+  typedef InitializeMsg_HandType HandType;
+  static constexpr HandType Right =
+    InitializeMsg_HandType_Right;
+  static constexpr HandType Left =
+    InitializeMsg_HandType_Left;
+  static inline bool HandType_IsValid(int value) {
+    return InitializeMsg_HandType_IsValid(value);
+  }
+  static constexpr HandType HandType_MIN =
+    InitializeMsg_HandType_HandType_MIN;
+  static constexpr HandType HandType_MAX =
+    InitializeMsg_HandType_HandType_MAX;
+  static constexpr int HandType_ARRAYSIZE =
+    InitializeMsg_HandType_HandType_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  HandType_descriptor() {
+    return InitializeMsg_HandType_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& HandType_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, HandType>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function HandType_Name.");
+    return InitializeMsg_HandType_Name(enum_t_value);
+  }
+  static inline bool HandType_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      HandType* value) {
+    return InitializeMsg_HandType_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kHandTypeFieldNumber = 1,
     kClientFieldNumber = 4,
   };
+  // .IntelliSwing.InitializeMsg.HandType handType = 1;
+  void clear_handtype();
+  ::IntelliSwing::InitializeMsg_HandType handtype() const;
+  void set_handtype(::IntelliSwing::InitializeMsg_HandType value);
+  private:
+  ::IntelliSwing::InitializeMsg_HandType _internal_handtype() const;
+  void _internal_set_handtype(::IntelliSwing::InitializeMsg_HandType value);
+  public:
+
   // .IntelliSwing.InitializeMsg.Client client = 4;
   void clear_client();
   ::IntelliSwing::InitializeMsg_Client client() const;
@@ -448,6 +548,7 @@ class InitializeMsg final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  int handtype_;
   int client_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_IntelliSwingInterface_2eproto;
@@ -1473,6 +1574,8 @@ class SensorRunningMsg_BallFlightInfo final :
     kDirectionFieldNumber = 4,
     kBackSpinFieldNumber = 5,
     kSideSpinFieldNumber = 6,
+    kTotalSpinFieldNumber = 7,
+    kSpinAxisFieldNumber = 8,
   };
   // int32 shotId = 1;
   void clear_shotid();
@@ -1528,6 +1631,24 @@ class SensorRunningMsg_BallFlightInfo final :
   void _internal_set_sidespin(float value);
   public:
 
+  // float totalSpin = 7;
+  void clear_totalspin();
+  float totalspin() const;
+  void set_totalspin(float value);
+  private:
+  float _internal_totalspin() const;
+  void _internal_set_totalspin(float value);
+  public:
+
+  // float spinAxis = 8;
+  void clear_spinaxis();
+  float spinaxis() const;
+  void set_spinaxis(float value);
+  private:
+  float _internal_spinaxis() const;
+  void _internal_set_spinaxis(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:IntelliSwing.SensorRunningMsg.BallFlightInfo)
  private:
   class _Internal;
@@ -1541,6 +1662,8 @@ class SensorRunningMsg_BallFlightInfo final :
   float direction_;
   float backspin_;
   float sidespin_;
+  float totalspin_;
+  float spinaxis_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_IntelliSwingInterface_2eproto;
 };
@@ -1665,8 +1788,85 @@ class SensorRunningMsg_ClubPathInfo_Path final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kHoselTopFieldNumber = 3,
+    kShaftDirFieldNumber = 4,
+    kFaceCenterFieldNumber = 5,
+    kFaceNormalFieldNumber = 6,
     kGAClubPathFieldNumber = 1,
+    kImpactIndexFieldNumber = 2,
   };
+  // repeated .IntelliSwing.Point3f hoselTop = 3;
+  int hoseltop_size() const;
+  private:
+  int _internal_hoseltop_size() const;
+  public:
+  void clear_hoseltop();
+  ::IntelliSwing::Point3f* mutable_hoseltop(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >*
+      mutable_hoseltop();
+  private:
+  const ::IntelliSwing::Point3f& _internal_hoseltop(int index) const;
+  ::IntelliSwing::Point3f* _internal_add_hoseltop();
+  public:
+  const ::IntelliSwing::Point3f& hoseltop(int index) const;
+  ::IntelliSwing::Point3f* add_hoseltop();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >&
+      hoseltop() const;
+
+  // repeated .IntelliSwing.Point3f shaftDir = 4;
+  int shaftdir_size() const;
+  private:
+  int _internal_shaftdir_size() const;
+  public:
+  void clear_shaftdir();
+  ::IntelliSwing::Point3f* mutable_shaftdir(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >*
+      mutable_shaftdir();
+  private:
+  const ::IntelliSwing::Point3f& _internal_shaftdir(int index) const;
+  ::IntelliSwing::Point3f* _internal_add_shaftdir();
+  public:
+  const ::IntelliSwing::Point3f& shaftdir(int index) const;
+  ::IntelliSwing::Point3f* add_shaftdir();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >&
+      shaftdir() const;
+
+  // repeated .IntelliSwing.Point3f faceCenter = 5;
+  int facecenter_size() const;
+  private:
+  int _internal_facecenter_size() const;
+  public:
+  void clear_facecenter();
+  ::IntelliSwing::Point3f* mutable_facecenter(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >*
+      mutable_facecenter();
+  private:
+  const ::IntelliSwing::Point3f& _internal_facecenter(int index) const;
+  ::IntelliSwing::Point3f* _internal_add_facecenter();
+  public:
+  const ::IntelliSwing::Point3f& facecenter(int index) const;
+  ::IntelliSwing::Point3f* add_facecenter();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >&
+      facecenter() const;
+
+  // repeated .IntelliSwing.Point3f faceNormal = 6;
+  int facenormal_size() const;
+  private:
+  int _internal_facenormal_size() const;
+  public:
+  void clear_facenormal();
+  ::IntelliSwing::Point3f* mutable_facenormal(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >*
+      mutable_facenormal();
+  private:
+  const ::IntelliSwing::Point3f& _internal_facenormal(int index) const;
+  ::IntelliSwing::Point3f* _internal_add_facenormal();
+  public:
+  const ::IntelliSwing::Point3f& facenormal(int index) const;
+  ::IntelliSwing::Point3f* add_facenormal();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >&
+      facenormal() const;
+
   // float GAClubPath = 1;
   void clear_gaclubpath();
   float gaclubpath() const;
@@ -1676,6 +1876,15 @@ class SensorRunningMsg_ClubPathInfo_Path final :
   void _internal_set_gaclubpath(float value);
   public:
 
+  // float impactIndex = 2;
+  void clear_impactindex();
+  float impactindex() const;
+  void set_impactindex(float value);
+  private:
+  float _internal_impactindex() const;
+  void _internal_set_impactindex(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
  private:
   class _Internal;
@@ -1683,7 +1892,12 @@ class SensorRunningMsg_ClubPathInfo_Path final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f > hoseltop_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f > shaftdir_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f > facecenter_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f > facenormal_;
   float gaclubpath_;
+  float impactindex_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_IntelliSwingInterface_2eproto;
 };
@@ -1810,6 +2024,8 @@ class SensorRunningMsg_ClubPathInfo_ImpactPoint final :
   enum : int {
     kGAClubImpactPointHorFieldNumber = 1,
     kGAClubImpactPointVerFieldNumber = 2,
+    kGAClubImpactAreaWidthFieldNumber = 3,
+    kGAClubImpactAreaHeightFieldNumber = 4,
   };
   // float GAClubImpactPoint_Hor = 1;
   void clear_gaclubimpactpoint_hor();
@@ -1829,6 +2045,24 @@ class SensorRunningMsg_ClubPathInfo_ImpactPoint final :
   void _internal_set_gaclubimpactpoint_ver(float value);
   public:
 
+  // float GAClubImpactAreaWidth = 3;
+  void clear_gaclubimpactareawidth();
+  float gaclubimpactareawidth() const;
+  void set_gaclubimpactareawidth(float value);
+  private:
+  float _internal_gaclubimpactareawidth() const;
+  void _internal_set_gaclubimpactareawidth(float value);
+  public:
+
+  // float GAClubImpactAreaHeight = 4;
+  void clear_gaclubimpactareaheight();
+  float gaclubimpactareaheight() const;
+  void set_gaclubimpactareaheight(float value);
+  private:
+  float _internal_gaclubimpactareaheight() const;
+  void _internal_set_gaclubimpactareaheight(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint)
  private:
   class _Internal;
@@ -1838,6 +2072,8 @@ class SensorRunningMsg_ClubPathInfo_ImpactPoint final :
   typedef void DestructorSkippable_;
   float gaclubimpactpoint_hor_;
   float gaclubimpactpoint_ver_;
+  float gaclubimpactareawidth_;
+  float gaclubimpactareaheight_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_IntelliSwingInterface_2eproto;
 };
@@ -1971,6 +2207,14 @@ class SensorRunningMsg_ClubPathInfo final :
     kHeadSpeedFieldNumber = 2,
     kFaceAngleFieldNumber = 4,
     kAttackAngleFieldNumber = 5,
+    kDynamicLoftFieldNumber = 7,
+    kSwingPlaneFieldNumber = 8,
+    kSwingDirectionFieldNumber = 9,
+    kLowPointFieldNumber = 10,
+    kClubLieFieldNumber = 11,
+    kClubClosureRateFieldNumber = 12,
+    kClubFAxisFieldNumber = 13,
+    kToeHeelDiffFieldNumber = 14,
   };
   // .IntelliSwing.SensorRunningMsg.ClubPathInfo.Path path = 3;
   bool has_path() const;
@@ -2044,6 +2288,78 @@ class SensorRunningMsg_ClubPathInfo final :
   void _internal_set_attackangle(float value);
   public:
 
+  // float dynamicLoft = 7;
+  void clear_dynamicloft();
+  float dynamicloft() const;
+  void set_dynamicloft(float value);
+  private:
+  float _internal_dynamicloft() const;
+  void _internal_set_dynamicloft(float value);
+  public:
+
+  // float swingPlane = 8;
+  void clear_swingplane();
+  float swingplane() const;
+  void set_swingplane(float value);
+  private:
+  float _internal_swingplane() const;
+  void _internal_set_swingplane(float value);
+  public:
+
+  // float swingDirection = 9;
+  void clear_swingdirection();
+  float swingdirection() const;
+  void set_swingdirection(float value);
+  private:
+  float _internal_swingdirection() const;
+  void _internal_set_swingdirection(float value);
+  public:
+
+  // float lowPoint = 10;
+  void clear_lowpoint();
+  float lowpoint() const;
+  void set_lowpoint(float value);
+  private:
+  float _internal_lowpoint() const;
+  void _internal_set_lowpoint(float value);
+  public:
+
+  // float clubLie = 11;
+  void clear_clublie();
+  float clublie() const;
+  void set_clublie(float value);
+  private:
+  float _internal_clublie() const;
+  void _internal_set_clublie(float value);
+  public:
+
+  // float clubClosureRate = 12;
+  void clear_clubclosurerate();
+  float clubclosurerate() const;
+  void set_clubclosurerate(float value);
+  private:
+  float _internal_clubclosurerate() const;
+  void _internal_set_clubclosurerate(float value);
+  public:
+
+  // float clubFAxis = 13;
+  void clear_clubfaxis();
+  float clubfaxis() const;
+  void set_clubfaxis(float value);
+  private:
+  float _internal_clubfaxis() const;
+  void _internal_set_clubfaxis(float value);
+  public:
+
+  // float toeHeelDiff = 14;
+  void clear_toeheeldiff();
+  float toeheeldiff() const;
+  void set_toeheeldiff(float value);
+  private:
+  float _internal_toeheeldiff() const;
+  void _internal_set_toeheeldiff(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:IntelliSwing.SensorRunningMsg.ClubPathInfo)
  private:
   class _Internal;
@@ -2057,6 +2373,356 @@ class SensorRunningMsg_ClubPathInfo final :
   float headspeed_;
   float faceangle_;
   float attackangle_;
+  float dynamicloft_;
+  float swingplane_;
+  float swingdirection_;
+  float lowpoint_;
+  float clublie_;
+  float clubclosurerate_;
+  float clubfaxis_;
+  float toeheeldiff_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_IntelliSwingInterface_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SensorRunningMsg_SensorStopped final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IntelliSwing.SensorRunningMsg.SensorStopped) */ {
+ public:
+  inline SensorRunningMsg_SensorStopped() : SensorRunningMsg_SensorStopped(nullptr) {}
+  ~SensorRunningMsg_SensorStopped() override;
+  explicit constexpr SensorRunningMsg_SensorStopped(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SensorRunningMsg_SensorStopped(const SensorRunningMsg_SensorStopped& from);
+  SensorRunningMsg_SensorStopped(SensorRunningMsg_SensorStopped&& from) noexcept
+    : SensorRunningMsg_SensorStopped() {
+    *this = ::std::move(from);
+  }
+
+  inline SensorRunningMsg_SensorStopped& operator=(const SensorRunningMsg_SensorStopped& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SensorRunningMsg_SensorStopped& operator=(SensorRunningMsg_SensorStopped&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SensorRunningMsg_SensorStopped& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SensorRunningMsg_SensorStopped* internal_default_instance() {
+    return reinterpret_cast<const SensorRunningMsg_SensorStopped*>(
+               &_SensorRunningMsg_SensorStopped_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(SensorRunningMsg_SensorStopped& a, SensorRunningMsg_SensorStopped& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SensorRunningMsg_SensorStopped* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SensorRunningMsg_SensorStopped* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SensorRunningMsg_SensorStopped* New() const final {
+    return new SensorRunningMsg_SensorStopped();
+  }
+
+  SensorRunningMsg_SensorStopped* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SensorRunningMsg_SensorStopped>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SensorRunningMsg_SensorStopped& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SensorRunningMsg_SensorStopped& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SensorRunningMsg_SensorStopped* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IntelliSwing.SensorRunningMsg.SensorStopped";
+  }
+  protected:
+  explicit SensorRunningMsg_SensorStopped(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef SensorRunningMsg_SensorStopped_StopCause StopCause;
+  static constexpr StopCause Other =
+    SensorRunningMsg_SensorStopped_StopCause_Other;
+  static constexpr StopCause Sleep =
+    SensorRunningMsg_SensorStopped_StopCause_Sleep;
+  static constexpr StopCause Calibration =
+    SensorRunningMsg_SensorStopped_StopCause_Calibration;
+  static constexpr StopCause Device =
+    SensorRunningMsg_SensorStopped_StopCause_Device;
+  static inline bool StopCause_IsValid(int value) {
+    return SensorRunningMsg_SensorStopped_StopCause_IsValid(value);
+  }
+  static constexpr StopCause StopCause_MIN =
+    SensorRunningMsg_SensorStopped_StopCause_StopCause_MIN;
+  static constexpr StopCause StopCause_MAX =
+    SensorRunningMsg_SensorStopped_StopCause_StopCause_MAX;
+  static constexpr int StopCause_ARRAYSIZE =
+    SensorRunningMsg_SensorStopped_StopCause_StopCause_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  StopCause_descriptor() {
+    return SensorRunningMsg_SensorStopped_StopCause_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& StopCause_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, StopCause>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function StopCause_Name.");
+    return SensorRunningMsg_SensorStopped_StopCause_Name(enum_t_value);
+  }
+  static inline bool StopCause_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      StopCause* value) {
+    return SensorRunningMsg_SensorStopped_StopCause_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStopCauseFieldNumber = 1,
+  };
+  // .IntelliSwing.SensorRunningMsg.SensorStopped.StopCause stopCause = 1;
+  void clear_stopcause();
+  ::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause stopcause() const;
+  void set_stopcause(::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause value);
+  private:
+  ::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause _internal_stopcause() const;
+  void _internal_set_stopcause(::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:IntelliSwing.SensorRunningMsg.SensorStopped)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int stopcause_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_IntelliSwingInterface_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SensorRunningMsg_ImageReady final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IntelliSwing.SensorRunningMsg.ImageReady) */ {
+ public:
+  inline SensorRunningMsg_ImageReady() : SensorRunningMsg_ImageReady(nullptr) {}
+  ~SensorRunningMsg_ImageReady() override;
+  explicit constexpr SensorRunningMsg_ImageReady(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SensorRunningMsg_ImageReady(const SensorRunningMsg_ImageReady& from);
+  SensorRunningMsg_ImageReady(SensorRunningMsg_ImageReady&& from) noexcept
+    : SensorRunningMsg_ImageReady() {
+    *this = ::std::move(from);
+  }
+
+  inline SensorRunningMsg_ImageReady& operator=(const SensorRunningMsg_ImageReady& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SensorRunningMsg_ImageReady& operator=(SensorRunningMsg_ImageReady&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SensorRunningMsg_ImageReady& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SensorRunningMsg_ImageReady* internal_default_instance() {
+    return reinterpret_cast<const SensorRunningMsg_ImageReady*>(
+               &_SensorRunningMsg_ImageReady_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(SensorRunningMsg_ImageReady& a, SensorRunningMsg_ImageReady& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SensorRunningMsg_ImageReady* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SensorRunningMsg_ImageReady* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SensorRunningMsg_ImageReady* New() const final {
+    return new SensorRunningMsg_ImageReady();
+  }
+
+  SensorRunningMsg_ImageReady* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SensorRunningMsg_ImageReady>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SensorRunningMsg_ImageReady& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SensorRunningMsg_ImageReady& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SensorRunningMsg_ImageReady* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IntelliSwing.SensorRunningMsg.ImageReady";
+  }
+  protected:
+  explicit SensorRunningMsg_ImageReady(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kShotIdFieldNumber = 1,
+    kIsBallImagePreparedFieldNumber = 2,
+    kIsClubImagePreparedFieldNumber = 3,
+  };
+  // int32 shotId = 1;
+  void clear_shotid();
+  ::PROTOBUF_NAMESPACE_ID::int32 shotid() const;
+  void set_shotid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_shotid() const;
+  void _internal_set_shotid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // bool isBallImagePrepared = 2;
+  void clear_isballimageprepared();
+  bool isballimageprepared() const;
+  void set_isballimageprepared(bool value);
+  private:
+  bool _internal_isballimageprepared() const;
+  void _internal_set_isballimageprepared(bool value);
+  public:
+
+  // bool isClubImagePrepared = 3;
+  void clear_isclubimageprepared();
+  bool isclubimageprepared() const;
+  void set_isclubimageprepared(bool value);
+  private:
+  bool _internal_isclubimageprepared() const;
+  void _internal_set_isclubimageprepared(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:IntelliSwing.SensorRunningMsg.ImageReady)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 shotid_;
+  bool isballimageprepared_;
+  bool isclubimageprepared_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_IntelliSwingInterface_2eproto;
 };
@@ -2111,6 +2777,8 @@ class SensorRunningMsg final :
     kShotTriggered = 4,
     kBallInfo = 5,
     kClubInfo = 6,
+    kSensorStopped = 7,
+    kImageReady = 8,
     RUNSTATE_NOT_SET = 0,
   };
 
@@ -2119,7 +2787,7 @@ class SensorRunningMsg final :
                &_SensorRunningMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(SensorRunningMsg& a, SensorRunningMsg& b) {
     a.Swap(&b);
@@ -2192,6 +2860,8 @@ class SensorRunningMsg final :
   typedef SensorRunningMsg_ShortTriggered ShortTriggered;
   typedef SensorRunningMsg_BallFlightInfo BallFlightInfo;
   typedef SensorRunningMsg_ClubPathInfo ClubPathInfo;
+  typedef SensorRunningMsg_SensorStopped SensorStopped;
+  typedef SensorRunningMsg_ImageReady ImageReady;
 
   // accessors -------------------------------------------------------
 
@@ -2202,6 +2872,8 @@ class SensorRunningMsg final :
     kShotTriggeredFieldNumber = 4,
     kBallInfoFieldNumber = 5,
     kClubInfoFieldNumber = 6,
+    kSensorStoppedFieldNumber = 7,
+    kImageReadyFieldNumber = 8,
   };
   // .google.protobuf.Timestamp timeStamp = 1;
   bool has_timestamp() const;
@@ -2311,6 +2983,42 @@ class SensorRunningMsg final :
       ::IntelliSwing::SensorRunningMsg_ClubPathInfo* clubinfo);
   ::IntelliSwing::SensorRunningMsg_ClubPathInfo* unsafe_arena_release_clubinfo();
 
+  // .IntelliSwing.SensorRunningMsg.SensorStopped sensorStopped = 7;
+  bool has_sensorstopped() const;
+  private:
+  bool _internal_has_sensorstopped() const;
+  public:
+  void clear_sensorstopped();
+  const ::IntelliSwing::SensorRunningMsg_SensorStopped& sensorstopped() const;
+  PROTOBUF_MUST_USE_RESULT ::IntelliSwing::SensorRunningMsg_SensorStopped* release_sensorstopped();
+  ::IntelliSwing::SensorRunningMsg_SensorStopped* mutable_sensorstopped();
+  void set_allocated_sensorstopped(::IntelliSwing::SensorRunningMsg_SensorStopped* sensorstopped);
+  private:
+  const ::IntelliSwing::SensorRunningMsg_SensorStopped& _internal_sensorstopped() const;
+  ::IntelliSwing::SensorRunningMsg_SensorStopped* _internal_mutable_sensorstopped();
+  public:
+  void unsafe_arena_set_allocated_sensorstopped(
+      ::IntelliSwing::SensorRunningMsg_SensorStopped* sensorstopped);
+  ::IntelliSwing::SensorRunningMsg_SensorStopped* unsafe_arena_release_sensorstopped();
+
+  // .IntelliSwing.SensorRunningMsg.ImageReady imageReady = 8;
+  bool has_imageready() const;
+  private:
+  bool _internal_has_imageready() const;
+  public:
+  void clear_imageready();
+  const ::IntelliSwing::SensorRunningMsg_ImageReady& imageready() const;
+  PROTOBUF_MUST_USE_RESULT ::IntelliSwing::SensorRunningMsg_ImageReady* release_imageready();
+  ::IntelliSwing::SensorRunningMsg_ImageReady* mutable_imageready();
+  void set_allocated_imageready(::IntelliSwing::SensorRunningMsg_ImageReady* imageready);
+  private:
+  const ::IntelliSwing::SensorRunningMsg_ImageReady& _internal_imageready() const;
+  ::IntelliSwing::SensorRunningMsg_ImageReady* _internal_mutable_imageready();
+  public:
+  void unsafe_arena_set_allocated_imageready(
+      ::IntelliSwing::SensorRunningMsg_ImageReady* imageready);
+  ::IntelliSwing::SensorRunningMsg_ImageReady* unsafe_arena_release_imageready();
+
   void clear_runState();
   RunStateCase runState_case() const;
   // @@protoc_insertion_point(class_scope:IntelliSwing.SensorRunningMsg)
@@ -2321,6 +3029,8 @@ class SensorRunningMsg final :
   void set_has_shottriggered();
   void set_has_ballinfo();
   void set_has_clubinfo();
+  void set_has_sensorstopped();
+  void set_has_imageready();
 
   inline bool has_runState() const;
   inline void clear_has_runState();
@@ -2337,6 +3047,8 @@ class SensorRunningMsg final :
     ::IntelliSwing::SensorRunningMsg_ShortTriggered* shottriggered_;
     ::IntelliSwing::SensorRunningMsg_BallFlightInfo* ballinfo_;
     ::IntelliSwing::SensorRunningMsg_ClubPathInfo* clubinfo_;
+    ::IntelliSwing::SensorRunningMsg_SensorStopped* sensorstopped_;
+    ::IntelliSwing::SensorRunningMsg_ImageReady* imageready_;
   } runState_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -2393,7 +3105,7 @@ class ShotImageRequest final :
                &_ShotImageRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(ShotImageRequest& a, ShotImageRequest& b) {
     a.Swap(&b);
@@ -2536,7 +3248,7 @@ class ImageData_Image_Marker final :
                &_ImageData_Image_Marker_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(ImageData_Image_Marker& a, ImageData_Image_Marker& b) {
     a.Swap(&b);
@@ -2704,7 +3416,7 @@ class ImageData_Image final :
                &_ImageData_Image_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(ImageData_Image& a, ImageData_Image& b) {
     a.Swap(&b);
@@ -2901,7 +3613,7 @@ class ImageData final :
                &_ImageData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(ImageData& a, ImageData& b) {
     a.Swap(&b);
@@ -3121,7 +3833,7 @@ class DebugImage_Image final :
                &_DebugImage_Image_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(DebugImage_Image& a, DebugImage_Image& b) {
     a.Swap(&b);
@@ -3346,7 +4058,7 @@ class DebugImage final :
                &_DebugImage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(DebugImage& a, DebugImage& b) {
     a.Swap(&b);
@@ -3511,7 +4223,7 @@ class CMessage final :
                &_CMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(CMessage& a, CMessage& b) {
     a.Swap(&b);
@@ -3655,6 +4367,26 @@ class CMessage final :
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
 // InitializeMsg
+
+// .IntelliSwing.InitializeMsg.HandType handType = 1;
+inline void InitializeMsg::clear_handtype() {
+  handtype_ = 0;
+}
+inline ::IntelliSwing::InitializeMsg_HandType InitializeMsg::_internal_handtype() const {
+  return static_cast< ::IntelliSwing::InitializeMsg_HandType >(handtype_);
+}
+inline ::IntelliSwing::InitializeMsg_HandType InitializeMsg::handtype() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.InitializeMsg.handType)
+  return _internal_handtype();
+}
+inline void InitializeMsg::_internal_set_handtype(::IntelliSwing::InitializeMsg_HandType value) {
+  
+  handtype_ = value;
+}
+inline void InitializeMsg::set_handtype(::IntelliSwing::InitializeMsg_HandType value) {
+  _internal_set_handtype(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.InitializeMsg.handType)
+}
 
 // .IntelliSwing.InitializeMsg.Client client = 4;
 inline void InitializeMsg::clear_client() {
@@ -4066,6 +4798,46 @@ inline void SensorRunningMsg_BallFlightInfo::set_sidespin(float value) {
   // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.BallFlightInfo.sideSpin)
 }
 
+// float totalSpin = 7;
+inline void SensorRunningMsg_BallFlightInfo::clear_totalspin() {
+  totalspin_ = 0;
+}
+inline float SensorRunningMsg_BallFlightInfo::_internal_totalspin() const {
+  return totalspin_;
+}
+inline float SensorRunningMsg_BallFlightInfo::totalspin() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.BallFlightInfo.totalSpin)
+  return _internal_totalspin();
+}
+inline void SensorRunningMsg_BallFlightInfo::_internal_set_totalspin(float value) {
+  
+  totalspin_ = value;
+}
+inline void SensorRunningMsg_BallFlightInfo::set_totalspin(float value) {
+  _internal_set_totalspin(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.BallFlightInfo.totalSpin)
+}
+
+// float spinAxis = 8;
+inline void SensorRunningMsg_BallFlightInfo::clear_spinaxis() {
+  spinaxis_ = 0;
+}
+inline float SensorRunningMsg_BallFlightInfo::_internal_spinaxis() const {
+  return spinaxis_;
+}
+inline float SensorRunningMsg_BallFlightInfo::spinaxis() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.BallFlightInfo.spinAxis)
+  return _internal_spinaxis();
+}
+inline void SensorRunningMsg_BallFlightInfo::_internal_set_spinaxis(float value) {
+  
+  spinaxis_ = value;
+}
+inline void SensorRunningMsg_BallFlightInfo::set_spinaxis(float value) {
+  _internal_set_spinaxis(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.BallFlightInfo.spinAxis)
+}
+
 // -------------------------------------------------------------------
 
 // SensorRunningMsg_ClubPathInfo_Path
@@ -4088,6 +4860,174 @@ inline void SensorRunningMsg_ClubPathInfo_Path::_internal_set_gaclubpath(float v
 inline void SensorRunningMsg_ClubPathInfo_Path::set_gaclubpath(float value) {
   _internal_set_gaclubpath(value);
   // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.GAClubPath)
+}
+
+// float impactIndex = 2;
+inline void SensorRunningMsg_ClubPathInfo_Path::clear_impactindex() {
+  impactindex_ = 0;
+}
+inline float SensorRunningMsg_ClubPathInfo_Path::_internal_impactindex() const {
+  return impactindex_;
+}
+inline float SensorRunningMsg_ClubPathInfo_Path::impactindex() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.impactIndex)
+  return _internal_impactindex();
+}
+inline void SensorRunningMsg_ClubPathInfo_Path::_internal_set_impactindex(float value) {
+  
+  impactindex_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo_Path::set_impactindex(float value) {
+  _internal_set_impactindex(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.impactIndex)
+}
+
+// repeated .IntelliSwing.Point3f hoselTop = 3;
+inline int SensorRunningMsg_ClubPathInfo_Path::_internal_hoseltop_size() const {
+  return hoseltop_.size();
+}
+inline int SensorRunningMsg_ClubPathInfo_Path::hoseltop_size() const {
+  return _internal_hoseltop_size();
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::mutable_hoseltop(int index) {
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.hoselTop)
+  return hoseltop_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >*
+SensorRunningMsg_ClubPathInfo_Path::mutable_hoseltop() {
+  // @@protoc_insertion_point(field_mutable_list:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.hoselTop)
+  return &hoseltop_;
+}
+inline const ::IntelliSwing::Point3f& SensorRunningMsg_ClubPathInfo_Path::_internal_hoseltop(int index) const {
+  return hoseltop_.Get(index);
+}
+inline const ::IntelliSwing::Point3f& SensorRunningMsg_ClubPathInfo_Path::hoseltop(int index) const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.hoselTop)
+  return _internal_hoseltop(index);
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::_internal_add_hoseltop() {
+  return hoseltop_.Add();
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::add_hoseltop() {
+  ::IntelliSwing::Point3f* _add = _internal_add_hoseltop();
+  // @@protoc_insertion_point(field_add:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.hoselTop)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >&
+SensorRunningMsg_ClubPathInfo_Path::hoseltop() const {
+  // @@protoc_insertion_point(field_list:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.hoselTop)
+  return hoseltop_;
+}
+
+// repeated .IntelliSwing.Point3f shaftDir = 4;
+inline int SensorRunningMsg_ClubPathInfo_Path::_internal_shaftdir_size() const {
+  return shaftdir_.size();
+}
+inline int SensorRunningMsg_ClubPathInfo_Path::shaftdir_size() const {
+  return _internal_shaftdir_size();
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::mutable_shaftdir(int index) {
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.shaftDir)
+  return shaftdir_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >*
+SensorRunningMsg_ClubPathInfo_Path::mutable_shaftdir() {
+  // @@protoc_insertion_point(field_mutable_list:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.shaftDir)
+  return &shaftdir_;
+}
+inline const ::IntelliSwing::Point3f& SensorRunningMsg_ClubPathInfo_Path::_internal_shaftdir(int index) const {
+  return shaftdir_.Get(index);
+}
+inline const ::IntelliSwing::Point3f& SensorRunningMsg_ClubPathInfo_Path::shaftdir(int index) const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.shaftDir)
+  return _internal_shaftdir(index);
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::_internal_add_shaftdir() {
+  return shaftdir_.Add();
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::add_shaftdir() {
+  ::IntelliSwing::Point3f* _add = _internal_add_shaftdir();
+  // @@protoc_insertion_point(field_add:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.shaftDir)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >&
+SensorRunningMsg_ClubPathInfo_Path::shaftdir() const {
+  // @@protoc_insertion_point(field_list:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.shaftDir)
+  return shaftdir_;
+}
+
+// repeated .IntelliSwing.Point3f faceCenter = 5;
+inline int SensorRunningMsg_ClubPathInfo_Path::_internal_facecenter_size() const {
+  return facecenter_.size();
+}
+inline int SensorRunningMsg_ClubPathInfo_Path::facecenter_size() const {
+  return _internal_facecenter_size();
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::mutable_facecenter(int index) {
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.faceCenter)
+  return facecenter_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >*
+SensorRunningMsg_ClubPathInfo_Path::mutable_facecenter() {
+  // @@protoc_insertion_point(field_mutable_list:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.faceCenter)
+  return &facecenter_;
+}
+inline const ::IntelliSwing::Point3f& SensorRunningMsg_ClubPathInfo_Path::_internal_facecenter(int index) const {
+  return facecenter_.Get(index);
+}
+inline const ::IntelliSwing::Point3f& SensorRunningMsg_ClubPathInfo_Path::facecenter(int index) const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.faceCenter)
+  return _internal_facecenter(index);
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::_internal_add_facecenter() {
+  return facecenter_.Add();
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::add_facecenter() {
+  ::IntelliSwing::Point3f* _add = _internal_add_facecenter();
+  // @@protoc_insertion_point(field_add:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.faceCenter)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >&
+SensorRunningMsg_ClubPathInfo_Path::facecenter() const {
+  // @@protoc_insertion_point(field_list:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.faceCenter)
+  return facecenter_;
+}
+
+// repeated .IntelliSwing.Point3f faceNormal = 6;
+inline int SensorRunningMsg_ClubPathInfo_Path::_internal_facenormal_size() const {
+  return facenormal_.size();
+}
+inline int SensorRunningMsg_ClubPathInfo_Path::facenormal_size() const {
+  return _internal_facenormal_size();
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::mutable_facenormal(int index) {
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.faceNormal)
+  return facenormal_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >*
+SensorRunningMsg_ClubPathInfo_Path::mutable_facenormal() {
+  // @@protoc_insertion_point(field_mutable_list:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.faceNormal)
+  return &facenormal_;
+}
+inline const ::IntelliSwing::Point3f& SensorRunningMsg_ClubPathInfo_Path::_internal_facenormal(int index) const {
+  return facenormal_.Get(index);
+}
+inline const ::IntelliSwing::Point3f& SensorRunningMsg_ClubPathInfo_Path::facenormal(int index) const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.faceNormal)
+  return _internal_facenormal(index);
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::_internal_add_facenormal() {
+  return facenormal_.Add();
+}
+inline ::IntelliSwing::Point3f* SensorRunningMsg_ClubPathInfo_Path::add_facenormal() {
+  ::IntelliSwing::Point3f* _add = _internal_add_facenormal();
+  // @@protoc_insertion_point(field_add:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.faceNormal)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >&
+SensorRunningMsg_ClubPathInfo_Path::facenormal() const {
+  // @@protoc_insertion_point(field_list:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.faceNormal)
+  return facenormal_;
 }
 
 // -------------------------------------------------------------------
@@ -4132,6 +5072,46 @@ inline void SensorRunningMsg_ClubPathInfo_ImpactPoint::_internal_set_gaclubimpac
 inline void SensorRunningMsg_ClubPathInfo_ImpactPoint::set_gaclubimpactpoint_ver(float value) {
   _internal_set_gaclubimpactpoint_ver(value);
   // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint.GAClubImpactPoint_Ver)
+}
+
+// float GAClubImpactAreaWidth = 3;
+inline void SensorRunningMsg_ClubPathInfo_ImpactPoint::clear_gaclubimpactareawidth() {
+  gaclubimpactareawidth_ = 0;
+}
+inline float SensorRunningMsg_ClubPathInfo_ImpactPoint::_internal_gaclubimpactareawidth() const {
+  return gaclubimpactareawidth_;
+}
+inline float SensorRunningMsg_ClubPathInfo_ImpactPoint::gaclubimpactareawidth() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint.GAClubImpactAreaWidth)
+  return _internal_gaclubimpactareawidth();
+}
+inline void SensorRunningMsg_ClubPathInfo_ImpactPoint::_internal_set_gaclubimpactareawidth(float value) {
+  
+  gaclubimpactareawidth_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo_ImpactPoint::set_gaclubimpactareawidth(float value) {
+  _internal_set_gaclubimpactareawidth(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint.GAClubImpactAreaWidth)
+}
+
+// float GAClubImpactAreaHeight = 4;
+inline void SensorRunningMsg_ClubPathInfo_ImpactPoint::clear_gaclubimpactareaheight() {
+  gaclubimpactareaheight_ = 0;
+}
+inline float SensorRunningMsg_ClubPathInfo_ImpactPoint::_internal_gaclubimpactareaheight() const {
+  return gaclubimpactareaheight_;
+}
+inline float SensorRunningMsg_ClubPathInfo_ImpactPoint::gaclubimpactareaheight() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint.GAClubImpactAreaHeight)
+  return _internal_gaclubimpactareaheight();
+}
+inline void SensorRunningMsg_ClubPathInfo_ImpactPoint::_internal_set_gaclubimpactareaheight(float value) {
+  
+  gaclubimpactareaheight_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo_ImpactPoint::set_gaclubimpactareaheight(float value) {
+  _internal_set_gaclubimpactareaheight(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.ImpactPoint.GAClubImpactAreaHeight)
 }
 
 // -------------------------------------------------------------------
@@ -4396,6 +5376,254 @@ inline void SensorRunningMsg_ClubPathInfo::set_allocated_impactpoint(::IntelliSw
   }
   impactpoint_ = impactpoint;
   // @@protoc_insertion_point(field_set_allocated:IntelliSwing.SensorRunningMsg.ClubPathInfo.impactPoint)
+}
+
+// float dynamicLoft = 7;
+inline void SensorRunningMsg_ClubPathInfo::clear_dynamicloft() {
+  dynamicloft_ = 0;
+}
+inline float SensorRunningMsg_ClubPathInfo::_internal_dynamicloft() const {
+  return dynamicloft_;
+}
+inline float SensorRunningMsg_ClubPathInfo::dynamicloft() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.dynamicLoft)
+  return _internal_dynamicloft();
+}
+inline void SensorRunningMsg_ClubPathInfo::_internal_set_dynamicloft(float value) {
+  
+  dynamicloft_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo::set_dynamicloft(float value) {
+  _internal_set_dynamicloft(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.dynamicLoft)
+}
+
+// float swingPlane = 8;
+inline void SensorRunningMsg_ClubPathInfo::clear_swingplane() {
+  swingplane_ = 0;
+}
+inline float SensorRunningMsg_ClubPathInfo::_internal_swingplane() const {
+  return swingplane_;
+}
+inline float SensorRunningMsg_ClubPathInfo::swingplane() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.swingPlane)
+  return _internal_swingplane();
+}
+inline void SensorRunningMsg_ClubPathInfo::_internal_set_swingplane(float value) {
+  
+  swingplane_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo::set_swingplane(float value) {
+  _internal_set_swingplane(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.swingPlane)
+}
+
+// float swingDirection = 9;
+inline void SensorRunningMsg_ClubPathInfo::clear_swingdirection() {
+  swingdirection_ = 0;
+}
+inline float SensorRunningMsg_ClubPathInfo::_internal_swingdirection() const {
+  return swingdirection_;
+}
+inline float SensorRunningMsg_ClubPathInfo::swingdirection() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.swingDirection)
+  return _internal_swingdirection();
+}
+inline void SensorRunningMsg_ClubPathInfo::_internal_set_swingdirection(float value) {
+  
+  swingdirection_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo::set_swingdirection(float value) {
+  _internal_set_swingdirection(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.swingDirection)
+}
+
+// float lowPoint = 10;
+inline void SensorRunningMsg_ClubPathInfo::clear_lowpoint() {
+  lowpoint_ = 0;
+}
+inline float SensorRunningMsg_ClubPathInfo::_internal_lowpoint() const {
+  return lowpoint_;
+}
+inline float SensorRunningMsg_ClubPathInfo::lowpoint() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.lowPoint)
+  return _internal_lowpoint();
+}
+inline void SensorRunningMsg_ClubPathInfo::_internal_set_lowpoint(float value) {
+  
+  lowpoint_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo::set_lowpoint(float value) {
+  _internal_set_lowpoint(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.lowPoint)
+}
+
+// float clubLie = 11;
+inline void SensorRunningMsg_ClubPathInfo::clear_clublie() {
+  clublie_ = 0;
+}
+inline float SensorRunningMsg_ClubPathInfo::_internal_clublie() const {
+  return clublie_;
+}
+inline float SensorRunningMsg_ClubPathInfo::clublie() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.clubLie)
+  return _internal_clublie();
+}
+inline void SensorRunningMsg_ClubPathInfo::_internal_set_clublie(float value) {
+  
+  clublie_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo::set_clublie(float value) {
+  _internal_set_clublie(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.clubLie)
+}
+
+// float clubClosureRate = 12;
+inline void SensorRunningMsg_ClubPathInfo::clear_clubclosurerate() {
+  clubclosurerate_ = 0;
+}
+inline float SensorRunningMsg_ClubPathInfo::_internal_clubclosurerate() const {
+  return clubclosurerate_;
+}
+inline float SensorRunningMsg_ClubPathInfo::clubclosurerate() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.clubClosureRate)
+  return _internal_clubclosurerate();
+}
+inline void SensorRunningMsg_ClubPathInfo::_internal_set_clubclosurerate(float value) {
+  
+  clubclosurerate_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo::set_clubclosurerate(float value) {
+  _internal_set_clubclosurerate(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.clubClosureRate)
+}
+
+// float clubFAxis = 13;
+inline void SensorRunningMsg_ClubPathInfo::clear_clubfaxis() {
+  clubfaxis_ = 0;
+}
+inline float SensorRunningMsg_ClubPathInfo::_internal_clubfaxis() const {
+  return clubfaxis_;
+}
+inline float SensorRunningMsg_ClubPathInfo::clubfaxis() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.clubFAxis)
+  return _internal_clubfaxis();
+}
+inline void SensorRunningMsg_ClubPathInfo::_internal_set_clubfaxis(float value) {
+  
+  clubfaxis_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo::set_clubfaxis(float value) {
+  _internal_set_clubfaxis(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.clubFAxis)
+}
+
+// float toeHeelDiff = 14;
+inline void SensorRunningMsg_ClubPathInfo::clear_toeheeldiff() {
+  toeheeldiff_ = 0;
+}
+inline float SensorRunningMsg_ClubPathInfo::_internal_toeheeldiff() const {
+  return toeheeldiff_;
+}
+inline float SensorRunningMsg_ClubPathInfo::toeheeldiff() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.toeHeelDiff)
+  return _internal_toeheeldiff();
+}
+inline void SensorRunningMsg_ClubPathInfo::_internal_set_toeheeldiff(float value) {
+  
+  toeheeldiff_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo::set_toeheeldiff(float value) {
+  _internal_set_toeheeldiff(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.toeHeelDiff)
+}
+
+// -------------------------------------------------------------------
+
+// SensorRunningMsg_SensorStopped
+
+// .IntelliSwing.SensorRunningMsg.SensorStopped.StopCause stopCause = 1;
+inline void SensorRunningMsg_SensorStopped::clear_stopcause() {
+  stopcause_ = 0;
+}
+inline ::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause SensorRunningMsg_SensorStopped::_internal_stopcause() const {
+  return static_cast< ::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause >(stopcause_);
+}
+inline ::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause SensorRunningMsg_SensorStopped::stopcause() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.SensorStopped.stopCause)
+  return _internal_stopcause();
+}
+inline void SensorRunningMsg_SensorStopped::_internal_set_stopcause(::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause value) {
+  
+  stopcause_ = value;
+}
+inline void SensorRunningMsg_SensorStopped::set_stopcause(::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause value) {
+  _internal_set_stopcause(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.SensorStopped.stopCause)
+}
+
+// -------------------------------------------------------------------
+
+// SensorRunningMsg_ImageReady
+
+// int32 shotId = 1;
+inline void SensorRunningMsg_ImageReady::clear_shotid() {
+  shotid_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 SensorRunningMsg_ImageReady::_internal_shotid() const {
+  return shotid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 SensorRunningMsg_ImageReady::shotid() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ImageReady.shotId)
+  return _internal_shotid();
+}
+inline void SensorRunningMsg_ImageReady::_internal_set_shotid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  shotid_ = value;
+}
+inline void SensorRunningMsg_ImageReady::set_shotid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_shotid(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ImageReady.shotId)
+}
+
+// bool isBallImagePrepared = 2;
+inline void SensorRunningMsg_ImageReady::clear_isballimageprepared() {
+  isballimageprepared_ = false;
+}
+inline bool SensorRunningMsg_ImageReady::_internal_isballimageprepared() const {
+  return isballimageprepared_;
+}
+inline bool SensorRunningMsg_ImageReady::isballimageprepared() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ImageReady.isBallImagePrepared)
+  return _internal_isballimageprepared();
+}
+inline void SensorRunningMsg_ImageReady::_internal_set_isballimageprepared(bool value) {
+  
+  isballimageprepared_ = value;
+}
+inline void SensorRunningMsg_ImageReady::set_isballimageprepared(bool value) {
+  _internal_set_isballimageprepared(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ImageReady.isBallImagePrepared)
+}
+
+// bool isClubImagePrepared = 3;
+inline void SensorRunningMsg_ImageReady::clear_isclubimageprepared() {
+  isclubimageprepared_ = false;
+}
+inline bool SensorRunningMsg_ImageReady::_internal_isclubimageprepared() const {
+  return isclubimageprepared_;
+}
+inline bool SensorRunningMsg_ImageReady::isclubimageprepared() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ImageReady.isClubImagePrepared)
+  return _internal_isclubimageprepared();
+}
+inline void SensorRunningMsg_ImageReady::_internal_set_isclubimageprepared(bool value) {
+  
+  isclubimageprepared_ = value;
+}
+inline void SensorRunningMsg_ImageReady::set_isclubimageprepared(bool value) {
+  _internal_set_isclubimageprepared(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ImageReady.isClubImagePrepared)
 }
 
 // -------------------------------------------------------------------
@@ -4855,6 +6083,154 @@ inline ::IntelliSwing::SensorRunningMsg_ClubPathInfo* SensorRunningMsg::_interna
 inline ::IntelliSwing::SensorRunningMsg_ClubPathInfo* SensorRunningMsg::mutable_clubinfo() {
   ::IntelliSwing::SensorRunningMsg_ClubPathInfo* _msg = _internal_mutable_clubinfo();
   // @@protoc_insertion_point(field_mutable:IntelliSwing.SensorRunningMsg.clubInfo)
+  return _msg;
+}
+
+// .IntelliSwing.SensorRunningMsg.SensorStopped sensorStopped = 7;
+inline bool SensorRunningMsg::_internal_has_sensorstopped() const {
+  return runState_case() == kSensorStopped;
+}
+inline bool SensorRunningMsg::has_sensorstopped() const {
+  return _internal_has_sensorstopped();
+}
+inline void SensorRunningMsg::set_has_sensorstopped() {
+  _oneof_case_[0] = kSensorStopped;
+}
+inline void SensorRunningMsg::clear_sensorstopped() {
+  if (_internal_has_sensorstopped()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete runState_.sensorstopped_;
+    }
+    clear_has_runState();
+  }
+}
+inline ::IntelliSwing::SensorRunningMsg_SensorStopped* SensorRunningMsg::release_sensorstopped() {
+  // @@protoc_insertion_point(field_release:IntelliSwing.SensorRunningMsg.sensorStopped)
+  if (_internal_has_sensorstopped()) {
+    clear_has_runState();
+      ::IntelliSwing::SensorRunningMsg_SensorStopped* temp = runState_.sensorstopped_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    runState_.sensorstopped_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::IntelliSwing::SensorRunningMsg_SensorStopped& SensorRunningMsg::_internal_sensorstopped() const {
+  return _internal_has_sensorstopped()
+      ? *runState_.sensorstopped_
+      : reinterpret_cast< ::IntelliSwing::SensorRunningMsg_SensorStopped&>(::IntelliSwing::_SensorRunningMsg_SensorStopped_default_instance_);
+}
+inline const ::IntelliSwing::SensorRunningMsg_SensorStopped& SensorRunningMsg::sensorstopped() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.sensorStopped)
+  return _internal_sensorstopped();
+}
+inline ::IntelliSwing::SensorRunningMsg_SensorStopped* SensorRunningMsg::unsafe_arena_release_sensorstopped() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IntelliSwing.SensorRunningMsg.sensorStopped)
+  if (_internal_has_sensorstopped()) {
+    clear_has_runState();
+    ::IntelliSwing::SensorRunningMsg_SensorStopped* temp = runState_.sensorstopped_;
+    runState_.sensorstopped_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SensorRunningMsg::unsafe_arena_set_allocated_sensorstopped(::IntelliSwing::SensorRunningMsg_SensorStopped* sensorstopped) {
+  clear_runState();
+  if (sensorstopped) {
+    set_has_sensorstopped();
+    runState_.sensorstopped_ = sensorstopped;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IntelliSwing.SensorRunningMsg.sensorStopped)
+}
+inline ::IntelliSwing::SensorRunningMsg_SensorStopped* SensorRunningMsg::_internal_mutable_sensorstopped() {
+  if (!_internal_has_sensorstopped()) {
+    clear_runState();
+    set_has_sensorstopped();
+    runState_.sensorstopped_ = CreateMaybeMessage< ::IntelliSwing::SensorRunningMsg_SensorStopped >(GetArenaForAllocation());
+  }
+  return runState_.sensorstopped_;
+}
+inline ::IntelliSwing::SensorRunningMsg_SensorStopped* SensorRunningMsg::mutable_sensorstopped() {
+  ::IntelliSwing::SensorRunningMsg_SensorStopped* _msg = _internal_mutable_sensorstopped();
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.SensorRunningMsg.sensorStopped)
+  return _msg;
+}
+
+// .IntelliSwing.SensorRunningMsg.ImageReady imageReady = 8;
+inline bool SensorRunningMsg::_internal_has_imageready() const {
+  return runState_case() == kImageReady;
+}
+inline bool SensorRunningMsg::has_imageready() const {
+  return _internal_has_imageready();
+}
+inline void SensorRunningMsg::set_has_imageready() {
+  _oneof_case_[0] = kImageReady;
+}
+inline void SensorRunningMsg::clear_imageready() {
+  if (_internal_has_imageready()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete runState_.imageready_;
+    }
+    clear_has_runState();
+  }
+}
+inline ::IntelliSwing::SensorRunningMsg_ImageReady* SensorRunningMsg::release_imageready() {
+  // @@protoc_insertion_point(field_release:IntelliSwing.SensorRunningMsg.imageReady)
+  if (_internal_has_imageready()) {
+    clear_has_runState();
+      ::IntelliSwing::SensorRunningMsg_ImageReady* temp = runState_.imageready_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    runState_.imageready_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::IntelliSwing::SensorRunningMsg_ImageReady& SensorRunningMsg::_internal_imageready() const {
+  return _internal_has_imageready()
+      ? *runState_.imageready_
+      : reinterpret_cast< ::IntelliSwing::SensorRunningMsg_ImageReady&>(::IntelliSwing::_SensorRunningMsg_ImageReady_default_instance_);
+}
+inline const ::IntelliSwing::SensorRunningMsg_ImageReady& SensorRunningMsg::imageready() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.imageReady)
+  return _internal_imageready();
+}
+inline ::IntelliSwing::SensorRunningMsg_ImageReady* SensorRunningMsg::unsafe_arena_release_imageready() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IntelliSwing.SensorRunningMsg.imageReady)
+  if (_internal_has_imageready()) {
+    clear_has_runState();
+    ::IntelliSwing::SensorRunningMsg_ImageReady* temp = runState_.imageready_;
+    runState_.imageready_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SensorRunningMsg::unsafe_arena_set_allocated_imageready(::IntelliSwing::SensorRunningMsg_ImageReady* imageready) {
+  clear_runState();
+  if (imageready) {
+    set_has_imageready();
+    runState_.imageready_ = imageready;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IntelliSwing.SensorRunningMsg.imageReady)
+}
+inline ::IntelliSwing::SensorRunningMsg_ImageReady* SensorRunningMsg::_internal_mutable_imageready() {
+  if (!_internal_has_imageready()) {
+    clear_runState();
+    set_has_imageready();
+    runState_.imageready_ = CreateMaybeMessage< ::IntelliSwing::SensorRunningMsg_ImageReady >(GetArenaForAllocation());
+  }
+  return runState_.imageready_;
+}
+inline ::IntelliSwing::SensorRunningMsg_ImageReady* SensorRunningMsg::mutable_imageready() {
+  ::IntelliSwing::SensorRunningMsg_ImageReady* _msg = _internal_mutable_imageready();
+  // @@protoc_insertion_point(field_mutable:IntelliSwing.SensorRunningMsg.imageReady)
   return _msg;
 }
 
@@ -5755,6 +7131,10 @@ inline void CMessage::set_allocated_message(std::string* message) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -5767,6 +7147,11 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::IntelliSwing::InitializeMsg_Client>() {
   return ::IntelliSwing::InitializeMsg_Client_descriptor();
 }
+template <> struct is_proto_enum< ::IntelliSwing::InitializeMsg_HandType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::IntelliSwing::InitializeMsg_HandType>() {
+  return ::IntelliSwing::InitializeMsg_HandType_descriptor();
+}
 template <> struct is_proto_enum< ::IntelliSwing::StartMsg_ClubInformation> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::IntelliSwing::StartMsg_ClubInformation>() {
@@ -5776,6 +7161,11 @@ template <> struct is_proto_enum< ::IntelliSwing::SensorRunningMsg_NotReady_NotR
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::IntelliSwing::SensorRunningMsg_NotReady_NotReadyCause>() {
   return ::IntelliSwing::SensorRunningMsg_NotReady_NotReadyCause_descriptor();
+}
+template <> struct is_proto_enum< ::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause>() {
+  return ::IntelliSwing::SensorRunningMsg_SensorStopped_StopCause_descriptor();
 }
 template <> struct is_proto_enum< ::IntelliSwing::GroundAttr> : ::std::true_type {};
 template <>

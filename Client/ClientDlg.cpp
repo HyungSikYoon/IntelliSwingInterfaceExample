@@ -9,12 +9,18 @@
 #include "afxdialogex.h"
 #include <string>
 #include <google/protobuf/util/time_util.h>
-
+#include <thread>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
+
+#ifdef _DEBUG
+#pragma comment(lib, "opencv_world440d.lib")
+#else
+#pragma comment(lib, "opencv_world440.lib")
+#endif
 
 // CAboutDlg dialog used for App About
 
@@ -102,6 +108,9 @@ BEGIN_MESSAGE_MAP(CClientDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_DEVICE_STATUS, &CClientDlg::OnBnClickedButtonDeviceStatus)
 	ON_BN_CLICKED(IDC_BUTTON_GET_LOG, &CClientDlg::OnBnClickedButtonGetLog)
 	ON_WM_TIMER()
+	ON_BN_CLICKED(IDC_BUTTON_SHOW_DBG_IMG, &CClientDlg::OnBnClickedButtonShowDbgImg)
+	ON_BN_CLICKED(IDC_BUTTON_GET_IMAGE, &CClientDlg::OnBnClickedButtonGetImage)
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 
@@ -270,13 +279,123 @@ void CClientDlg::OnBnClickedButtonReboot()
 }
 
 
-void CClientDlg::OnBnClickedButtonStart()
+void CClientDlg::StartRunner()
 {
-	LogHelper log(__FUNCTION__);
-	m_pContext = new grpc::ClientContext();
+	m_pContext  = new grpc::ClientContext();
 
 	IntelliSwing::StartMsg startMsg;
 	IntelliSwing::SensorRunningMsg runMsg;
+	startMsg.set_clubinformation(IntelliSwing::StartMsg_ClubInformation::StartMsg_ClubInformation_W1);
+	m_reader = g_uptrStub->Start(m_pContext, startMsg);
+	std::cout << "Send Start Msg " << std::endl;
+
+	if (m_reader)
+	{
+		IntelliSwing::SensorRunningMsg runMsg;
+		
+		while (m_reader->Read(&runMsg))
+		{
+			std::cout << "receiving message " << (int)runMsg.runState_case();
+			if (runMsg.has_timestamp())
+				std::cout << ", timestamp : " << google::protobuf::util::TimeUtil::ToString(runMsg.timestamp()) << std::endl;
+			else
+				std::cout << std::endl;
+
+
+			switch (runMsg.runState_case())
+			{
+
+			case IntelliSwing::SensorRunningMsg::kReady:
+			{
+				std::cout << "IntelliSwing::SensorRunningMsg::kReady " << std::endl;
+				m_ctrlTxtShotStatus.SetWindowTextW(_T("Ready"));
+
+			}
+			break;
+
+			case IntelliSwing::SensorRunningMsg::kNotReady:
+			{
+				std::cout << "IntelliSwing::SensorRunningMsg::kReady " << std::endl;
+				m_ctrlTxtShotStatus.SetWindowTextW(_T("kNotReady"));
+
+			}
+			break;
+
+			case IntelliSwing::SensorRunningMsg::kShotTriggered:
+			{
+				std::cout << "IntelliSwing::SensorRunningMsg::kShotTriggered " << std::endl;
+				m_ctrlTxtShotStatus.SetWindowTextW(_T("kShotTriggered"));
+
+			}
+			break;
+
+			case IntelliSwing::SensorRunningMsg::kBallInfo:
+			{
+				std::cout << "IntelliSwing::SensorRunningMsg::kBallInfo " << std::endl;
+				m_ctrlTxtShotStatus.SetWindowTextW(_T("kBallInfo"));
+
+				const IntelliSwing::SensorRunningMsg_BallFlightInfo& ballInfoPB = runMsg.ballinfo();
+				m_ctrlTXTShotId.SetWindowTextW(std::to_wstring(ballInfoPB.shotid()).c_str());
+				m_ctrlTXTBallSpeed.SetWindowTextW(std::to_wstring(ballInfoPB.ballspeed()).c_str());
+				m_ctrlTxtIncidence.SetWindowTextW(std::to_wstring(ballInfoPB.incidence()).c_str());
+				m_ctrlTXTBallDirection.SetWindowTextW(std::to_wstring(ballInfoPB.direction()).c_str());
+				m_ctrlTXTSideSpin.SetWindowTextW(std::to_wstring(ballInfoPB.sidespin()).c_str());
+				m_ctrlTXTBackSpin.SetWindowTextW(std::to_wstring(ballInfoPB.backspin()).c_str());
+
+				std::cout << "   ->shot information :  shotId " << ballInfoPB.shotid() << std::endl;
+				std::cout << "   ->shot information :  speed  " << ballInfoPB.ballspeed() << std::endl;;
+				std::cout << "   ->shot information :  direction " << ballInfoPB.direction() << ", Incidence " << ballInfoPB.incidence() << std::endl;
+				std::cout << "   ->shot information :  backSpin " << ballInfoPB.backspin() << "sideSpin  " << ballInfoPB.sidespin() << std::endl;
+			}
+			break;
+
+			case IntelliSwing::SensorRunningMsg::kClubInfo:
+			{
+				std::cout << "IntelliSwing::SensorRunningMsg::kClubInfo ";
+				m_ctrlTxtShotStatus.SetWindowTextW(_T("kBallInfo"));
+
+				const IntelliSwing::SensorRunningMsg_ClubPathInfo& clubPathInfoPB = runMsg.clubinfo();
+				m_ctrlTXTHeadSpeed.SetWindowTextW(std::to_wstring(clubPathInfoPB.headspeed()).c_str());
+
+				std::cout << "   ->club information :  shotId " << clubPathInfoPB.shotid() << std::endl;
+				std::cout << "   ->club information :  headSpeed " << clubPathInfoPB.headspeed() << std::endl;
+			}
+			break;
+
+			case IntelliSwing::SensorRunningMsg::RUNSTATE_NOT_SET:
+			{
+				std::cout << "IntelliSwing::SensorRunningMsg::RUNSTATE_NOT_SET " << std::endl;
+			}
+			break;
+			default:
+			{
+
+			}
+			break;
+			}
+
+		}//while (m_reader->Read(&runMsg))
+		{
+			grpc::Status status = m_reader->Finish();
+			if (status.ok())
+			{
+				std::cout << "OnBnClickedButtonRelease OK" << std::endl;
+			}
+			else
+			{
+				std::cout << "OnBnClickedButtonRelease RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
+			}
+			delete m_pContext;
+			m_pContext = nullptr;
+		}
+	}
+}
+
+void CClientDlg::OnBnClickedButtonStart()
+{
+	LogHelper log(__FUNCTION__);
+
+	if (m_pContext) return;
 
 	m_ctrlTxtShotStatus.SetWindowTextW(_T("-"));
 	m_ctrlTXTShotId.SetWindowTextW(_T("-"));
@@ -287,32 +406,8 @@ void CClientDlg::OnBnClickedButtonStart()
 	m_ctrlTXTBackSpin.SetWindowTextW(_T("-"));
 	m_ctrlTXTHeadSpeed.SetWindowTextW(_T("-"));
 
-
-	startMsg.set_clubinformation(IntelliSwing::StartMsg_ClubInformation::StartMsg_ClubInformation_W1);
-	
-	m_reader = g_uptrStub->Start(m_pContext, startMsg);
-	std::cout << "Send Start Msg "<< std::endl;
-
-	if (m_reader == nullptr)  return;
-	SetTimer(TIMER_ID_READ_FROM_SERVER, 100, nullptr);
-
-	/*while (m_reader->Read(&runMsg))
-	{
-		if(runMsg.has_timestamp())
-			std::cout << "receiving message " << google::protobuf::util::TimeUtil::ToString(runMsg.timestamp()) << std::endl;
-	}
-
-	grpc::Status status = m_reader->Finish();
-	if (status.ok())
-	{
-		std::cout << "OnBnClickedButtonRelease OK" << std::endl;
-	}
-	else
-	{
-		std::cout << "OnBnClickedButtonRelease RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
-	}*/
+	std::thread(&CClientDlg::StartRunner, this).detach();
 }
-
 
 void CClientDlg::OnBnClickedButtonStop()
 {
@@ -407,130 +502,97 @@ void CClientDlg::OnBnClickedButtonGetLog()
 
 void CClientDlg::OnTimer(UINT_PTR nIDEvent)
 {
-	// TODO: Add your message handler code here and/or call default
-	if (TIMER_ID_READ_FROM_SERVER)
-	{
-		KillTimer(TIMER_ID_READ_FROM_SERVER);
-
-		if (m_reader)
-		{
-			IntelliSwing::SensorRunningMsg runMsg;
-			bool bReadSuceed = m_reader->Read(&runMsg);
-			if (bReadSuceed)
-			{
-				SetTimer(TIMER_ID_READ_FROM_SERVER, 100, nullptr);
-
-				std::cout << "receiving message " << (int)runMsg.runState_case();
-				if (runMsg.has_timestamp())
-					std::cout << ", timestamp : " << google::protobuf::util::TimeUtil::ToString(runMsg.timestamp()) << std::endl;
-				else
-					std::cout << std::endl;
+	
+	CDialogEx::OnTimer(nIDEvent);
+}
 
 
-				switch (runMsg.runState_case())
-				{
+void CClientDlg::OnBnClickedButtonShowDbgImg()
+{
+	// TODO: Add your control notification handler code here
+	//::grpc::ClientContext* context, const ::IntelliSwing::DebugImageRequest& request, ::IntelliSwing::DebugImage* response
+	grpc::ClientContext context;
 
-					case IntelliSwing::SensorRunningMsg::kReady:
-					{
-						std::cout<<"IntelliSwing::SensorRunningMsg::kReady " << std::endl;
-						m_ctrlTxtShotStatus.SetWindowTextW(_T("Ready"));
-						
-					}
-					break;
+	IntelliSwing::DebugImageRequest request;
+	IntelliSwing::DebugImage response;
+	request.add_channel(0);
+	request.add_channel(1);
+	request.add_channel(2);
+	request.add_channel(3);
+	request.set_key("i");
+	grpc::Status status = g_uptrStub->GetDebugImage(&context, request, &response);
 
-					case IntelliSwing::SensorRunningMsg::kNotReady:
-					{
-						std::cout << "IntelliSwing::SensorRunningMsg::kReady " << std::endl;
-						m_ctrlTxtShotStatus.SetWindowTextW(_T("kNotReady"));
-						
-					}
-					break;
-
-					case IntelliSwing::SensorRunningMsg::kShotTriggered:
-					{
-						std::cout << "IntelliSwing::SensorRunningMsg::kShotTriggered " << std::endl;
-						m_ctrlTxtShotStatus.SetWindowTextW(_T("kShotTriggered"));
-
-					}
-					break;
-
-					case IntelliSwing::SensorRunningMsg::kBallInfo:
-					{
-						std::cout << "IntelliSwing::SensorRunningMsg::kBallInfo " << std::endl;
-						m_ctrlTxtShotStatus.SetWindowTextW(_T("kBallInfo"));
-						
-						const IntelliSwing::SensorRunningMsg_BallFlightInfo& ballInfoPB = runMsg.ballinfo();
-						m_ctrlTXTShotId.SetWindowTextW(std::to_wstring(ballInfoPB.shotid()).c_str());
-						m_ctrlTXTBallSpeed.SetWindowTextW(std::to_wstring(ballInfoPB.ballspeed()).c_str());
-						m_ctrlTxtIncidence.SetWindowTextW(std::to_wstring(ballInfoPB.incidence()).c_str());
-						m_ctrlTXTBallDirection.SetWindowTextW(std::to_wstring(ballInfoPB.direction()).c_str());
-						m_ctrlTXTSideSpin.SetWindowTextW(std::to_wstring(ballInfoPB.sidespin()).c_str());
-						m_ctrlTXTBackSpin.SetWindowTextW(std::to_wstring(ballInfoPB.backspin()).c_str());
-						
-						std::cout << "   ->shot information :  shotId " << ballInfoPB.shotid() << std::endl;
-						std::cout << "   ->shot information :  speed  " << ballInfoPB.ballspeed() << std::endl;;
-						std::cout << "   ->shot information :  direction " << ballInfoPB.direction() << ", Incidence " << ballInfoPB.incidence() << std::endl;
-						std::cout << "   ->shot information :  backSpin " << ballInfoPB.backspin() << "sideSpin  " << ballInfoPB.sidespin() << std::endl;
-					}
-					break;
-
-					case IntelliSwing::SensorRunningMsg::kClubInfo:
-					{
-						std::cout << "IntelliSwing::SensorRunningMsg::kClubInfo ";
-						m_ctrlTxtShotStatus.SetWindowTextW(_T("kBallInfo"));
-
-						const IntelliSwing::SensorRunningMsg_ClubPathInfo& clubPathInfoPB = runMsg.clubinfo();
-						m_ctrlTXTHeadSpeed.SetWindowTextW(std::to_wstring(clubPathInfoPB.headspeed()).c_str());
-
-						std::cout << "   ->club information :  shotId " << clubPathInfoPB.shotid() <<std::endl;
-						std::cout << "   ->club information :  headSpeed "<< clubPathInfoPB.headspeed() <<std::endl;
-					}
-					break;
-
-					case IntelliSwing::SensorRunningMsg::RUNSTATE_NOT_SET:
-					{
-						std::cout << "IntelliSwing::SensorRunningMsg::RUNSTATE_NOT_SET "<<std::endl;
-					}
-					break;
-					default:
-					{
-
-					}
-					break;
-				}
-
-			}
-			else
-			{
-				grpc::Status status = m_reader->Finish();
-				if (status.ok())
-				{
-					std::cout << "OnBnClickedButtonRelease OK" << std::endl;
-				}
-				else
-				{
-					std::cout << "OnBnClickedButtonRelease RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
-				}
-				delete m_pContext;
-				m_pContext = nullptr;
-			}
-
-		}
-		/*while (m_reader->Read(&runMsg))
-	{
-		if(runMsg.has_timestamp())
-			std::cout << "receiving message " << google::protobuf::util::TimeUtil::ToString(runMsg.timestamp()) << std::endl;
-	}
-
-	grpc::Status status = m_reader->Finish();
 	if (status.ok())
 	{
-		std::cout << "OnBnClickedButtonRelease OK" << std::endl;
+		m_vecDebugImage.clear();
+
+		size_t imageSize = response.datas().size();
+		for (int i = 0; i < imageSize; i++)
+		{
+			const auto& img = response.datas().at(i);
+
+			size_t width = img.width();
+			size_t height = img.height();
+
+			size_t nChannel = img.channel();
+			size_t imgType = img.image_type();
+
+
+			if (nChannel == 1 && imgType == 0 && !img.data().empty())
+			{
+				std::string winName;
+				cv::Mat matInc = cv::Mat(cv::Size(width, height), CV_8UC1, (void*)&img.data()[0]).clone();
+				winName = "DebugImg" + std::to_string(i);
+				cv::imshow(winName, matInc);
+				m_vecCamImage.push_back(matInc);
+			}
+		}
 	}
-	else
+}
+
+void CClientDlg::OnBnClickedButtonGetImage()
+{
+	// TODO: Add your control notification handler code here
+	IntelliSwing::CameraImageRequest request;
+	IntelliSwing::ImageData response;
+
+	request.set_camid(0);
+	request.set_exposure(0);
+	request.set_gain(0);
+	grpc::ClientContext context;
+
+	grpc::Status status = g_uptrStub->GetImage(&context, request, &response);
+	if (status.ok())
 	{
-		std::cout << "OnBnClickedButtonRelease RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
-	}*/
+		m_vecCamImage.clear();
+		size_t width = response.width();
+		size_t height = response.height();
+
+		size_t nChannel = response.channel();
+		size_t imgType = response.image_type();
+
+		size_t imageSize = response.datas().size();
+		for (int i = 0; i < imageSize; i++)
+		{
+			const auto &img = response.datas().at(i);
+
+			if (nChannel == 1 && imgType == 0 && !img.data().empty())
+			{
+				std::string winName;
+				cv::Mat matInc =  cv::Mat(cv::Size(width, height), CV_8UC1,(void *) &img.data()[0]).clone();
+				winName = "CamImg" + std::to_string(i);
+				cv::imshow(winName, matInc);
+				m_vecCamImage.push_back(matInc);
+			}
+		}
 	}
-	CDialogEx::OnTimer(nIDEvent);
+}
+
+
+void CClientDlg::OnDestroy()
+{
+	CDialogEx::OnDestroy();
+
+	// TODO: Add your message handler code here
+	cv::destroyAllWindows();
 }
