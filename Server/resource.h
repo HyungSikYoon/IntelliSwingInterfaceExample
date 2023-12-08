@@ -27,8 +27,21 @@
 #define IDC_CHECK_IS_ON_TEE             1016
 #define IDC_COMBO1                      1017
 #define IDC_COMBO_GROUND                1017
-#define IDC_BUTTON9                     1018
-#define IDC_BUTTON_SEND_TERMINITED      1018
+#define IDC_EDIT_C_ATTACK_ANGLE         1018
+#define IDC_EDIT_C_DYNAMIC_LOFT         1019
+#define IDC_EDIT_C_CLUBPATH             1020
+#define IDC_EDIT_C_FACE_ANGLE           1021
+#define IDC_EDIT_C_SWING_PLANE          1022
+#define IDC_EDIT_C_SWING_DIRECTION      1023
+#define IDC_EDIT_C_LOW_POINT            1024
+#define IDC_EDIT_C_IMPACT_HEIGHT        1025
+#define IDC_EDIT_C_IMPACT_OFFSET        1026
+#define IDC_EDIT_C_CLUB_LIE             1027
+#define IDC_EDIT_C_CLOSURE_RATE         1028
+#define IDC_EDIT_C_F_AXIS               1029
+#define IDC_EDIT_C_SPIN_RATE            1030
+#define IDC_EDIT_C_TOE_HEEL_DIFF        1030
+#define IDC_BUTTON_SEND_TERMINITED      1031
 
 // Next default values for new objects
 // 
@@ -36,7 +49,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        132
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1019
+#define _APS_NEXT_CONTROL_VALUE         1032
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

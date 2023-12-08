@@ -15,12 +15,12 @@
 #define new DEBUG_NEW
 #endif
 
-
-#ifdef _DEBUG
-#pragma comment(lib, "opencv_world440d.lib")
-#else
-#pragma comment(lib, "opencv_world440.lib")
-#endif
+//
+//#ifdef _DEBUG
+//#pragma comment(lib, "opencv_world440d.lib")
+//#else
+//#pragma comment(lib, "opencv_world440.lib")
+//#endif
 
 // CAboutDlg dialog used for App About
 
@@ -524,7 +524,6 @@ void CClientDlg::OnBnClickedButtonShowDbgImg()
 
 	if (status.ok())
 	{
-		m_vecDebugImage.clear();
 
 		size_t imageSize = response.datas().size();
 		for (int i = 0; i < imageSize; i++)
@@ -541,10 +540,10 @@ void CClientDlg::OnBnClickedButtonShowDbgImg()
 			if (nChannel == 1 && imgType == 0 && !img.data().empty())
 			{
 				std::string winName;
-				cv::Mat matInc = cv::Mat(cv::Size(width, height), CV_8UC1, (void*)&img.data()[0]).clone();
+				/*cv::Mat matInc = cv::Mat(cv::Size(width, height), CV_8UC1, (void*)&img.data()[0]).clone();
 				winName = "DebugImg" + std::to_string(i);
 				cv::imshow(winName, matInc);
-				m_vecCamImage.push_back(matInc);
+				m_vecCamImage.push_back(matInc);*/
 			}
 		}
 	}
@@ -564,7 +563,6 @@ void CClientDlg::OnBnClickedButtonGetImage()
 	grpc::Status status = g_uptrStub->GetImage(&context, request, &response);
 	if (status.ok())
 	{
-		m_vecCamImage.clear();
 		size_t width = response.width();
 		size_t height = response.height();
 
@@ -579,10 +577,10 @@ void CClientDlg::OnBnClickedButtonGetImage()
 			if (nChannel == 1 && imgType == 0 && !img.data().empty())
 			{
 				std::string winName;
-				cv::Mat matInc =  cv::Mat(cv::Size(width, height), CV_8UC1,(void *) &img.data()[0]).clone();
+				/*cv::Mat matInc =  cv::Mat(cv::Size(width, height), CV_8UC1,(void *) &img.data()[0]).clone();
 				winName = "CamImg" + std::to_string(i);
 				cv::imshow(winName, matInc);
-				m_vecCamImage.push_back(matInc);
+				m_vecCamImage.push_back(matInc);*/
 			}
 		}
 	}
@@ -594,5 +592,5 @@ void CClientDlg::OnDestroy()
 	CDialogEx::OnDestroy();
 
 	// TODO: Add your message handler code here
-	cv::destroyAllWindows();
+	//cv::destroyAllWindows();
 }

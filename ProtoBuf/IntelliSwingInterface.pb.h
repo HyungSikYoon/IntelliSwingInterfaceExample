@@ -1792,8 +1792,10 @@ class SensorRunningMsg_ClubPathInfo_Path final :
     kShaftDirFieldNumber = 4,
     kFaceCenterFieldNumber = 5,
     kFaceNormalFieldNumber = 6,
+    kTimestampFieldNumber = 7,
     kGAClubPathFieldNumber = 1,
     kImpactIndexFieldNumber = 2,
+    kImpactTimeStampFieldNumber = 8,
   };
   // repeated .IntelliSwing.Point3f hoselTop = 3;
   int hoseltop_size() const;
@@ -1867,6 +1869,28 @@ class SensorRunningMsg_ClubPathInfo_Path final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f >&
       facenormal() const;
 
+  // repeated uint64 timestamp = 7;
+  int timestamp_size() const;
+  private:
+  int _internal_timestamp_size() const;
+  public:
+  void clear_timestamp();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_timestamp(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      _internal_timestamp() const;
+  void _internal_add_timestamp(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      _internal_mutable_timestamp();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint64 timestamp(int index) const;
+  void set_timestamp(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void add_timestamp(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      timestamp() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      mutable_timestamp();
+
   // float GAClubPath = 1;
   void clear_gaclubpath();
   float gaclubpath() const;
@@ -1885,6 +1909,15 @@ class SensorRunningMsg_ClubPathInfo_Path final :
   void _internal_set_impactindex(float value);
   public:
 
+  // uint64 impactTimeStamp = 8;
+  void clear_impacttimestamp();
+  ::PROTOBUF_NAMESPACE_ID::uint64 impacttimestamp() const;
+  void set_impacttimestamp(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_impacttimestamp() const;
+  void _internal_set_impacttimestamp(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
  private:
   class _Internal;
@@ -1896,8 +1929,11 @@ class SensorRunningMsg_ClubPathInfo_Path final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f > shaftdir_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f > facecenter_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f > facenormal_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 > timestamp_;
+  mutable std::atomic<int> _timestamp_cached_byte_size_;
   float gaclubpath_;
   float impactindex_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 impacttimestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_IntelliSwingInterface_2eproto;
 };
@@ -5028,6 +5064,73 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IntelliSwing::Point3f 
 SensorRunningMsg_ClubPathInfo_Path::facenormal() const {
   // @@protoc_insertion_point(field_list:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.faceNormal)
   return facenormal_;
+}
+
+// repeated uint64 timestamp = 7;
+inline int SensorRunningMsg_ClubPathInfo_Path::_internal_timestamp_size() const {
+  return timestamp_.size();
+}
+inline int SensorRunningMsg_ClubPathInfo_Path::timestamp_size() const {
+  return _internal_timestamp_size();
+}
+inline void SensorRunningMsg_ClubPathInfo_Path::clear_timestamp() {
+  timestamp_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 SensorRunningMsg_ClubPathInfo_Path::_internal_timestamp(int index) const {
+  return timestamp_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 SensorRunningMsg_ClubPathInfo_Path::timestamp(int index) const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.timestamp)
+  return _internal_timestamp(index);
+}
+inline void SensorRunningMsg_ClubPathInfo_Path::set_timestamp(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  timestamp_.Set(index, value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.timestamp)
+}
+inline void SensorRunningMsg_ClubPathInfo_Path::_internal_add_timestamp(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  timestamp_.Add(value);
+}
+inline void SensorRunningMsg_ClubPathInfo_Path::add_timestamp(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_add_timestamp(value);
+  // @@protoc_insertion_point(field_add:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.timestamp)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+SensorRunningMsg_ClubPathInfo_Path::_internal_timestamp() const {
+  return timestamp_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+SensorRunningMsg_ClubPathInfo_Path::timestamp() const {
+  // @@protoc_insertion_point(field_list:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.timestamp)
+  return _internal_timestamp();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+SensorRunningMsg_ClubPathInfo_Path::_internal_mutable_timestamp() {
+  return &timestamp_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+SensorRunningMsg_ClubPathInfo_Path::mutable_timestamp() {
+  // @@protoc_insertion_point(field_mutable_list:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.timestamp)
+  return _internal_mutable_timestamp();
+}
+
+// uint64 impactTimeStamp = 8;
+inline void SensorRunningMsg_ClubPathInfo_Path::clear_impacttimestamp() {
+  impacttimestamp_ = uint64_t{0u};
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 SensorRunningMsg_ClubPathInfo_Path::_internal_impacttimestamp() const {
+  return impacttimestamp_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 SensorRunningMsg_ClubPathInfo_Path::impacttimestamp() const {
+  // @@protoc_insertion_point(field_get:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.impactTimeStamp)
+  return _internal_impacttimestamp();
+}
+inline void SensorRunningMsg_ClubPathInfo_Path::_internal_set_impacttimestamp(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  impacttimestamp_ = value;
+}
+inline void SensorRunningMsg_ClubPathInfo_Path::set_impacttimestamp(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_impacttimestamp(value);
+  // @@protoc_insertion_point(field_set:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path.impactTimeStamp)
 }
 
 // -------------------------------------------------------------------

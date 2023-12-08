@@ -125,8 +125,11 @@ constexpr SensorRunningMsg_ClubPathInfo_Path::SensorRunningMsg_ClubPathInfo_Path
   , shaftdir_()
   , facecenter_()
   , facenormal_()
+  , timestamp_()
+  , _timestamp_cached_byte_size_(0)
   , gaclubpath_(0)
-  , impactindex_(0){}
+  , impactindex_(0)
+  , impacttimestamp_(uint64_t{0u}){}
 struct SensorRunningMsg_ClubPathInfo_PathDefaultTypeInternal {
   constexpr SensorRunningMsg_ClubPathInfo_PathDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -400,6 +403,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_IntelliSwingInterface_2eproto:
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path, shaftdir_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path, facecenter_),
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path, facenormal_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path, timestamp_),
+  PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path, impacttimestamp_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -540,18 +545,18 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 39, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ShortTriggered)},
   { 47, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_BallFlightInfo)},
   { 61, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ClubPathInfo_Path)},
-  { 73, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint)},
-  { 83, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ClubPathInfo)},
-  { 103, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_SensorStopped)},
-  { 110, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ImageReady)},
-  { 119, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg)},
-  { 134, -1, -1, sizeof(::IntelliSwing::ShotImageRequest)},
-  { 141, -1, -1, sizeof(::IntelliSwing::ImageData_Image_Marker)},
-  { 149, -1, -1, sizeof(::IntelliSwing::ImageData_Image)},
-  { 159, -1, -1, sizeof(::IntelliSwing::ImageData)},
-  { 172, -1, -1, sizeof(::IntelliSwing::DebugImage_Image)},
-  { 186, -1, -1, sizeof(::IntelliSwing::DebugImage)},
-  { 194, -1, -1, sizeof(::IntelliSwing::CMessage)},
+  { 75, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ClubPathInfo_ImpactPoint)},
+  { 85, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ClubPathInfo)},
+  { 105, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_SensorStopped)},
+  { 112, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg_ImageReady)},
+  { 121, -1, -1, sizeof(::IntelliSwing::SensorRunningMsg)},
+  { 136, -1, -1, sizeof(::IntelliSwing::ShotImageRequest)},
+  { 143, -1, -1, sizeof(::IntelliSwing::ImageData_Image_Marker)},
+  { 151, -1, -1, sizeof(::IntelliSwing::ImageData_Image)},
+  { 161, -1, -1, sizeof(::IntelliSwing::ImageData)},
+  { 174, -1, -1, sizeof(::IntelliSwing::DebugImage_Image)},
+  { 188, -1, -1, sizeof(::IntelliSwing::DebugImage)},
+  { 196, -1, -1, sizeof(::IntelliSwing::CMessage)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -599,7 +604,7 @@ const char descriptor_table_protodef_IntelliSwingInterface_2eproto[] PROTOBUF_SE
   "\007\n\002I9\020\321\001\022\n\n\005Wedge\020\254\002\022\007\n\002PW\020\266\002\022\007\n\002SW\020\300\002\022\007"
   "\n\002LW\020\312\002\022\013\n\006Hybrid\020\220\003\022\t\n\004UTIL\020\244\003\022\n\n\005UTIL2"
   "\020\246\003\022\n\n\005UTIL3\020\247\003\022\n\n\005UTIL4\020\250\003\022\n\n\005UTIL5\020\251\003\022"
-  "\n\n\005UTIL6\020\252\003\022\n\n\005UTIL7\020\253\003\"\372\017\n\020SensorRunnin"
+  "\n\n\005UTIL6\020\252\003\022\n\n\005UTIL7\020\253\003\"\246\020\n\020SensorRunnin"
   "gMsg\022-\n\ttimeStamp\030\001 \001(\0132\032.google.protobu"
   "f.Timestamp\0225\n\005ready\030\002 \001(\0132$.IntelliSwin"
   "g.SensorRunningMsg.ReadyH\000\022;\n\010notReady\030\003"
@@ -625,7 +630,7 @@ const char descriptor_table_protodef_IntelliSwingInterface_2eproto[] PROTOBUF_SE
   "\001(\005\022\021\n\tballSpeed\030\002 \001(\002\022\021\n\tIncidence\030\003 \001("
   "\002\022\021\n\tdirection\030\004 \001(\002\022\020\n\010backSpin\030\005 \001(\002\022\020"
   "\n\010sideSpin\030\006 \001(\002\022\021\n\ttotalSpin\030\007 \001(\002\022\020\n\010s"
-  "pinAxis\030\010 \001(\002\032\363\005\n\014ClubPathInfo\022\016\n\006shotId"
+  "pinAxis\030\010 \001(\002\032\237\006\n\014ClubPathInfo\022\016\n\006shotId"
   "\030\001 \001(\005\022\021\n\theadSpeed\030\002 \001(\002\022>\n\004path\030\003 \001(\0132"
   "0.IntelliSwing.SensorRunningMsg.ClubPath"
   "Info.Path\022\021\n\tfaceAngle\030\004 \001(\002\022\023\n\013attackAn"
@@ -635,74 +640,75 @@ const char descriptor_table_protodef_IntelliSwingInterface_2eproto[] PROTOBUF_SE
   "ne\030\010 \001(\002\022\026\n\016swingDirection\030\t \001(\002\022\020\n\010lowP"
   "oint\030\n \001(\002\022\017\n\007clubLie\030\013 \001(\002\022\027\n\017clubClosu"
   "reRate\030\014 \001(\002\022\021\n\tclubFAxis\030\r \001(\002\022\023\n\013toeHe"
-  "elDiff\030\016 \001(\002\032\327\001\n\004Path\022\022\n\nGAClubPath\030\001 \001("
+  "elDiff\030\016 \001(\002\032\203\002\n\004Path\022\022\n\nGAClubPath\030\001 \001("
   "\002\022\023\n\013impactIndex\030\002 \001(\002\022\'\n\010hoselTop\030\003 \003(\013"
   "2\025.IntelliSwing.Point3f\022\'\n\010shaftDir\030\004 \003("
   "\0132\025.IntelliSwing.Point3f\022)\n\nfaceCenter\030\005"
   " \003(\0132\025.IntelliSwing.Point3f\022)\n\nfaceNorma"
-  "l\030\006 \003(\0132\025.IntelliSwing.Point3f\032\212\001\n\013Impac"
-  "tPoint\022\035\n\025GAClubImpactPoint_Hor\030\001 \001(\002\022\035\n"
-  "\025GAClubImpactPoint_Ver\030\002 \001(\002\022\035\n\025GAClubIm"
-  "pactAreaWidth\030\003 \001(\002\022\036\n\026GAClubImpactAreaH"
-  "eight\030\004 \001(\002\032\232\001\n\rSensorStopped\022I\n\tstopCau"
-  "se\030\001 \001(\01626.IntelliSwing.SensorRunningMsg"
-  ".SensorStopped.StopCause\">\n\tStopCause\022\t\n"
-  "\005Other\020\000\022\t\n\005Sleep\020\001\022\017\n\013Calibration\020\002\022\n\n\006"
-  "Device\020d\032V\n\nImageReady\022\016\n\006shotId\030\001 \001(\005\022\033"
-  "\n\023isBallImagePrepared\030\002 \001(\010\022\033\n\023isClubIma"
-  "gePrepared\030\003 \001(\010B\n\n\010runState\"\"\n\020ShotImag"
-  "eRequest\022\016\n\006shotId\030\001 \001(\005\"\314\002\n\tImageData\022\r"
-  "\n\005width\030\001 \001(\005\022\016\n\006height\030\002 \001(\005\022\017\n\007channel"
-  "\030\003 \001(\005\022\021\n\tdata_type\030\004 \001(\005\022\022\n\nimage_type\030"
-  "\005 \001(\005\022\013\n\003fps\030\006 \001(\002\022,\n\005datas\030\007 \003(\0132\035.Inte"
-  "lliSwing.ImageData.Image\032\254\001\n\005Image\022\014\n\004da"
-  "ta\030\002 \001(\014\022\021\n\ttimeStamp\030\003 \001(\004\022\013\n\003tag\030\007 \001(\t"
-  "\0225\n\007markers\030\010 \003(\0132$.IntelliSwing.ImageDa"
-  "ta.Image.Marker\032>\n\006Marker\022\'\n\010position\030\001 "
-  "\001(\0132\025.IntelliSwing.Point2i\022\013\n\003tag\030\002 \001(\t\""
-  "\326\001\n\nDebugImage\022\013\n\003fps\030\006 \001(\002\022-\n\005datas\030\007 \003"
-  "(\0132\036.IntelliSwing.DebugImage.Image\032\213\001\n\005I"
-  "mage\022\n\n\002id\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\022\021\n\ttimeSt"
-  "amp\030\003 \001(\004\022\r\n\005width\030\004 \001(\005\022\016\n\006height\030\005 \001(\005"
-  "\022\017\n\007channel\030\006 \001(\005\022\021\n\tdata_type\030\007 \001(\005\022\022\n\n"
-  "image_type\030\010 \001(\005\";\n\010CMessage\022\017\n\007command\030"
-  "\001 \001(\005\022\r\n\005param\030\002 \003(\005\022\017\n\007message\030\003 \001(\t*N\n"
-  "\nGroundAttr\022\013\n\007FAIRWAY\020\000\022\t\n\005ROUGH\020\001\022\n\n\006B"
-  "UNKER\020\002\022\007\n\003TEE\020\003\022\t\n\005GREEN\020\004\022\010\n\004NONE\020\0052\243\n"
-  "\n\024IntelliSwingProtocol\022D\n\nInitialize\022\033.I"
-  "ntelliSwing.InitializeMsg\032\027.IntelliSwing"
-  ".ReturnMsg\"\000\022>\n\007Release\022\030.IntelliSwing.R"
-  "eleaseMsg\032\027.IntelliSwing.ReturnMsg\"\000\022;\n\006"
-  "Reboot\022\026.google.protobuf.Empty\032\027.Intelli"
-  "Swing.ReturnMsg\"\000\022C\n\005Start\022\026.IntelliSwin"
-  "g.StartMsg\032\036.IntelliSwing.SensorRunningM"
-  "sg\"\0000\001\0229\n\004Stop\022\026.google.protobuf.Empty\032\027"
-  ".IntelliSwing.ReturnMsg\"\000\022I\n\014GetClubImag"
-  "e\022\036.IntelliSwing.ShotImageRequest\032\027.Inte"
-  "lliSwing.ImageData\"\000\022I\n\014GetBallImage\022\036.I"
-  "ntelliSwing.ShotImageRequest\032\027.IntelliSw"
-  "ing.ImageData\"\000\022C\n\rGetDeviceInfo\022\026.googl"
-  "e.protobuf.Empty\032\030.IntelliSwing.DeviceIn"
-  "fo\"\000\022G\n\017GetDeviceStatus\022\026.google.protobu"
-  "f.Empty\032\032.IntelliSwing.DeviceStatus\"\000\022>\n"
-  "\006GetLog\022\030.IntelliSwing.LogRequest\032\030.Inte"
-  "lliSwing.LogMessage\"\000\022R\n\rGetStatistics\022\037"
-  ".IntelliSwing.StatisticsRequest\032\036.Intell"
-  "iSwing.SensorStatistics\"\000\022a\n\022RunSiteCali"
-  "bration\022$.IntelliSwing.SiteCalibrationRe"
-  "quest\032#.IntelliSwing.SiteCalibrationResu"
-  "lt\"\000\022[\n\016UpdateFirmware\022#.IntelliSwing.Up"
-  "dateFirmwareRequest\032\".IntelliSwing.Updat"
-  "eFirmwareResult\"\000\022G\n\010GetImage\022 .IntelliS"
-  "wing.CameraImageRequest\032\027.IntelliSwing.I"
-  "mageData\"\000\022L\n\rGetDebugImage\022\037.IntelliSwi"
-  "ng.DebugImageRequest\032\030.IntelliSwing.Debu"
-  "gImage\"\000\0228\n\004Ping\022\026.google.protobuf.Empty"
-  "\032\026.google.protobuf.Empty\"\000\022\?\n\013SendComman"
-  "d\022\026.IntelliSwing.CMessage\032\026.IntelliSwing"
-  ".CMessage\"\000\022>\n\007SetTime\022\031.IntelliSwing.Ti"
-  "meRequest\032\026.google.protobuf.Empty\"\000b\006pro"
-  "to3"
+  "l\030\006 \003(\0132\025.IntelliSwing.Point3f\022\021\n\ttimest"
+  "amp\030\007 \003(\004\022\027\n\017impactTimeStamp\030\010 \001(\004\032\212\001\n\013I"
+  "mpactPoint\022\035\n\025GAClubImpactPoint_Hor\030\001 \001("
+  "\002\022\035\n\025GAClubImpactPoint_Ver\030\002 \001(\002\022\035\n\025GACl"
+  "ubImpactAreaWidth\030\003 \001(\002\022\036\n\026GAClubImpactA"
+  "reaHeight\030\004 \001(\002\032\232\001\n\rSensorStopped\022I\n\tsto"
+  "pCause\030\001 \001(\01626.IntelliSwing.SensorRunnin"
+  "gMsg.SensorStopped.StopCause\">\n\tStopCaus"
+  "e\022\t\n\005Other\020\000\022\t\n\005Sleep\020\001\022\017\n\013Calibration\020\002"
+  "\022\n\n\006Device\020d\032V\n\nImageReady\022\016\n\006shotId\030\001 \001"
+  "(\005\022\033\n\023isBallImagePrepared\030\002 \001(\010\022\033\n\023isClu"
+  "bImagePrepared\030\003 \001(\010B\n\n\010runState\"\"\n\020Shot"
+  "ImageRequest\022\016\n\006shotId\030\001 \001(\005\"\314\002\n\tImageDa"
+  "ta\022\r\n\005width\030\001 \001(\005\022\016\n\006height\030\002 \001(\005\022\017\n\007cha"
+  "nnel\030\003 \001(\005\022\021\n\tdata_type\030\004 \001(\005\022\022\n\nimage_t"
+  "ype\030\005 \001(\005\022\013\n\003fps\030\006 \001(\002\022,\n\005datas\030\007 \003(\0132\035."
+  "IntelliSwing.ImageData.Image\032\254\001\n\005Image\022\014"
+  "\n\004data\030\002 \001(\014\022\021\n\ttimeStamp\030\003 \001(\004\022\013\n\003tag\030\007"
+  " \001(\t\0225\n\007markers\030\010 \003(\0132$.IntelliSwing.Ima"
+  "geData.Image.Marker\032>\n\006Marker\022\'\n\010positio"
+  "n\030\001 \001(\0132\025.IntelliSwing.Point2i\022\013\n\003tag\030\002 "
+  "\001(\t\"\326\001\n\nDebugImage\022\013\n\003fps\030\006 \001(\002\022-\n\005datas"
+  "\030\007 \003(\0132\036.IntelliSwing.DebugImage.Image\032\213"
+  "\001\n\005Image\022\n\n\002id\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\022\021\n\tti"
+  "meStamp\030\003 \001(\004\022\r\n\005width\030\004 \001(\005\022\016\n\006height\030\005"
+  " \001(\005\022\017\n\007channel\030\006 \001(\005\022\021\n\tdata_type\030\007 \001(\005"
+  "\022\022\n\nimage_type\030\010 \001(\005\";\n\010CMessage\022\017\n\007comm"
+  "and\030\001 \001(\005\022\r\n\005param\030\002 \003(\005\022\017\n\007message\030\003 \001("
+  "\t*N\n\nGroundAttr\022\013\n\007FAIRWAY\020\000\022\t\n\005ROUGH\020\001\022"
+  "\n\n\006BUNKER\020\002\022\007\n\003TEE\020\003\022\t\n\005GREEN\020\004\022\010\n\004NONE\020"
+  "\0052\243\n\n\024IntelliSwingProtocol\022D\n\nInitialize"
+  "\022\033.IntelliSwing.InitializeMsg\032\027.IntelliS"
+  "wing.ReturnMsg\"\000\022>\n\007Release\022\030.IntelliSwi"
+  "ng.ReleaseMsg\032\027.IntelliSwing.ReturnMsg\"\000"
+  "\022;\n\006Reboot\022\026.google.protobuf.Empty\032\027.Int"
+  "elliSwing.ReturnMsg\"\000\022C\n\005Start\022\026.Intelli"
+  "Swing.StartMsg\032\036.IntelliSwing.SensorRunn"
+  "ingMsg\"\0000\001\0229\n\004Stop\022\026.google.protobuf.Emp"
+  "ty\032\027.IntelliSwing.ReturnMsg\"\000\022I\n\014GetClub"
+  "Image\022\036.IntelliSwing.ShotImageRequest\032\027."
+  "IntelliSwing.ImageData\"\000\022I\n\014GetBallImage"
+  "\022\036.IntelliSwing.ShotImageRequest\032\027.Intel"
+  "liSwing.ImageData\"\000\022C\n\rGetDeviceInfo\022\026.g"
+  "oogle.protobuf.Empty\032\030.IntelliSwing.Devi"
+  "ceInfo\"\000\022G\n\017GetDeviceStatus\022\026.google.pro"
+  "tobuf.Empty\032\032.IntelliSwing.DeviceStatus\""
+  "\000\022>\n\006GetLog\022\030.IntelliSwing.LogRequest\032\030."
+  "IntelliSwing.LogMessage\"\000\022R\n\rGetStatisti"
+  "cs\022\037.IntelliSwing.StatisticsRequest\032\036.In"
+  "telliSwing.SensorStatistics\"\000\022a\n\022RunSite"
+  "Calibration\022$.IntelliSwing.SiteCalibrati"
+  "onRequest\032#.IntelliSwing.SiteCalibration"
+  "Result\"\000\022[\n\016UpdateFirmware\022#.IntelliSwin"
+  "g.UpdateFirmwareRequest\032\".IntelliSwing.U"
+  "pdateFirmwareResult\"\000\022G\n\010GetImage\022 .Inte"
+  "lliSwing.CameraImageRequest\032\027.IntelliSwi"
+  "ng.ImageData\"\000\022L\n\rGetDebugImage\022\037.Intell"
+  "iSwing.DebugImageRequest\032\030.IntelliSwing."
+  "DebugImage\"\000\0228\n\004Ping\022\026.google.protobuf.E"
+  "mpty\032\026.google.protobuf.Empty\"\000\022\?\n\013SendCo"
+  "mmand\022\026.IntelliSwing.CMessage\032\026.IntelliS"
+  "wing.CMessage\"\000\022>\n\007SetTime\022\031.IntelliSwin"
+  "g.TimeRequest\032\026.google.protobuf.Empty\"\000b"
+  "\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_IntelliSwingInterface_2eproto_deps[4] = {
   &::descriptor_table_IntelliSwingService_2eproto,
@@ -712,7 +718,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_IntelliSwingInterface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_IntelliSwingInterface_2eproto = {
-  false, false, 4963, descriptor_table_protodef_IntelliSwingInterface_2eproto, "IntelliSwingInterface.proto", 
+  false, false, 5007, descriptor_table_protodef_IntelliSwingInterface_2eproto, "IntelliSwingInterface.proto", 
   &descriptor_table_IntelliSwingInterface_2eproto_once, descriptor_table_IntelliSwingInterface_2eproto_deps, 4, 20,
   schemas, file_default_instances, TableStruct_IntelliSwingInterface_2eproto::offsets,
   file_level_metadata_IntelliSwingInterface_2eproto, file_level_enum_descriptors_IntelliSwingInterface_2eproto, file_level_service_descriptors_IntelliSwingInterface_2eproto,
@@ -2559,7 +2565,8 @@ SensorRunningMsg_ClubPathInfo_Path::SensorRunningMsg_ClubPathInfo_Path(::PROTOBU
   hoseltop_(arena),
   shaftdir_(arena),
   facecenter_(arena),
-  facenormal_(arena) {
+  facenormal_(arena),
+  timestamp_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -2571,19 +2578,20 @@ SensorRunningMsg_ClubPathInfo_Path::SensorRunningMsg_ClubPathInfo_Path(const Sen
       hoseltop_(from.hoseltop_),
       shaftdir_(from.shaftdir_),
       facecenter_(from.facecenter_),
-      facenormal_(from.facenormal_) {
+      facenormal_(from.facenormal_),
+      timestamp_(from.timestamp_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&gaclubpath_, &from.gaclubpath_,
-    static_cast<size_t>(reinterpret_cast<char*>(&impactindex_) -
-    reinterpret_cast<char*>(&gaclubpath_)) + sizeof(impactindex_));
+    static_cast<size_t>(reinterpret_cast<char*>(&impacttimestamp_) -
+    reinterpret_cast<char*>(&gaclubpath_)) + sizeof(impacttimestamp_));
   // @@protoc_insertion_point(copy_constructor:IntelliSwing.SensorRunningMsg.ClubPathInfo.Path)
 }
 
 void SensorRunningMsg_ClubPathInfo_Path::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&gaclubpath_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&impactindex_) -
-    reinterpret_cast<char*>(&gaclubpath_)) + sizeof(impactindex_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&impacttimestamp_) -
+    reinterpret_cast<char*>(&gaclubpath_)) + sizeof(impacttimestamp_));
 }
 
 SensorRunningMsg_ClubPathInfo_Path::~SensorRunningMsg_ClubPathInfo_Path() {
@@ -2617,9 +2625,10 @@ void SensorRunningMsg_ClubPathInfo_Path::Clear() {
   shaftdir_.Clear();
   facecenter_.Clear();
   facenormal_.Clear();
+  timestamp_.Clear();
   ::memset(&gaclubpath_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&impactindex_) -
-      reinterpret_cast<char*>(&gaclubpath_)) + sizeof(impactindex_));
+      reinterpret_cast<char*>(&impacttimestamp_) -
+      reinterpret_cast<char*>(&gaclubpath_)) + sizeof(impacttimestamp_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2697,6 +2706,25 @@ const char* SensorRunningMsg_ClubPathInfo_Path::_InternalParse(const char* ptr, 
         } else
           goto handle_unusual;
         continue;
+      // repeated uint64 timestamp = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_timestamp(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56) {
+          _internal_add_timestamp(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 impactTimeStamp = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          impacttimestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -2770,6 +2798,21 @@ failure:
       InternalWriteMessage(6, this->_internal_facenormal(i), target, stream);
   }
 
+  // repeated uint64 timestamp = 7;
+  {
+    int byte_size = _timestamp_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt64Packed(
+          7, _internal_timestamp(), byte_size, target);
+    }
+  }
+
+  // uint64 impactTimeStamp = 8;
+  if (this->_internal_impacttimestamp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(8, this->_internal_impacttimestamp(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2814,6 +2857,21 @@ size_t SensorRunningMsg_ClubPathInfo_Path::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
+  // repeated uint64 timestamp = 7;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt64Size(this->timestamp_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _timestamp_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
   // float GAClubPath = 1;
   if (!(this->_internal_gaclubpath() <= 0 && this->_internal_gaclubpath() >= 0)) {
     total_size += 1 + 4;
@@ -2822,6 +2880,11 @@ size_t SensorRunningMsg_ClubPathInfo_Path::ByteSizeLong() const {
   // float impactIndex = 2;
   if (!(this->_internal_impactindex() <= 0 && this->_internal_impactindex() >= 0)) {
     total_size += 1 + 4;
+  }
+
+  // uint64 impactTimeStamp = 8;
+  if (this->_internal_impacttimestamp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_impacttimestamp());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -2850,11 +2913,15 @@ void SensorRunningMsg_ClubPathInfo_Path::MergeFrom(const SensorRunningMsg_ClubPa
   shaftdir_.MergeFrom(from.shaftdir_);
   facecenter_.MergeFrom(from.facecenter_);
   facenormal_.MergeFrom(from.facenormal_);
+  timestamp_.MergeFrom(from.timestamp_);
   if (!(from._internal_gaclubpath() <= 0 && from._internal_gaclubpath() >= 0)) {
     _internal_set_gaclubpath(from._internal_gaclubpath());
   }
   if (!(from._internal_impactindex() <= 0 && from._internal_impactindex() >= 0)) {
     _internal_set_impactindex(from._internal_impactindex());
+  }
+  if (from._internal_impacttimestamp() != 0) {
+    _internal_set_impacttimestamp(from._internal_impacttimestamp());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2877,9 +2944,10 @@ void SensorRunningMsg_ClubPathInfo_Path::InternalSwap(SensorRunningMsg_ClubPathI
   shaftdir_.InternalSwap(&other->shaftdir_);
   facecenter_.InternalSwap(&other->facecenter_);
   facenormal_.InternalSwap(&other->facenormal_);
+  timestamp_.InternalSwap(&other->timestamp_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SensorRunningMsg_ClubPathInfo_Path, impactindex_)
-      + sizeof(SensorRunningMsg_ClubPathInfo_Path::impactindex_)
+      PROTOBUF_FIELD_OFFSET(SensorRunningMsg_ClubPathInfo_Path, impacttimestamp_)
+      + sizeof(SensorRunningMsg_ClubPathInfo_Path::impacttimestamp_)
       - PROTOBUF_FIELD_OFFSET(SensorRunningMsg_ClubPathInfo_Path, gaclubpath_)>(
           reinterpret_cast<char*>(&gaclubpath_),
           reinterpret_cast<char*>(&other->gaclubpath_));

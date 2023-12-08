@@ -174,6 +174,8 @@ message SensorRunningMsg
 			repeated Point3f shaftDir	= 4;
 			repeated Point3f faceCenter	= 5;
 			repeated Point3f faceNormal	= 6;
+			repeated uint64	 timestamp	= 7;
+			uint64 impactTimeStamp = 8;
 		}
 
 		message ImpactPoint

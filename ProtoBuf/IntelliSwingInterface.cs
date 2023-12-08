@@ -43,7 +43,7 @@ namespace IntelliSwing {
             "BwoCSTkQ0QESCgoFV2VkZ2UQrAISBwoCUFcQtgISBwoCU1cQwAISBwoCTFcQ",
             "ygISCwoGSHlicmlkEJADEgkKBFVUSUwQpAMSCgoFVVRJTDIQpgMSCgoFVVRJ",
             "TDMQpwMSCgoFVVRJTDQQqAMSCgoFVVRJTDUQqQMSCgoFVVRJTDYQqgMSCgoF",
-            "VVRJTDcQqwMi+g8KEFNlbnNvclJ1bm5pbmdNc2cSLQoJdGltZVN0YW1wGAEg",
+            "VVRJTDcQqwMiphAKEFNlbnNvclJ1bm5pbmdNc2cSLQoJdGltZVN0YW1wGAEg",
             "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI1CgVyZWFkeRgCIAEo",
             "CzIkLkludGVsbGlTd2luZy5TZW5zb3JSdW5uaW5nTXNnLlJlYWR5SAASOwoI",
             "bm90UmVhZHkYAyABKAsyJy5JbnRlbGxpU3dpbmcuU2Vuc29yUnVubmluZ01z",
@@ -66,7 +66,7 @@ namespace IntelliSwing {
             "SWQYASABKAUSEQoJYmFsbFNwZWVkGAIgASgCEhEKCUluY2lkZW5jZRgDIAEo",
             "AhIRCglkaXJlY3Rpb24YBCABKAISEAoIYmFja1NwaW4YBSABKAISEAoIc2lk",
             "ZVNwaW4YBiABKAISEQoJdG90YWxTcGluGAcgASgCEhAKCHNwaW5BeGlzGAgg",
-            "ASgCGvMFCgxDbHViUGF0aEluZm8SDgoGc2hvdElkGAEgASgFEhEKCWhlYWRT",
+            "ASgCGp8GCgxDbHViUGF0aEluZm8SDgoGc2hvdElkGAEgASgFEhEKCWhlYWRT",
             "cGVlZBgCIAEoAhI+CgRwYXRoGAMgASgLMjAuSW50ZWxsaVN3aW5nLlNlbnNv",
             "clJ1bm5pbmdNc2cuQ2x1YlBhdGhJbmZvLlBhdGgSEQoJZmFjZUFuZ2xlGAQg",
             "ASgCEhMKC2F0dGFja0FuZ2xlGAUgASgCEkwKC2ltcGFjdFBvaW50GAYgASgL",
@@ -74,67 +74,68 @@ namespace IntelliSwing {
             "LkltcGFjdFBvaW50EhMKC2R5bmFtaWNMb2Z0GAcgASgCEhIKCnN3aW5nUGxh",
             "bmUYCCABKAISFgoOc3dpbmdEaXJlY3Rpb24YCSABKAISEAoIbG93UG9pbnQY",
             "CiABKAISDwoHY2x1YkxpZRgLIAEoAhIXCg9jbHViQ2xvc3VyZVJhdGUYDCAB",
-            "KAISEQoJY2x1YkZBeGlzGA0gASgCEhMKC3RvZUhlZWxEaWZmGA4gASgCGtcB",
+            "KAISEQoJY2x1YkZBeGlzGA0gASgCEhMKC3RvZUhlZWxEaWZmGA4gASgCGoMC",
             "CgRQYXRoEhIKCkdBQ2x1YlBhdGgYASABKAISEwoLaW1wYWN0SW5kZXgYAiAB",
             "KAISJwoIaG9zZWxUb3AYAyADKAsyFS5JbnRlbGxpU3dpbmcuUG9pbnQzZhIn",
             "CghzaGFmdERpchgEIAMoCzIVLkludGVsbGlTd2luZy5Qb2ludDNmEikKCmZh",
             "Y2VDZW50ZXIYBSADKAsyFS5JbnRlbGxpU3dpbmcuUG9pbnQzZhIpCgpmYWNl",
-            "Tm9ybWFsGAYgAygLMhUuSW50ZWxsaVN3aW5nLlBvaW50M2YaigEKC0ltcGFj",
-            "dFBvaW50Eh0KFUdBQ2x1YkltcGFjdFBvaW50X0hvchgBIAEoAhIdChVHQUNs",
-            "dWJJbXBhY3RQb2ludF9WZXIYAiABKAISHQoVR0FDbHViSW1wYWN0QXJlYVdp",
-            "ZHRoGAMgASgCEh4KFkdBQ2x1YkltcGFjdEFyZWFIZWlnaHQYBCABKAIamgEK",
-            "DVNlbnNvclN0b3BwZWQSSQoJc3RvcENhdXNlGAEgASgOMjYuSW50ZWxsaVN3",
-            "aW5nLlNlbnNvclJ1bm5pbmdNc2cuU2Vuc29yU3RvcHBlZC5TdG9wQ2F1c2Ui",
-            "PgoJU3RvcENhdXNlEgkKBU90aGVyEAASCQoFU2xlZXAQARIPCgtDYWxpYnJh",
-            "dGlvbhACEgoKBkRldmljZRBkGlYKCkltYWdlUmVhZHkSDgoGc2hvdElkGAEg",
-            "ASgFEhsKE2lzQmFsbEltYWdlUHJlcGFyZWQYAiABKAgSGwoTaXNDbHViSW1h",
-            "Z2VQcmVwYXJlZBgDIAEoCEIKCghydW5TdGF0ZSIiChBTaG90SW1hZ2VSZXF1",
-            "ZXN0Eg4KBnNob3RJZBgBIAEoBSLMAgoJSW1hZ2VEYXRhEg0KBXdpZHRoGAEg",
-            "ASgFEg4KBmhlaWdodBgCIAEoBRIPCgdjaGFubmVsGAMgASgFEhEKCWRhdGFf",
-            "dHlwZRgEIAEoBRISCgppbWFnZV90eXBlGAUgASgFEgsKA2ZwcxgGIAEoAhIs",
-            "CgVkYXRhcxgHIAMoCzIdLkludGVsbGlTd2luZy5JbWFnZURhdGEuSW1hZ2Ua",
-            "rAEKBUltYWdlEgwKBGRhdGEYAiABKAwSEQoJdGltZVN0YW1wGAMgASgEEgsK",
-            "A3RhZxgHIAEoCRI1CgdtYXJrZXJzGAggAygLMiQuSW50ZWxsaVN3aW5nLklt",
-            "YWdlRGF0YS5JbWFnZS5NYXJrZXIaPgoGTWFya2VyEicKCHBvc2l0aW9uGAEg",
-            "ASgLMhUuSW50ZWxsaVN3aW5nLlBvaW50MmkSCwoDdGFnGAIgASgJItYBCgpE",
-            "ZWJ1Z0ltYWdlEgsKA2ZwcxgGIAEoAhItCgVkYXRhcxgHIAMoCzIeLkludGVs",
-            "bGlTd2luZy5EZWJ1Z0ltYWdlLkltYWdlGosBCgVJbWFnZRIKCgJpZBgBIAEo",
-            "BRIMCgRkYXRhGAIgASgMEhEKCXRpbWVTdGFtcBgDIAEoBBINCgV3aWR0aBgE",
-            "IAEoBRIOCgZoZWlnaHQYBSABKAUSDwoHY2hhbm5lbBgGIAEoBRIRCglkYXRh",
-            "X3R5cGUYByABKAUSEgoKaW1hZ2VfdHlwZRgIIAEoBSI7CghDTWVzc2FnZRIP",
-            "Cgdjb21tYW5kGAEgASgFEg0KBXBhcmFtGAIgAygFEg8KB21lc3NhZ2UYAyAB",
-            "KAkqTgoKR3JvdW5kQXR0chILCgdGQUlSV0FZEAASCQoFUk9VR0gQARIKCgZC",
-            "VU5LRVIQAhIHCgNURUUQAxIJCgVHUkVFThAEEggKBE5PTkUQBTKjCgoUSW50",
-            "ZWxsaVN3aW5nUHJvdG9jb2wSRAoKSW5pdGlhbGl6ZRIbLkludGVsbGlTd2lu",
-            "Zy5Jbml0aWFsaXplTXNnGhcuSW50ZWxsaVN3aW5nLlJldHVybk1zZyIAEj4K",
-            "B1JlbGVhc2USGC5JbnRlbGxpU3dpbmcuUmVsZWFzZU1zZxoXLkludGVsbGlT",
-            "d2luZy5SZXR1cm5Nc2ciABI7CgZSZWJvb3QSFi5nb29nbGUucHJvdG9idWYu",
-            "RW1wdHkaFy5JbnRlbGxpU3dpbmcuUmV0dXJuTXNnIgASQwoFU3RhcnQSFi5J",
-            "bnRlbGxpU3dpbmcuU3RhcnRNc2caHi5JbnRlbGxpU3dpbmcuU2Vuc29yUnVu",
-            "bmluZ01zZyIAMAESOQoEU3RvcBIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoX",
-            "LkludGVsbGlTd2luZy5SZXR1cm5Nc2ciABJJCgxHZXRDbHViSW1hZ2USHi5J",
-            "bnRlbGxpU3dpbmcuU2hvdEltYWdlUmVxdWVzdBoXLkludGVsbGlTd2luZy5J",
-            "bWFnZURhdGEiABJJCgxHZXRCYWxsSW1hZ2USHi5JbnRlbGxpU3dpbmcuU2hv",
-            "dEltYWdlUmVxdWVzdBoXLkludGVsbGlTd2luZy5JbWFnZURhdGEiABJDCg1H",
-            "ZXREZXZpY2VJbmZvEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhguSW50ZWxs",
-            "aVN3aW5nLkRldmljZUluZm8iABJHCg9HZXREZXZpY2VTdGF0dXMSFi5nb29n",
-            "bGUucHJvdG9idWYuRW1wdHkaGi5JbnRlbGxpU3dpbmcuRGV2aWNlU3RhdHVz",
-            "IgASPgoGR2V0TG9nEhguSW50ZWxsaVN3aW5nLkxvZ1JlcXVlc3QaGC5JbnRl",
-            "bGxpU3dpbmcuTG9nTWVzc2FnZSIAElIKDUdldFN0YXRpc3RpY3MSHy5JbnRl",
-            "bGxpU3dpbmcuU3RhdGlzdGljc1JlcXVlc3QaHi5JbnRlbGxpU3dpbmcuU2Vu",
-            "c29yU3RhdGlzdGljcyIAEmEKElJ1blNpdGVDYWxpYnJhdGlvbhIkLkludGVs",
-            "bGlTd2luZy5TaXRlQ2FsaWJyYXRpb25SZXF1ZXN0GiMuSW50ZWxsaVN3aW5n",
-            "LlNpdGVDYWxpYnJhdGlvblJlc3VsdCIAElsKDlVwZGF0ZUZpcm13YXJlEiMu",
-            "SW50ZWxsaVN3aW5nLlVwZGF0ZUZpcm13YXJlUmVxdWVzdBoiLkludGVsbGlT",
-            "d2luZy5VcGRhdGVGaXJtd2FyZVJlc3VsdCIAEkcKCEdldEltYWdlEiAuSW50",
-            "ZWxsaVN3aW5nLkNhbWVyYUltYWdlUmVxdWVzdBoXLkludGVsbGlTd2luZy5J",
-            "bWFnZURhdGEiABJMCg1HZXREZWJ1Z0ltYWdlEh8uSW50ZWxsaVN3aW5nLkRl",
-            "YnVnSW1hZ2VSZXF1ZXN0GhguSW50ZWxsaVN3aW5nLkRlYnVnSW1hZ2UiABI4",
-            "CgRQaW5nEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhYuZ29vZ2xlLnByb3Rv",
-            "YnVmLkVtcHR5IgASPwoLU2VuZENvbW1hbmQSFi5JbnRlbGxpU3dpbmcuQ01l",
-            "c3NhZ2UaFi5JbnRlbGxpU3dpbmcuQ01lc3NhZ2UiABI+CgdTZXRUaW1lEhku",
-            "SW50ZWxsaVN3aW5nLlRpbWVSZXF1ZXN0GhYuZ29vZ2xlLnByb3RvYnVmLkVt",
-            "cHR5IgBiBnByb3RvMw=="));
+            "Tm9ybWFsGAYgAygLMhUuSW50ZWxsaVN3aW5nLlBvaW50M2YSEQoJdGltZXN0",
+            "YW1wGAcgAygEEhcKD2ltcGFjdFRpbWVTdGFtcBgIIAEoBBqKAQoLSW1wYWN0",
+            "UG9pbnQSHQoVR0FDbHViSW1wYWN0UG9pbnRfSG9yGAEgASgCEh0KFUdBQ2x1",
+            "YkltcGFjdFBvaW50X1ZlchgCIAEoAhIdChVHQUNsdWJJbXBhY3RBcmVhV2lk",
+            "dGgYAyABKAISHgoWR0FDbHViSW1wYWN0QXJlYUhlaWdodBgEIAEoAhqaAQoN",
+            "U2Vuc29yU3RvcHBlZBJJCglzdG9wQ2F1c2UYASABKA4yNi5JbnRlbGxpU3dp",
+            "bmcuU2Vuc29yUnVubmluZ01zZy5TZW5zb3JTdG9wcGVkLlN0b3BDYXVzZSI+",
+            "CglTdG9wQ2F1c2USCQoFT3RoZXIQABIJCgVTbGVlcBABEg8KC0NhbGlicmF0",
+            "aW9uEAISCgoGRGV2aWNlEGQaVgoKSW1hZ2VSZWFkeRIOCgZzaG90SWQYASAB",
+            "KAUSGwoTaXNCYWxsSW1hZ2VQcmVwYXJlZBgCIAEoCBIbChNpc0NsdWJJbWFn",
+            "ZVByZXBhcmVkGAMgASgIQgoKCHJ1blN0YXRlIiIKEFNob3RJbWFnZVJlcXVl",
+            "c3QSDgoGc2hvdElkGAEgASgFIswCCglJbWFnZURhdGESDQoFd2lkdGgYASAB",
+            "KAUSDgoGaGVpZ2h0GAIgASgFEg8KB2NoYW5uZWwYAyABKAUSEQoJZGF0YV90",
+            "eXBlGAQgASgFEhIKCmltYWdlX3R5cGUYBSABKAUSCwoDZnBzGAYgASgCEiwK",
+            "BWRhdGFzGAcgAygLMh0uSW50ZWxsaVN3aW5nLkltYWdlRGF0YS5JbWFnZRqs",
+            "AQoFSW1hZ2USDAoEZGF0YRgCIAEoDBIRCgl0aW1lU3RhbXAYAyABKAQSCwoD",
+            "dGFnGAcgASgJEjUKB21hcmtlcnMYCCADKAsyJC5JbnRlbGxpU3dpbmcuSW1h",
+            "Z2VEYXRhLkltYWdlLk1hcmtlcho+CgZNYXJrZXISJwoIcG9zaXRpb24YASAB",
+            "KAsyFS5JbnRlbGxpU3dpbmcuUG9pbnQyaRILCgN0YWcYAiABKAki1gEKCkRl",
+            "YnVnSW1hZ2USCwoDZnBzGAYgASgCEi0KBWRhdGFzGAcgAygLMh4uSW50ZWxs",
+            "aVN3aW5nLkRlYnVnSW1hZ2UuSW1hZ2UaiwEKBUltYWdlEgoKAmlkGAEgASgF",
+            "EgwKBGRhdGEYAiABKAwSEQoJdGltZVN0YW1wGAMgASgEEg0KBXdpZHRoGAQg",
+            "ASgFEg4KBmhlaWdodBgFIAEoBRIPCgdjaGFubmVsGAYgASgFEhEKCWRhdGFf",
+            "dHlwZRgHIAEoBRISCgppbWFnZV90eXBlGAggASgFIjsKCENNZXNzYWdlEg8K",
+            "B2NvbW1hbmQYASABKAUSDQoFcGFyYW0YAiADKAUSDwoHbWVzc2FnZRgDIAEo",
+            "CSpOCgpHcm91bmRBdHRyEgsKB0ZBSVJXQVkQABIJCgVST1VHSBABEgoKBkJV",
+            "TktFUhACEgcKA1RFRRADEgkKBUdSRUVOEAQSCAoETk9ORRAFMqMKChRJbnRl",
+            "bGxpU3dpbmdQcm90b2NvbBJECgpJbml0aWFsaXplEhsuSW50ZWxsaVN3aW5n",
+            "LkluaXRpYWxpemVNc2caFy5JbnRlbGxpU3dpbmcuUmV0dXJuTXNnIgASPgoH",
+            "UmVsZWFzZRIYLkludGVsbGlTd2luZy5SZWxlYXNlTXNnGhcuSW50ZWxsaVN3",
+            "aW5nLlJldHVybk1zZyIAEjsKBlJlYm9vdBIWLmdvb2dsZS5wcm90b2J1Zi5F",
+            "bXB0eRoXLkludGVsbGlTd2luZy5SZXR1cm5Nc2ciABJDCgVTdGFydBIWLklu",
+            "dGVsbGlTd2luZy5TdGFydE1zZxoeLkludGVsbGlTd2luZy5TZW5zb3JSdW5u",
+            "aW5nTXNnIgAwARI5CgRTdG9wEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5Ghcu",
+            "SW50ZWxsaVN3aW5nLlJldHVybk1zZyIAEkkKDEdldENsdWJJbWFnZRIeLklu",
+            "dGVsbGlTd2luZy5TaG90SW1hZ2VSZXF1ZXN0GhcuSW50ZWxsaVN3aW5nLklt",
+            "YWdlRGF0YSIAEkkKDEdldEJhbGxJbWFnZRIeLkludGVsbGlTd2luZy5TaG90",
+            "SW1hZ2VSZXF1ZXN0GhcuSW50ZWxsaVN3aW5nLkltYWdlRGF0YSIAEkMKDUdl",
+            "dERldmljZUluZm8SFi5nb29nbGUucHJvdG9idWYuRW1wdHkaGC5JbnRlbGxp",
+            "U3dpbmcuRGV2aWNlSW5mbyIAEkcKD0dldERldmljZVN0YXR1cxIWLmdvb2ds",
+            "ZS5wcm90b2J1Zi5FbXB0eRoaLkludGVsbGlTd2luZy5EZXZpY2VTdGF0dXMi",
+            "ABI+CgZHZXRMb2cSGC5JbnRlbGxpU3dpbmcuTG9nUmVxdWVzdBoYLkludGVs",
+            "bGlTd2luZy5Mb2dNZXNzYWdlIgASUgoNR2V0U3RhdGlzdGljcxIfLkludGVs",
+            "bGlTd2luZy5TdGF0aXN0aWNzUmVxdWVzdBoeLkludGVsbGlTd2luZy5TZW5z",
+            "b3JTdGF0aXN0aWNzIgASYQoSUnVuU2l0ZUNhbGlicmF0aW9uEiQuSW50ZWxs",
+            "aVN3aW5nLlNpdGVDYWxpYnJhdGlvblJlcXVlc3QaIy5JbnRlbGxpU3dpbmcu",
+            "U2l0ZUNhbGlicmF0aW9uUmVzdWx0IgASWwoOVXBkYXRlRmlybXdhcmUSIy5J",
+            "bnRlbGxpU3dpbmcuVXBkYXRlRmlybXdhcmVSZXF1ZXN0GiIuSW50ZWxsaVN3",
+            "aW5nLlVwZGF0ZUZpcm13YXJlUmVzdWx0IgASRwoIR2V0SW1hZ2USIC5JbnRl",
+            "bGxpU3dpbmcuQ2FtZXJhSW1hZ2VSZXF1ZXN0GhcuSW50ZWxsaVN3aW5nLklt",
+            "YWdlRGF0YSIAEkwKDUdldERlYnVnSW1hZ2USHy5JbnRlbGxpU3dpbmcuRGVi",
+            "dWdJbWFnZVJlcXVlc3QaGC5JbnRlbGxpU3dpbmcuRGVidWdJbWFnZSIAEjgK",
+            "BFBpbmcSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaFi5nb29nbGUucHJvdG9i",
+            "dWYuRW1wdHkiABI/CgtTZW5kQ29tbWFuZBIWLkludGVsbGlTd2luZy5DTWVz",
+            "c2FnZRoWLkludGVsbGlTd2luZy5DTWVzc2FnZSIAEj4KB1NldFRpbWUSGS5J",
+            "bnRlbGxpU3dpbmcuVGltZVJlcXVlc3QaFi5nb29nbGUucHJvdG9idWYuRW1w",
+            "dHkiAGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::IntelliSwing.TypeReflection.Descriptor, global::IntelliSwing.IntelliSwingServiceReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::IntelliSwing.GroundAttr), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -145,7 +146,7 @@ namespace IntelliSwing {
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.NotReady), global::IntelliSwing.SensorRunningMsg.Types.NotReady.Parser, new[]{ "NotReadyCause" }, null, new[]{ typeof(global::IntelliSwing.SensorRunningMsg.Types.NotReady.Types.NotReadyCause) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ShortTriggered), global::IntelliSwing.SensorRunningMsg.Types.ShortTriggered.Parser, new[]{ "ShotId", "Timestamp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.BallFlightInfo), global::IntelliSwing.SensorRunningMsg.Types.BallFlightInfo.Parser, new[]{ "ShotId", "BallSpeed", "Incidence", "Direction", "BackSpin", "SideSpin", "TotalSpin", "SpinAxis" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Parser, new[]{ "ShotId", "HeadSpeed", "Path", "FaceAngle", "AttackAngle", "ImpactPoint", "DynamicLoft", "SwingPlane", "SwingDirection", "LowPoint", "ClubLie", "ClubClosureRate", "ClubFAxis", "ToeHeelDiff" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path.Parser, new[]{ "GAClubPath", "ImpactIndex", "HoselTop", "ShaftDir", "FaceCenter", "FaceNormal" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Parser, new[]{ "ShotId", "HeadSpeed", "Path", "FaceAngle", "AttackAngle", "ImpactPoint", "DynamicLoft", "SwingPlane", "SwingDirection", "LowPoint", "ClubLie", "ClubClosureRate", "ClubFAxis", "ToeHeelDiff" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.Path.Parser, new[]{ "GAClubPath", "ImpactIndex", "HoselTop", "ShaftDir", "FaceCenter", "FaceNormal", "Timestamp", "ImpactTimeStamp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint), global::IntelliSwing.SensorRunningMsg.Types.ClubPathInfo.Types.ImpactPoint.Parser, new[]{ "GAClubImpactPointHor", "GAClubImpactPointVer", "GAClubImpactAreaWidth", "GAClubImpactAreaHeight" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.SensorStopped), global::IntelliSwing.SensorRunningMsg.Types.SensorStopped.Parser, new[]{ "StopCause" }, null, new[]{ typeof(global::IntelliSwing.SensorRunningMsg.Types.SensorStopped.Types.StopCause) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::IntelliSwing.SensorRunningMsg.Types.ImageReady), global::IntelliSwing.SensorRunningMsg.Types.ImageReady.Parser, new[]{ "ShotId", "IsBallImagePrepared", "IsClubImagePrepared" }, null, null, null, null)}),
@@ -3425,6 +3426,8 @@ namespace IntelliSwing {
               shaftDir_ = other.shaftDir_.Clone();
               faceCenter_ = other.faceCenter_.Clone();
               faceNormal_ = other.faceNormal_.Clone();
+              timestamp_ = other.timestamp_.Clone();
+              impactTimeStamp_ = other.impactTimeStamp_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -3508,6 +3511,29 @@ namespace IntelliSwing {
               get { return faceNormal_; }
             }
 
+            /// <summary>Field number for the "timestamp" field.</summary>
+            public const int TimestampFieldNumber = 7;
+            private static readonly pb::FieldCodec<ulong> _repeated_timestamp_codec
+                = pb::FieldCodec.ForUInt64(58);
+            private readonly pbc::RepeatedField<ulong> timestamp_ = new pbc::RepeatedField<ulong>();
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public pbc::RepeatedField<ulong> Timestamp {
+              get { return timestamp_; }
+            }
+
+            /// <summary>Field number for the "impactTimeStamp" field.</summary>
+            public const int ImpactTimeStampFieldNumber = 8;
+            private ulong impactTimeStamp_;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public ulong ImpactTimeStamp {
+              get { return impactTimeStamp_; }
+              set {
+                impactTimeStamp_ = value;
+              }
+            }
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public override bool Equals(object other) {
@@ -3529,6 +3555,8 @@ namespace IntelliSwing {
               if(!shaftDir_.Equals(other.shaftDir_)) return false;
               if(!faceCenter_.Equals(other.faceCenter_)) return false;
               if(!faceNormal_.Equals(other.faceNormal_)) return false;
+              if(!timestamp_.Equals(other.timestamp_)) return false;
+              if (ImpactTimeStamp != other.ImpactTimeStamp) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
@@ -3542,6 +3570,8 @@ namespace IntelliSwing {
               hash ^= shaftDir_.GetHashCode();
               hash ^= faceCenter_.GetHashCode();
               hash ^= faceNormal_.GetHashCode();
+              hash ^= timestamp_.GetHashCode();
+              if (ImpactTimeStamp != 0UL) hash ^= ImpactTimeStamp.GetHashCode();
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -3572,6 +3602,11 @@ namespace IntelliSwing {
               shaftDir_.WriteTo(output, _repeated_shaftDir_codec);
               faceCenter_.WriteTo(output, _repeated_faceCenter_codec);
               faceNormal_.WriteTo(output, _repeated_faceNormal_codec);
+              timestamp_.WriteTo(output, _repeated_timestamp_codec);
+              if (ImpactTimeStamp != 0UL) {
+                output.WriteRawTag(64);
+                output.WriteUInt64(ImpactTimeStamp);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -3594,6 +3629,11 @@ namespace IntelliSwing {
               shaftDir_.WriteTo(ref output, _repeated_shaftDir_codec);
               faceCenter_.WriteTo(ref output, _repeated_faceCenter_codec);
               faceNormal_.WriteTo(ref output, _repeated_faceNormal_codec);
+              timestamp_.WriteTo(ref output, _repeated_timestamp_codec);
+              if (ImpactTimeStamp != 0UL) {
+                output.WriteRawTag(64);
+                output.WriteUInt64(ImpactTimeStamp);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(ref output);
               }
@@ -3614,6 +3654,10 @@ namespace IntelliSwing {
               size += shaftDir_.CalculateSize(_repeated_shaftDir_codec);
               size += faceCenter_.CalculateSize(_repeated_faceCenter_codec);
               size += faceNormal_.CalculateSize(_repeated_faceNormal_codec);
+              size += timestamp_.CalculateSize(_repeated_timestamp_codec);
+              if (ImpactTimeStamp != 0UL) {
+                size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ImpactTimeStamp);
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -3636,6 +3680,10 @@ namespace IntelliSwing {
               shaftDir_.Add(other.shaftDir_);
               faceCenter_.Add(other.faceCenter_);
               faceNormal_.Add(other.faceNormal_);
+              timestamp_.Add(other.timestamp_);
+              if (other.ImpactTimeStamp != 0UL) {
+                ImpactTimeStamp = other.ImpactTimeStamp;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -3675,6 +3723,15 @@ namespace IntelliSwing {
                     faceNormal_.AddEntriesFrom(input, _repeated_faceNormal_codec);
                     break;
                   }
+                  case 58:
+                  case 56: {
+                    timestamp_.AddEntriesFrom(input, _repeated_timestamp_codec);
+                    break;
+                  }
+                  case 64: {
+                    ImpactTimeStamp = input.ReadUInt64();
+                    break;
+                  }
                 }
               }
             #endif
@@ -3712,6 +3769,15 @@ namespace IntelliSwing {
                   }
                   case 50: {
                     faceNormal_.AddEntriesFrom(ref input, _repeated_faceNormal_codec);
+                    break;
+                  }
+                  case 58:
+                  case 56: {
+                    timestamp_.AddEntriesFrom(ref input, _repeated_timestamp_codec);
+                    break;
+                  }
+                  case 64: {
+                    ImpactTimeStamp = input.ReadUInt64();
                     break;
                   }
                 }
