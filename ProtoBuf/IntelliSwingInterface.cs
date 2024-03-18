@@ -105,7 +105,7 @@ namespace IntelliSwing {
             "dHlwZRgHIAEoBRISCgppbWFnZV90eXBlGAggASgFIjsKCENNZXNzYWdlEg8K",
             "B2NvbW1hbmQYASABKAUSDQoFcGFyYW0YAiADKAUSDwoHbWVzc2FnZRgDIAEo",
             "CSpOCgpHcm91bmRBdHRyEgsKB0ZBSVJXQVkQABIJCgVST1VHSBABEgoKBkJV",
-            "TktFUhACEgcKA1RFRRADEgkKBUdSRUVOEAQSCAoETk9ORRAFMqMKChRJbnRl",
+            "TktFUhACEgcKA1RFRRADEgkKBUdSRUVOEAQSCAoETk9ORRAFMskLChRJbnRl",
             "bGxpU3dpbmdQcm90b2NvbBJECgpJbml0aWFsaXplEhsuSW50ZWxsaVN3aW5n",
             "LkluaXRpYWxpemVNc2caFy5JbnRlbGxpU3dpbmcuUmV0dXJuTXNnIgASPgoH",
             "UmVsZWFzZRIYLkludGVsbGlTd2luZy5SZWxlYXNlTXNnGhcuSW50ZWxsaVN3",
@@ -116,26 +116,29 @@ namespace IntelliSwing {
             "SW50ZWxsaVN3aW5nLlJldHVybk1zZyIAEkkKDEdldENsdWJJbWFnZRIeLklu",
             "dGVsbGlTd2luZy5TaG90SW1hZ2VSZXF1ZXN0GhcuSW50ZWxsaVN3aW5nLklt",
             "YWdlRGF0YSIAEkkKDEdldEJhbGxJbWFnZRIeLkludGVsbGlTd2luZy5TaG90",
-            "SW1hZ2VSZXF1ZXN0GhcuSW50ZWxsaVN3aW5nLkltYWdlRGF0YSIAEkMKDUdl",
-            "dERldmljZUluZm8SFi5nb29nbGUucHJvdG9idWYuRW1wdHkaGC5JbnRlbGxp",
-            "U3dpbmcuRGV2aWNlSW5mbyIAEkcKD0dldERldmljZVN0YXR1cxIWLmdvb2ds",
-            "ZS5wcm90b2J1Zi5FbXB0eRoaLkludGVsbGlTd2luZy5EZXZpY2VTdGF0dXMi",
-            "ABI+CgZHZXRMb2cSGC5JbnRlbGxpU3dpbmcuTG9nUmVxdWVzdBoYLkludGVs",
-            "bGlTd2luZy5Mb2dNZXNzYWdlIgASUgoNR2V0U3RhdGlzdGljcxIfLkludGVs",
-            "bGlTd2luZy5TdGF0aXN0aWNzUmVxdWVzdBoeLkludGVsbGlTd2luZy5TZW5z",
-            "b3JTdGF0aXN0aWNzIgASYQoSUnVuU2l0ZUNhbGlicmF0aW9uEiQuSW50ZWxs",
-            "aVN3aW5nLlNpdGVDYWxpYnJhdGlvblJlcXVlc3QaIy5JbnRlbGxpU3dpbmcu",
-            "U2l0ZUNhbGlicmF0aW9uUmVzdWx0IgASWwoOVXBkYXRlRmlybXdhcmUSIy5J",
-            "bnRlbGxpU3dpbmcuVXBkYXRlRmlybXdhcmVSZXF1ZXN0GiIuSW50ZWxsaVN3",
-            "aW5nLlVwZGF0ZUZpcm13YXJlUmVzdWx0IgASRwoIR2V0SW1hZ2USIC5JbnRl",
-            "bGxpU3dpbmcuQ2FtZXJhSW1hZ2VSZXF1ZXN0GhcuSW50ZWxsaVN3aW5nLklt",
-            "YWdlRGF0YSIAEkwKDUdldERlYnVnSW1hZ2USHy5JbnRlbGxpU3dpbmcuRGVi",
-            "dWdJbWFnZVJlcXVlc3QaGC5JbnRlbGxpU3dpbmcuRGVidWdJbWFnZSIAEjgK",
-            "BFBpbmcSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaFi5nb29nbGUucHJvdG9i",
-            "dWYuRW1wdHkiABI/CgtTZW5kQ29tbWFuZBIWLkludGVsbGlTd2luZy5DTWVz",
-            "c2FnZRoWLkludGVsbGlTd2luZy5DTWVzc2FnZSIAEj4KB1NldFRpbWUSGS5J",
-            "bnRlbGxpU3dpbmcuVGltZVJlcXVlc3QaFi5nb29nbGUucHJvdG9idWYuRW1w",
-            "dHkiAGIGcHJvdG8z"));
+            "SW1hZ2VSZXF1ZXN0GhcuSW50ZWxsaVN3aW5nLkltYWdlRGF0YSIAElEKEkdl",
+            "dENsdWJJbWFnZVN0cmVhbRIeLkludGVsbGlTd2luZy5TaG90SW1hZ2VSZXF1",
+            "ZXN0GhcuSW50ZWxsaVN3aW5nLkltYWdlRGF0YSIAMAESUQoSR2V0QmFsbElt",
+            "YWdlU3RyZWFtEh4uSW50ZWxsaVN3aW5nLlNob3RJbWFnZVJlcXVlc3QaFy5J",
+            "bnRlbGxpU3dpbmcuSW1hZ2VEYXRhIgAwARJDCg1HZXREZXZpY2VJbmZvEhYu",
+            "Z29vZ2xlLnByb3RvYnVmLkVtcHR5GhguSW50ZWxsaVN3aW5nLkRldmljZUlu",
+            "Zm8iABJHCg9HZXREZXZpY2VTdGF0dXMSFi5nb29nbGUucHJvdG9idWYuRW1w",
+            "dHkaGi5JbnRlbGxpU3dpbmcuRGV2aWNlU3RhdHVzIgASPgoGR2V0TG9nEhgu",
+            "SW50ZWxsaVN3aW5nLkxvZ1JlcXVlc3QaGC5JbnRlbGxpU3dpbmcuTG9nTWVz",
+            "c2FnZSIAElIKDUdldFN0YXRpc3RpY3MSHy5JbnRlbGxpU3dpbmcuU3RhdGlz",
+            "dGljc1JlcXVlc3QaHi5JbnRlbGxpU3dpbmcuU2Vuc29yU3RhdGlzdGljcyIA",
+            "EmEKElJ1blNpdGVDYWxpYnJhdGlvbhIkLkludGVsbGlTd2luZy5TaXRlQ2Fs",
+            "aWJyYXRpb25SZXF1ZXN0GiMuSW50ZWxsaVN3aW5nLlNpdGVDYWxpYnJhdGlv",
+            "blJlc3VsdCIAElsKDlVwZGF0ZUZpcm13YXJlEiMuSW50ZWxsaVN3aW5nLlVw",
+            "ZGF0ZUZpcm13YXJlUmVxdWVzdBoiLkludGVsbGlTd2luZy5VcGRhdGVGaXJt",
+            "d2FyZVJlc3VsdCIAEkcKCEdldEltYWdlEiAuSW50ZWxsaVN3aW5nLkNhbWVy",
+            "YUltYWdlUmVxdWVzdBoXLkludGVsbGlTd2luZy5JbWFnZURhdGEiABJMCg1H",
+            "ZXREZWJ1Z0ltYWdlEh8uSW50ZWxsaVN3aW5nLkRlYnVnSW1hZ2VSZXF1ZXN0",
+            "GhguSW50ZWxsaVN3aW5nLkRlYnVnSW1hZ2UiABI4CgRQaW5nEhYuZ29vZ2xl",
+            "LnByb3RvYnVmLkVtcHR5GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASPwoL",
+            "U2VuZENvbW1hbmQSFi5JbnRlbGxpU3dpbmcuQ01lc3NhZ2UaFi5JbnRlbGxp",
+            "U3dpbmcuQ01lc3NhZ2UiABI+CgdTZXRUaW1lEhkuSW50ZWxsaVN3aW5nLlRp",
+            "bWVSZXF1ZXN0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgBiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::IntelliSwing.TypeReflection.Descriptor, global::IntelliSwing.IntelliSwingServiceReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::IntelliSwing.GroundAttr), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -2340,6 +2343,9 @@ namespace IntelliSwing {
         /// <summary>Field number for the "totalSpin" field.</summary>
         public const int TotalSpinFieldNumber = 7;
         private float totalSpin_;
+        /// <summary>
+        /// rpm
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public float TotalSpin {
@@ -2352,6 +2358,9 @@ namespace IntelliSwing {
         /// <summary>Field number for the "spinAxis" field.</summary>
         public const int SpinAxisFieldNumber = 8;
         private float spinAxis_;
+        /// <summary>
+        /// degree
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public float SpinAxis {
@@ -3516,6 +3525,9 @@ namespace IntelliSwing {
             private static readonly pb::FieldCodec<ulong> _repeated_timestamp_codec
                 = pb::FieldCodec.ForUInt64(58);
             private readonly pbc::RepeatedField<ulong> timestamp_ = new pbc::RepeatedField<ulong>();
+            /// <summary>
+            /// us, frame timestamp 
+            /// </summary>
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public pbc::RepeatedField<ulong> Timestamp {
@@ -3525,6 +3537,9 @@ namespace IntelliSwing {
             /// <summary>Field number for the "impactTimeStamp" field.</summary>
             public const int ImpactTimeStampFieldNumber = 8;
             private ulong impactTimeStamp_;
+            /// <summary>
+            /// us, impact timestamp 
+            /// </summary>
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public ulong ImpactTimeStamp {
@@ -3867,6 +3882,9 @@ namespace IntelliSwing {
             /// <summary>Field number for the "GAClubImpactAreaWidth" field.</summary>
             public const int GAClubImpactAreaWidthFieldNumber = 3;
             private float gAClubImpactAreaWidth_;
+            /// <summary>
+            ///mm, area width
+            /// </summary>
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public float GAClubImpactAreaWidth {
@@ -3879,6 +3897,9 @@ namespace IntelliSwing {
             /// <summary>Field number for the "GAClubImpactAreaHeight" field.</summary>
             public const int GAClubImpactAreaHeightFieldNumber = 4;
             private float gAClubImpactAreaHeight_;
+            /// <summary>
+            ///mm, area height
+            /// </summary>
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public float GAClubImpactAreaHeight {

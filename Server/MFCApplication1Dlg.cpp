@@ -249,6 +249,67 @@ public :
 		return ::grpc::Status::OK;
 	}
 
+	virtual ::grpc::Status GetClubImageStream(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* writer)override
+	{
+		std::cout << "GetClubImageStream Received " << std::endl;
+		std::string filename = "imageDataClub.bin";
+		std::ifstream _ifstream(filename, std::ios::binary);
+
+		::IntelliSwing::ImageData response;
+		response.ParseFromIstream(&_ifstream);
+		int nImgCnt = response.datas_size();
+		for (int i = 0; i < nImgCnt; i++)
+		{
+			::IntelliSwing::ImageData msg;
+			msg.set_width(response.width());
+			msg.set_height(response.height());
+			msg.set_channel(response.channel());
+			msg.set_data_type(response.data_type());
+			msg.set_image_type(response.image_type());
+			msg.set_fps(response.fps());
+
+			const ::IntelliSwing::ImageData_Image&rimg = response.datas(i);
+			::IntelliSwing::ImageData_Image* pImg = msg.add_datas();
+			pImg->set_timestamp(rimg.timestamp());
+
+			pImg->set_data(rimg.data());
+
+			writer->Write(msg);
+		}
+		_ifstream.close();
+		return ::grpc::Status::OK;
+	}
+	virtual ::grpc::Status GetBallImageStream(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* writer)override
+	{
+		std::cout << "GetBallImageStream Received " << std::endl;
+		std::string filename = "imageDataBall.bin";
+		std::ifstream _ifstream(filename, std::ios::binary);
+
+		::IntelliSwing::ImageData response;
+		response.ParseFromIstream(&_ifstream);
+		int nImgCnt = response.datas_size();
+		for (int i = 0; i < nImgCnt; i++)
+		{
+			::IntelliSwing::ImageData msg;
+			msg.set_width(response.width());
+			msg.set_height(response.height());
+			msg.set_channel(response.channel());
+			msg.set_data_type(response.data_type());
+			msg.set_image_type(response.image_type());
+			msg.set_fps(response.fps());
+
+			const ::IntelliSwing::ImageData_Image& rimg = response.datas(i);
+			::IntelliSwing::ImageData_Image* pImg = msg.add_datas();
+			pImg->set_timestamp(rimg.timestamp());
+
+			pImg->set_data(rimg.data());
+
+			writer->Write(msg);
+		}
+		_ifstream.close();
+		return ::grpc::Status::OK;
+	}
+
 	// Service
 	virtual ::grpc::Status GetDeviceInfo(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response)
 	{

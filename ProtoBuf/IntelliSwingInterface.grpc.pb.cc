@@ -29,6 +29,8 @@ static const char* IntelliSwingProtocol_method_names[] = {
   "/IntelliSwing.IntelliSwingProtocol/Stop",
   "/IntelliSwing.IntelliSwingProtocol/GetClubImage",
   "/IntelliSwing.IntelliSwingProtocol/GetBallImage",
+  "/IntelliSwing.IntelliSwingProtocol/GetClubImageStream",
+  "/IntelliSwing.IntelliSwingProtocol/GetBallImageStream",
   "/IntelliSwing.IntelliSwingProtocol/GetDeviceInfo",
   "/IntelliSwing.IntelliSwingProtocol/GetDeviceStatus",
   "/IntelliSwing.IntelliSwingProtocol/GetLog",
@@ -56,17 +58,19 @@ IntelliSwingProtocol::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface
   , rpcmethod_Stop_(IntelliSwingProtocol_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetClubImage_(IntelliSwingProtocol_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetBallImage_(IntelliSwingProtocol_method_names[6], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetDeviceInfo_(IntelliSwingProtocol_method_names[7], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetDeviceStatus_(IntelliSwingProtocol_method_names[8], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetLog_(IntelliSwingProtocol_method_names[9], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetStatistics_(IntelliSwingProtocol_method_names[10], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_RunSiteCalibration_(IntelliSwingProtocol_method_names[11], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UpdateFirmware_(IntelliSwingProtocol_method_names[12], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetImage_(IntelliSwingProtocol_method_names[13], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetDebugImage_(IntelliSwingProtocol_method_names[14], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Ping_(IntelliSwingProtocol_method_names[15], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SendCommand_(IntelliSwingProtocol_method_names[16], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SetTime_(IntelliSwingProtocol_method_names[17], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetClubImageStream_(IntelliSwingProtocol_method_names[7], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_GetBallImageStream_(IntelliSwingProtocol_method_names[8], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_GetDeviceInfo_(IntelliSwingProtocol_method_names[9], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetDeviceStatus_(IntelliSwingProtocol_method_names[10], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetLog_(IntelliSwingProtocol_method_names[11], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetStatistics_(IntelliSwingProtocol_method_names[12], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_RunSiteCalibration_(IntelliSwingProtocol_method_names[13], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateFirmware_(IntelliSwingProtocol_method_names[14], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetImage_(IntelliSwingProtocol_method_names[15], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetDebugImage_(IntelliSwingProtocol_method_names[16], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Ping_(IntelliSwingProtocol_method_names[17], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendCommand_(IntelliSwingProtocol_method_names[18], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetTime_(IntelliSwingProtocol_method_names[19], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status IntelliSwingProtocol::Stub::Initialize(::grpc::ClientContext* context, const ::IntelliSwing::InitializeMsg& request, ::IntelliSwing::ReturnMsg* response) {
@@ -221,6 +225,38 @@ void IntelliSwingProtocol::Stub::experimental_async::GetBallImage(::grpc::Client
     this->PrepareAsyncGetBallImageRaw(context, request, cq);
   result->StartCall();
   return result;
+}
+
+::grpc::ClientReader< ::IntelliSwing::ImageData>* IntelliSwingProtocol::Stub::GetClubImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request) {
+  return ::grpc::internal::ClientReaderFactory< ::IntelliSwing::ImageData>::Create(channel_.get(), rpcmethod_GetClubImageStream_, context, request);
+}
+
+void IntelliSwingProtocol::Stub::experimental_async::GetClubImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::experimental::ClientReadReactor< ::IntelliSwing::ImageData>* reactor) {
+  ::grpc::internal::ClientCallbackReaderFactory< ::IntelliSwing::ImageData>::Create(stub_->channel_.get(), stub_->rpcmethod_GetClubImageStream_, context, request, reactor);
+}
+
+::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>* IntelliSwingProtocol::Stub::AsyncGetClubImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::IntelliSwing::ImageData>::Create(channel_.get(), cq, rpcmethod_GetClubImageStream_, context, request, true, tag);
+}
+
+::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>* IntelliSwingProtocol::Stub::PrepareAsyncGetClubImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::IntelliSwing::ImageData>::Create(channel_.get(), cq, rpcmethod_GetClubImageStream_, context, request, false, nullptr);
+}
+
+::grpc::ClientReader< ::IntelliSwing::ImageData>* IntelliSwingProtocol::Stub::GetBallImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request) {
+  return ::grpc::internal::ClientReaderFactory< ::IntelliSwing::ImageData>::Create(channel_.get(), rpcmethod_GetBallImageStream_, context, request);
+}
+
+void IntelliSwingProtocol::Stub::experimental_async::GetBallImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::experimental::ClientReadReactor< ::IntelliSwing::ImageData>* reactor) {
+  ::grpc::internal::ClientCallbackReaderFactory< ::IntelliSwing::ImageData>::Create(stub_->channel_.get(), stub_->rpcmethod_GetBallImageStream_, context, request, reactor);
+}
+
+::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>* IntelliSwingProtocol::Stub::AsyncGetBallImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::IntelliSwing::ImageData>::Create(channel_.get(), cq, rpcmethod_GetBallImageStream_, context, request, true, tag);
+}
+
+::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>* IntelliSwingProtocol::Stub::PrepareAsyncGetBallImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::IntelliSwing::ImageData>::Create(channel_.get(), cq, rpcmethod_GetBallImageStream_, context, request, false, nullptr);
 }
 
 ::grpc::Status IntelliSwingProtocol::Stub::GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::DeviceInfo* response) {
@@ -549,6 +585,26 @@ IntelliSwingProtocol::Service::Service() {
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       IntelliSwingProtocol_method_names[7],
+      ::grpc::internal::RpcMethod::SERVER_STREAMING,
+      new ::grpc::internal::ServerStreamingHandler< IntelliSwingProtocol::Service, ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>(
+          [](IntelliSwingProtocol::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::IntelliSwing::ShotImageRequest* req,
+             ::grpc::ServerWriter<::IntelliSwing::ImageData>* writer) {
+               return service->GetClubImageStream(ctx, req, writer);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      IntelliSwingProtocol_method_names[8],
+      ::grpc::internal::RpcMethod::SERVER_STREAMING,
+      new ::grpc::internal::ServerStreamingHandler< IntelliSwingProtocol::Service, ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>(
+          [](IntelliSwingProtocol::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::IntelliSwing::ShotImageRequest* req,
+             ::grpc::ServerWriter<::IntelliSwing::ImageData>* writer) {
+               return service->GetBallImageStream(ctx, req, writer);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      IntelliSwingProtocol_method_names[9],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::google::protobuf::Empty, ::IntelliSwing::DeviceInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](IntelliSwingProtocol::Service* service,
@@ -558,7 +614,7 @@ IntelliSwingProtocol::Service::Service() {
                return service->GetDeviceInfo(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      IntelliSwingProtocol_method_names[8],
+      IntelliSwingProtocol_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](IntelliSwingProtocol::Service* service,
@@ -568,7 +624,7 @@ IntelliSwingProtocol::Service::Service() {
                return service->GetDeviceStatus(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      IntelliSwingProtocol_method_names[9],
+      IntelliSwingProtocol_method_names[11],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::IntelliSwing::LogRequest, ::IntelliSwing::LogMessage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](IntelliSwingProtocol::Service* service,
@@ -578,7 +634,7 @@ IntelliSwingProtocol::Service::Service() {
                return service->GetLog(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      IntelliSwingProtocol_method_names[10],
+      IntelliSwingProtocol_method_names[12],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](IntelliSwingProtocol::Service* service,
@@ -588,7 +644,7 @@ IntelliSwingProtocol::Service::Service() {
                return service->GetStatistics(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      IntelliSwingProtocol_method_names[11],
+      IntelliSwingProtocol_method_names[13],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](IntelliSwingProtocol::Service* service,
@@ -598,7 +654,7 @@ IntelliSwingProtocol::Service::Service() {
                return service->RunSiteCalibration(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      IntelliSwingProtocol_method_names[12],
+      IntelliSwingProtocol_method_names[14],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](IntelliSwingProtocol::Service* service,
@@ -608,7 +664,7 @@ IntelliSwingProtocol::Service::Service() {
                return service->UpdateFirmware(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      IntelliSwingProtocol_method_names[13],
+      IntelliSwingProtocol_method_names[15],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](IntelliSwingProtocol::Service* service,
@@ -618,7 +674,7 @@ IntelliSwingProtocol::Service::Service() {
                return service->GetImage(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      IntelliSwingProtocol_method_names[14],
+      IntelliSwingProtocol_method_names[16],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](IntelliSwingProtocol::Service* service,
@@ -628,7 +684,7 @@ IntelliSwingProtocol::Service::Service() {
                return service->GetDebugImage(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      IntelliSwingProtocol_method_names[15],
+      IntelliSwingProtocol_method_names[17],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::google::protobuf::Empty, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](IntelliSwingProtocol::Service* service,
@@ -638,7 +694,7 @@ IntelliSwingProtocol::Service::Service() {
                return service->Ping(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      IntelliSwingProtocol_method_names[16],
+      IntelliSwingProtocol_method_names[18],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::IntelliSwing::CMessage, ::IntelliSwing::CMessage, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](IntelliSwingProtocol::Service* service,
@@ -648,7 +704,7 @@ IntelliSwingProtocol::Service::Service() {
                return service->SendCommand(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      IntelliSwingProtocol_method_names[17],
+      IntelliSwingProtocol_method_names[19],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< IntelliSwingProtocol::Service, ::IntelliSwing::TimeRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](IntelliSwingProtocol::Service* service,
@@ -708,6 +764,20 @@ IntelliSwingProtocol::Service::~Service() {
   (void) context;
   (void) request;
   (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status IntelliSwingProtocol::Service::GetClubImageStream(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* writer) {
+  (void) context;
+  (void) request;
+  (void) writer;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status IntelliSwingProtocol::Service::GetBallImageStream(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* writer) {
+  (void) context;
+  (void) request;
+  (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

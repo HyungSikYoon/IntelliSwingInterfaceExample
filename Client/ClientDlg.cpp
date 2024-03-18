@@ -431,6 +431,17 @@ void CClientDlg::OnBnClickedButtonStop()
 
 void CClientDlg::OnBnClickedButtonGetClubImg()
 {
+	GetClubImgStream();
+}
+
+
+void CClientDlg::OnBnClickedButtonGetBallImg()
+{
+	GetBallImgStream();
+}
+
+void CClientDlg::GetClubImg()
+{
 	LogHelper log(__FUNCTION__);
 	grpc::ClientContext context;
 	IntelliSwing::ImageData retMsgPB;
@@ -454,8 +465,7 @@ void CClientDlg::OnBnClickedButtonGetClubImg()
 	}
 }
 
-
-void CClientDlg::OnBnClickedButtonGetBallImg()
+void CClientDlg::GetBallImg()
 {
 	LogHelper log(__FUNCTION__);
 	grpc::ClientContext context;
@@ -479,6 +489,56 @@ void CClientDlg::OnBnClickedButtonGetBallImg()
 	{
 		std::cout << "OnBnClickedButtonGetBallImg RPC failed" << status.error_code() << ": " << status.error_message() << std::endl;
 	}
+}
+
+void CClientDlg::GetClubImgStream()
+{
+	LogHelper log(__FUNCTION__);
+	grpc::ClientContext context;
+
+	IntelliSwing::ImageData imageDataPB;
+	IntelliSwing::ShotImageRequest imageRequestPB;
+	imageRequestPB.set_shotid(0);
+
+	std::unique_ptr< ::grpc::ClientReader< ::IntelliSwing::ImageData>> reader = g_uptrStub->GetClubImageStream(&context, imageRequestPB);
+
+	while (reader->Read(&imageDataPB))
+	{
+		std::cout << "  -> image width " << imageDataPB.width() << std::endl;
+		std::cout << "  -> image height " << imageDataPB.height() << std::endl;
+		std::cout << "  -> image channel " << imageDataPB.channel() << std::endl;
+		std::cout << "  -> image data_type " << imageDataPB.data_type() << std::endl;
+		std::cout << "  -> image image_type " << imageDataPB.image_type() << std::endl;
+		std::cout << "  -> image fps " << imageDataPB.fps() << std::endl;
+		std::cout << "  -> image datas " << imageDataPB.datas_size() << std::endl;
+	}
+
+	grpc::Status status = reader->Finish();
+}
+
+void CClientDlg::GetBallImgStream()
+{
+	LogHelper log(__FUNCTION__);
+	grpc::ClientContext context;
+
+	IntelliSwing::ImageData imageDataPB;
+	IntelliSwing::ShotImageRequest imageRequestPB;
+	imageRequestPB.set_shotid(0);
+
+	std::unique_ptr< ::grpc::ClientReader< ::IntelliSwing::ImageData>> reader = g_uptrStub->GetBallImageStream(&context, imageRequestPB);
+
+	while (reader->Read(&imageDataPB))
+	{
+		std::cout << "  -> image width " << imageDataPB.width() << std::endl;
+		std::cout << "  -> image height " << imageDataPB.height() << std::endl;
+		std::cout << "  -> image channel " << imageDataPB.channel() << std::endl;
+		std::cout << "  -> image data_type " << imageDataPB.data_type() << std::endl;
+		std::cout << "  -> image image_type " << imageDataPB.image_type() << std::endl;
+		std::cout << "  -> image fps " << imageDataPB.fps() << std::endl;
+		std::cout << "  -> image datas " << imageDataPB.datas_size() << std::endl;
+	}
+
+	grpc::Status status = reader->Finish();
 }
 
 

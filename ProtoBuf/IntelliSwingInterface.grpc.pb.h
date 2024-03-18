@@ -89,6 +89,24 @@ class IntelliSwingProtocol final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>> PrepareAsyncGetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>>(PrepareAsyncGetBallImageRaw(context, request, cq));
     }
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::IntelliSwing::ImageData>> GetClubImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::IntelliSwing::ImageData>>(GetClubImageStreamRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>> AsyncGetClubImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>>(AsyncGetClubImageStreamRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>> PrepareAsyncGetClubImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>>(PrepareAsyncGetClubImageStreamRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::IntelliSwing::ImageData>> GetBallImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::IntelliSwing::ImageData>>(GetBallImageStreamRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>> AsyncGetBallImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>>(AsyncGetBallImageStreamRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>> PrepareAsyncGetBallImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>>(PrepareAsyncGetBallImageStreamRaw(context, request, cq));
+    }
     // Service
     virtual ::grpc::Status GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::DeviceInfo* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceInfo>> AsyncGetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
@@ -213,6 +231,16 @@ class IntelliSwingProtocol final {
       #else
       virtual void GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetClubImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::ClientReadReactor< ::IntelliSwing::ImageData>* reactor) = 0;
+      #else
+      virtual void GetClubImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::experimental::ClientReadReactor< ::IntelliSwing::ImageData>* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetBallImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::ClientReadReactor< ::IntelliSwing::ImageData>* reactor) = 0;
+      #else
+      virtual void GetBallImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::experimental::ClientReadReactor< ::IntelliSwing::ImageData>* reactor) = 0;
+      #endif
       // Service
       virtual void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -304,6 +332,12 @@ class IntelliSwingProtocol final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>* PrepareAsyncGetClubImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>* AsyncGetBallImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::ImageData>* PrepareAsyncGetBallImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::IntelliSwing::ImageData>* GetClubImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>* AsyncGetClubImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>* PrepareAsyncGetClubImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::IntelliSwing::ImageData>* GetBallImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>* AsyncGetBallImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::IntelliSwing::ImageData>* PrepareAsyncGetBallImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceInfo>* AsyncGetDeviceInfoRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceInfo>* PrepareAsyncGetDeviceInfoRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::IntelliSwing::DeviceStatus>* AsyncGetDeviceStatusRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
@@ -380,6 +414,24 @@ class IntelliSwingProtocol final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>> PrepareAsyncGetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>>(PrepareAsyncGetBallImageRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientReader< ::IntelliSwing::ImageData>> GetClubImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::IntelliSwing::ImageData>>(GetClubImageStreamRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>> AsyncGetClubImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>>(AsyncGetClubImageStreamRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>> PrepareAsyncGetClubImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>>(PrepareAsyncGetClubImageStreamRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientReader< ::IntelliSwing::ImageData>> GetBallImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::IntelliSwing::ImageData>>(GetBallImageStreamRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>> AsyncGetBallImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>>(AsyncGetBallImageStreamRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>> PrepareAsyncGetBallImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>>(PrepareAsyncGetBallImageStreamRaw(context, request, cq));
     }
     ::grpc::Status GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::IntelliSwing::DeviceInfo* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceInfo>> AsyncGetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
@@ -502,6 +554,16 @@ class IntelliSwingProtocol final {
       #else
       void GetBallImage(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetClubImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::ClientReadReactor< ::IntelliSwing::ImageData>* reactor) override;
+      #else
+      void GetClubImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::experimental::ClientReadReactor< ::IntelliSwing::ImageData>* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetBallImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::ClientReadReactor< ::IntelliSwing::ImageData>* reactor) override;
+      #else
+      void GetBallImageStream(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::experimental::ClientReadReactor< ::IntelliSwing::ImageData>* reactor) override;
+      #endif
       void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetDeviceInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response, ::grpc::ClientUnaryReactor* reactor) override;
@@ -594,6 +656,12 @@ class IntelliSwingProtocol final {
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>* PrepareAsyncGetClubImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>* AsyncGetBallImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::ImageData>* PrepareAsyncGetBallImageRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReader< ::IntelliSwing::ImageData>* GetClubImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request) override;
+    ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>* AsyncGetClubImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>* PrepareAsyncGetClubImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReader< ::IntelliSwing::ImageData>* GetBallImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request) override;
+    ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>* AsyncGetBallImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::IntelliSwing::ImageData>* PrepareAsyncGetBallImageStreamRaw(::grpc::ClientContext* context, const ::IntelliSwing::ShotImageRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceInfo>* AsyncGetDeviceInfoRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceInfo>* PrepareAsyncGetDeviceInfoRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::IntelliSwing::DeviceStatus>* AsyncGetDeviceStatusRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
@@ -623,6 +691,8 @@ class IntelliSwingProtocol final {
     const ::grpc::internal::RpcMethod rpcmethod_Stop_;
     const ::grpc::internal::RpcMethod rpcmethod_GetClubImage_;
     const ::grpc::internal::RpcMethod rpcmethod_GetBallImage_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetClubImageStream_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetBallImageStream_;
     const ::grpc::internal::RpcMethod rpcmethod_GetDeviceInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_GetDeviceStatus_;
     const ::grpc::internal::RpcMethod rpcmethod_GetLog_;
@@ -650,6 +720,8 @@ class IntelliSwingProtocol final {
     virtual ::grpc::Status Stop(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::ReturnMsg* response);
     virtual ::grpc::Status GetClubImage(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response);
     virtual ::grpc::Status GetBallImage(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::IntelliSwing::ImageData* response);
+    virtual ::grpc::Status GetClubImageStream(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* writer);
+    virtual ::grpc::Status GetBallImageStream(::grpc::ServerContext* context, const ::IntelliSwing::ShotImageRequest* request, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* writer);
     // Service
     virtual ::grpc::Status GetDeviceInfo(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceInfo* response);
     virtual ::grpc::Status GetDeviceStatus(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::IntelliSwing::DeviceStatus* response);
@@ -804,12 +876,52 @@ class IntelliSwingProtocol final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_GetClubImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_GetClubImageStream() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_GetClubImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetClubImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetClubImageStream(::grpc::ServerContext* context, ::IntelliSwing::ShotImageRequest* request, ::grpc::ServerAsyncWriter< ::IntelliSwing::ImageData>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(7, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_GetBallImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_GetBallImageStream() {
+      ::grpc::Service::MarkMethodAsync(8);
+    }
+    ~WithAsyncMethod_GetBallImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetBallImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetBallImageStream(::grpc::ServerContext* context, ::IntelliSwing::ShotImageRequest* request, ::grpc::ServerAsyncWriter< ::IntelliSwing::ImageData>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(8, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_GetDeviceInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetDeviceInfo() {
-      ::grpc::Service::MarkMethodAsync(7);
+      ::grpc::Service::MarkMethodAsync(9);
     }
     ~WithAsyncMethod_GetDeviceInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -820,7 +932,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetDeviceInfo(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::DeviceInfo>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -829,7 +941,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetDeviceStatus() {
-      ::grpc::Service::MarkMethodAsync(8);
+      ::grpc::Service::MarkMethodAsync(10);
     }
     ~WithAsyncMethod_GetDeviceStatus() override {
       BaseClassMustBeDerivedFromService(this);
@@ -840,7 +952,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetDeviceStatus(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::DeviceStatus>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -849,7 +961,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetLog() {
-      ::grpc::Service::MarkMethodAsync(9);
+      ::grpc::Service::MarkMethodAsync(11);
     }
     ~WithAsyncMethod_GetLog() override {
       BaseClassMustBeDerivedFromService(this);
@@ -860,7 +972,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetLog(::grpc::ServerContext* context, ::IntelliSwing::LogRequest* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::LogMessage>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -869,7 +981,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetStatistics() {
-      ::grpc::Service::MarkMethodAsync(10);
+      ::grpc::Service::MarkMethodAsync(12);
     }
     ~WithAsyncMethod_GetStatistics() override {
       BaseClassMustBeDerivedFromService(this);
@@ -880,7 +992,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetStatistics(::grpc::ServerContext* context, ::IntelliSwing::StatisticsRequest* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::SensorStatistics>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -889,7 +1001,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_RunSiteCalibration() {
-      ::grpc::Service::MarkMethodAsync(11);
+      ::grpc::Service::MarkMethodAsync(13);
     }
     ~WithAsyncMethod_RunSiteCalibration() override {
       BaseClassMustBeDerivedFromService(this);
@@ -900,7 +1012,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRunSiteCalibration(::grpc::ServerContext* context, ::IntelliSwing::SiteCalibrationRequest* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::SiteCalibrationResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -909,7 +1021,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UpdateFirmware() {
-      ::grpc::Service::MarkMethodAsync(12);
+      ::grpc::Service::MarkMethodAsync(14);
     }
     ~WithAsyncMethod_UpdateFirmware() override {
       BaseClassMustBeDerivedFromService(this);
@@ -920,7 +1032,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateFirmware(::grpc::ServerContext* context, ::IntelliSwing::UpdateFirmwareRequest* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::UpdateFirmwareResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -929,7 +1041,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetImage() {
-      ::grpc::Service::MarkMethodAsync(13);
+      ::grpc::Service::MarkMethodAsync(15);
     }
     ~WithAsyncMethod_GetImage() override {
       BaseClassMustBeDerivedFromService(this);
@@ -940,7 +1052,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetImage(::grpc::ServerContext* context, ::IntelliSwing::CameraImageRequest* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::ImageData>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -949,7 +1061,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetDebugImage() {
-      ::grpc::Service::MarkMethodAsync(14);
+      ::grpc::Service::MarkMethodAsync(16);
     }
     ~WithAsyncMethod_GetDebugImage() override {
       BaseClassMustBeDerivedFromService(this);
@@ -960,7 +1072,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetDebugImage(::grpc::ServerContext* context, ::IntelliSwing::DebugImageRequest* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::DebugImage>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -969,7 +1081,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Ping() {
-      ::grpc::Service::MarkMethodAsync(15);
+      ::grpc::Service::MarkMethodAsync(17);
     }
     ~WithAsyncMethod_Ping() override {
       BaseClassMustBeDerivedFromService(this);
@@ -980,7 +1092,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestPing(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -989,7 +1101,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SendCommand() {
-      ::grpc::Service::MarkMethodAsync(16);
+      ::grpc::Service::MarkMethodAsync(18);
     }
     ~WithAsyncMethod_SendCommand() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1000,7 +1112,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestSendCommand(::grpc::ServerContext* context, ::IntelliSwing::CMessage* request, ::grpc::ServerAsyncResponseWriter< ::IntelliSwing::CMessage>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1009,7 +1121,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SetTime() {
-      ::grpc::Service::MarkMethodAsync(17);
+      ::grpc::Service::MarkMethodAsync(19);
     }
     ~WithAsyncMethod_SetTime() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1020,10 +1132,10 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestSetTime(::grpc::ServerContext* context, ::IntelliSwing::TimeRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Initialize<WithAsyncMethod_Release<WithAsyncMethod_Reboot<WithAsyncMethod_Start<WithAsyncMethod_Stop<WithAsyncMethod_GetClubImage<WithAsyncMethod_GetBallImage<WithAsyncMethod_GetDeviceInfo<WithAsyncMethod_GetDeviceStatus<WithAsyncMethod_GetLog<WithAsyncMethod_GetStatistics<WithAsyncMethod_RunSiteCalibration<WithAsyncMethod_UpdateFirmware<WithAsyncMethod_GetImage<WithAsyncMethod_GetDebugImage<WithAsyncMethod_Ping<WithAsyncMethod_SendCommand<WithAsyncMethod_SetTime<Service > > > > > > > > > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_Initialize<WithAsyncMethod_Release<WithAsyncMethod_Reboot<WithAsyncMethod_Start<WithAsyncMethod_Stop<WithAsyncMethod_GetClubImage<WithAsyncMethod_GetBallImage<WithAsyncMethod_GetClubImageStream<WithAsyncMethod_GetBallImageStream<WithAsyncMethod_GetDeviceInfo<WithAsyncMethod_GetDeviceStatus<WithAsyncMethod_GetLog<WithAsyncMethod_GetStatistics<WithAsyncMethod_RunSiteCalibration<WithAsyncMethod_UpdateFirmware<WithAsyncMethod_GetImage<WithAsyncMethod_GetDebugImage<WithAsyncMethod_Ping<WithAsyncMethod_SendCommand<WithAsyncMethod_SetTime<Service > > > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Initialize : public BaseClass {
    private:
@@ -1345,6 +1457,82 @@ class IntelliSwingProtocol final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithCallbackMethod_GetClubImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_GetClubImageStream() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(7,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::ShotImageRequest* request) { return this->GetClubImageStream(context, request); }));
+    }
+    ~ExperimentalWithCallbackMethod_GetClubImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetClubImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerWriteReactor< ::IntelliSwing::ImageData>* GetClubImageStream(
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/)
+    #else
+    virtual ::grpc::experimental::ServerWriteReactor< ::IntelliSwing::ImageData>* GetClubImageStream(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_GetBallImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_GetBallImageStream() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(8,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::IntelliSwing::ShotImageRequest* request) { return this->GetBallImageStream(context, request); }));
+    }
+    ~ExperimentalWithCallbackMethod_GetBallImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetBallImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerWriteReactor< ::IntelliSwing::ImageData>* GetBallImageStream(
+      ::grpc::CallbackServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/)
+    #else
+    virtual ::grpc::experimental::ServerWriteReactor< ::IntelliSwing::ImageData>* GetBallImageStream(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetDeviceInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -1355,7 +1543,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(7,
+        MarkMethodCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DeviceInfo>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1367,9 +1555,9 @@ class IntelliSwingProtocol final {
     void SetMessageAllocatorFor_GetDeviceInfo(
         ::grpc::experimental::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::DeviceInfo>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DeviceInfo>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1402,7 +1590,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(8,
+        MarkMethodCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1414,9 +1602,9 @@ class IntelliSwingProtocol final {
     void SetMessageAllocatorFor_GetDeviceStatus(
         ::grpc::experimental::MessageAllocator< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1449,7 +1637,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(9,
+        MarkMethodCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::LogRequest, ::IntelliSwing::LogMessage>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1461,9 +1649,9 @@ class IntelliSwingProtocol final {
     void SetMessageAllocatorFor_GetLog(
         ::grpc::experimental::MessageAllocator< ::IntelliSwing::LogRequest, ::IntelliSwing::LogMessage>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(11);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::LogRequest, ::IntelliSwing::LogMessage>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1496,7 +1684,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(10,
+        MarkMethodCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1508,9 +1696,9 @@ class IntelliSwingProtocol final {
     void SetMessageAllocatorFor_GetStatistics(
         ::grpc::experimental::MessageAllocator< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(12);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1543,7 +1731,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(11,
+        MarkMethodCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1555,9 +1743,9 @@ class IntelliSwingProtocol final {
     void SetMessageAllocatorFor_RunSiteCalibration(
         ::grpc::experimental::MessageAllocator< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(11);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(13);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1590,7 +1778,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(12,
+        MarkMethodCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1602,9 +1790,9 @@ class IntelliSwingProtocol final {
     void SetMessageAllocatorFor_UpdateFirmware(
         ::grpc::experimental::MessageAllocator< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(12);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(14);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1637,7 +1825,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(13,
+        MarkMethodCallback(15,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1649,9 +1837,9 @@ class IntelliSwingProtocol final {
     void SetMessageAllocatorFor_GetImage(
         ::grpc::experimental::MessageAllocator< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(13);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(15);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1684,7 +1872,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(14,
+        MarkMethodCallback(16,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1696,9 +1884,9 @@ class IntelliSwingProtocol final {
     void SetMessageAllocatorFor_GetDebugImage(
         ::grpc::experimental::MessageAllocator< ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(16);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(14);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(16);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1731,7 +1919,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(15,
+        MarkMethodCallback(17,
           new ::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::google::protobuf::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1743,9 +1931,9 @@ class IntelliSwingProtocol final {
     void SetMessageAllocatorFor_Ping(
         ::grpc::experimental::MessageAllocator< ::google::protobuf::Empty, ::google::protobuf::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(15);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(17);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::google::protobuf::Empty, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1778,7 +1966,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(16,
+        MarkMethodCallback(18,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::CMessage, ::IntelliSwing::CMessage>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1790,9 +1978,9 @@ class IntelliSwingProtocol final {
     void SetMessageAllocatorFor_SendCommand(
         ::grpc::experimental::MessageAllocator< ::IntelliSwing::CMessage, ::IntelliSwing::CMessage>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(16);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(18);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(16);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(18);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::CMessage, ::IntelliSwing::CMessage>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1825,7 +2013,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(17,
+        MarkMethodCallback(19,
           new ::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::TimeRequest, ::google::protobuf::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1837,9 +2025,9 @@ class IntelliSwingProtocol final {
     void SetMessageAllocatorFor_SetTime(
         ::grpc::experimental::MessageAllocator< ::IntelliSwing::TimeRequest, ::google::protobuf::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(19);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(17);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(19);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::IntelliSwing::TimeRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1862,10 +2050,10 @@ class IntelliSwingProtocol final {
       { return nullptr; }
   };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_Initialize<ExperimentalWithCallbackMethod_Release<ExperimentalWithCallbackMethod_Reboot<ExperimentalWithCallbackMethod_Start<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_GetClubImage<ExperimentalWithCallbackMethod_GetBallImage<ExperimentalWithCallbackMethod_GetDeviceInfo<ExperimentalWithCallbackMethod_GetDeviceStatus<ExperimentalWithCallbackMethod_GetLog<ExperimentalWithCallbackMethod_GetStatistics<ExperimentalWithCallbackMethod_RunSiteCalibration<ExperimentalWithCallbackMethod_UpdateFirmware<ExperimentalWithCallbackMethod_GetImage<ExperimentalWithCallbackMethod_GetDebugImage<ExperimentalWithCallbackMethod_Ping<ExperimentalWithCallbackMethod_SendCommand<ExperimentalWithCallbackMethod_SetTime<Service > > > > > > > > > > > > > > > > > > CallbackService;
+  typedef ExperimentalWithCallbackMethod_Initialize<ExperimentalWithCallbackMethod_Release<ExperimentalWithCallbackMethod_Reboot<ExperimentalWithCallbackMethod_Start<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_GetClubImage<ExperimentalWithCallbackMethod_GetBallImage<ExperimentalWithCallbackMethod_GetClubImageStream<ExperimentalWithCallbackMethod_GetBallImageStream<ExperimentalWithCallbackMethod_GetDeviceInfo<ExperimentalWithCallbackMethod_GetDeviceStatus<ExperimentalWithCallbackMethod_GetLog<ExperimentalWithCallbackMethod_GetStatistics<ExperimentalWithCallbackMethod_RunSiteCalibration<ExperimentalWithCallbackMethod_UpdateFirmware<ExperimentalWithCallbackMethod_GetImage<ExperimentalWithCallbackMethod_GetDebugImage<ExperimentalWithCallbackMethod_Ping<ExperimentalWithCallbackMethod_SendCommand<ExperimentalWithCallbackMethod_SetTime<Service > > > > > > > > > > > > > > > > > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_Initialize<ExperimentalWithCallbackMethod_Release<ExperimentalWithCallbackMethod_Reboot<ExperimentalWithCallbackMethod_Start<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_GetClubImage<ExperimentalWithCallbackMethod_GetBallImage<ExperimentalWithCallbackMethod_GetDeviceInfo<ExperimentalWithCallbackMethod_GetDeviceStatus<ExperimentalWithCallbackMethod_GetLog<ExperimentalWithCallbackMethod_GetStatistics<ExperimentalWithCallbackMethod_RunSiteCalibration<ExperimentalWithCallbackMethod_UpdateFirmware<ExperimentalWithCallbackMethod_GetImage<ExperimentalWithCallbackMethod_GetDebugImage<ExperimentalWithCallbackMethod_Ping<ExperimentalWithCallbackMethod_SendCommand<ExperimentalWithCallbackMethod_SetTime<Service > > > > > > > > > > > > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_Initialize<ExperimentalWithCallbackMethod_Release<ExperimentalWithCallbackMethod_Reboot<ExperimentalWithCallbackMethod_Start<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_GetClubImage<ExperimentalWithCallbackMethod_GetBallImage<ExperimentalWithCallbackMethod_GetClubImageStream<ExperimentalWithCallbackMethod_GetBallImageStream<ExperimentalWithCallbackMethod_GetDeviceInfo<ExperimentalWithCallbackMethod_GetDeviceStatus<ExperimentalWithCallbackMethod_GetLog<ExperimentalWithCallbackMethod_GetStatistics<ExperimentalWithCallbackMethod_RunSiteCalibration<ExperimentalWithCallbackMethod_UpdateFirmware<ExperimentalWithCallbackMethod_GetImage<ExperimentalWithCallbackMethod_GetDebugImage<ExperimentalWithCallbackMethod_Ping<ExperimentalWithCallbackMethod_SendCommand<ExperimentalWithCallbackMethod_SetTime<Service > > > > > > > > > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Initialize : public BaseClass {
    private:
@@ -1986,12 +2174,46 @@ class IntelliSwingProtocol final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_GetClubImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_GetClubImageStream() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_GetClubImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetClubImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_GetBallImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_GetBallImageStream() {
+      ::grpc::Service::MarkMethodGeneric(8);
+    }
+    ~WithGenericMethod_GetBallImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetBallImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_GetDeviceInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetDeviceInfo() {
-      ::grpc::Service::MarkMethodGeneric(7);
+      ::grpc::Service::MarkMethodGeneric(9);
     }
     ~WithGenericMethod_GetDeviceInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2008,7 +2230,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetDeviceStatus() {
-      ::grpc::Service::MarkMethodGeneric(8);
+      ::grpc::Service::MarkMethodGeneric(10);
     }
     ~WithGenericMethod_GetDeviceStatus() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2025,7 +2247,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetLog() {
-      ::grpc::Service::MarkMethodGeneric(9);
+      ::grpc::Service::MarkMethodGeneric(11);
     }
     ~WithGenericMethod_GetLog() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2042,7 +2264,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetStatistics() {
-      ::grpc::Service::MarkMethodGeneric(10);
+      ::grpc::Service::MarkMethodGeneric(12);
     }
     ~WithGenericMethod_GetStatistics() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2059,7 +2281,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_RunSiteCalibration() {
-      ::grpc::Service::MarkMethodGeneric(11);
+      ::grpc::Service::MarkMethodGeneric(13);
     }
     ~WithGenericMethod_RunSiteCalibration() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2076,7 +2298,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UpdateFirmware() {
-      ::grpc::Service::MarkMethodGeneric(12);
+      ::grpc::Service::MarkMethodGeneric(14);
     }
     ~WithGenericMethod_UpdateFirmware() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2093,7 +2315,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetImage() {
-      ::grpc::Service::MarkMethodGeneric(13);
+      ::grpc::Service::MarkMethodGeneric(15);
     }
     ~WithGenericMethod_GetImage() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2110,7 +2332,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetDebugImage() {
-      ::grpc::Service::MarkMethodGeneric(14);
+      ::grpc::Service::MarkMethodGeneric(16);
     }
     ~WithGenericMethod_GetDebugImage() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2127,7 +2349,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Ping() {
-      ::grpc::Service::MarkMethodGeneric(15);
+      ::grpc::Service::MarkMethodGeneric(17);
     }
     ~WithGenericMethod_Ping() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2144,7 +2366,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SendCommand() {
-      ::grpc::Service::MarkMethodGeneric(16);
+      ::grpc::Service::MarkMethodGeneric(18);
     }
     ~WithGenericMethod_SendCommand() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2161,7 +2383,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SetTime() {
-      ::grpc::Service::MarkMethodGeneric(17);
+      ::grpc::Service::MarkMethodGeneric(19);
     }
     ~WithGenericMethod_SetTime() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2313,12 +2535,52 @@ class IntelliSwingProtocol final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_GetClubImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_GetClubImageStream() {
+      ::grpc::Service::MarkMethodRaw(7);
+    }
+    ~WithRawMethod_GetClubImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetClubImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetClubImageStream(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(7, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_GetBallImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_GetBallImageStream() {
+      ::grpc::Service::MarkMethodRaw(8);
+    }
+    ~WithRawMethod_GetBallImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetBallImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetBallImageStream(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(8, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_GetDeviceInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetDeviceInfo() {
-      ::grpc::Service::MarkMethodRaw(7);
+      ::grpc::Service::MarkMethodRaw(9);
     }
     ~WithRawMethod_GetDeviceInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2329,7 +2591,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetDeviceInfo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2338,7 +2600,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetDeviceStatus() {
-      ::grpc::Service::MarkMethodRaw(8);
+      ::grpc::Service::MarkMethodRaw(10);
     }
     ~WithRawMethod_GetDeviceStatus() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2349,7 +2611,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetDeviceStatus(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2358,7 +2620,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetLog() {
-      ::grpc::Service::MarkMethodRaw(9);
+      ::grpc::Service::MarkMethodRaw(11);
     }
     ~WithRawMethod_GetLog() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2369,7 +2631,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetLog(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2378,7 +2640,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetStatistics() {
-      ::grpc::Service::MarkMethodRaw(10);
+      ::grpc::Service::MarkMethodRaw(12);
     }
     ~WithRawMethod_GetStatistics() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2389,7 +2651,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetStatistics(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2398,7 +2660,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_RunSiteCalibration() {
-      ::grpc::Service::MarkMethodRaw(11);
+      ::grpc::Service::MarkMethodRaw(13);
     }
     ~WithRawMethod_RunSiteCalibration() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2409,7 +2671,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRunSiteCalibration(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2418,7 +2680,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UpdateFirmware() {
-      ::grpc::Service::MarkMethodRaw(12);
+      ::grpc::Service::MarkMethodRaw(14);
     }
     ~WithRawMethod_UpdateFirmware() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2429,7 +2691,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateFirmware(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2438,7 +2700,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetImage() {
-      ::grpc::Service::MarkMethodRaw(13);
+      ::grpc::Service::MarkMethodRaw(15);
     }
     ~WithRawMethod_GetImage() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2449,7 +2711,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetImage(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2458,7 +2720,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetDebugImage() {
-      ::grpc::Service::MarkMethodRaw(14);
+      ::grpc::Service::MarkMethodRaw(16);
     }
     ~WithRawMethod_GetDebugImage() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2469,7 +2731,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetDebugImage(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2478,7 +2740,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Ping() {
-      ::grpc::Service::MarkMethodRaw(15);
+      ::grpc::Service::MarkMethodRaw(17);
     }
     ~WithRawMethod_Ping() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2489,7 +2751,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestPing(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2498,7 +2760,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_SendCommand() {
-      ::grpc::Service::MarkMethodRaw(16);
+      ::grpc::Service::MarkMethodRaw(18);
     }
     ~WithRawMethod_SendCommand() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2509,7 +2771,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestSendCommand(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2518,7 +2780,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_SetTime() {
-      ::grpc::Service::MarkMethodRaw(17);
+      ::grpc::Service::MarkMethodRaw(19);
     }
     ~WithRawMethod_SetTime() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2529,7 +2791,7 @@ class IntelliSwingProtocol final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestSetTime(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2799,6 +3061,82 @@ class IntelliSwingProtocol final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_GetClubImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_GetClubImageStream() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(7,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const::grpc::ByteBuffer* request) { return this->GetClubImageStream(context, request); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_GetClubImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetClubImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* GetClubImageStream(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
+    #else
+    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer>* GetClubImageStream(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_GetBallImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_GetBallImageStream() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(8,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const::grpc::ByteBuffer* request) { return this->GetBallImageStream(context, request); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_GetBallImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetBallImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* GetBallImageStream(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
+    #else
+    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer>* GetBallImageStream(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_GetDeviceInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -2809,7 +3147,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(7,
+        MarkMethodRawCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2847,7 +3185,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(8,
+        MarkMethodRawCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2885,7 +3223,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(9,
+        MarkMethodRawCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2923,7 +3261,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(10,
+        MarkMethodRawCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2961,7 +3299,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(11,
+        MarkMethodRawCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2999,7 +3337,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(12,
+        MarkMethodRawCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3037,7 +3375,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(13,
+        MarkMethodRawCallback(15,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3075,7 +3413,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(14,
+        MarkMethodRawCallback(16,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3113,7 +3451,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(15,
+        MarkMethodRawCallback(17,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3151,7 +3489,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(16,
+        MarkMethodRawCallback(18,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3189,7 +3527,7 @@ class IntelliSwingProtocol final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(17,
+        MarkMethodRawCallback(19,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3384,7 +3722,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetDeviceInfo() {
-      ::grpc::Service::MarkMethodStreamed(7,
+      ::grpc::Service::MarkMethodStreamed(9,
         new ::grpc::internal::StreamedUnaryHandler<
           ::google::protobuf::Empty, ::IntelliSwing::DeviceInfo>(
             [this](::grpc::ServerContext* context,
@@ -3411,7 +3749,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetDeviceStatus() {
-      ::grpc::Service::MarkMethodStreamed(8,
+      ::grpc::Service::MarkMethodStreamed(10,
         new ::grpc::internal::StreamedUnaryHandler<
           ::google::protobuf::Empty, ::IntelliSwing::DeviceStatus>(
             [this](::grpc::ServerContext* context,
@@ -3438,7 +3776,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetLog() {
-      ::grpc::Service::MarkMethodStreamed(9,
+      ::grpc::Service::MarkMethodStreamed(11,
         new ::grpc::internal::StreamedUnaryHandler<
           ::IntelliSwing::LogRequest, ::IntelliSwing::LogMessage>(
             [this](::grpc::ServerContext* context,
@@ -3465,7 +3803,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetStatistics() {
-      ::grpc::Service::MarkMethodStreamed(10,
+      ::grpc::Service::MarkMethodStreamed(12,
         new ::grpc::internal::StreamedUnaryHandler<
           ::IntelliSwing::StatisticsRequest, ::IntelliSwing::SensorStatistics>(
             [this](::grpc::ServerContext* context,
@@ -3492,7 +3830,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_RunSiteCalibration() {
-      ::grpc::Service::MarkMethodStreamed(11,
+      ::grpc::Service::MarkMethodStreamed(13,
         new ::grpc::internal::StreamedUnaryHandler<
           ::IntelliSwing::SiteCalibrationRequest, ::IntelliSwing::SiteCalibrationResult>(
             [this](::grpc::ServerContext* context,
@@ -3519,7 +3857,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UpdateFirmware() {
-      ::grpc::Service::MarkMethodStreamed(12,
+      ::grpc::Service::MarkMethodStreamed(14,
         new ::grpc::internal::StreamedUnaryHandler<
           ::IntelliSwing::UpdateFirmwareRequest, ::IntelliSwing::UpdateFirmwareResult>(
             [this](::grpc::ServerContext* context,
@@ -3546,7 +3884,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetImage() {
-      ::grpc::Service::MarkMethodStreamed(13,
+      ::grpc::Service::MarkMethodStreamed(15,
         new ::grpc::internal::StreamedUnaryHandler<
           ::IntelliSwing::CameraImageRequest, ::IntelliSwing::ImageData>(
             [this](::grpc::ServerContext* context,
@@ -3573,7 +3911,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetDebugImage() {
-      ::grpc::Service::MarkMethodStreamed(14,
+      ::grpc::Service::MarkMethodStreamed(16,
         new ::grpc::internal::StreamedUnaryHandler<
           ::IntelliSwing::DebugImageRequest, ::IntelliSwing::DebugImage>(
             [this](::grpc::ServerContext* context,
@@ -3600,7 +3938,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Ping() {
-      ::grpc::Service::MarkMethodStreamed(15,
+      ::grpc::Service::MarkMethodStreamed(17,
         new ::grpc::internal::StreamedUnaryHandler<
           ::google::protobuf::Empty, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
@@ -3627,7 +3965,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SendCommand() {
-      ::grpc::Service::MarkMethodStreamed(16,
+      ::grpc::Service::MarkMethodStreamed(18,
         new ::grpc::internal::StreamedUnaryHandler<
           ::IntelliSwing::CMessage, ::IntelliSwing::CMessage>(
             [this](::grpc::ServerContext* context,
@@ -3654,7 +3992,7 @@ class IntelliSwingProtocol final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SetTime() {
-      ::grpc::Service::MarkMethodStreamed(17,
+      ::grpc::Service::MarkMethodStreamed(19,
         new ::grpc::internal::StreamedUnaryHandler<
           ::IntelliSwing::TimeRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
@@ -3703,8 +4041,62 @@ class IntelliSwingProtocol final {
     // replace default version of method with split streamed
     virtual ::grpc::Status StreamedStart(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::IntelliSwing::StartMsg,::IntelliSwing::SensorRunningMsg>* server_split_streamer) = 0;
   };
-  typedef WithSplitStreamingMethod_Start<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_Initialize<WithStreamedUnaryMethod_Release<WithStreamedUnaryMethod_Reboot<WithSplitStreamingMethod_Start<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_GetClubImage<WithStreamedUnaryMethod_GetBallImage<WithStreamedUnaryMethod_GetDeviceInfo<WithStreamedUnaryMethod_GetDeviceStatus<WithStreamedUnaryMethod_GetLog<WithStreamedUnaryMethod_GetStatistics<WithStreamedUnaryMethod_RunSiteCalibration<WithStreamedUnaryMethod_UpdateFirmware<WithStreamedUnaryMethod_GetImage<WithStreamedUnaryMethod_GetDebugImage<WithStreamedUnaryMethod_Ping<WithStreamedUnaryMethod_SendCommand<WithStreamedUnaryMethod_SetTime<Service > > > > > > > > > > > > > > > > > > StreamedService;
+  template <class BaseClass>
+  class WithSplitStreamingMethod_GetClubImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithSplitStreamingMethod_GetClubImageStream() {
+      ::grpc::Service::MarkMethodStreamed(7,
+        new ::grpc::internal::SplitServerStreamingHandler<
+          ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerSplitStreamer<
+                     ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>* streamer) {
+                       return this->StreamedGetClubImageStream(context,
+                         streamer);
+                  }));
+    }
+    ~WithSplitStreamingMethod_GetClubImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetClubImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with split streamed
+    virtual ::grpc::Status StreamedGetClubImageStream(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::IntelliSwing::ShotImageRequest,::IntelliSwing::ImageData>* server_split_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithSplitStreamingMethod_GetBallImageStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithSplitStreamingMethod_GetBallImageStream() {
+      ::grpc::Service::MarkMethodStreamed(8,
+        new ::grpc::internal::SplitServerStreamingHandler<
+          ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerSplitStreamer<
+                     ::IntelliSwing::ShotImageRequest, ::IntelliSwing::ImageData>* streamer) {
+                       return this->StreamedGetBallImageStream(context,
+                         streamer);
+                  }));
+    }
+    ~WithSplitStreamingMethod_GetBallImageStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetBallImageStream(::grpc::ServerContext* /*context*/, const ::IntelliSwing::ShotImageRequest* /*request*/, ::grpc::ServerWriter< ::IntelliSwing::ImageData>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with split streamed
+    virtual ::grpc::Status StreamedGetBallImageStream(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::IntelliSwing::ShotImageRequest,::IntelliSwing::ImageData>* server_split_streamer) = 0;
+  };
+  typedef WithSplitStreamingMethod_Start<WithSplitStreamingMethod_GetClubImageStream<WithSplitStreamingMethod_GetBallImageStream<Service > > > SplitStreamedService;
+  typedef WithStreamedUnaryMethod_Initialize<WithStreamedUnaryMethod_Release<WithStreamedUnaryMethod_Reboot<WithSplitStreamingMethod_Start<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_GetClubImage<WithStreamedUnaryMethod_GetBallImage<WithSplitStreamingMethod_GetClubImageStream<WithSplitStreamingMethod_GetBallImageStream<WithStreamedUnaryMethod_GetDeviceInfo<WithStreamedUnaryMethod_GetDeviceStatus<WithStreamedUnaryMethod_GetLog<WithStreamedUnaryMethod_GetStatistics<WithStreamedUnaryMethod_RunSiteCalibration<WithStreamedUnaryMethod_UpdateFirmware<WithStreamedUnaryMethod_GetImage<WithStreamedUnaryMethod_GetDebugImage<WithStreamedUnaryMethod_Ping<WithStreamedUnaryMethod_SendCommand<WithStreamedUnaryMethod_SetTime<Service > > > > > > > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace IntelliSwing

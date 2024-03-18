@@ -19,6 +19,9 @@ service IntelliSwingProtocol
 	rpc Stop (google.protobuf.Empty) returns (ReturnMsg) {}
 	rpc GetClubImage(ShotImageRequest) returns (ImageData) {}
 	rpc GetBallImage(ShotImageRequest) returns (ImageData) {}
+
+	rpc GetClubImageStream(ShotImageRequest) returns (stream ImageData) {}
+	rpc GetBallImageStream(ShotImageRequest) returns (stream ImageData) {}
   
 // Service
 	rpc GetDeviceInfo(google.protobuf.Empty) returns (DeviceInfo) {}
@@ -160,8 +163,8 @@ message SensorRunningMsg
 		float direction		= 4;	// degree
 		float backSpin		= 5;	// rpm
 		float sideSpin		= 6;	// rpm
-		float totalSpin		= 7;
-		float spinAxis		= 8;
+		float totalSpin		= 7;	// rpm
+		float spinAxis		= 8;	// degree
 	}
 
 	message ClubPathInfo
@@ -174,16 +177,16 @@ message SensorRunningMsg
 			repeated Point3f shaftDir	= 4;
 			repeated Point3f faceCenter	= 5;
 			repeated Point3f faceNormal	= 6;
-			repeated uint64	 timestamp	= 7;
-			uint64 impactTimeStamp = 8;
+			repeated uint64	 timestamp	= 7;// us, frame timestamp 
+			uint64 impactTimeStamp = 8;// us, impact timestamp 
 		}
 
 		message ImpactPoint
 		{
 			float GAClubImpactPoint_Hor		= 1;//수평성분의 임팩트포인트(음수값이 Heel방향, 양수값이 Toe방향)
 			float GAClubImpactPoint_Ver		= 2;//수직성분의 임팩트포인트(음수값이 Bottom방향, 양수값이 Top방향)
-			float GAClubImpactAreaWidth		= 3;
-			float GAClubImpactAreaHeight	= 4;
+			float GAClubImpactAreaWidth		= 3;//mm, area width
+			float GAClubImpactAreaHeight	= 4;//mm, area height
 		}
 		int32 shotId			= 1;
 		float headSpeed			= 2;	// m/s

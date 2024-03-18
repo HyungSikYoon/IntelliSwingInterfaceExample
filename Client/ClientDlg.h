@@ -45,6 +45,12 @@ public:
 	afx_msg void OnBnClickedButtonStop();
 	afx_msg void OnBnClickedButtonGetClubImg();
 	afx_msg void OnBnClickedButtonGetBallImg();
+	
+	void GetClubImg();
+	void GetBallImg();
+
+	void GetClubImgStream();
+	void GetBallImgStream();
 	afx_msg void OnBnClickedButtonGetDeviceInfo();
 	afx_msg void OnBnClickedButtonDeviceStatus();
 	afx_msg void OnBnClickedButtonGetLog();

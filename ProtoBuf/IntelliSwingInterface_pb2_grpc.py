@@ -52,6 +52,16 @@ class IntelliSwingProtocolStub(object):
                 request_serializer=IntelliSwingInterface__pb2.ShotImageRequest.SerializeToString,
                 response_deserializer=IntelliSwingInterface__pb2.ImageData.FromString,
                 )
+        self.GetClubImageStream = channel.unary_stream(
+                '/IntelliSwing.IntelliSwingProtocol/GetClubImageStream',
+                request_serializer=IntelliSwingInterface__pb2.ShotImageRequest.SerializeToString,
+                response_deserializer=IntelliSwingInterface__pb2.ImageData.FromString,
+                )
+        self.GetBallImageStream = channel.unary_stream(
+                '/IntelliSwing.IntelliSwingProtocol/GetBallImageStream',
+                request_serializer=IntelliSwingInterface__pb2.ShotImageRequest.SerializeToString,
+                response_deserializer=IntelliSwingInterface__pb2.ImageData.FromString,
+                )
         self.GetDeviceInfo = channel.unary_unary(
                 '/IntelliSwing.IntelliSwingProtocol/GetDeviceInfo',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -151,6 +161,18 @@ class IntelliSwingProtocolServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetBallImage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetClubImageStream(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetBallImageStream(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -258,6 +280,16 @@ def add_IntelliSwingProtocolServicer_to_server(servicer, server):
             ),
             'GetBallImage': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBallImage,
+                    request_deserializer=IntelliSwingInterface__pb2.ShotImageRequest.FromString,
+                    response_serializer=IntelliSwingInterface__pb2.ImageData.SerializeToString,
+            ),
+            'GetClubImageStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetClubImageStream,
+                    request_deserializer=IntelliSwingInterface__pb2.ShotImageRequest.FromString,
+                    response_serializer=IntelliSwingInterface__pb2.ImageData.SerializeToString,
+            ),
+            'GetBallImageStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetBallImageStream,
                     request_deserializer=IntelliSwingInterface__pb2.ShotImageRequest.FromString,
                     response_serializer=IntelliSwingInterface__pb2.ImageData.SerializeToString,
             ),
@@ -440,6 +472,40 @@ class IntelliSwingProtocol(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/IntelliSwing.IntelliSwingProtocol/GetBallImage',
+            IntelliSwingInterface__pb2.ShotImageRequest.SerializeToString,
+            IntelliSwingInterface__pb2.ImageData.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetClubImageStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/IntelliSwing.IntelliSwingProtocol/GetClubImageStream',
+            IntelliSwingInterface__pb2.ShotImageRequest.SerializeToString,
+            IntelliSwingInterface__pb2.ImageData.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetBallImageStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/IntelliSwing.IntelliSwingProtocol/GetBallImageStream',
             IntelliSwingInterface__pb2.ShotImageRequest.SerializeToString,
             IntelliSwingInterface__pb2.ImageData.FromString,
             options, channel_credentials,
